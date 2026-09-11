@@ -9,34 +9,38 @@
 
     <meta name="description"
         content="This is a meta description, it is not filled with the context of the page but it exists. It may not reach the approperiate length">
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Rahim Khalil",
-  "jobTitle": "SEO Specialist",
-  "url": "https://abdulrahim.github.io/",
-  "email": "mailto:rahim.khalil@hotmail.com",
-  "telephone": "+971561299880",
-  "knowsAbout": [
-    "Search Engine Optimization",
-    "Content SEO",
-    "Technical SEO",
-    "Keyword Research",
-    "On-Page SEO",
-    "SEO Analytics",
-    "Internal Linking"
-    "Other stuff"
-  ]
-}
-</script>
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Rahim Khalil",
-  "url": "https://abdulrahim-tech.github.io/"
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://abdulrahim.github.io/#website",
+      "url": "https://abdulrahim.github.io/",
+      "name": "Rahim Khalil",
+      "description": "Rahim Khalil's SEO portfolio."
+    },
+    {
+      "@type": "Person",
+      "@id": "https://abdulrahim.github.io/#person",
+      "name": "Rahim Khalil",
+      "jobTitle": "SEO Specialist",
+      "url": "https://abdulrahim.github.io/",
+      "image": "https://abdulrahim.github.io/assets/images/rahimme.jpeg",
+      "email": "mailto:rahim.khalil@hotmail.com",
+      "telephone": "+971561299880",
+      "knowsAbout": [
+        "Search Engine Optimization",
+        "Content SEO",
+        "Technical SEO",
+        "Keyword Research",
+        "On-Page SEO",
+        "Internal Linking",
+        "SEO Analytics"
+        "Other stuff"
+      ]
+    }
+  ]
 }
 </script>
 
