@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Hello there
+
+Sitemap: https://abdulrahim.github.io/sitemap.xml
