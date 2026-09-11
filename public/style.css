@@ -419,44 +419,71 @@ footer {
 .clients {
     max-width: 900px;
     margin: 0 auto;
-
-    padding: 20px 30px 80px;
+    padding: 40px 30px 80px;
 }
 
-.client {
-    display: grid;
-    grid-template-columns: 70px 1fr 1.3fr;
-
-    gap: 30px;
-
-    padding: 40px 0;
-
-    border-top: 1px solid #ddd;
-
-    align-items: start;
+.client-box {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    overflow: hidden;
 }
 
-.client:last-child {
-    border-bottom: 1px solid #ddd;
+.client-box summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 25px 30px;
+
+    cursor: pointer;
+
+    font-size: 20px;
+    font-weight: 600;
+
+    list-style: none;
 }
 
-.client-number {
-    font-size: 14px;
-    color: #999;
-    padding-top: 5px;
+.client-box summary::-webkit-details-marker {
+    display: none;
 }
 
-.client h2 {
-    margin: 0;
+.client-box summary:hover {
+    background: #fafafa;
+}
 
-    font-size: 25px;
+.plus {
+    font-size: 28px;
+    font-weight: 300;
+    color: #666;
+
+    transition: transform 0.2s ease;
+}
+
+.client-box[open] .plus {
+    transform: rotate(45deg);
+}
+
+.client-content {
+    padding: 0 30px 30px;
+
+    border-top: 1px solid #eee;
+}
+
+.client-content h3 {
+    margin: 25px 0 10px;
+
+    font-size: 16px;
     font-weight: 600;
 }
 
-.client p {
+.client-content p {
+    max-width: 650px;
+
     margin: 0;
 
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.7;
 
     color: #666;
