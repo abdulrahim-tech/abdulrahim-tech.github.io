@@ -1802,13 +1802,12 @@ footer {
         font-size: 0.55rem;
     }
 }
-
 /* ========================================
-   CASE STUDY PIE CHART
+   INTERACTIVE CASE STUDY CHART
 ======================================== */
 
 .case-study-chart {
-    margin-top: 45px;
+    margin-top: 40px;
     padding: 35px;
 
     background: var(--bg);
@@ -1816,12 +1815,21 @@ footer {
 }
 
 
+/* ========================================
+   CHART HEADER
+======================================== */
+
 .case-study-chart-header {
-    margin-bottom: 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+
+    margin-bottom: 40px;
 }
 
 
-.case-study-chart-header > span {
+.case-study-chart-header > div:first-child > span {
     color: var(--cyan);
 
     font-family: "Press Start 2P", monospace;
@@ -1851,16 +1859,74 @@ footer {
 
 
 /* ========================================
+   YEAR TOGGLE
+======================================== */
+
+.chart-toggle {
+    display: flex;
+    gap: 8px;
+}
+
+
+.chart-year {
+    padding: 10px 14px;
+
+    background: transparent;
+
+    border: 1px solid var(--border);
+
+    color: var(--text-muted);
+
+    font-family: "VT323", monospace;
+    font-size: 1.05rem;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.chart-year:hover {
+    border-color: var(--cyan);
+    color: var(--cyan);
+}
+
+
+.chart-year.active {
+    background: var(--cyan);
+
+    border-color: var(--cyan);
+
+    color: var(--bg);
+}
+
+
+/* ========================================
+   CHART CONTENT
+======================================== */
+
+.chart-content {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    align-items: center;
+    gap: 50px;
+}
+
+
+/* ========================================
    PIE CHART
 ======================================== */
 
 .pie-chart-wrapper {
     position: relative;
 
-    width: 260px;
-    height: 260px;
+    width: 270px;
+    height: 270px;
 
-    margin: 0 auto 35px;
+    margin: 0 auto;
 }
 
 
@@ -1871,8 +1937,9 @@ footer {
     border-radius: 50%;
 
     background: conic-gradient(
-        var(--cyan) 0deg 180deg,
-        var(--green) 180deg 360deg
+        var(--cyan) 0% 71.6%,
+        var(--green) 71.6% 89.3%,
+        #7c8cff 89.3% 100%
     );
 
     transform: rotate(-90deg);
@@ -1882,7 +1949,7 @@ footer {
 
 
 /* ========================================
-   CENTER
+   PIE CENTER
 ======================================== */
 
 .pie-chart-center {
@@ -1891,8 +1958,8 @@ footer {
     top: 50%;
     left: 50%;
 
-    width: 120px;
-    height: 120px;
+    width: 125px;
+    height: 125px;
 
     transform: translate(-50%, -50%);
 
@@ -1915,7 +1982,7 @@ footer {
     color: var(--text);
 
     font-family: "Press Start 2P", monospace;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
 }
 
 
@@ -1935,44 +2002,45 @@ footer {
 
 .pie-chart-legend {
     display: flex;
-    justify-content: center;
-    gap: 45px;
-
-    border-top: 1px solid var(--border);
-
-    padding-top: 25px;
+    flex-direction: column;
+    gap: 22px;
 }
 
 
 .legend-item {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 14px;
 }
 
 
 .legend-dot {
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
 
-    display: block;
+    flex-shrink: 0;
 }
 
 
-.legend-dot.branded {
+.legend-dot.main-pages {
     background: var(--cyan);
 }
 
 
-.legend-dot.non-branded {
+.legend-dot.blog {
     background: var(--green);
+}
+
+
+.legend-dot.activity-hub {
+    background: #7c8cff;
 }
 
 
 .legend-item div {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 3px;
 }
 
 
@@ -1980,7 +2048,7 @@ footer {
     color: var(--text);
 
     font-family: "Press Start 2P", monospace;
-    font-size: 0.55rem;
+    font-size: 0.6rem;
 }
 
 
@@ -1991,6 +2059,47 @@ footer {
     font-size: 1.2rem;
 }
 
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 800px) {
+
+    .case-study-chart-header {
+        flex-direction: column;
+    }
+
+    .chart-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .pie-chart-wrapper {
+        width: 240px;
+        height: 240px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .case-study-chart {
+        padding: 25px 20px;
+    }
+
+    .chart-toggle {
+        width: 100%;
+    }
+
+    .chart-year {
+        flex: 1;
+        padding: 9px 8px;
+        font-size: 0.95rem;
+    }
+
+}
 
 /* ========================================
    MOBILE
