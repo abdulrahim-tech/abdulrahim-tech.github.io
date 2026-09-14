@@ -126,64 +126,104 @@
                         <p>
                             Identifying high-value non-branded relevant queries that could drive organic traffic, analysing their search intent and performance, and aligning existing pages with those opportunities to expand visibility beyond branded searches.
                         </p>
-
-                <!-- ORGANIC TRAFFIC BREAKDOWN -->
+```html
+<!-- ORGANIC CLICKS BREAKDOWN -->
 
 <div class="case-study-chart">
 
     <div class="case-study-chart-header">
 
-        <span>SEARCH TRAFFIC</span>
+        <div>
+            <span>ORGANIC SEARCH</span>
 
-        <h3>Branded vs Non-Branded</h3>
+            <h3>Clicks by Page Type</h3>
 
-        <p>
-            Breakdown of organic clicks by branded and non-branded search queries.
-        </p>
-
-    </div>
-
-
-    <div class="pie-chart-wrapper">
-
-        <div
-            class="pie-chart"
-            id="organicTrafficPie"
-        ></div>
+            <p>
+                Organic clicks across Main Pages, Blogs, and Activity Hub.
+            </p>
+        </div>
 
 
-        <div class="pie-chart-center">
+        <div class="chart-toggle">
 
-            <strong id="totalClicks">0</strong>
+            <button
+                class="chart-year active"
+                data-year="2025"
+            >
+                Jan–Jun 2025
+            </button>
 
-            <span>CLICKS</span>
+            <button
+                class="chart-year"
+                data-year="2026"
+            >
+                Jan–Jun 2026
+            </button>
 
         </div>
 
     </div>
 
 
-    <div class="pie-chart-legend">
+    <div class="chart-content">
 
-        <div class="legend-item">
+        <div class="pie-chart-wrapper">
 
-            <span class="legend-dot branded"></span>
+            <div
+                class="pie-chart"
+                id="clicksPieChart"
+            ></div>
 
-            <div>
-                <strong>Branded</strong>
-                <span id="brandedValue">0</span>
+            <div class="pie-chart-center">
+
+                <strong id="totalClicks">
+                    38,337
+                </strong>
+
+                <span>
+                    CLICKS
+                </span>
+
             </div>
 
         </div>
 
 
-        <div class="legend-item">
+        <div class="pie-chart-legend">
 
-            <span class="legend-dot non-branded"></span>
+            <div class="legend-item">
 
-            <div>
-                <strong>Non-Branded</strong>
-                <span id="nonBrandedValue">0</span>
+                <span class="legend-dot main-pages"></span>
+
+                <div>
+                    <strong>Main Pages</strong>
+                    <span id="mainPagesValue">27,445 · 71.6%</span>
+                </div>
+
+            </div>
+
+
+            <div class="legend-item">
+
+                <span class="legend-dot blog"></span>
+
+                <div>
+                    <strong>Blog</strong>
+                    <span id="blogValue">6,784 · 17.7%</span>
+                </div>
+
+            </div>
+
+
+            <div class="legend-item">
+
+                <span class="legend-dot activity-hub"></span>
+
+                <div>
+                    <strong>Activity Hub</strong>
+                    <span id="activityHubValue">4,108 · 10.7%</span>
+                </div>
+
             </div>
 
         </div>
@@ -191,11 +231,7 @@
     </div>
 
 </div>
-
-                </div>
-
-
-    
+```
 
         </article>
 
@@ -234,42 +270,118 @@
 </footer>
 <script>
 
-    const brandedClicks = 4500;
-    const nonBrandedClicks = 5500;
+const trafficData = {
 
-    const totalClicks =
-        brandedClicks + nonBrandedClicks;
+    2025: {
+        mainPages: 27445,
+        blog: 6784,
+        activityHub: 4108
+    },
+
+    2026: {
+        mainPages: 93099,
+        blog: 60382,
+        activityHub: 10996
+    }
+
+};
 
 
-    const brandedPercentage =
-        (brandedClicks / totalClicks) * 100;
+const pieChart =
+    document.getElementById("clicksPieChart");
+
+const totalClicks =
+    document.getElementById("totalClicks");
+
+const mainPagesValue =
+    document.getElementById("mainPagesValue");
+
+const blogValue =
+    document.getElementById("blogValue");
+
+const activityHubValue =
+    document.getElementById("activityHubValue");
+
+const yearButtons =
+    document.querySelectorAll(".chart-year");
 
 
-    const nonBrandedPercentage =
-        (nonBrandedClicks / totalClicks) * 100;
+function updateChart(year) {
+
+    const data = trafficData[year];
 
 
-    const pieChart =
-        document.getElementById("organicTrafficPie");
+    const total =
+        data.mainPages +
+        data.blog +
+        data.activityHub;
+
+
+    const mainPagesPercentage =
+        (data.mainPages / total) * 100;
+
+    const blogPercentage =
+        (data.blog / total) * 100;
+
+    const activityHubPercentage =
+        (data.activityHub / total) * 100;
+
+
+    const mainPagesEnd =
+        mainPagesPercentage;
+
+    const blogEnd =
+        mainPagesPercentage + blogPercentage;
 
 
     pieChart.style.background =
         `conic-gradient(
-            var(--cyan) 0% ${brandedPercentage}%,
-            var(--green) ${brandedPercentage}% 100%
+            var(--cyan) 0% ${mainPagesEnd}%,
+            var(--green) ${mainPagesEnd}% ${blogEnd}%,
+            #7c8cff ${blogEnd}% 100%
         )`;
 
 
-    document.getElementById("totalClicks").textContent =
-        totalClicks.toLocaleString();
+    totalClicks.textContent =
+        total.toLocaleString();
 
 
-    document.getElementById("brandedValue").textContent =
-        `${brandedPercentage.toFixed(1)}% · ${brandedClicks.toLocaleString()}`;
+    mainPagesValue.textContent =
+        `${data.mainPages.toLocaleString()} · ${mainPagesPercentage.toFixed(1)}%`;
 
 
-    document.getElementById("nonBrandedValue").textContent =
-        `${nonBrandedPercentage.toFixed(1)}% · ${nonBrandedClicks.toLocaleString()}`;
+    blogValue.textContent =
+        `${data.blog.toLocaleString()} · ${blogPercentage.toFixed(1)}%`;
+
+
+    activityHubValue.textContent =
+        `${data.activityHub.toLocaleString()} · ${activityHubPercentage.toFixed(1)}%`;
+
+
+    yearButtons.forEach(button => {
+
+        button.classList.toggle(
+            "active",
+            button.dataset.year === year
+        );
+
+    });
+
+}
+
+
+yearButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        updateChart(button.dataset.year);
+
+    });
+
+});
+
+
+updateChart("2025");
 
 </script>
 
