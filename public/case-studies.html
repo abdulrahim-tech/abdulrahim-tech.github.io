@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,11 +6,11 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./public/style.css">
+
     <link
         rel="icon"
         type="image/jpeg"
-        href="./assets/images/Gemini_Generated_Image_4vft5v4vft5v4vft.jpeg"
+        href="../assets/images/Gemini_Generated_Image_4vft5v4vft5v4vft.jpeg"
     >
 
     <title>SEO Case Studies | Rahim Khalil</title>
@@ -19,7 +20,7 @@
         content="Selected SEO case studies covering technical SEO, content strategy, keyword research, internal linking, and local SEO."
     >
 
-    <link rel="stylesheet" href="./public/style.css">
+    <link rel="stylesheet" href="./style.css">
 
 </head>
 
@@ -28,10 +29,10 @@
 
 <header class="navbar">
 
-    <a href="./index.html" class="logo">
+    <a href="../index.html" class="logo">
 
         <img
-            src="./assets/images/Gemini_Generated_Image_4vft5v4vft5v4vft.jpeg"
+            src="../assets/images/Gemini_Generated_Image_4vft5v4vft5v4vft.jpeg"
             alt="Rahim Khalil"
         >
 
@@ -39,13 +40,14 @@
 
     </a>
 
+
     <nav>
 
-        <a href="./public/about.html">About</a>
+        <a href="./about.html">About</a>
 
-        <a href="./public/clients.html">Clients</a>
+        <a href="./clients.html">Clients</a>
 
-        <a href="./public/contact.html">Contact</a>
+        <a href="./contact.html">Contact</a>
 
         <a href="./case-studies.html">Case Studies</a>
 
@@ -81,7 +83,7 @@
     <section class="case-studies">
 
 
-        <!-- 01 -->
+        <!-- MEYDAN FREE ZONE -->
 
         <article class="case-study-card">
 
@@ -104,6 +106,7 @@
                     targeting competitive commercial searches in Dubai.
                 </p>
 
+
                 <div class="case-study-grid">
 
                     <div class="case-study-section">
@@ -119,6 +122,7 @@
 
                     </div>
 
+
                     <div class="case-study-section">
 
                         <h3>THE WORK</h3>
@@ -131,6 +135,7 @@
                         </p>
 
                     </div>
+
 
                     <div class="case-study-section">
 
@@ -145,6 +150,7 @@
                     </div>
 
                 </div>
+
 
                 <div class="case-study-result">
 
@@ -163,7 +169,7 @@
         </article>
 
 
-        <!-- 02 -->
+        <!-- M.A.H.Y KHOORY GROUP -->
 
         <article class="case-study-card">
 
@@ -187,6 +193,7 @@
                     business verticals.
                 </p>
 
+
                 <div class="case-study-grid">
 
                     <div class="case-study-section">
@@ -202,6 +209,7 @@
 
                     </div>
 
+
                     <div class="case-study-section">
 
                         <h3>THE WORK</h3>
@@ -214,6 +222,7 @@
                         </p>
 
                     </div>
+
 
                     <div class="case-study-section">
 
@@ -229,6 +238,7 @@
                     </div>
 
                 </div>
+
 
                 <div class="case-study-result">
 
@@ -247,7 +257,7 @@
         </article>
 
 
-        <!-- 03 -->
+        <!-- LOCAL SEO -->
 
         <article class="case-study-card">
 
@@ -270,6 +280,7 @@
                     Business Profile optimisation and website signals.
                 </p>
 
+
                 <div class="case-study-grid">
 
                     <div class="case-study-section">
@@ -284,6 +295,7 @@
 
                     </div>
 
+
                     <div class="case-study-section">
 
                         <h3>THE WORK</h3>
@@ -295,6 +307,7 @@
                         </p>
 
                     </div>
+
 
                     <div class="case-study-section">
 
@@ -309,6 +322,7 @@
                     </div>
 
                 </div>
+
 
                 <div class="case-study-result">
 
@@ -327,7 +341,7 @@
         </article>
 
 
-        <!-- 04 -->
+        <!-- CONTENT STRATEGY -->
 
         <article class="case-study-card">
 
@@ -351,6 +365,7 @@
                     commercial relevance.
                 </p>
 
+
                 <div class="case-study-grid">
 
                     <div class="case-study-section">
@@ -366,6 +381,7 @@
 
                     </div>
 
+
                     <div class="case-study-section">
 
                         <h3>THE WORK</h3>
@@ -377,6 +393,7 @@
                         </p>
 
                     </div>
+
 
                     <div class="case-study-section">
 
@@ -391,6 +408,7 @@
                     </div>
 
                 </div>
+
 
                 <div class="case-study-result">
 
@@ -439,7 +457,7 @@
         </h2>
 
         <a
-            href="./public/contact.html"
+            href="./contact.html"
             class="button primary"
         >
             Get in Touch
@@ -458,6 +476,20 @@
 
 </footer>
 
+
 </body>
 
 </html>
+```
+
+The important path changes are now:
+
+* CSS → `./style.css`
+* Home → `../index.html`
+* Image → `../assets/images/...`
+* About → `./about.html`
+* Clients → `./clients.html`
+* Contact → `./contact.html`
+* Case Studies → `./case-studies.html`
+
+Your case-studies page should now use the same `public/style.css` as the other pages.
