@@ -1,21 +1,5 @@
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
 
-    color: #222;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.logo img {
-    width: 35px;
-    height: 35px;
-
-    object-fit: cover;
-    border-radius: 50%;
-}
 
 /* ========================================
    RESET
@@ -31,9 +15,20 @@ html {
 
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f5f5f5;
-    color: #222;
+    font-family: "VT323", monospace;
+    background: #0b0b0b;
+    color: #e8e8e8;
+    font-size: 20px;
+    line-height: 1.5;
+    animation: fadeIn 0.6s ease-in;
+}
+
+a {
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
 }
 
 
@@ -44,40 +39,67 @@ body {
 .navbar {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 25px 30px;
+    padding: 22px 30px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    border-bottom: 2px solid #444;
 }
 
 .logo {
-    font-size: 20px;
-    font-weight: bold;
-    color: #222;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: #fff;
     text-decoration: none;
+
+    font-family: "Press Start 2P", monospace;
+    font-size: 12px;
+}
+
+.logo img {
+    width: 35px;
+    height: 35px;
+
+    object-fit: cover;
+    border-radius: 0;
+    border: 2px solid #777;
+
+    transition: transform 0.2s ease;
+}
+
+.logo:hover img {
+    transform: scale(1.08);
 }
 
 .navbar nav {
     display: flex;
-    gap: 30px;
+    gap: 28px;
 }
 
 .navbar nav a {
-    color: #555;
+    color: #999;
     text-decoration: none;
-    font-size: 15px;
-}
+    font-size: 20px;
 
-.navbar nav a:hover {
-    color: #222;
-}
-.navbar nav a {
     transition: color 0.2s ease;
 }
 
+.navbar nav a::before {
+    content: "> ";
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
 .navbar nav a:hover {
-    color: #888;
+    color: #fff;
+}
+
+.navbar nav a:hover::before {
+    opacity: 1;
 }
 
 
@@ -88,61 +110,67 @@ body {
 .eyebrow {
     margin: 0 0 20px;
 
-    font-size: 13px;
-    font-weight: bold;
-    letter-spacing: 3px;
+    font-family: "Press Start 2P", monospace;
+    font-size: 10px;
+    font-weight: normal;
+    letter-spacing: 1px;
 
-    color: #777;
+    color: #888;
 }
+
+.eyebrow::before {
+    content: "> ";
+    color: #fff;
+}
+
+
+/* ========================================
+   BUTTONS
+======================================== */
 
 .button {
     display: inline-block;
 
-    padding: 14px 24px;
+    padding: 12px 20px;
 
-    border-radius: 6px;
+    border-radius: 0;
+    border: 2px solid #777;
 
     text-decoration: none;
 
-    font-size: 15px;
-    font-weight: bold;
+    font-family: "VT323", monospace;
+    font-size: 20px;
 
-    transition: 0.2s ease;
+    transition:
+        transform 0.15s ease,
+        background-color 0.15s ease,
+        color 0.15s ease;
 }
 
 .button.primary {
-    background: #222;
-    color: white;
+    background: #e8e8e8;
+    color: #111;
+    border-color: #e8e8e8;
 }
 
 .button.primary:hover {
-    background: #444;
+    background: #111;
+    color: #fff;
     transform: translateY(-2px);
 }
 
 .button.secondary {
-    border: 1px solid #ccc;
-    color: #222;
-    background: white;
+    border: 2px solid #555;
+    color: #ddd;
+    background: #111;
 }
 
 .button.secondary:hover {
-    border-color: #222;
+    border-color: #aaa;
+    background: #1a1a1a;
     transform: translateY(-2px);
 }
-body {
-    animation: fadeIn 0.6s ease-in;
-}
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
 
 /* ========================================
    HERO
@@ -169,9 +197,16 @@ body {
 .hero h1 {
     margin: 0 0 30px;
 
-    font-size: 70px;
-    line-height: 1.05;
-    letter-spacing: -2px;
+    font-family: "Press Start 2P", monospace;
+    font-size: 48px;
+    font-weight: normal;
+    line-height: 1.4;
+    letter-spacing: 0;
+}
+
+.hero h1::after {
+    content: "_";
+    animation: blink 1s steps(1) infinite;
 }
 
 .hero h1 span {
@@ -183,15 +218,16 @@ body {
 
     margin-bottom: 35px;
 
-    font-size: 19px;
-    line-height: 1.7;
+    font-size: 24px;
+    line-height: 1.5;
 
-    color: #666;
+    color: #aaa;
 }
 
 .hero-buttons {
     display: flex;
     gap: 15px;
+    flex-wrap: wrap;
 }
 
 .hero-image img {
@@ -201,14 +237,20 @@ body {
     display: block;
     margin: 0 auto;
 
-    border-radius: 20px;
-}
-.logo img {
-    transition: transform 0.25s ease;
+    border-radius: 0;
+    border: 3px solid #555;
+    padding: 8px;
+
+    filter: grayscale(100%);
+
+    transition:
+        filter 0.3s ease,
+        transform 0.3s ease;
 }
 
-.logo:hover img {
-    transform: scale(1.08);
+.hero-image img:hover {
+    filter: grayscale(0%);
+    transform: translateY(-3px);
 }
 
 
@@ -226,50 +268,79 @@ body {
 .specialties h2 {
     margin: 0 0 60px;
 
-    font-size: 45px;
-    line-height: 1.2;
-    letter-spacing: -1px;
+    font-family: "Press Start 2P", monospace;
+    font-size: 28px;
+    font-weight: normal;
+    line-height: 1.5;
+    letter-spacing: 0;
+}
+
+.specialties h2::before {
+    content: "> ";
 }
 
 .specialty-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 
-    gap: 25px;
+    gap: 20px;
 }
 
 .specialty-card {
-    background: white;
+    background: #111;
 
-    padding: 35px;
+    padding: 30px;
 
-    border-radius: 12px;
+    border: 2px solid #444;
+    border-radius: 0;
 
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+    box-shadow: none;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.specialty-card:hover {
+    transform: translateY(-3px);
+    border-color: #888;
+    background: #151515;
 }
 
 .card-number {
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 
-    font-size: 14px;
-    font-weight: bold;
+    font-size: 18px;
+    font-weight: normal;
 
-    color: #999;
+    color: #777;
+}
+
+.card-number::before {
+    content: "[";
+}
+
+.card-number::after {
+    content: "]";
 }
 
 .specialty-card h3 {
     margin: 0 0 15px;
 
-    font-size: 25px;
+    font-family: "Press Start 2P", monospace;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 1.7;
 }
 
 .specialty-card p {
     margin: 0;
 
-    font-size: 16px;
-    line-height: 1.7;
+    font-size: 20px;
+    line-height: 1.5;
 
-    color: #666;
+    color: #999;
 }
 
 
@@ -289,19 +360,27 @@ body {
 
     flex-wrap: wrap;
 
-    gap: 12px;
+    gap: 10px;
 }
 
 .tools-list span {
-    padding: 12px 18px;
+    padding: 9px 15px;
 
-    background: white;
+    background: #111;
 
-    border: 1px solid #ddd;
+    border: 2px solid #444;
+    border-radius: 0;
 
-    border-radius: 50px;
+    font-size: 18px;
 
-    font-size: 14px;
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.tools-list span:hover {
+    border-color: #888;
+    background: #181818;
 }
 
 
@@ -316,14 +395,18 @@ body {
     padding: 120px 30px;
 
     text-align: center;
+
+    border-top: 2px solid #333;
 }
 
 .cta h2 {
     margin: 0 auto 35px;
 
-    font-size: 55px;
-    line-height: 1.15;
-    letter-spacing: -1px;
+    font-family: "Press Start 2P", monospace;
+    font-size: 30px;
+    font-weight: normal;
+    line-height: 1.6;
+    letter-spacing: 0;
 }
 
 
@@ -336,11 +419,38 @@ footer {
 
     text-align: center;
 
-    border-top: 1px solid #ddd;
+    border-top: 2px solid #333;
 
-    color: #777;
+    color: #666;
 
-    font-size: 13px;
+    font-size: 17px;
+}
+
+
+/* ========================================
+   ANIMATIONS
+======================================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes blink {
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
 }
 
 
@@ -352,6 +462,7 @@ footer {
 
     .navbar {
         padding: 20px;
+        gap: 20px;
     }
 
     .navbar nav {
@@ -367,11 +478,11 @@ footer {
     }
 
     .hero h1 {
-        font-size: 48px;
+        font-size: 30px;
     }
 
     .hero-description {
-        font-size: 17px;
+        font-size: 21px;
     }
 
     .hero-image {
@@ -387,7 +498,7 @@ footer {
     }
 
     .specialties h2 {
-        font-size: 35px;
+        font-size: 21px;
     }
 
     .specialty-grid {
@@ -403,10 +514,15 @@ footer {
     }
 
     .cta h2 {
-        font-size: 40px;
+        font-size: 21px;
     }
-
 }
+
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
 @media (prefers-reduced-motion: reduce) {
 
     *,
@@ -416,7 +532,6 @@ footer {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
-
 }
 
 
@@ -427,16 +542,20 @@ footer {
 .page-header {
     max-width: 900px;
     margin: 0 auto;
+
     padding: 100px 30px 70px;
 }
 
 .page-header h1 {
     max-width: 800px;
+
     margin: 0 0 25px;
 
-    font-size: 56px;
-    line-height: 1.1;
-    letter-spacing: -1.5px;
+    font-family: "Press Start 2P", monospace;
+    font-size: 32px;
+    font-weight: normal;
+    line-height: 1.5;
+    letter-spacing: 0;
 }
 
 .page-intro {
@@ -444,27 +563,42 @@ footer {
 
     margin: 0;
 
-    font-size: 19px;
-    line-height: 1.7;
+    font-size: 23px;
+    line-height: 1.5;
 
-    color: #666;
+    color: #aaa;
 }
 
 
-/* Clients */
+/* ========================================
+   CLIENT BOXES
+======================================== */
 
 .clients {
     max-width: 900px;
     margin: 0 auto;
+
     padding: 40px 30px 80px;
 }
 
 .client-box {
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    background: #111;
+
+    border: 2px solid #444;
+    border-radius: 0;
+
     margin-bottom: 15px;
+
     overflow: hidden;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.client-box:hover {
+    transform: translateY(-2px);
+    border-color: #888;
 }
 
 .client-box summary {
@@ -472,22 +606,15 @@ footer {
     align-items: center;
     justify-content: space-between;
 
-    padding: 25px 30px;
+    padding: 22px 25px;
 
     cursor: pointer;
 
-    font-size: 20px;
-    font-weight: 600;
+    font-family: "Press Start 2P", monospace;
+    font-size: 12px;
+    font-weight: normal;
 
     list-style: none;
-}
-.client-box {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.client-box:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
 }
 
 .client-box summary::-webkit-details-marker {
@@ -495,13 +622,15 @@ footer {
 }
 
 .client-box summary:hover {
-    background: #fafafa;
+    background: #181818;
 }
 
 .plus {
-    font-size: 28px;
-    font-weight: 300;
-    color: #666;
+    font-family: "VT323", monospace;
+    font-size: 30px;
+    font-weight: normal;
+
+    color: #888;
 
     transition: transform 0.2s ease;
 }
@@ -511,16 +640,18 @@ footer {
 }
 
 .client-content {
-    padding: 0 30px 30px;
+    padding: 0 25px 28px;
 
-    border-top: 1px solid #eee;
+    border-top: 2px solid #333;
 }
 
 .client-content h3 {
-    margin: 25px 0 10px;
+    margin: 22px 0 10px;
 
-    font-size: 16px;
-    font-weight: 600;
+    font-family: "Press Start 2P", monospace;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 1.7;
 }
 
 .client-content p {
@@ -528,14 +659,16 @@ footer {
 
     margin: 0;
 
-    font-size: 15px;
-    line-height: 1.7;
+    font-size: 20px;
+    line-height: 1.5;
 
-    color: #666;
+    color: #999;
 }
 
 
-/* Note */
+/* ========================================
+   CLIENT NOTE
+======================================== */
 
 .clients-note {
     max-width: 900px;
@@ -543,7 +676,7 @@ footer {
 
     padding: 30px;
 
-    border-left: 3px solid #222;
+    border-left: 4px solid #777;
 }
 
 .clients-note p {
@@ -551,14 +684,16 @@ footer {
 
     margin: 0;
 
-    font-size: 19px;
-    line-height: 1.7;
+    font-size: 21px;
+    line-height: 1.5;
 
-    color: #555;
+    color: #999;
 }
 
 
-/* CTA */
+/* ========================================
+   PAGE CTA
+======================================== */
 
 .page-cta {
     max-width: 900px;
@@ -572,20 +707,16 @@ footer {
 .page-cta h2 {
     margin: 0 0 30px;
 
-    font-size: 38px;
-    line-height: 1.2;
-}
-.button,
-.links a {
-    transition: transform 0.2s ease, background-color 0.2s ease;
+    font-family: "Press Start 2P", monospace;
+    font-size: 23px;
+    font-weight: normal;
+    line-height: 1.6;
 }
 
-.button:hover,
-.links a:hover {
-    transform: translateY(-2px);
-}
 
-/* Mobile */
+/* ========================================
+   CLIENTS MOBILE
+======================================== */
 
 @media (max-width: 700px) {
 
@@ -594,21 +725,16 @@ footer {
     }
 
     .page-header h1 {
-        font-size: 40px;
+        font-size: 22px;
     }
 
     .clients {
         padding: 10px 20px 60px;
     }
 
-    .client {
-        grid-template-columns: 40px 1fr;
-
-        gap: 15px;
-    }
-
-    .client p {
-        grid-column: 2;
+    .client-box summary {
+        font-size: 10px;
+        padding: 20px;
     }
 
     .clients-note {
@@ -621,96 +747,107 @@ footer {
     }
 
 }
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    color: #222;
-}
+
+
+/* ========================================
+   ABOUT PAGE
+======================================== */
 
 .about-section {
     max-width: 1100px;
     margin: 0 auto;
+
     padding: 100px 30px;
 }
+
 
 /* Header */
 
 .about-header {
     max-width: 800px;
+
     margin-bottom: 70px;
 }
 
-.eyebrow {
-    font-size: 14px;
-    font-weight: bold;
-    letter-spacing: 3px;
-    color: #666;
-    margin-bottom: 15px;
-}
-
 .about-header h1 {
-    font-size: 60px;
     margin: 0 0 25px;
-    line-height: 1.1;
+
+    font-family: "Press Start 2P", monospace;
+    font-size: 32px;
+    font-weight: normal;
+    line-height: 1.5;
 }
 
 .intro {
     font-size: 24px;
     line-height: 1.5;
-    color: #555;
+
+    color: #aaa;
 }
+
 
 /* Content */
 
 .about-content {
     display: grid;
     grid-template-columns: 2fr 1fr;
+
     gap: 70px;
+
     align-items: start;
 }
 
 .about-text p {
-    font-size: 18px;
-    line-height: 1.8;
-    color: #555;
+    font-size: 21px;
+    line-height: 1.6;
+
+    color: #aaa;
+
     margin-bottom: 30px;
 }
 
+
 /* Image */
-.about-photo p {
-    margin: 8px 0 0;
-    font-size: 13px;
-    color: #999;
-    text-align: center;
-}
+
 .about-photo {
     overflow: hidden;
-}
 
-.about-photo img {
-    transition: transform 0.4s ease;
-}
+    border: 2px solid #555;
+    padding: 10px;
 
-.about-photo:hover img {
-    transform: scale(1.03);
+    background: #111;
 }
 
 .about-photo img {
     width: 100%;
     height: auto;
+
     display: block;
+
+    filter: grayscale(100%);
+
+    transition:
+        transform 0.3s ease,
+        filter 0.3s ease;
+}
+
+.about-photo:hover img {
+    transform: scale(1.03);
+    filter: grayscale(0%);
 }
 
 .about-photo p {
     margin: 8px 0 0;
 
-    font-size: 13px;
-    color: #999;
+    font-size: 15px;
+
+    color: #777;
+
+    text-align: center;
 }
 
 
-/* Mobile */
+/* About Mobile */
 
 @media (max-width: 768px) {
 
@@ -719,88 +856,128 @@ body {
     }
 
     .about-header h1 {
-        font-size: 42px;
+        font-size: 24px;
     }
 
     .intro {
-        font-size: 20px;
+        font-size: 21px;
     }
 
     .about-content {
         grid-template-columns: 1fr;
+
         gap: 40px;
     }
 
 }
 
+
+/* ========================================
+   CONTACT PAGE
+======================================== */
+
 .contact-section {
     max-width: 900px;
     margin: 0 auto;
+
     padding: 100px 30px;
 }
 
-.eyebrow {
-    font-size: 14px;
-    font-weight: bold;
-    letter-spacing: 3px;
-    color: #666;
-    margin-bottom: 15px;
-}
-
 .contact-section h1 {
-    font-size: 60px;
     margin: 0 0 20px;
+
+    font-family: "Press Start 2P", monospace;
+    font-size: 32px;
+    font-weight: normal;
+    line-height: 1.5;
 }
 
 .contact-intro {
     max-width: 600px;
-    font-size: 20px;
-    line-height: 1.7;
-    color: #555;
+
+    font-size: 23px;
+    line-height: 1.5;
+
+    color: #aaa;
+
     margin-bottom: 50px;
 }
 
 .contact-details {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
+
+    gap: 20px;
+
     margin-bottom: 50px;
 }
 
 .contact-item {
-    background: white;
+    background: #111;
+
     padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+
+    border: 2px solid #444;
+    border-radius: 0;
+
+    box-shadow: none;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-2px);
+    border-color: #888;
 }
 
 .contact-item h2 {
-    font-size: 16px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
     margin-top: 0;
-    color: #666;
+
+    font-family: "Press Start 2P", monospace;
+    font-size: 10px;
+    font-weight: normal;
+
+    text-transform: uppercase;
+    letter-spacing: 0;
+
+    color: #777;
 }
 
 .contact-item a {
-    font-size: 18px;
-    color: #222;
+    font-size: 21px;
+
+    color: #eee;
+
     text-decoration: none;
+
+    border-bottom: 1px dashed #555;
 }
 
 .contact-item a:hover {
-    text-decoration: underline;
+    color: #aaa;
+    border-color: #aaa;
 }
 
 .back-link {
-    color: #222;
+    color: #aaa;
+
     text-decoration: none;
-    font-weight: bold;
+
+    font-size: 20px;
+}
+
+.back-link::before {
+    content: "< ";
 }
 
 .back-link:hover {
-    text-decoration: underline;
+    color: #fff;
 }
+
+
+/* Contact Mobile */
 
 @media (max-width: 700px) {
 
@@ -809,10 +986,11 @@ body {
     }
 
     .contact-section h1 {
-        font-size: 42px;
+        font-size: 24px;
     }
 
     .contact-details {
         grid-template-columns: 1fr;
     }
+
 }
