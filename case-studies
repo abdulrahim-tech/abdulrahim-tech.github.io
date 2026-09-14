@@ -1,1 +1,581 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+```
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link
+    rel="icon"
+    type="image/jpeg"
+    href="./assets/images/Gemini_Generated_Image_4vft5v4vft5v4vft.jpeg"
+>
+
+<title>SEO Case Studies | Rahim Khalil</title>
+
+<meta
+    name="description"
+    content="SEO case studies covering technical SEO, content strategy, keyword research, internal linking, local SEO, and search performance."
+>
+
+<link rel="stylesheet" href="./public/style.css">
+```
+
+</head>
+
+<body>
+
+```
+<!-- ========================================
+     NAVIGATION
+======================================== -->
+
+<header class="navbar">
+
+    <a href="/" class="logo">
+
+        <img
+            src="./assets/images/Gemini_Generated_Image_4vft5v4vft5v4vft.jpeg"
+            alt="Rahim Khalil"
+        >
+
+        <span>Rahim Khalil</span>
+
+    </a>
+
+
+    <nav>
+
+        <a href="./public/about.html">About</a>
+
+        <a href="./public/clients.html">Clients</a>
+
+        <a href="./public/contact.html">Contact</a>
+
+        <a href="./case-studies.html">Case Studies</a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- ========================================
+     MAIN
+======================================== -->
+
+<main>
+
+
+    <!-- PAGE HEADER -->
+
+    <section class="page-header">
+
+        <p class="eyebrow">
+            SEO CASE STUDIES
+        </p>
+
+        <h1>
+            THE WORK BEHIND<br>
+            THE SEARCH RESULTS.
+        </h1>
+
+        <p class="page-intro">
+            Selected examples of SEO work across technical
+            optimisation, content strategy, keyword research,
+            internal linking, and local search.
+        </p>
+
+    </section>
+
+
+
+    <!-- ========================================
+         CASE STUDIES
+    ======================================== -->
+
+    <section class="case-studies">
+
+
+        <!-- ====================================
+             CASE STUDY 01
+        ==================================== -->
+
+        <article class="case-study-card">
+
+            <div class="case-study-number">
+                01
+            </div>
+
+
+            <div class="case-study-content">
+
+                <p class="case-study-type">
+                    TECHNICAL SEO · CONTENT SEO
+                </p>
+
+                <h2>
+                    Meydan Free Zone
+                </h2>
+
+                <p class="case-study-summary">
+                    SEO work for a Dubai free zone website targeting
+                    competitive business setup, company formation,
+                    licensing, and activity-related searches.
+                </p>
+
+
+                <div class="case-study-details">
+
+
+                    <div>
+
+                        <h3>
+                            THE CHALLENGE
+                        </h3>
+
+                        <p>
+                            Competing for high-intent searches across
+                            a large website with commercial pages,
+                            activity pages, blogs, relocation content,
+                            and supporting resources.
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            THE WORK
+                        </h3>
+
+                        <p>
+                            Worked across technical SEO, keyword
+                            research, content strategy, metadata,
+                            internal linking, activity pages,
+                            structured data, and Google Business
+                            Profile optimisation.
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            SEARCH FOCUS
+                        </h3>
+
+                        <p>
+                            Business setup, company formation,
+                            free zone licensing, business activities,
+                            relocation, and local search.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="case-study-result">
+
+                    <span>
+                        SEARCH PERFORMANCE
+                    </span>
+
+                    <p>
+                        The website has generated visibility across
+                        high-intent commercial searches, including
+                        broad business setup queries and more specific
+                        free zone and activity-related searches.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ====================================
+             CASE STUDY 02
+        ==================================== -->
+
+        <article class="case-study-card">
+
+            <div class="case-study-number">
+                02
+            </div>
+
+
+            <div class="case-study-content">
+
+                <p class="case-study-type">
+                    KEYWORD RESEARCH · SEO STRATEGY
+                </p>
+
+                <h2>
+                    M.A.H.Y Khoory Group
+                </h2>
+
+                <p class="case-study-summary">
+                    Developing an SEO strategy for a diversified UAE
+                    business group with multiple companies and
+                    business verticals.
+                </p>
+
+
+                <div class="case-study-details">
+
+
+                    <div>
+
+                        <h3>
+                            THE CHALLENGE
+                        </h3>
+
+                        <p>
+                            The parent group operates across several
+                            industries, creating a need to establish
+                            its own search visibility without
+                            overlapping with the websites of its
+                            individual businesses.
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            THE WORK
+                        </h3>
+
+                        <p>
+                            Researching keywords around the parent
+                            brand, corporate searches, partnerships,
+                            recruitment, regional demand, and
+                            searches connected to distribution
+                            partners.
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            STRATEGIC FOCUS
+                        </h3>
+
+                        <p>
+                            Brand awareness, corporate search,
+                            partnership searches, recruitment,
+                            regional visibility, and information
+                            architecture.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="case-study-result">
+
+                    <span>
+                        OBJECTIVE
+                    </span>
+
+                    <p>
+                        Build a clearer search presence for the parent
+                        group while creating distinct opportunities
+                        for its individual companies and commercial
+                        relationships.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ====================================
+             CASE STUDY 03
+        ==================================== -->
+
+        <article class="case-study-card">
+
+            <div class="case-study-number">
+                03
+            </div>
+
+
+            <div class="case-study-content">
+
+                <p class="case-study-type">
+                    LOCAL SEO
+                </p>
+
+                <h2>
+                    Google Business Profile Optimisation
+                </h2>
+
+                <p class="case-study-summary">
+                    Building local search relevance through Google
+                    Business Profile optimisation, supporting content,
+                    visual assets, and website signals.
+                </p>
+
+
+                <div class="case-study-details">
+
+
+                    <div>
+
+                        <h3>
+                            THE CHALLENGE
+                        </h3>
+
+                        <p>
+                            Local search requires consistency between
+                            the business profile, website, services,
+                            location, and the searches users make.
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            THE WORK
+                        </h3>
+
+                        <p>
+                            Worked on Google Business Profile posts,
+                            images, videos, service information,
+                            local content, and supporting internal
+                            links between website pages.
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            SEARCH FOCUS
+                        </h3>
+
+                        <p>
+                            Dubai business setup, free zone services,
+                            local business searches, and
+                            service-related local queries.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="case-study-result">
+
+                    <span>
+                        APPROACH
+                    </span>
+
+                    <p>
+                        Treat local SEO as part of the wider search
+                        strategy rather than as an isolated Google
+                        Business Profile task.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ====================================
+             CASE STUDY 04
+        ==================================== -->
+
+        <article class="case-study-card">
+
+            <div class="case-study-number">
+                04
+            </div>
+
+
+            <div class="case-study-content">
+
+                <p class="case-study-type">
+                    CONTENT STRATEGY · KEYWORD RESEARCH
+                </p>
+
+                <h2>
+                    Search-Led Content Strategy
+                </h2>
+
+                <p class="case-study-summary">
+                    Turning search demand into a structured content
+                    pipeline using keyword research, query intent,
+                    search performance, and content gaps.
+                </p>
+
+
+                <div class="case-study-details">
+
+
+                    <div>
+
+                        <h3>
+                            THE CHALLENGE
+                        </h3>
+
+                        <p>
+                            Publishing more content does not
+                            automatically create more organic
+                            visibility. Content needs to address
+                            genuine search demand and fit the
+                            website's commercial objectives.
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            THE WORK
+                        </h3>
+
+                        <p>
+                            Used keyword research, search intent,
+                            query fan-out, search volume, existing
+                            rankings, content gaps, and internal
+                            linking to identify opportunities.
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            OUTPUT
+                        </h3>
+
+                        <p>
+                            Content topics, keyword targets,
+                            optimisation opportunities, internal
+                            linking recommendations, and content
+                            priorities.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="case-study-result">
+
+                    <span>
+                        PRINCIPLE
+                    </span>
+
+                    <p>
+                        Content volume is not the objective. The goal
+                        is to create pages that satisfy search intent,
+                        strengthen topical coverage, and contribute to
+                        the wider SEO strategy.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+    </section>
+
+
+
+    <!-- ========================================
+         CONFIDENTIALITY NOTE
+    ======================================== -->
+
+    <section class="clients-note">
+
+        <p>
+            Some project details are intentionally limited due to
+            client confidentiality and NDAs. The case studies focus
+            on the SEO problems, processes, and areas of work rather
+            than confidential client information.
+        </p>
+
+    </section>
+
+
+
+    <!-- ========================================
+         CTA
+    ======================================== -->
+
+    <section class="page-cta">
+
+        <p class="eyebrow">
+            NEXT
+        </p>
+
+        <h2>
+            WANT TO DISCUSS<br>
+            AN SEO PROJECT?
+        </h2>
+
+        <a
+            href="./public/contact.html"
+            class="button primary"
+        >
+            Get in Touch
+        </a>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- ========================================
+     FOOTER
+======================================== -->
+
+<footer>
+
+    <p>
+        © 2026 Rahim Khalil. All rights reserved.
+    </p>
+
+</footer>
+```
+
+</body>
+
+</html>
 
