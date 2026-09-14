@@ -1509,3 +1509,296 @@ footer {
     }
 
 }
+
+/* ========================================
+   CASE STUDIES PAGE
+======================================== */
+
+.case-studies-hero {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 100px 24px 70px;
+}
+
+.case-studies-hero h1 {
+    margin: 20px 0 28px;
+}
+
+.case-studies-hero h1 span {
+    color: var(--cyan);
+}
+
+.case-studies-intro {
+    max-width: 680px;
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    line-height: 1.7;
+}
+
+
+/* ========================================
+   CASE STUDY LIST
+======================================== */
+
+.case-studies {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+}
+
+.case-study-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 35px;
+
+    margin-bottom: 35px;
+    padding: 45px;
+
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.case-study-card:hover {
+    border-color: var(--border-hover);
+    background: var(--bg-card-hover);
+    transform: translateY(-3px);
+}
+
+
+/* ========================================
+   NUMBER
+======================================== */
+
+.case-study-number {
+    color: var(--green);
+    font-family: "Press Start 2P", monospace;
+    font-size: 1rem;
+    line-height: 1.5;
+    padding-top: 7px;
+}
+
+
+/* ========================================
+   CONTENT
+======================================== */
+
+.case-study-content {
+    min-width: 0;
+}
+
+.case-study-type {
+    margin: 0 0 15px;
+
+    color: var(--cyan);
+
+    font-family: "Press Start 2P", monospace;
+    font-size: 0.65rem;
+    line-height: 1.7;
+    letter-spacing: 0.04em;
+}
+
+.case-study-content h2 {
+    margin: 0 0 18px;
+
+    font-family: "Press Start 2P", monospace;
+    font-size: 1.5rem;
+    line-height: 1.5;
+
+    color: var(--text);
+}
+
+.case-study-summary {
+    max-width: 760px;
+
+    margin: 0 0 35px;
+
+    color: var(--text-secondary);
+
+    font-size: 1.15rem;
+    line-height: 1.7;
+}
+
+
+/* ========================================
+   THREE-COLUMN DETAILS
+======================================== */
+
+.case-study-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+
+    padding-top: 30px;
+    border-top: 1px solid var(--border);
+}
+
+.case-study-section h3 {
+    margin: 0 0 12px;
+
+    color: var(--green);
+
+    font-family: "Press Start 2P", monospace;
+    font-size: 0.65rem;
+    line-height: 1.6;
+}
+
+.case-study-section p {
+    margin: 0;
+
+    color: var(--text-secondary);
+
+    font-family: "VT323", monospace;
+    font-size: 1.25rem;
+    line-height: 1.45;
+}
+
+
+/* ========================================
+   RESULT / FOCUS
+======================================== */
+
+.case-study-result {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 25px;
+
+    margin-top: 35px;
+    padding: 25px;
+
+    background: var(--dark-cyan);
+    border-left: 3px solid var(--cyan);
+}
+
+.case-study-result span {
+    color: var(--cyan);
+
+    font-family: "Press Start 2P", monospace;
+    font-size: 0.6rem;
+    line-height: 1.6;
+}
+
+.case-study-result p {
+    margin: 0;
+
+    color: var(--text);
+
+    font-family: "VT323", monospace;
+    font-size: 1.3rem;
+    line-height: 1.45;
+}
+
+
+/* ========================================
+   CONFIDENTIALITY NOTE
+======================================== */
+
+.case-study-note {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px 100px;
+}
+
+.case-study-note p {
+    max-width: 850px;
+
+    margin: 0 auto;
+    padding: 25px;
+
+    border: 1px dashed var(--border);
+
+    color: var(--text-muted);
+
+    font-family: "VT323", monospace;
+    font-size: 1.2rem;
+    line-height: 1.5;
+
+    text-align: center;
+}
+
+
+/* ========================================
+   CTA
+======================================== */
+
+.case-study-cta {
+    padding: 100px 24px;
+
+    text-align: center;
+
+    border-top: 1px solid var(--border);
+}
+
+.case-study-cta h2 {
+    margin: 20px 0 35px;
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 800px) {
+
+    .case-studies-hero {
+        padding: 70px 20px 50px;
+    }
+
+    .case-studies {
+        padding: 0 20px 60px;
+    }
+
+    .case-study-card {
+        grid-template-columns: 1fr;
+        gap: 20px;
+
+        padding: 30px 25px;
+    }
+
+    .case-study-number {
+        padding: 0;
+    }
+
+    .case-study-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .case-study-result {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .case-study-content h2 {
+        font-size: 1.15rem;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .case-studies-hero h1 {
+        font-size: 1.4rem;
+    }
+
+    .case-studies-intro {
+        font-size: 1rem;
+    }
+
+    .case-study-card {
+        padding: 25px 20px;
+    }
+
+    .case-study-summary {
+        font-size: 1rem;
+    }
+
+    .case-study-type {
+        font-size: 0.55rem;
+    }
+}
