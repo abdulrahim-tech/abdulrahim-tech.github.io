@@ -2,6 +2,29 @@
 
 
 /* ========================================
+   COLOR SYSTEM
+======================================== */
+
+:root {
+    --bg: #0b0f14;
+    --bg-card: #111821;
+    --bg-card-hover: #131e29;
+
+    --text: #f2f5f7;
+    --text-secondary: #b4bec8;
+    --text-muted: #687583;
+
+    --border: #263442;
+    --border-hover: #00e5ff;
+
+    --cyan: #00e5ff;
+    --green: #b8ff3d;
+
+    --dark-cyan: #061016;
+}
+
+
+/* ========================================
    RESET
 ======================================== */
 
@@ -15,11 +38,23 @@ html {
 
 body {
     margin: 0;
+
     font-family: "VT323", monospace;
-    background: #0b0b0b;
-    color: #e8e8e8;
+
+    background-color: var(--bg);
+
+    /* Subtle 8-bit grid */
+    background-image:
+        linear-gradient(rgba(0, 229, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 229, 255, 0.025) 1px, transparent 1px);
+
+    background-size: 32px 32px;
+
+    color: var(--text);
+
     font-size: 20px;
     line-height: 1.5;
+
     animation: fadeIn 0.6s ease-in;
 }
 
@@ -39,21 +74,24 @@ img {
 .navbar {
     max-width: 1200px;
     margin: 0 auto;
+
     padding: 22px 30px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    border-bottom: 2px solid #444;
+    border-bottom: 2px solid var(--border);
 }
 
 .logo {
     display: flex;
     align-items: center;
+
     gap: 10px;
 
-    color: #fff;
+    color: var(--text);
+
     text-decoration: none;
 
     font-family: "Press Start 2P", monospace;
@@ -65,14 +103,18 @@ img {
     height: 35px;
 
     object-fit: cover;
-    border-radius: 0;
-    border: 2px solid #777;
 
-    transition: transform 0.2s ease;
+    border-radius: 0;
+    border: 2px solid var(--border);
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
 }
 
 .logo:hover img {
     transform: scale(1.08);
+    border-color: var(--cyan);
 }
 
 .navbar nav {
@@ -81,21 +123,29 @@ img {
 }
 
 .navbar nav a {
-    color: #999;
+    color: var(--text-muted);
+
     text-decoration: none;
+
     font-size: 20px;
 
-    transition: color 0.2s ease;
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
 }
 
 .navbar nav a::before {
     content: "> ";
+
+    color: var(--green);
+
     opacity: 0;
+
     transition: opacity 0.2s ease;
 }
 
 .navbar nav a:hover {
-    color: #fff;
+    color: var(--cyan);
 }
 
 .navbar nav a:hover::before {
@@ -111,16 +161,19 @@ img {
     margin: 0 0 20px;
 
     font-family: "Press Start 2P", monospace;
+
     font-size: 10px;
     font-weight: normal;
+
     letter-spacing: 1px;
 
-    color: #888;
+    color: var(--cyan);
 }
 
 .eyebrow::before {
     content: "> ";
-    color: #fff;
+
+    color: var(--green);
 }
 
 
@@ -134,7 +187,7 @@ img {
     padding: 12px 20px;
 
     border-radius: 0;
-    border: 2px solid #777;
+    border: 2px solid var(--border);
 
     text-decoration: none;
 
@@ -144,30 +197,43 @@ img {
     transition:
         transform 0.15s ease,
         background-color 0.15s ease,
-        color 0.15s ease;
+        color 0.15s ease,
+        border-color 0.15s ease;
 }
 
 .button.primary {
-    background: #e8e8e8;
-    color: #111;
-    border-color: #e8e8e8;
+    background: var(--cyan);
+
+    color: var(--dark-cyan);
+
+    border-color: var(--cyan);
 }
 
 .button.primary:hover {
-    background: #111;
-    color: #fff;
+    background: var(--green);
+
+    color: var(--dark-cyan);
+
+    border-color: var(--green);
+
     transform: translateY(-2px);
 }
 
 .button.secondary {
-    border: 2px solid #555;
-    color: #ddd;
-    background: #111;
+    border: 2px solid var(--border);
+
+    color: var(--text);
+
+    background: var(--bg-card);
 }
 
 .button.secondary:hover {
-    border-color: #aaa;
-    background: #1a1a1a;
+    border-color: var(--cyan);
+
+    color: var(--cyan);
+
+    background: var(--bg-card-hover);
+
     transform: translateY(-2px);
 }
 
@@ -183,6 +249,7 @@ img {
     padding: 100px 30px 120px;
 
     display: grid;
+
     grid-template-columns: 1.5fr 1fr;
 
     align-items: center;
@@ -198,19 +265,25 @@ img {
     margin: 0 0 30px;
 
     font-family: "Press Start 2P", monospace;
+
     font-size: 48px;
     font-weight: normal;
+
     line-height: 1.4;
+
     letter-spacing: 0;
 }
 
 .hero h1::after {
     content: "_";
+
+    color: var(--green);
+
     animation: blink 1s steps(1) infinite;
 }
 
 .hero h1 span {
-    color: #777;
+    color: var(--cyan);
 }
 
 .hero-description {
@@ -219,37 +292,48 @@ img {
     margin-bottom: 35px;
 
     font-size: 24px;
+
     line-height: 1.5;
 
-    color: #aaa;
+    color: var(--text-secondary);
 }
 
 .hero-buttons {
     display: flex;
+
     gap: 15px;
+
     flex-wrap: wrap;
 }
 
 .hero-image img {
     width: 100%;
+
     max-width: 400px;
 
     display: block;
+
     margin: 0 auto;
 
     border-radius: 0;
-    border: 3px solid #555;
+
+    border: 3px solid var(--border);
+
     padding: 8px;
 
     filter: grayscale(100%);
 
     transition:
         filter 0.3s ease,
-        transform 0.3s ease;
+        transform 0.3s ease,
+        border-color 0.3s ease;
 }
 
 .hero-image img:hover {
     filter: grayscale(0%);
+
+    border-color: var(--cyan);
+
     transform: translateY(-3px);
 }
 
@@ -260,6 +344,7 @@ img {
 
 .specialties {
     max-width: 1200px;
+
     margin: 0 auto;
 
     padding: 100px 30px;
@@ -269,29 +354,38 @@ img {
     margin: 0 0 60px;
 
     font-family: "Press Start 2P", monospace;
+
     font-size: 28px;
     font-weight: normal;
+
     line-height: 1.5;
+
     letter-spacing: 0;
+
+    color: var(--text);
 }
 
 .specialties h2::before {
     content: "> ";
+
+    color: var(--cyan);
 }
 
 .specialty-grid {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
 
     gap: 20px;
 }
 
 .specialty-card {
-    background: #111;
+    background: var(--bg-card);
 
     padding: 30px;
 
-    border: 2px solid #444;
+    border: 2px solid var(--border);
+
     border-radius: 0;
 
     box-shadow: none;
@@ -304,17 +398,20 @@ img {
 
 .specialty-card:hover {
     transform: translateY(-3px);
-    border-color: #888;
-    background: #151515;
+
+    border-color: var(--cyan);
+
+    background: var(--bg-card-hover);
 }
 
 .card-number {
     margin-bottom: 25px;
 
     font-size: 18px;
+
     font-weight: normal;
 
-    color: #777;
+    color: var(--green);
 }
 
 .card-number::before {
@@ -329,18 +426,24 @@ img {
     margin: 0 0 15px;
 
     font-family: "Press Start 2P", monospace;
+
     font-size: 13px;
+
     font-weight: normal;
+
     line-height: 1.7;
+
+    color: var(--text);
 }
 
 .specialty-card p {
     margin: 0;
 
     font-size: 20px;
+
     line-height: 1.5;
 
-    color: #999;
+    color: var(--text-secondary);
 }
 
 
@@ -350,6 +453,7 @@ img {
 
 .tools-section {
     max-width: 1200px;
+
     margin: 0 auto;
 
     padding: 80px 30px;
@@ -366,21 +470,26 @@ img {
 .tools-list span {
     padding: 9px 15px;
 
-    background: #111;
+    background: var(--bg-card);
 
-    border: 2px solid #444;
+    border: 2px solid var(--border);
+
     border-radius: 0;
 
     font-size: 18px;
 
     transition:
         border-color 0.2s ease,
-        background-color 0.2s ease;
+        background-color 0.2s ease,
+        color 0.2s ease;
 }
 
 .tools-list span:hover {
-    border-color: #888;
-    background: #181818;
+    border-color: var(--green);
+
+    background: #141d19;
+
+    color: var(--green);
 }
 
 
@@ -390,23 +499,30 @@ img {
 
 .cta {
     max-width: 1200px;
+
     margin: 0 auto;
 
     padding: 120px 30px;
 
     text-align: center;
 
-    border-top: 2px solid #333;
+    border-top: 2px solid var(--border);
 }
 
 .cta h2 {
     margin: 0 auto 35px;
 
     font-family: "Press Start 2P", monospace;
+
     font-size: 30px;
+
     font-weight: normal;
+
     line-height: 1.6;
+
     letter-spacing: 0;
+
+    color: var(--text);
 }
 
 
@@ -419,9 +535,9 @@ footer {
 
     text-align: center;
 
-    border-top: 2px solid #333;
+    border-top: 2px solid var(--border);
 
-    color: #666;
+    color: var(--text-muted);
 
     font-size: 17px;
 }
@@ -462,6 +578,7 @@ footer {
 
     .navbar {
         padding: 20px;
+
         gap: 20px;
     }
 
@@ -529,7 +646,9 @@ footer {
     *::before,
     *::after {
         animation-duration: 0.01ms !important;
+
         animation-iteration-count: 1 !important;
+
         transition-duration: 0.01ms !important;
     }
 }
@@ -541,6 +660,7 @@ footer {
 
 .page-header {
     max-width: 900px;
+
     margin: 0 auto;
 
     padding: 100px 30px 70px;
@@ -552,10 +672,22 @@ footer {
     margin: 0 0 25px;
 
     font-family: "Press Start 2P", monospace;
+
     font-size: 32px;
+
     font-weight: normal;
+
     line-height: 1.5;
+
     letter-spacing: 0;
+
+    color: var(--text);
+}
+
+.page-header h1::before {
+    content: "> ";
+
+    color: var(--cyan);
 }
 
 .page-intro {
@@ -564,9 +696,10 @@ footer {
     margin: 0;
 
     font-size: 23px;
+
     line-height: 1.5;
 
-    color: #aaa;
+    color: var(--text-secondary);
 }
 
 
@@ -576,15 +709,17 @@ footer {
 
 .clients {
     max-width: 900px;
+
     margin: 0 auto;
 
     padding: 40px 30px 80px;
 }
 
 .client-box {
-    background: #111;
+    background: var(--bg-card);
 
-    border: 2px solid #444;
+    border: 2px solid var(--border);
+
     border-radius: 0;
 
     margin-bottom: 15px;
@@ -593,17 +728,21 @@ footer {
 
     transition:
         transform 0.2s ease,
-        border-color 0.2s ease;
+        border-color 0.2s ease,
+        background-color 0.2s ease;
 }
 
 .client-box:hover {
     transform: translateY(-2px);
-    border-color: #888;
+
+    border-color: var(--cyan);
 }
 
 .client-box summary {
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
 
     padding: 22px 25px;
@@ -611,7 +750,9 @@ footer {
     cursor: pointer;
 
     font-family: "Press Start 2P", monospace;
+
     font-size: 12px;
+
     font-weight: normal;
 
     list-style: none;
@@ -622,36 +763,47 @@ footer {
 }
 
 .client-box summary:hover {
-    background: #181818;
+    background: var(--bg-card-hover);
+
+    color: var(--cyan);
 }
 
 .plus {
     font-family: "VT323", monospace;
+
     font-size: 30px;
+
     font-weight: normal;
 
-    color: #888;
+    color: var(--cyan);
 
     transition: transform 0.2s ease;
 }
 
 .client-box[open] .plus {
     transform: rotate(45deg);
+
+    color: var(--green);
 }
 
 .client-content {
     padding: 0 25px 28px;
 
-    border-top: 2px solid #333;
+    border-top: 2px solid var(--border);
 }
 
 .client-content h3 {
     margin: 22px 0 10px;
 
     font-family: "Press Start 2P", monospace;
+
     font-size: 12px;
+
     font-weight: normal;
+
     line-height: 1.7;
+
+    color: var(--cyan);
 }
 
 .client-content p {
@@ -660,9 +812,10 @@ footer {
     margin: 0;
 
     font-size: 20px;
+
     line-height: 1.5;
 
-    color: #999;
+    color: var(--text-secondary);
 }
 
 
@@ -672,11 +825,14 @@ footer {
 
 .clients-note {
     max-width: 900px;
+
     margin: 0 auto;
 
     padding: 30px;
 
-    border-left: 4px solid #777;
+    border-left: 4px solid var(--green);
+
+    background: rgba(184, 255, 61, 0.025);
 }
 
 .clients-note p {
@@ -685,9 +841,10 @@ footer {
     margin: 0;
 
     font-size: 21px;
+
     line-height: 1.5;
 
-    color: #999;
+    color: var(--text-secondary);
 }
 
 
@@ -697,6 +854,7 @@ footer {
 
 .page-cta {
     max-width: 900px;
+
     margin: 0 auto;
 
     padding: 100px 30px;
@@ -708,9 +866,14 @@ footer {
     margin: 0 0 30px;
 
     font-family: "Press Start 2P", monospace;
+
     font-size: 23px;
+
     font-weight: normal;
+
     line-height: 1.6;
+
+    color: var(--text);
 }
 
 
@@ -734,11 +897,13 @@ footer {
 
     .client-box summary {
         font-size: 10px;
+
         padding: 20px;
     }
 
     .clients-note {
         margin: 0 20px;
+
         padding: 20px;
     }
 
@@ -755,6 +920,7 @@ footer {
 
 .about-section {
     max-width: 1100px;
+
     margin: 0 auto;
 
     padding: 100px 30px;
@@ -773,16 +939,28 @@ footer {
     margin: 0 0 25px;
 
     font-family: "Press Start 2P", monospace;
+
     font-size: 32px;
+
     font-weight: normal;
+
     line-height: 1.5;
+
+    color: var(--text);
+}
+
+.about-header h1::before {
+    content: "> ";
+
+    color: var(--cyan);
 }
 
 .intro {
     font-size: 24px;
+
     line-height: 1.5;
 
-    color: #aaa;
+    color: var(--text-secondary);
 }
 
 
@@ -790,6 +968,7 @@ footer {
 
 .about-content {
     display: grid;
+
     grid-template-columns: 2fr 1fr;
 
     gap: 70px;
@@ -799,9 +978,10 @@ footer {
 
 .about-text p {
     font-size: 21px;
+
     line-height: 1.6;
 
-    color: #aaa;
+    color: var(--text-secondary);
 
     margin-bottom: 30px;
 }
@@ -812,14 +992,22 @@ footer {
 .about-photo {
     overflow: hidden;
 
-    border: 2px solid #555;
+    border: 2px solid var(--border);
+
     padding: 10px;
 
-    background: #111;
+    background: var(--bg-card);
+
+    transition: border-color 0.3s ease;
+}
+
+.about-photo:hover {
+    border-color: var(--cyan);
 }
 
 .about-photo img {
     width: 100%;
+
     height: auto;
 
     display: block;
@@ -833,6 +1021,7 @@ footer {
 
 .about-photo:hover img {
     transform: scale(1.03);
+
     filter: grayscale(0%);
 }
 
@@ -841,7 +1030,7 @@ footer {
 
     font-size: 15px;
 
-    color: #777;
+    color: var(--text-muted);
 
     text-align: center;
 }
@@ -878,6 +1067,7 @@ footer {
 
 .contact-section {
     max-width: 900px;
+
     margin: 0 auto;
 
     padding: 100px 30px;
@@ -887,24 +1077,37 @@ footer {
     margin: 0 0 20px;
 
     font-family: "Press Start 2P", monospace;
+
     font-size: 32px;
+
     font-weight: normal;
+
     line-height: 1.5;
+
+    color: var(--text);
+}
+
+.contact-section h1::before {
+    content: "> ";
+
+    color: var(--cyan);
 }
 
 .contact-intro {
     max-width: 600px;
 
     font-size: 23px;
+
     line-height: 1.5;
 
-    color: #aaa;
+    color: var(--text-secondary);
 
     margin-bottom: 50px;
 }
 
 .contact-details {
     display: grid;
+
     grid-template-columns: repeat(2, 1fr);
 
     gap: 20px;
@@ -913,67 +1116,84 @@ footer {
 }
 
 .contact-item {
-    background: #111;
+    background: var(--bg-card);
 
     padding: 30px;
 
-    border: 2px solid #444;
+    border: 2px solid var(--border);
+
     border-radius: 0;
 
     box-shadow: none;
 
     transition:
         transform 0.2s ease,
-        border-color 0.2s ease;
+        border-color 0.2s ease,
+        background-color 0.2s ease;
 }
 
 .contact-item:hover {
     transform: translateY(-2px);
-    border-color: #888;
+
+    border-color: var(--cyan);
+
+    background: var(--bg-card-hover);
 }
 
 .contact-item h2 {
     margin-top: 0;
 
     font-family: "Press Start 2P", monospace;
+
     font-size: 10px;
+
     font-weight: normal;
 
     text-transform: uppercase;
+
     letter-spacing: 0;
 
-    color: #777;
+    color: var(--green);
 }
 
 .contact-item a {
     font-size: 21px;
 
-    color: #eee;
+    color: var(--cyan);
 
     text-decoration: none;
 
-    border-bottom: 1px dashed #555;
+    border-bottom: 1px dashed var(--cyan);
+
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease;
 }
 
 .contact-item a:hover {
-    color: #aaa;
-    border-color: #aaa;
+    color: var(--green);
+
+    border-color: var(--green);
 }
 
 .back-link {
-    color: #aaa;
+    color: var(--text-secondary);
 
     text-decoration: none;
 
     font-size: 20px;
+
+    transition: color 0.2s ease;
 }
 
 .back-link::before {
     content: "< ";
+
+    color: var(--green);
 }
 
 .back-link:hover {
-    color: #fff;
+    color: var(--cyan);
 }
 
 
