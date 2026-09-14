@@ -232,7 +232,46 @@
     </p>
 
 </footer>
+<script>
 
+    const brandedClicks = 4500;
+    const nonBrandedClicks = 5500;
+
+    const totalClicks =
+        brandedClicks + nonBrandedClicks;
+
+
+    const brandedPercentage =
+        (brandedClicks / totalClicks) * 100;
+
+
+    const nonBrandedPercentage =
+        (nonBrandedClicks / totalClicks) * 100;
+
+
+    const pieChart =
+        document.getElementById("organicTrafficPie");
+
+
+    pieChart.style.background =
+        `conic-gradient(
+            var(--cyan) 0% ${brandedPercentage}%,
+            var(--green) ${brandedPercentage}% 100%
+        )`;
+
+
+    document.getElementById("totalClicks").textContent =
+        totalClicks.toLocaleString();
+
+
+    document.getElementById("brandedValue").textContent =
+        `${brandedPercentage.toFixed(1)}% · ${brandedClicks.toLocaleString()}`;
+
+
+    document.getElementById("nonBrandedValue").textContent =
+        `${nonBrandedPercentage.toFixed(1)}% · ${nonBrandedClicks.toLocaleString()}`;
+
+</script>
 
 </body>
 
