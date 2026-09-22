@@ -3,4 +3,4 @@ Allow: /
 
 Hello there
 
-Sitemap: https://abdulrahim.github.io/sitemap.xml
+Sitemap: https://rahim-seo.com/sitemap.xml
