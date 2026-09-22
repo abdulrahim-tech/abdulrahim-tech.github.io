@@ -3,23 +3,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>https://abdulrahim.github.io/</loc>
-        <lastmod>2026-09-11</lastmod>
+        <loc>https://rahim-seo.com</loc>
+        <lastmod>2026-09-22</lastmod>
     </url>
 
     <url>
-        <loc>https://abdulrahim.github.io/public/about.html</loc>
-        <lastmod>2026-09-11</lastmod>
+        <loc>https://rahim-seo.com/about</loc>
+        <lastmod>2026-09-22</lastmod>
     </url>
 
     <url>
-        <loc>https://abdulrahim.github.io/public/clients.html</loc>
-        <lastmod>2026-09-11</lastmod>
+        <loc>https://rahim-seo.com/case-studies</loc>
+        <lastmod>2026-09-22</lastmod>
     </url>
 
     <url>
-        <loc>https://abdulrahim.github.io/public/contact.html</loc>
-        <lastmod>2026-09-11</lastmod>
+        <loc>https://rahim-seo.com/contact</loc>
+        <lastmod>2026-09-22</lastmod>
+    </url>
+    
+    <url>
+        <loc>https://rahim-seo.com/clients</loc>
+        <lastmod>2026-09-22</lastmod>
     </url>
 
 </urlset>
