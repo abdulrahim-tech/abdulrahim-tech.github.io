@@ -109,9 +109,12 @@ summary {
    NAVIGATION
 ======================================== */
 
-```css
 /* ========================================
    CASE STUDIES PAGE
+======================================== */
+
+/* ========================================
+   CASE STUDIES HERO
 ======================================== */
 
 .case-studies-hero {
@@ -126,6 +129,7 @@ summary {
 }
 
 .case-studies-hero h1 {
+    max-width: 850px;
     margin: 0 auto 30px;
 
     font-family: "Press Start 2P", monospace;
@@ -187,6 +191,480 @@ summary {
     background: var(--bg-card-hover);
 }
 
+
+/* ========================================
+   CASE STUDY NUMBER
+======================================== */
+
+.case-study-number {
+    font-family: "Press Start 2P", monospace;
+    font-size: 18px;
+    color: var(--cyan);
+    padding-top: 5px;
+}
+
+
+/* ========================================
+   CASE STUDY CONTENT
+======================================== */
+
+.case-study-content {
+    min-width: 0;
+}
+
+.case-study-type {
+    margin: 0 0 18px;
+
+    font-family: "Press Start 2P", monospace;
+    font-size: 11px;
+    line-height: 1.8;
+
+    color: var(--green);
+}
+
+.case-study-content > h2 {
+    margin: 0 0 20px;
+
+    font-family: "Press Start 2P", monospace;
+    font-size: 28px;
+    font-weight: normal;
+    line-height: 1.5;
+
+    color: var(--text);
+}
+
+.case-study-summary {
+    max-width: 760px;
+    margin: 0 0 45px;
+
+    color: var(--text-secondary);
+    font-size: 23px;
+    line-height: 1.5;
+}
+
+
+/* ========================================
+   CHALLENGE / WORK
+======================================== */
+
+.case-study-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+
+    margin-bottom: 50px;
+}
+
+.case-study-section {
+    padding: 25px;
+
+    background: var(--bg);
+    border: 1px solid var(--border);
+}
+
+.case-study-section h3 {
+    margin: 0 0 15px;
+
+    font-family: "Press Start 2P", monospace;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 1.7;
+
+    color: var(--cyan);
+}
+
+.case-study-section p {
+    margin: 0;
+
+    color: var(--text-secondary);
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+
+/* ========================================
+   CHART
+======================================== */
+
+.case-study-chart {
+    padding: 30px;
+
+    background: var(--bg);
+    border: 1px solid var(--border);
+}
+
+.case-study-chart-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 30px;
+
+    margin-bottom: 35px;
+}
+
+.case-study-chart-header > div:first-child span {
+    display: block;
+    margin-bottom: 10px;
+
+    font-family: "Press Start 2P", monospace;
+    font-size: 10px;
+    line-height: 1.6;
+
+    color: var(--green);
+}
+
+.case-study-chart-header h3 {
+    margin: 0 0 8px;
+
+    font-family: "Press Start 2P", monospace;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 1.6;
+
+    color: var(--text);
+}
+
+.case-study-chart-header p {
+    margin: 0;
+
+    color: var(--text-muted);
+    font-size: 19px;
+    line-height: 1.4;
+}
+
+
+/* ========================================
+   CHART TOGGLE
+======================================== */
+
+.chart-toggle {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.chart-year {
+    padding: 10px 14px;
+
+    font-family: "VT323", monospace;
+    font-size: 18px;
+
+    color: var(--text-muted);
+    background: transparent;
+
+    border: 1px solid var(--border);
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.chart-year:hover {
+    color: var(--text);
+    border-color: var(--cyan);
+}
+
+.chart-year.active {
+    color: var(--dark-cyan);
+    background: var(--cyan);
+    border-color: var(--cyan);
+}
+
+
+/* ========================================
+   CHART CONTENT
+======================================== */
+
+.chart-content {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    align-items: center;
+    gap: 55px;
+}
+
+
+/* ========================================
+   DONUT CHART
+======================================== */
+
+.pie-chart-wrapper {
+    position: relative;
+
+    width: 240px;
+    height: 240px;
+
+    margin: 0 auto;
+}
+
+.pie-chart {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    background: conic-gradient(
+        var(--cyan) 0% 71.6%,
+        var(--green) 71.6% 89.3%,
+        #7c8cff 89.3% 100%
+    );
+
+    transform: rotate(-90deg);
+}
+
+.pie-chart::after {
+    content: "";
+
+    position: absolute;
+    inset: 25%;
+
+    border-radius: 50%;
+
+    background: var(--bg);
+}
+
+
+/* ========================================
+   DONUT CENTER
+======================================== */
+
+.pie-chart-center {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    pointer-events: none;
+}
+
+.pie-chart-center strong {
+    font-family: "Press Start 2P", monospace;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 1.5;
+
+    color: var(--text);
+}
+
+.pie-chart-center span {
+    margin-top: 8px;
+
+    font-family: "Press Start 2P", monospace;
+    font-size: 9px;
+
+    color: var(--text-muted);
+}
+
+
+/* ========================================
+   CHART LEGEND
+======================================== */
+
+.pie-chart-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.legend-dot {
+    width: 14px;
+    height: 14px;
+
+    flex-shrink: 0;
+
+    border-radius: 2px;
+}
+
+.legend-dot.main-pages {
+    background: var(--cyan);
+}
+
+.legend-dot.blog {
+    background: var(--green);
+}
+
+.legend-dot.activity-hub {
+    background: #7c8cff;
+}
+
+.legend-item div {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.legend-item strong {
+    font-family: "Press Start 2P", monospace;
+    font-size: 11px;
+    font-weight: normal;
+    line-height: 1.6;
+
+    color: var(--text);
+}
+
+.legend-item div span {
+    font-size: 19px;
+    color: var(--text-secondary);
+}
+
+
+/* ========================================
+   CASE STUDY CTA
+======================================== */
+
+.case-study-cta {
+    max-width: 900px;
+    margin: 0 auto;
+
+    padding: 80px 30px 100px;
+
+    text-align: center;
+}
+
+.case-study-cta .eyebrow {
+    margin-bottom: 25px;
+}
+
+.case-study-cta h2 {
+    margin: 0 0 35px;
+
+    font-family: "Press Start 2P", monospace;
+    font-size: 28px;
+    font-weight: normal;
+    line-height: 1.7;
+
+    color: var(--text);
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 800px) {
+
+    .case-studies-hero {
+        padding: 70px 20px 50px;
+    }
+
+    .case-studies-hero h1 {
+        font-size: 24px;
+        line-height: 1.7;
+    }
+
+    .case-studies-intro {
+        font-size: 21px;
+    }
+
+    .case-studies {
+        padding: 10px 20px 70px;
+    }
+
+    .case-study-card {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 25px;
+    }
+
+    .case-study-number {
+        padding: 0;
+    }
+
+    .case-study-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .case-study-chart {
+        padding: 25px 20px;
+    }
+
+    .case-study-chart-header {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .chart-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .pie-chart-wrapper {
+        width: 210px;
+        height: 210px;
+    }
+
+    .pie-chart-center strong {
+        font-size: 17px;
+    }
+
+    .chart-toggle {
+        width: 100%;
+    }
+
+    .chart-year {
+        flex: 1;
+    }
+
+    .case-study-cta {
+        padding: 60px 20px 80px;
+    }
+
+    .case-study-cta h2 {
+        font-size: 22px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .case-studies-hero h1 {
+        font-size: 20px;
+    }
+
+    .case-study-content > h2 {
+        font-size: 22px;
+    }
+
+    .case-study-summary {
+        font-size: 21px;
+    }
+
+    .case-study-section p {
+        font-size: 19px;
+    }
+
+    .case-study-chart-header h3 {
+        font-size: 15px;
+    }
+
+    .pie-chart-wrapper {
+        width: 190px;
+        height: 190px;
+    }
+
+    .pie-chart-center strong {
+        font-size: 14px;
+    }
+
+    .legend-item strong {
+        font-size: 9px;
+    }
+}
 
 /* ========================================
    NUMBER
