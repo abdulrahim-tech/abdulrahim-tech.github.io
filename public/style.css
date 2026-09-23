@@ -27,8 +27,6 @@
     --shadow-color: rgba(0, 0, 0, 0.35);
 }
 
-/* Light theme */
-
 html[data-theme="light"] {
     --bg: #f2f5e9;
     --bg-card: #ffffff;
@@ -52,6 +50,7 @@ html[data-theme="light"] {
     --shadow-color: rgba(24, 47, 54, 0.12);
 }
 
+
 /* ========================================
    RESET
 ======================================== */
@@ -65,8 +64,8 @@ html {
 }
 
 body {
-    margin: 0;
     min-width: 0;
+    margin: 0;
 
     font-family: "VT323", monospace;
     font-size: 20px;
@@ -80,6 +79,8 @@ body {
         linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
 
     background-size: 32px 32px;
+
+    animation: fadeIn 0.6s ease-in;
 
     transition:
         background-color 0.25s ease,
@@ -105,1082 +106,83 @@ summary {
     color: var(--dark-cyan);
 }
 
+h1,
+h2,
+h3,
+h4,
+p {
+    overflow-wrap: anywhere;
+}
+
+
 /* ========================================
    NAVIGATION
 ======================================== */
 
-/* ========================================
-   CASE STUDIES PAGE
-======================================== */
-
-/* ========================================
-   CASE STUDIES HERO
-======================================== */
-
-.case-studies-hero {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 100px 30px 70px;
-    text-align: center;
-}
-
-.case-studies-hero .eyebrow {
-    margin-bottom: 25px;
-}
-
-.case-studies-hero h1 {
-    max-width: 850px;
-    margin: 0 auto 30px;
-
-    font-family: "Press Start 2P", monospace;
-    font-size: 34px;
-    font-weight: normal;
-    line-height: 1.6;
-
-    color: var(--text);
-}
-
-.case-studies-hero h1 span {
-    color: var(--cyan);
-}
-
-.case-studies-intro {
-    max-width: 680px;
+.navbar {
+    max-width: 1200px;
     margin: 0 auto;
 
-    color: var(--text-secondary);
-    font-size: 23px;
-    line-height: 1.6;
-}
+    padding: 20px 30px;
 
-
-/* ========================================
-   CASE STUDIES CONTAINER
-======================================== */
-
-.case-studies {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 20px 30px 100px;
-}
-
-
-/* ========================================
-   CASE STUDY CARD
-======================================== */
-
-.case-study-card {
-    display: grid;
-    grid-template-columns: 70px minmax(0, 1fr);
+    display: flex;
+    align-items: center;
     gap: 30px;
 
-    padding: 40px;
-
-    background: var(--bg-card);
-    border: 2px solid var(--border);
-
-    transition:
-        border-color 0.2s ease,
-        transform 0.2s ease,
-        background-color 0.2s ease;
+    border-bottom: 2px solid var(--border);
 }
 
-.case-study-card:hover {
-    border-color: var(--cyan);
-    transform: translateY(-3px);
-    background: var(--bg-card-hover);
-}
-
-
-/* ========================================
-   CASE STUDY NUMBER
-======================================== */
-
-.case-study-number {
-    font-family: "Press Start 2P", monospace;
-    font-size: 18px;
-    color: var(--cyan);
-    padding-top: 5px;
-}
-
-
-/* ========================================
-   CASE STUDY CONTENT
-======================================== */
-
-.case-study-content {
-    min-width: 0;
-}
-
-.case-study-type {
-    margin: 0 0 18px;
-
-    font-family: "Press Start 2P", monospace;
-    font-size: 11px;
-    line-height: 1.8;
-
-    color: var(--green);
-}
-
-.case-study-content > h2 {
-    margin: 0 0 20px;
-
-    font-family: "Press Start 2P", monospace;
-    font-size: 28px;
-    font-weight: normal;
-    line-height: 1.5;
-
-    color: var(--text);
-}
-
-.case-study-summary {
-    max-width: 760px;
-    margin: 0 0 45px;
-
-    color: var(--text-secondary);
-    font-size: 23px;
-    line-height: 1.5;
-}
-
-
-/* ========================================
-   CHALLENGE / WORK
-======================================== */
-
-.case-study-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 25px;
-
-    margin-bottom: 50px;
-}
-
-.case-study-section {
-    padding: 25px;
-
-    background: var(--bg);
-    border: 1px solid var(--border);
-}
-
-.case-study-section h3 {
-    margin: 0 0 15px;
-
-    font-family: "Press Start 2P", monospace;
-    font-size: 13px;
-    font-weight: normal;
-    line-height: 1.7;
-
-    color: var(--cyan);
-}
-
-.case-study-section p {
-    margin: 0;
-
-    color: var(--text-secondary);
-    font-size: 20px;
-    line-height: 1.5;
-}
-
-
-/* ========================================
-   CHART
-======================================== */
-
-.case-study-chart {
-    padding: 30px;
-
-    background: var(--bg);
-    border: 1px solid var(--border);
-}
-
-.case-study-chart-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 30px;
-
-    margin-bottom: 35px;
-}
-
-.case-study-chart-header > div:first-child span {
-    display: block;
-    margin-bottom: 10px;
-
-    font-family: "Press Start 2P", monospace;
-    font-size: 10px;
-    line-height: 1.6;
-
-    color: var(--green);
-}
-
-.case-study-chart-header h3 {
-    margin: 0 0 8px;
-
-    font-family: "Press Start 2P", monospace;
-    font-size: 18px;
-    font-weight: normal;
-    line-height: 1.6;
-
-    color: var(--text);
-}
-
-.case-study-chart-header p {
-    margin: 0;
-
-    color: var(--text-muted);
-    font-size: 19px;
-    line-height: 1.4;
-}
-
-
-/* ========================================
-   CHART TOGGLE
-======================================== */
-
-.chart-toggle {
-    display: flex;
-    gap: 8px;
-    flex-shrink: 0;
-}
-
-.chart-year {
-    padding: 10px 14px;
-
-    font-family: "VT323", monospace;
-    font-size: 18px;
-
-    color: var(--text-muted);
-    background: transparent;
-
-    border: 1px solid var(--border);
-
-    cursor: pointer;
-
-    transition:
-        color 0.2s ease,
-        border-color 0.2s ease,
-        background-color 0.2s ease;
-}
-
-.chart-year:hover {
-    color: var(--text);
-    border-color: var(--cyan);
-}
-
-.chart-year.active {
-    color: var(--dark-cyan);
-    background: var(--cyan);
-    border-color: var(--cyan);
-}
-
-
-/* ========================================
-   CHART CONTENT
-======================================== */
-
-.chart-content {
-    display: grid;
-    grid-template-columns: 280px minmax(0, 1fr);
-    align-items: center;
-    gap: 55px;
-}
-
-
-/* ========================================
-   DONUT CHART
-======================================== */
-
-.pie-chart-wrapper {
-    position: relative;
-
-    width: 240px;
-    height: 240px;
-
-    margin: 0 auto;
-}
-
-.pie-chart {
-    position: relative;
-
-    width: 100%;
-    height: 100%;
-
-    border-radius: 50%;
-
-    background: conic-gradient(
-        var(--cyan) 0% 71.6%,
-        var(--green) 71.6% 89.3%,
-        #7c8cff 89.3% 100%
-    );
-
-    transform: rotate(-90deg);
-}
-
-.pie-chart::after {
-    content: "";
-
-    position: absolute;
-    inset: 25%;
-
-    border-radius: 50%;
-
-    background: var(--bg);
-}
-
-
-/* ========================================
-   DONUT CENTER
-======================================== */
-
-.pie-chart-center {
-    position: absolute;
-    inset: 0;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    pointer-events: none;
-}
-
-.pie-chart-center strong {
-    font-family: "Press Start 2P", monospace;
-    font-size: 20px;
-    font-weight: normal;
-    line-height: 1.5;
-
-    color: var(--text);
-}
-
-.pie-chart-center span {
-    margin-top: 8px;
-
-    font-family: "Press Start 2P", monospace;
-    font-size: 9px;
-
-    color: var(--text-muted);
-}
-
-
-/* ========================================
-   CHART LEGEND
-======================================== */
-
-.pie-chart-legend {
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
-}
-
-.legend-item {
+.logo {
     display: flex;
     align-items: center;
-    gap: 15px;
-}
+    gap: 10px;
 
-.legend-dot {
-    width: 14px;
-    height: 14px;
-
-    flex-shrink: 0;
-
-    border-radius: 2px;
-}
-
-.legend-dot.main-pages {
-    background: var(--cyan);
-}
-
-.legend-dot.blog {
-    background: var(--green);
-}
-
-.legend-dot.activity-hub {
-    background: #7c8cff;
-}
-
-.legend-item div {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-}
-
-.legend-item strong {
-    font-family: "Press Start 2P", monospace;
-    font-size: 11px;
-    font-weight: normal;
-    line-height: 1.6;
+    margin-right: auto;
 
     color: var(--text);
-}
-
-.legend-item div span {
-    font-size: 19px;
-    color: var(--text-secondary);
-}
-
-
-/* ========================================
-   CASE STUDY CTA
-======================================== */
-
-.case-study-cta {
-    max-width: 900px;
-    margin: 0 auto;
-
-    padding: 80px 30px 100px;
-
-    text-align: center;
-}
-
-.case-study-cta .eyebrow {
-    margin-bottom: 25px;
-}
-
-.case-study-cta h2 {
-    margin: 0 0 35px;
-
-    font-family: "Press Start 2P", monospace;
-    font-size: 28px;
-    font-weight: normal;
-    line-height: 1.7;
-
-    color: var(--text);
-}
-
-
-/* ========================================
-   MOBILE
-======================================== */
-
-@media (max-width: 800px) {
-
-    .case-studies-hero {
-        padding: 70px 20px 50px;
-    }
-
-    .case-studies-hero h1 {
-        font-size: 24px;
-        line-height: 1.7;
-    }
-
-    .case-studies-intro {
-        font-size: 21px;
-    }
-
-    .case-studies {
-        padding: 10px 20px 70px;
-    }
-
-    .case-study-card {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 25px;
-    }
-
-    .case-study-number {
-        padding: 0;
-    }
-
-    .case-study-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .case-study-chart {
-        padding: 25px 20px;
-    }
-
-    .case-study-chart-header {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .chart-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .pie-chart-wrapper {
-        width: 210px;
-        height: 210px;
-    }
-
-    .pie-chart-center strong {
-        font-size: 17px;
-    }
-
-    .chart-toggle {
-        width: 100%;
-    }
-
-    .chart-year {
-        flex: 1;
-    }
-
-    .case-study-cta {
-        padding: 60px 20px 80px;
-    }
-
-    .case-study-cta h2 {
-        font-size: 22px;
-    }
-}
-
-
-@media (max-width: 480px) {
-
-    .case-studies-hero h1 {
-        font-size: 20px;
-    }
-
-    .case-study-content > h2 {
-        font-size: 22px;
-    }
-
-    .case-study-summary {
-        font-size: 21px;
-    }
-
-    .case-study-section p {
-        font-size: 19px;
-    }
-
-    .case-study-chart-header h3 {
-        font-size: 15px;
-    }
-
-    .pie-chart-wrapper {
-        width: 190px;
-        height: 190px;
-    }
-
-    .pie-chart-center strong {
-        font-size: 14px;
-    }
-
-    .legend-item strong {
-        font-size: 9px;
-    }
-}
-
-/* ========================================
-   NUMBER
-======================================== */
-
-.case-study-number {
-    padding-top: 4px;
-
-    color: var(--green);
-
-    font-family: "Press Start 2P", monospace;
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-
-/* ========================================
-   CASE STUDY CONTENT
-======================================== */
-
-.case-study-content {
-    min-width: 0;
-}
-
-.case-study-type {
-    margin: 0 0 18px;
-
-    color: var(--cyan);
-
-    font-family: "Press Start 2P", monospace;
-    font-size: 9px;
-    font-weight: normal;
-    line-height: 1.8;
-    letter-spacing: 0.5px;
-}
-
-.case-study-content h2 {
-    margin: 0 0 20px;
-
-    color: var(--text);
-
-    font-family: "Press Start 2P", monospace;
-    font-size: 27px;
-    font-weight: normal;
-    line-height: 1.6;
-}
-
-.case-study-summary {
-    max-width: 720px;
-    margin: 0 0 45px;
-
-    color: var(--text-secondary);
-    font-size: 23px;
-    line-height: 1.6;
-}
-
-
-/* ========================================
-   CHALLENGE / WORK
-======================================== */
-
-.case-study-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px;
-
-    margin-bottom: 55px;
-}
-
-.case-study-section {
-    padding: 25px;
-
-    background: var(--bg);
-    border: 2px solid var(--border);
-}
-
-.case-study-section h3 {
-    margin: 0 0 18px;
-
-    color: var(--green);
-
-    font-family: "Press Start 2P", monospace;
-    font-size: 10px;
-    font-weight: normal;
-    line-height: 1.8;
-}
-
-.case-study-section p {
-    margin: 0;
-
-    color: var(--text-secondary);
-    font-size: 20px;
-    line-height: 1.6;
-}
-
-
-/* ========================================
-   ORGANIC SEARCH CHART
-======================================== */
-
-.case-study-chart {
-    padding: 30px;
-
-    background: var(--bg);
-    border: 2px solid var(--border);
-}
-
-.case-study-chart-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 30px;
-
-    margin-bottom: 45px;
-}
-
-.case-study-chart-header > div:first-child > span {
-    display: block;
-    margin-bottom: 10px;
-
-    color: var(--green);
-
-    font-family: "Press Start 2P", monospace;
-    font-size: 9px;
-    line-height: 1.7;
-}
-
-.case-study-chart-header h3 {
-    margin: 0 0 10px;
-
-    color: var(--text);
-
-    font-family: "Press Start 2P", monospace;
-    font-size: 17px;
-    font-weight: normal;
-    line-height: 1.7;
-}
-
-.case-study-chart-header p {
-    margin: 0;
-
-    color: var(--text-muted);
-    font-size: 19px;
-    line-height: 1.5;
-}
-
-
-/* ========================================
-   YEAR TOGGLE
-======================================== */
-
-.chart-toggle {
-    display: flex;
-    flex-shrink: 0;
-    gap: 8px;
-}
-
-.chart-year {
-    padding: 8px 12px;
-
-    color: var(--text-muted);
-    background: var(--bg-card);
-
-    border: 2px solid var(--border);
-    border-radius: 0;
-
-    font-family: "VT323", monospace;
-    font-size: 18px;
-
-    cursor: pointer;
-
-    transition:
-        color 0.2s ease,
-        background-color 0.2s ease,
-        border-color 0.2s ease;
-}
-
-.chart-year:hover {
-    color: var(--cyan);
-    border-color: var(--cyan);
-}
-
-.chart-year.active {
-    color: var(--dark-cyan);
-    background: var(--cyan);
-    border-color: var(--cyan);
-}
-
-
-/* ========================================
-   CHART CONTENT
-======================================== */
-
-.chart-content {
-    display: grid;
-    grid-template-columns: 280px minmax(0, 1fr);
-    align-items: center;
-    gap: 55px;
-}
-
-
-/* ========================================
-   DONUT CHART
-======================================== */
-
-.pie-chart-wrapper {
-    position: relative;
-
-    width: 240px;
-    height: 240px;
-
-    margin: 0 auto;
-}
-
-.pie-chart {
-    width: 100%;
-    height: 100%;
-
-    border-radius: 50%;
-
-    background: conic-gradient(
-        var(--cyan) 0% 71.6%,
-        var(--green) 71.6% 89.3%,
-        #7c8cff 89.3% 100%
-    );
-
-    position: relative;
-}
-
-/*
-   Creates the hole in the middle of the pie
-   so the chart becomes a donut.
-*/
-
-.pie-chart::after {
-    content: "";
-
-    position: absolute;
-    inset: 28%;
-
-    border-radius: 50%;
-
-    background: var(--bg);
-}
-
-
-/* ========================================
-   DONUT CENTER
-======================================== */
-
-.pie-chart-center {
-    position: absolute;
-    inset: 0;
-
-    z-index: 2;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    pointer-events: none;
-
-    text-align: center;
-}
-
-.pie-chart-center strong {
-    display: block;
-
-    color: var(--text);
+    text-decoration: none;
 
     font-family: "Press Start 2P", monospace;
     font-size: 12px;
-    font-weight: normal;
-    line-height: 1.6;
 }
 
-.pie-chart-center span {
-    display: block;
-    margin-top: 6px;
+.logo img {
+    width: 36px;
+    height: 36px;
 
-    color: var(--text-muted);
+    flex-shrink: 0;
+
+    object-fit: cover;
+
+    border: 2px solid var(--border);
+}
+
+.logo:hover {
+    color: var(--cyan);
+}
+
+.navbar nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.navbar nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
 
     font-family: "VT323", monospace;
-    font-size: 17px;
-    line-height: 1;
-}
-
-
-/* ========================================
-   LEGEND
-======================================== */
-
-.pie-chart-legend {
-    display: grid;
-    gap: 22px;
-}
-
-.legend-item {
-    display: grid;
-    grid-template-columns: 14px minmax(0, 1fr);
-    align-items: start;
-    gap: 13px;
-}
-
-.legend-dot {
-    width: 12px;
-    height: 12px;
-
-    margin-top: 6px;
-}
-
-.legend-dot.main-pages {
-    background: var(--cyan);
-}
-
-.legend-dot.blog {
-    background: var(--green);
-}
-
-.legend-dot.activity-hub {
-    background: #7c8cff;
-}
-
-.legend-item strong {
-    display: block;
-    margin-bottom: 3px;
-
-    color: var(--text);
-
-    font-family: "Press Start 2P", monospace;
-    font-size: 10px;
-    font-weight: normal;
-    line-height: 1.7;
-}
-
-.legend-item div span {
-    display: block;
-
-    color: var(--text-secondary);
     font-size: 20px;
-    line-height: 1.5;
+
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease;
 }
 
-
-/* ========================================
-   CTA
-======================================== */
-
-.case-study-cta {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 100px 30px 120px;
-
-    text-align: center;
-
-    border-top: 2px solid var(--border);
+.navbar nav a:hover,
+.navbar nav a:focus-visible {
+    color: var(--cyan);
 }
-
-.case-study-cta .eyebrow {
-    margin-bottom: 25px;
-}
-
-.case-study-cta h2 {
-    margin: 0 0 35px;
-
-    color: var(--text);
-
-    font-family: "Press Start 2P", monospace;
-    font-size: 28px;
-    font-weight: normal;
-    line-height: 1.7;
-}
-
-
-/* ========================================
-   CASE STUDIES MOBILE
-======================================== */
-
-@media (max-width: 800px) {
-
-    .case-studies-hero {
-        padding: 70px 20px 55px;
-    }
-
-    .case-studies-hero h1 {
-        font-size: 25px;
-    }
-
-    .case-studies-intro {
-        font-size: 21px;
-    }
-
-    .case-studies {
-        padding: 10px 20px 70px;
-    }
-
-    .case-study-card {
-        grid-template-columns: 1fr;
-        gap: 20px;
-
-        padding: 25px;
-    }
-
-    .case-study-number {
-        padding: 0;
-    }
-
-    .case-study-content h2 {
-        font-size: 21px;
-    }
-
-    .case-study-summary {
-        font-size: 21px;
-        margin-bottom: 35px;
-    }
-
-    .case-study-grid {
-        grid-template-columns: 1fr;
-        margin-bottom: 40px;
-    }
-
-    .case-study-chart {
-        padding: 22px;
-    }
-
-    .case-study-chart-header {
-        flex-direction: column;
-        gap: 20px;
-        margin-bottom: 35px;
-    }
-
-    .chart-toggle {
-        width: 100%;
-    }
-
-    .chart-year {
-        flex: 1;
-    }
-
-    .chart-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .pie-chart-wrapper {
-        width: 210px;
-        height: 210px;
-    }
-
-    .pie-chart-center strong {
-        font-size: 10px;
-    }
-
-    .case-study-cta {
-        padding: 70px 20px 90px;
-    }
-
-    .case-study-cta h2 {
-        font-size: 21px;
-    }
-}
-
-
-@media (max-width: 480px) {
-
-    .case-studies-hero h1 {
-        font-size: 20px;
-    }
-
-    .case-study-card {
-        padding: 20px;
-    }
-
-    .case-study-type {
-        font-size: 8px;
-    }
-
-    .case-study-content h2 {
-        font-size: 18px;
-    }
-
-    .case-study-summary {
-        font-size: 20px;
-    }
-
-    .case-study-section {
-        padding: 20px;
-    }
-
-    .case-study-chart {
-        padding: 18px;
-    }
-
-    .case-study-chart-header h3 {
-        font-size: 14px;
-    }
-
-    .chart-year {
-        font-size: 16px;
-    }
-
-    .pie-chart-wrapper {
-        width: 180px;
-        height: 180px;
-    }
-
-    .pie-chart-center strong {
-        font-size: 8px;
-    }
-
-    .legend-item strong {
-        font-size: 8px;
-    }
-}
-```
 
 
 /* ========================================
@@ -1191,6 +193,8 @@ summary {
     display: inline-flex;
     align-items: center;
     gap: 8px;
+
+    flex-shrink: 0;
 
     padding: 6px 9px;
 
@@ -1221,10 +225,10 @@ summary {
 .theme-toggle-track {
     position: relative;
 
+    display: inline-block;
+
     width: 42px;
     height: 22px;
-
-    display: inline-block;
 
     background: var(--text-muted);
     border: 2px solid var(--text);
@@ -1241,6 +245,7 @@ summary {
     height: 14px;
 
     background: var(--text);
+
     transition: transform 0.2s ease;
 }
 
@@ -1258,26 +263,20 @@ html[data-theme="light"] .theme-toggle-thumb {
     text-align: left;
 }
 
+
 /* ========================================
    GENERAL TYPOGRAPHY
 ======================================== */
 
-h1,
-h2,
-h3,
-h4 {
-    overflow-wrap: anywhere;
-}
-
 .eyebrow {
     margin: 0 0 20px;
+
+    color: var(--cyan);
 
     font-family: "Press Start 2P", monospace;
     font-size: 10px;
     font-weight: normal;
     letter-spacing: 1px;
-
-    color: var(--cyan);
 }
 
 .eyebrow::before {
@@ -1285,9 +284,6 @@ h4 {
     color: var(--green);
 }
 
-p {
-    overflow-wrap: anywhere;
-}
 
 /* ========================================
    BUTTONS
@@ -1298,10 +294,14 @@ p {
 
     padding: 12px 20px;
 
+    color: var(--text);
+    background: transparent;
+
     border: 2px solid var(--border);
     border-radius: 0;
 
     text-decoration: none;
+
     font-family: "VT323", monospace;
     font-size: 20px;
 
@@ -1313,8 +313,8 @@ p {
 }
 
 .button.primary {
-    background: var(--cyan);
     color: var(--dark-cyan);
+    background: var(--cyan);
     border-color: var(--cyan);
 }
 
@@ -1326,18 +326,19 @@ p {
 }
 
 .button.secondary {
-    background: var(--bg-card);
     color: var(--text);
+    background: var(--bg-card);
     border-color: var(--border);
 }
 
 .button.secondary:hover,
 .button.secondary:focus-visible {
-    background: var(--bg-card-hover);
     color: var(--cyan);
+    background: var(--bg-card-hover);
     border-color: var(--cyan);
     transform: translateY(-2px);
 }
+
 
 /* ========================================
    HOMEPAGE HERO
@@ -1360,6 +361,8 @@ p {
 
 .hero h1 {
     margin: 0 0 30px;
+
+    color: var(--text);
 
     font-family: "Press Start 2P", monospace;
     font-size: 48px;
@@ -1396,9 +399,9 @@ p {
 .hero-image img {
     width: 100%;
     max-width: 400px;
+
     display: block;
     margin: 0 auto;
-
     padding: 8px;
 
     border: 3px solid var(--border);
@@ -1418,8 +421,6 @@ p {
     transform: translateY(-3px);
 }
 
-/* Optional homepage visual replacement */
-
 .hero-visual {
     min-height: 300px;
 
@@ -1429,8 +430,8 @@ p {
 
     padding: 25px;
 
-    border: 3px solid var(--border);
     background: var(--bg-card);
+    border: 3px solid var(--border);
 
     box-shadow: 8px 8px 0 var(--shadow-color);
 }
@@ -1439,11 +440,14 @@ p {
     margin: 0;
 
     color: var(--cyan);
+
     font-family: "VT323", monospace;
     font-size: 22px;
     line-height: 1.2;
+
     white-space: pre-wrap;
 }
+
 
 /* ========================================
    SPECIALTIES
@@ -1458,12 +462,12 @@ p {
 .specialties h2 {
     margin: 0 0 60px;
 
+    color: var(--text);
+
     font-family: "Press Start 2P", monospace;
     font-size: 28px;
     font-weight: normal;
     line-height: 1.5;
-
-    color: var(--text);
 }
 
 .specialties h2::before {
@@ -1491,8 +495,9 @@ p {
 
 .specialty-card:hover {
     transform: translateY(-3px);
-    border-color: var(--cyan);
+
     background: var(--bg-card-hover);
+    border-color: var(--cyan);
 }
 
 .card-number {
@@ -1529,6 +534,7 @@ p {
     line-height: 1.5;
 }
 
+
 /* ========================================
    TOOLS
 ======================================== */
@@ -1560,13 +566,14 @@ p {
 }
 
 .tools-list span:hover {
-    border-color: var(--green);
     background: var(--bg-card-hover);
+    border-color: var(--green);
     color: var(--green);
 }
 
+
 /* ========================================
-   CTA
+   GENERAL CTA
 ======================================== */
 
 .cta {
@@ -1575,19 +582,21 @@ p {
     padding: 120px 30px;
 
     text-align: center;
+
     border-top: 2px solid var(--border);
 }
 
 .cta h2 {
     margin: 0 auto 35px;
 
+    color: var(--text);
+
     font-family: "Press Start 2P", monospace;
     font-size: 30px;
     font-weight: normal;
     line-height: 1.6;
-
-    color: var(--text);
 }
+
 
 /* ========================================
    FOOTER
@@ -1596,13 +605,15 @@ p {
 footer {
     padding: 30px;
 
+    color: var(--text-muted);
+
     text-align: center;
 
     border-top: 2px solid var(--border);
 
-    color: var(--text-muted);
     font-size: 17px;
 }
+
 
 /* ========================================
    GENERAL PAGE HEADERS
@@ -1620,12 +631,12 @@ footer {
     max-width: 800px;
     margin: 0 0 25px;
 
+    color: var(--text);
+
     font-family: "Press Start 2P", monospace;
     font-size: 32px;
     font-weight: normal;
     line-height: 1.5;
-
-    color: var(--text);
 }
 
 .page-header h1::before,
@@ -1643,6 +654,7 @@ footer {
     font-size: 23px;
     line-height: 1.5;
 }
+
 
 /* ========================================
    CLIENTS PAGE
@@ -1691,12 +703,13 @@ footer {
 }
 
 .client-box summary:hover {
-    background: var(--bg-card-hover);
     color: var(--cyan);
+    background: var(--bg-card-hover);
 }
 
 .plus {
     color: var(--cyan);
+
     font-family: "VT323", monospace;
     font-size: 30px;
 
@@ -1712,6 +725,7 @@ footer {
 
 .client-content {
     padding: 0 25px 28px;
+
     border-top: 2px solid var(--border);
 }
 
@@ -1740,8 +754,8 @@ footer {
     margin: 0 auto;
     padding: 30px;
 
-    border-left: 4px solid var(--green);
     background: var(--note-bg);
+    border-left: 4px solid var(--green);
 }
 
 .clients-note p {
@@ -1764,13 +778,14 @@ footer {
 .page-cta h2 {
     margin: 0 0 30px;
 
+    color: var(--text);
+
     font-family: "Press Start 2P", monospace;
     font-size: 23px;
     font-weight: normal;
     line-height: 1.6;
-
-    color: var(--text);
 }
+
 
 /* ========================================
    ABOUT PAGE
@@ -1790,12 +805,12 @@ footer {
 .about-header h1 {
     margin: 0 0 25px;
 
+    color: var(--text);
+
     font-family: "Press Start 2P", monospace;
     font-size: 32px;
     font-weight: normal;
     line-height: 1.5;
-
-    color: var(--text);
 }
 
 .about-header h1::before {
@@ -1849,11 +864,7 @@ footer {
     text-align: center;
 }
 
-/* ========================================
-   CASE STUDIES
-======================================== */
 
-```css
 /* ========================================
    CASE STUDIES PAGE
 ======================================== */
@@ -1864,16 +875,20 @@ footer {
     padding: 100px 30px 70px;
 }
 
+.case-studies-hero .eyebrow {
+    margin-bottom: 25px;
+}
+
 .case-studies-hero h1 {
     max-width: 850px;
     margin: 0 0 30px;
+
+    color: var(--text);
 
     font-family: "Press Start 2P", monospace;
     font-size: 36px;
     font-weight: normal;
     line-height: 1.6;
-
-    color: var(--text);
 }
 
 .case-studies-hero h1 span {
@@ -1909,7 +924,7 @@ footer {
     position: relative;
 
     display: grid;
-    grid-template-columns: 70px 1fr;
+    grid-template-columns: 70px minmax(0, 1fr);
     gap: 30px;
 
     padding: 35px;
@@ -1925,27 +940,25 @@ footer {
 
 .case-study-card:hover {
     transform: translateY(-3px);
-    border-color: var(--cyan);
+
     background: var(--bg-card-hover);
-}
-
-
-/* ========================================
-   CASE STUDY NUMBER
-======================================== */
-
-.case-study-number {
-    color: var(--green);
-
-    font-family: "Press Start 2P", monospace;
-    font-size: 16px;
-    line-height: 1.6;
+    border-color: var(--cyan);
 }
 
 
 /* ========================================
    CASE STUDY CONTENT
 ======================================== */
+
+.case-study-number {
+    padding-top: 4px;
+
+    color: var(--green);
+
+    font-family: "Press Start 2P", monospace;
+    font-size: 16px;
+    line-height: 1.6;
+}
 
 .case-study-content {
     min-width: 0;
@@ -1958,6 +971,7 @@ footer {
 
     font-family: "Press Start 2P", monospace;
     font-size: 10px;
+    font-weight: normal;
     line-height: 1.7;
     letter-spacing: 0.5px;
 }
@@ -1984,12 +998,12 @@ footer {
 
 
 /* ========================================
-   CHALLENGE / WORK GRID
+   CASE STUDY CHALLENGE / WORK
 ======================================== */
 
 .case-study-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 25px;
 
     margin-bottom: 50px;
@@ -2023,7 +1037,7 @@ footer {
 
 
 /* ========================================
-   ORGANIC SEARCH CHART
+   CASE STUDY CHART
 ======================================== */
 
 .case-study-chart {
@@ -2080,6 +1094,7 @@ footer {
 .chart-toggle {
     display: flex;
     flex-wrap: wrap;
+    flex-shrink: 0;
     gap: 8px;
 }
 
@@ -2121,14 +1136,14 @@ footer {
 
 .chart-content {
     display: grid;
-    grid-template-columns: 260px 1fr;
+    grid-template-columns: 260px minmax(0, 1fr);
     align-items: center;
     gap: 50px;
 }
 
 
 /* ========================================
-   PIE CHART
+   DONUT CHART
 ======================================== */
 
 .pie-chart-wrapper {
@@ -2141,6 +1156,8 @@ footer {
 }
 
 .pie-chart {
+    position: relative;
+
     width: 100%;
     height: 100%;
 
@@ -2153,6 +1170,22 @@ footer {
     );
 }
 
+.pie-chart::after {
+    content: "";
+
+    position: absolute;
+    inset: 28%;
+
+    border-radius: 50%;
+
+    background: var(--bg);
+}
+
+
+/* ========================================
+   DONUT CENTER
+======================================== */
+
 .pie-chart-center {
     position: absolute;
     top: 50%;
@@ -2160,6 +1193,8 @@ footer {
 
     width: 120px;
     height: 120px;
+
+    z-index: 2;
 
     display: flex;
     flex-direction: column;
@@ -2169,10 +1204,10 @@ footer {
     transform: translate(-50%, -50%);
 
     background: var(--bg);
-
     border: 2px solid var(--border);
 
     text-align: center;
+    pointer-events: none;
 }
 
 .pie-chart-center strong {
@@ -2195,7 +1230,7 @@ footer {
 
 
 /* ========================================
-   PIE CHART LEGEND
+   CHART LEGEND
 ======================================== */
 
 .pie-chart-legend {
@@ -2205,7 +1240,7 @@ footer {
 
 .legend-item {
     display: grid;
-    grid-template-columns: 14px 1fr;
+    grid-template-columns: 14px minmax(0, 1fr);
     align-items: start;
     gap: 14px;
 }
@@ -2264,6 +1299,10 @@ footer {
     border-top: 2px solid var(--border);
 }
 
+.case-study-cta .eyebrow {
+    margin-bottom: 25px;
+}
+
 .case-study-cta h2 {
     margin: 0 0 35px;
 
@@ -2275,152 +1314,6 @@ footer {
     line-height: 1.7;
 }
 
-
-/* ========================================
-   CASE STUDIES MOBILE
-======================================== */
-
-@media (max-width: 800px) {
-
-    .case-studies-hero {
-        padding: 70px 20px 50px;
-    }
-
-    .case-studies-hero h1 {
-        font-size: 26px;
-    }
-
-    .case-studies-intro {
-        font-size: 21px;
-    }
-
-    .case-studies {
-        padding: 10px 20px 70px;
-    }
-
-    .case-study-card {
-        grid-template-columns: 1fr;
-        gap: 20px;
-
-        padding: 25px;
-    }
-
-    .case-study-number {
-        font-size: 13px;
-    }
-
-    .case-study-content h2 {
-        font-size: 21px;
-    }
-
-    .case-study-summary {
-        font-size: 21px;
-    }
-
-    .case-study-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-
-    .case-study-chart {
-        padding: 20px;
-    }
-
-    .case-study-chart-header {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .chart-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .pie-chart-wrapper {
-        width: 210px;
-        height: 210px;
-    }
-
-    .pie-chart-center {
-        width: 105px;
-        height: 105px;
-    }
-
-    .pie-chart-center strong {
-        font-size: 10px;
-    }
-
-    .case-study-cta {
-        padding: 70px 20px 90px;
-    }
-
-    .case-study-cta h2 {
-        font-size: 21px;
-    }
-}
-
-
-@media (max-width: 480px) {
-
-    .case-studies-hero h1 {
-        font-size: 21px;
-    }
-
-    .case-study-card {
-        padding: 20px;
-    }
-
-    .case-study-type {
-        font-size: 8px;
-    }
-
-    .case-study-content h2 {
-        font-size: 18px;
-    }
-
-    .case-study-summary {
-        font-size: 20px;
-    }
-
-    .case-study-section {
-        padding: 20px;
-    }
-
-    .case-study-section h3 {
-        font-size: 9px;
-    }
-
-    .case-study-chart {
-        padding: 15px;
-    }
-
-    .case-study-chart-header h3 {
-        font-size: 14px;
-    }
-
-    .chart-year {
-        font-size: 16px;
-    }
-
-    .pie-chart-wrapper {
-        width: 180px;
-        height: 180px;
-    }
-
-    .pie-chart-center {
-        width: 90px;
-        height: 90px;
-    }
-
-    .pie-chart-center strong {
-        font-size: 8px;
-    }
-
-    .legend-item strong {
-        font-size: 8px;
-    }
-}
-```
 
 /* ========================================
    BLOG LISTING
@@ -2449,8 +1342,9 @@ footer {
 
 .blog-card:hover {
     transform: translateY(-3px);
-    border-color: var(--cyan);
+
     background: var(--bg-card-hover);
+    border-color: var(--cyan);
 }
 
 .blog-card h2 {
@@ -2488,6 +1382,7 @@ footer {
 .blog-read-more:hover {
     color: var(--cyan);
 }
+
 
 /* ========================================
    ARTICLE PAGE
@@ -2561,6 +1456,7 @@ footer {
 
 .article-content a {
     color: var(--cyan);
+
     text-decoration: underline;
     text-decoration-thickness: 2px;
     text-underline-offset: 3px;
@@ -2609,6 +1505,7 @@ footer {
 
 .article-divider {
     margin: 50px 0;
+
     border: 0;
     border-top: 2px solid var(--border);
 }
@@ -2617,6 +1514,7 @@ footer {
     color: var(--text-muted);
     font-size: 18px;
 }
+
 
 /* ========================================
    CONTACT PAGE
@@ -2630,6 +1528,8 @@ footer {
 
 .contact-section h1 {
     margin: 0 0 25px;
+
+    color: var(--text);
 
     font-family: "Press Start 2P", monospace;
     font-size: 32px;
@@ -2659,6 +1559,39 @@ footer {
     color: var(--green);
 }
 
+
+/* ========================================
+   TABLES
+======================================== */
+
+table {
+    width: 100%;
+    margin: 30px 0;
+
+    border-collapse: collapse;
+
+    font-size: 20px;
+}
+
+th,
+td {
+    padding: 12px;
+
+    text-align: left;
+
+    border: 2px solid var(--border);
+}
+
+th {
+    color: var(--cyan);
+    background: var(--bg-card);
+}
+
+td {
+    color: var(--text-secondary);
+}
+
+
 /* ========================================
    ANIMATIONS
 ======================================== */
@@ -2685,42 +1618,13 @@ footer {
     }
 }
 
-body {
-    animation: fadeIn 0.6s ease-in;
-}
 
 /* ========================================
-   TABLES
-======================================== */
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 30px 0;
-    font-size: 20px;
-}
-
-th,
-td {
-    padding: 12px;
-    text-align: left;
-    border: 2px solid var(--border);
-}
-
-th {
-    color: var(--cyan);
-    background: var(--bg-card);
-}
-
-td {
-    color: var(--text-secondary);
-}
-
-/* ========================================
-   MOBILE
+   TABLET
 ======================================== */
 
 @media (max-width: 1000px) {
+
     .navbar {
         flex-wrap: wrap;
     }
@@ -2738,13 +1642,22 @@ td {
     }
 }
 
+
+/* ========================================
+   MOBILE
+======================================== */
+
 @media (max-width: 800px) {
+
+    /* Navigation */
+
     .navbar {
         padding: 20px;
     }
 
     .navbar nav {
         width: 100%;
+
         justify-content: flex-start;
         gap: 12px 18px;
     }
@@ -2757,9 +1670,14 @@ td {
         margin-left: auto;
     }
 
+
+    /* Homepage */
+
     .hero {
         grid-template-columns: 1fr;
+
         padding: 70px 20px 80px;
+
         gap: 50px;
     }
 
@@ -2779,6 +1697,9 @@ td {
         max-width: 280px;
     }
 
+
+    /* Specialties */
+
     .specialties {
         padding: 70px 20px;
     }
@@ -2791,9 +1712,15 @@ td {
         grid-template-columns: 1fr;
     }
 
+
+    /* Tools */
+
     .tools-section {
         padding: 60px 20px;
     }
+
+
+    /* General CTA */
 
     .cta {
         padding: 80px 20px;
@@ -2802,6 +1729,9 @@ td {
     .cta h2 {
         font-size: 21px;
     }
+
+
+    /* Page headers */
 
     .page-header,
     .page-hero {
@@ -2812,6 +1742,9 @@ td {
     .page-hero h1 {
         font-size: 22px;
     }
+
+
+    /* Clients */
 
     .clients {
         padding: 10px 20px 60px;
@@ -2831,10 +1764,10 @@ td {
         padding: 70px 20px;
     }
 
-    .about-section,
-    .case-studies-section,
-    .contact-section,
-    .article-page {
+
+    /* About */
+
+    .about-section {
         padding: 70px 20px;
     }
 
@@ -2843,13 +1776,123 @@ td {
         gap: 40px;
     }
 
-    .about-header h1,
-    .contact-section h1 {
+    .about-header h1 {
         font-size: 23px;
     }
 
     .intro {
         font-size: 22px;
+    }
+
+
+    /* Case Studies */
+
+    .case-studies-hero {
+        padding: 70px 20px 50px;
+    }
+
+    .case-studies-hero h1 {
+        font-size: 26px;
+    }
+
+    .case-studies-intro {
+        font-size: 21px;
+    }
+
+    .case-studies {
+        padding: 10px 20px 70px;
+    }
+
+    .case-study-card {
+        grid-template-columns: 1fr;
+        gap: 20px;
+
+        padding: 25px;
+    }
+
+    .case-study-number {
+        padding-top: 0;
+        font-size: 13px;
+    }
+
+    .case-study-content h2 {
+        font-size: 21px;
+    }
+
+    .case-study-summary {
+        margin-bottom: 35px;
+        font-size: 21px;
+    }
+
+    .case-study-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .case-study-chart {
+        padding: 20px;
+    }
+
+    .case-study-chart-header {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .chart-toggle {
+        width: 100%;
+    }
+
+    .chart-year {
+        flex: 1;
+    }
+
+    .chart-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .pie-chart-wrapper {
+        width: 210px;
+        height: 210px;
+    }
+
+    .pie-chart-center {
+        width: 105px;
+        height: 105px;
+    }
+
+    .pie-chart-center strong {
+        font-size: 10px;
+    }
+
+    .case-study-cta {
+        padding: 70px 20px 90px;
+    }
+
+    .case-study-cta h2 {
+        font-size: 21px;
+    }
+
+
+    /* Blog */
+
+    .blog-list {
+        padding: 10px 20px 70px;
+    }
+
+    .blog-card {
+        padding: 22px;
+    }
+
+    .blog-card h2 {
+        font-size: 14px;
+    }
+
+
+    /* Article */
+
+    .article-page {
+        padding: 70px 20px;
     }
 
     .article-header h1 {
@@ -2869,20 +1912,25 @@ td {
         font-size: 21px;
     }
 
-    .blog-list {
-        padding: 10px 20px 70px;
+
+    /* Contact */
+
+    .contact-section {
+        padding: 70px 20px;
     }
 
-    .blog-card {
-        padding: 22px;
-    }
-
-    .blog-card h2 {
-        font-size: 14px;
+    .contact-section h1 {
+        font-size: 23px;
     }
 }
 
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
 @media (max-width: 480px) {
+
     .logo {
         font-size: 10px;
     }
@@ -2895,6 +1943,9 @@ td {
     .theme-toggle-label {
         display: none;
     }
+
+
+    /* Homepage */
 
     .hero h1 {
         font-size: 24px;
@@ -2909,20 +1960,89 @@ td {
         text-align: center;
     }
 
+
+    /* Specialties */
+
     .specialty-card {
         padding: 22px;
     }
+
+
+    /* Case Studies */
+
+    .case-studies-hero h1 {
+        font-size: 21px;
+    }
+
+    .case-study-card {
+        padding: 20px;
+    }
+
+    .case-study-type {
+        font-size: 8px;
+    }
+
+    .case-study-content h2 {
+        font-size: 18px;
+    }
+
+    .case-study-summary {
+        font-size: 20px;
+    }
+
+    .case-study-section {
+        padding: 20px;
+    }
+
+    .case-study-section h3 {
+        font-size: 9px;
+    }
+
+    .case-study-chart {
+        padding: 15px;
+    }
+
+    .case-study-chart-header h3 {
+        font-size: 14px;
+    }
+
+    .chart-year {
+        font-size: 16px;
+    }
+
+    .pie-chart-wrapper {
+        width: 180px;
+        height: 180px;
+    }
+
+    .pie-chart-center {
+        width: 90px;
+        height: 90px;
+    }
+
+    .pie-chart-center strong {
+        font-size: 8px;
+    }
+
+    .legend-item strong {
+        font-size: 8px;
+    }
+
+
+    /* Article */
 
     .article-header h1 {
         font-size: 21px;
     }
 }
 
+
 /* ========================================
    REDUCED MOTION
 ======================================== */
 
 @media (prefers-reduced-motion: reduce) {
+
     *,
     *::before,
     *::after {
