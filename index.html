@@ -401,677 +401,483 @@
     </div>
 
 
-    <!-- ========================================
-         THEME + LEAD FORM JAVASCRIPT
-    ========================================= -->
+  <script>
 
-    <script>
+/* ========================================
+   THEME TOGGLE
+======================================== */
 
-        /*
-         * ========================================
-         * THEME TOGGLE
-         * ========================================
-         */
+(function () {
 
-        (function () {
+    const html = document.documentElement;
+    const toggle = document.getElementById("theme-toggle");
+    const label = document.getElementById("theme-toggle-label");
 
-            const html = document.documentElement;
-            const toggle = document.getElementById("theme-toggle");
-            const label = document.getElementById("theme-toggle-label");
+    if (!toggle || !label) {
+        return;
+    }
 
-            if (!toggle || !label) {
-                return;
-            }
+    const savedTheme =
+        localStorage.getItem("rahim-theme");
 
-            const savedTheme =
-                localStorage.getItem("rahim-theme");
+    if (savedTheme === "light") {
+        html.setAttribute("data-theme", "light");
+    } else {
+        html.setAttribute("data-theme", "dark");
+    }
 
-            if (savedTheme === "light") {
-                html.setAttribute("data-theme", "light");
-            } else {
-                html.setAttribute("data-theme", "dark");
-            }
+    function updateToggle() {
 
-            function updateToggle() {
+        const isLight =
+            html.getAttribute("data-theme") === "light";
 
-                const isLight =
-                    html.getAttribute("data-theme") === "light";
+        label.textContent =
+            isLight ? "Light" : "Dark";
 
-                label.textContent =
-                    isLight ? "Light" : "Dark";
+        toggle.setAttribute(
+            "aria-label",
+            isLight
+                ? "Switch to dark theme"
+                : "Switch to light theme"
+        );
 
-                toggle.setAttribute(
-                    "aria-label",
-                    isLight
-                        ? "Switch to dark theme"
-                        : "Switch to light theme"
-                );
+        toggle.setAttribute(
+            "aria-pressed",
+            String(isLight)
+        );
 
-                toggle.setAttribute(
-                    "aria-pressed",
-                    String(isLight)
-                );
+    }
 
-            }
+    updateToggle();
+
+    toggle.addEventListener(
+        "click",
+        function () {
+
+            const isLight =
+                html.getAttribute("data-theme") === "light";
+
+            const nextTheme =
+                isLight ? "dark" : "light";
+
+            html.setAttribute(
+                "data-theme",
+                nextTheme
+            );
+
+            localStorage.setItem(
+                "rahim-theme",
+                nextTheme
+            );
 
             updateToggle();
 
-            toggle.addEventListener(
-                "click",
-                function () {
-
-                    const isLight =
-                        html.getAttribute("data-theme") === "light";
-
-                    const nextTheme =
-                        isLight ? "dark" : "light";
-
-                    html.setAttribute(
-                        "data-theme",
-                        nextTheme
-                    );
-
-                    localStorage.setItem(
-                        "rahim-theme",
-                        nextTheme
-                    );
-
-                    updateToggle();
-
-                }
-            );
-
-        })();
-
-
-        /*
-         * ========================================
-         * LEAD POPUP
-         * ========================================
-         */
-
-        (function () {
-
-            const overlay =
-                document.getElementById(
-                    "lead-popup-overlay"
-                );
-
-            const closeButton =
-                document.getElementById(
-                    "lead-popup-close"
-                );
-
-            const form =
-                document.getElementById(
-                    "lead-form"
-                );
-
-            const submitButton =
-                document.getElementById(
-                    "lead-submit"
-                );
-
-            const message =
-                document.getElementById(
-                    "lead-form-message"
-                );
-
-            const sessionInput =
-                document.getElementById(
-                    "lead-session-id"
-                );
-
-
-            const WORKER_URL =
-                "https://rahim-form.abdulrahim-aljrisi-creo.workers.dev/";
-
-
-            /*
-             * ----------------------------------------
-             * CREATE / RETRIEVE SESSION ID
-             * ----------------------------------------
-             */
-
-            let sessionId =
-                sessionStorage.getItem(
-                    "rahim-lead-session"
-                );
-
-
-            if (!sessionId) {
-
-                if (
-                    window.crypto &&
-                    crypto.randomUUID
-                ) {
-
-                    sessionId =
-                        crypto.randomUUID();
-
-                } else {
-
-                    sessionId =
-                        Date.now().toString(36) +
-                        Math.random()
-                            .toString(36)
-                            .substring(2);
-
-                }
-
-                sessionStorage.setItem(
-                    "rahim-lead-session",
-                    sessionId
-                );
-
-            }
-
-
-            sessionInput.value =
-                sessionId;
-
-
-            /*
-             * ----------------------------------------
-             * DON'T SHOW AGAIN IF ALREADY SUBMITTED
-             * ----------------------------------------
-             */
-
-            const alreadySubmitted =
-                sessionStorage.getItem(
-                    "rahim-lead-submitted"
-                );
-
-
-            /*
-             * ----------------------------------------
-             * OPEN POPUP
-             * ----------------------------------------
-             */
-
-            function openPopup() {
-
-                if (alreadySubmitted) {
-                    return;
-                }
-
-                overlay.classList.add(
-                    "is-visible"
-                );
-
-                overlay.setAttribute(
-                    "aria-hidden",
-                    "false"
-                );
-
-                setTimeout(
-                    function () {
-
-                        document
-                            .getElementById("lead-name")
-                            .focus();
-
-                    },
-                    100
-                );
-
-            }
-
-
-            /*
-             * ----------------------------------------
-             * CLOSE POPUP
-             * ----------------------------------------
-             */
-
-            function closePopup() {
-
-                overlay.classList.remove(
-                    "is-visible"
-                );
-
-                overlay.setAttribute(
-                    "aria-hidden",
-                    "true"
-                );
-
-            }
-
-
-            closeButton.addEventListener(
-                "click",
-                closePopup
-            );
-
-
-            /*
-             * Close if user clicks outside
-             * the Windows-style window.
-             */
-
-            overlay.addEventListener(
-                "click",
-                function (event) {
-
-                    if (event.target === overlay) {
-                        closePopup();
-                    }
-
-                }
-            );
-
-
-            /*
-             * Close with Escape.
-             */
-
-            document.addEventListener(
-                "keydown",
-                function (event) {
-
-                    if (
-                        event.key === "Escape" &&
-                        overlay.classList.contains(
-                            "is-visible"
-                        )
-                    ) {
-
-                        closePopup();
-
-                    }
-
-                }
-            );
-
-
-            /*
-             * ----------------------------------------
-             * SHOW POPUP WHEN PAGE LOADS
-             * ----------------------------------------
-             */
-
-            if (!alreadySubmitted) {
-
-                window.setTimeout(
-                    openPopup,
-                    700
-                );
-
-            }
-
-
-            /*
-             * ----------------------------------------
-             * FORM SUBMISSION
-             * ----------------------------------------
-             */
-
-         form.addEventListener(
-    "submit",
-    async function (event) {
-
-        event.preventDefault();
-
-
-        /*
-         * ----------------------------------------
-         * BASIC FORM VALIDATION
-         * ----------------------------------------
-         */
-
-        if (!form.checkValidity()) {
-
-            form.reportValidity();
-
-            return;
-
         }
+    );
+
+})();
 
 
-        /*
-         * ----------------------------------------
-         * BUILD FORM DATA
-         * ----------------------------------------
-         */
+/* ========================================
+   LEAD POPUP
+======================================== */
 
-        const formData =
-            new FormData(form);
+(function () {
 
+    const overlay =
+        document.getElementById(
+            "lead-popup-overlay"
+        );
 
-        /*
-         * ----------------------------------------
-         * CHECK TURNSTILE TOKEN
-         * ----------------------------------------
-         */
+    const closeButton =
+        document.getElementById(
+            "lead-popup-close"
+        );
 
-        const turnstileToken =
-            formData.get("cf-turnstile");
+    const form =
+        document.getElementById(
+            "lead-form"
+        );
 
+    const submitButton =
+        document.getElementById(
+            "lead-submit"
+        );
 
-        if (
-            !turnstileToken ||
-            String(turnstileToken).trim() === ""
-        ) {
+    const message =
+        document.getElementById(
+            "lead-form-message"
+        );
 
-            message.textContent =
-                "Please complete the verification.";
-
-            return;
-
-        }
-
-
-        /*
-         * ----------------------------------------
-         * MAKE SURE SESSION ID IS INCLUDED
-         * ----------------------------------------
-         */
-
-        formData.set(
-            "session_id",
-            sessionId
+    const sessionInput =
+        document.getElementById(
+            "lead-session-id"
         );
 
 
-        /*
-         * ----------------------------------------
-         * DISABLE SUBMIT BUTTON
-         * ----------------------------------------
-         */
+    /* ----------------------------------------
+       CHECK THAT POPUP ELEMENTS EXIST
+    ---------------------------------------- */
 
-        submitButton.disabled = true;
+    if (
+        !overlay ||
+        !closeButton ||
+        !form ||
+        !submitButton ||
+        !message ||
+        !sessionInput
+    ) {
 
-        submitButton.textContent =
-            "Submitting...";
+        console.error(
+            "Lead popup: required HTML elements were not found."
+        );
 
-        message.textContent = "";
+        return;
 
-
-        /*
-         * ----------------------------------------
-         * SEND TO CLOUDFLARE WORKER
-         * ----------------------------------------
-         */
-
-        try {
-
-            const response =
-                await fetch(
-                    WORKER_URL,
-                    {
-                        method: "POST",
-                        body: formData
-                    }
-                );
+    }
 
 
-            const result =
-                await response.json();
+    /* ----------------------------------------
+       CLOUDFLARE WORKER URL
+    ---------------------------------------- */
+
+    const WORKER_URL =
+        "https://rahim-form.abdulrahim-aljrisi-creo.workers.dev";
 
 
-            /*
-             * ----------------------------------------
-             * SUCCESS
-             * ----------------------------------------
-             */
+    /* ----------------------------------------
+       CREATE SESSION ID
+    ---------------------------------------- */
+
+    let sessionId =
+        sessionStorage.getItem(
+            "rahim-lead-session"
+        );
+
+
+    if (!sessionId) {
+
+        if (
+            window.crypto &&
+            typeof window.crypto.randomUUID === "function"
+        ) {
+
+            sessionId =
+                window.crypto.randomUUID();
+
+        } else {
+
+            sessionId =
+                Date.now().toString(36) +
+                Math.random()
+                    .toString(36)
+                    .substring(2);
+
+        }
+
+        sessionStorage.setItem(
+            "rahim-lead-session",
+            sessionId
+        );
+
+    }
+
+
+    sessionInput.value =
+        sessionId;
+
+
+    /* ----------------------------------------
+       CHECK WHETHER ALREADY SUBMITTED
+    ---------------------------------------- */
+
+    function hasAlreadySubmitted() {
+
+        return (
+            sessionStorage.getItem(
+                "rahim-lead-submitted"
+            ) === "true"
+        );
+
+    }
+
+
+    /* ----------------------------------------
+       OPEN POPUP
+    ---------------------------------------- */
+
+    function openPopup() {
+
+        if (hasAlreadySubmitted()) {
+            return;
+        }
+
+        overlay.classList.add(
+            "is-visible"
+        );
+
+        overlay.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+    }
+
+
+    /* ----------------------------------------
+       CLOSE POPUP
+    ---------------------------------------- */
+
+    function closePopup() {
+
+        overlay.classList.remove(
+            "is-visible"
+        );
+
+        overlay.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+    }
+
+
+    closeButton.addEventListener(
+        "click",
+        closePopup
+    );
+
+
+    /* ----------------------------------------
+       CLICK OUTSIDE POPUP
+    ---------------------------------------- */
+
+    overlay.addEventListener(
+        "click",
+        function (event) {
 
             if (
-                response.ok &&
-                result.success
+                event.target === overlay
             ) {
 
-                sessionStorage.setItem(
-                    "rahim-lead-submitted",
-                    "true"
-                );
+                closePopup();
+
+            }
+
+        }
+    );
 
 
-                message.textContent =
-                    "Thanks. I'll get back to you.";
+    /* ----------------------------------------
+       ESCAPE KEY
+    ---------------------------------------- */
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (
+                event.key === "Escape" &&
+                overlay.classList.contains(
+                    "is-visible"
+                )
+            ) {
+
+                closePopup();
+
+            }
+
+        }
+    );
 
 
-                submitButton.textContent =
-                    "Submitted";
+    /* ----------------------------------------
+       SHOW POPUP
+    ---------------------------------------- */
+
+    if (!hasAlreadySubmitted()) {
+
+        setTimeout(
+            function () {
+
+                openPopup();
+
+            },
+            700
+        );
+
+    }
 
 
-                setTimeout(
-                    function () {
+    /* ----------------------------------------
+       FORM SUBMISSION
+    ---------------------------------------- */
 
-                        closePopup();
+    form.addEventListener(
+        "submit",
+        async function (event) {
 
-                    },
-                    1800
-                );
+            event.preventDefault();
 
+
+            /* Basic validation */
+
+            if (!form.checkValidity()) {
+
+                form.reportValidity();
 
                 return;
 
             }
 
 
-            /*
-             * ----------------------------------------
-             * SERVER ERROR
-             * ----------------------------------------
-             */
+            /* Build FormData */
 
-            message.textContent =
-                result.error ||
-                "Something went wrong. Please try again.";
+            const formData =
+                new FormData(form);
 
 
-            submitButton.disabled =
-                false;
+            /* Check Turnstile */
 
-            submitButton.textContent =
-                "Submit";
+            const turnstileToken =
+                formData.get(
+                    "cf-turnstile"
+                );
 
-
-            /*
-             * Reset Turnstile
-             * after failed submission.
-             */
 
             if (
-                window.turnstile
+                !turnstileToken ||
+                String(turnstileToken).trim() === ""
             ) {
 
-                window.turnstile.reset();
+                message.textContent =
+                    "Please complete the verification.";
+
+                return;
 
             }
 
 
-        } catch (error) {
+            /* Make sure session ID is included */
 
-
-            console.error(
-                "Lead form error:",
-                error
+            formData.set(
+                "session_id",
+                sessionId
             );
 
 
-            message.textContent =
-                "Unable to submit the form. Please try again.";
-
+            /* Disable button */
 
             submitButton.disabled =
-                false;
+                true;
 
             submitButton.textContent =
-                "Submit";
+                "Submitting...";
+
+            message.textContent =
+                "";
 
 
-            if (
-                window.turnstile
-            ) {
+            try {
 
-                window.turnstile.reset();
+                const response =
+                    await fetch(
+                        WORKER_URL,
+                        {
+                            method: "POST",
+                            body: formData
+                        }
+                    );
+
+
+                const result =
+                    await response.json();
+
+
+                if (
+                    response.ok &&
+                    result.success
+                ) {
+
+                    sessionStorage.setItem(
+                        "rahim-lead-submitted",
+                        "true"
+                    );
+
+                    message.textContent =
+                        "Thanks. I'll get back to you.";
+
+                    submitButton.textContent =
+                        "Submitted";
+
+
+                    setTimeout(
+                        function () {
+
+                            closePopup();
+
+                        },
+                        1800
+                    );
+
+                    return;
+
+                }
+
+
+                message.textContent =
+                    result.error ||
+                    "Something went wrong. Please try again.";
+
+
+                submitButton.disabled =
+                    false;
+
+                submitButton.textContent =
+                    "Submit";
+
+
+                if (
+                    window.turnstile
+                ) {
+
+                    window.turnstile.reset();
+
+                }
+
+            } catch (error) {
+
+                console.error(
+                    "Lead form error:",
+                    error
+                );
+
+                message.textContent =
+                    "Unable to connect to the form server. Please try again.";
+
+                submitButton.disabled =
+                    false;
+
+                submitButton.textContent =
+                    "Submit";
+
+
+                if (
+                    window.turnstile
+                ) {
+
+                    window.turnstile.reset();
+
+                }
 
             }
 
         }
+    );
 
-    }
-);
+})();
 
-
-                    /*
-                     * Make sure Turnstile has
-                     * produced a token.
-                     */
-
-                    const turnstileInput =
-                        form.querySelector(
-                            'input[name="cf-turnstile"]'
-                        );
-
-
-                    if (
-                        !turnstileInput ||
-                        !turnstileInput.value
-                    ) {
-
-                        message.textContent =
-                            "Please complete the verification.";
-
-                        return;
-
-                    }
-
-
-                    /*
-                     * Prevent multiple clicks.
-                     */
-
-                    submitButton.disabled = true;
-
-                    submitButton.textContent =
-                        "Submitting...";
-
-                    message.textContent = "";
-
-
-                    try {
-
-                        const formData =
-                            new FormData(form);
-
-
-                        const response =
-                            await fetch(
-                                WORKER_URL,
-                                {
-                                    method: "POST",
-                                    body: formData
-                                }
-                            );
-
-
-                        const result =
-                            await response.json();
-
-
-                        if (
-                            response.ok &&
-                            result.success
-                        ) {
-
-                            /*
-                             * Mark this browser session
-                             * as having submitted.
-                             */
-
-                            sessionStorage.setItem(
-                                "rahim-lead-submitted",
-                                "true"
-                            );
-
-
-                            message.textContent =
-                                "Thanks. I'll get back to you.";
-
-
-                            submitButton.textContent =
-                                "Submitted";
-
-
-                            /*
-                             * Close after a short delay.
-                             */
-
-                            setTimeout(
-                                function () {
-                                    closePopup();
-                                },
-                                1800
-                            );
-
-
-                        } else {
-
-                            message.textContent =
-                                result.error ||
-                                "Something went wrong. Please try again.";
-
-                            submitButton.disabled =
-                                false;
-
-                            submitButton.textContent =
-                                "Submit";
-
-
-                            /*
-                             * Reset Turnstile after
-                             * failed verification.
-                             */
-
-                            if (
-                                window.turnstile
-                            ) {
-
-                                turnstile.reset();
-
-                            }
-
-                        }
-
-
-                    } catch (error) {
-
-                        console.error(
-                            "Lead form error:",
-                            error
-                        );
-
-
-                        message.textContent =
-                            "Unable to submit the form. Please try again.";
-
-
-                        submitButton.disabled =
-                            false;
-
-                        submitButton.textContent =
-                            "Submit";
-
-
-                        if (
-                            window.turnstile
-                        ) {
-
-                            turnstile.reset();
-
-                        }
-
-                    }
-
-                }
-            );
-
-        })();
-
-    </script>
-
+</script>
 </body>
 
 </html>
