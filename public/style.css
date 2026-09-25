@@ -2333,198 +2333,18 @@ blockquote {
 }
 
 
-/* =========================================================
-   FORM ELEMENTS
-   These help any future contact/form components match
-   the Windows 98 interface.
-========================================================= */
-
-input,
-textarea,
-select {
-    padding: 4px 5px;
-
-    color: #000000;
-    background: #ffffff;
-
-    border-top: 2px solid var(--win-shadow);
-    border-left: 2px solid var(--win-shadow);
-    border-right: 2px solid var(--win-light);
-    border-bottom: 2px solid var(--win-light);
-
-    border-radius: 0;
-
-    font-size: 13px;
-
-    outline: none;
-}
-
-input:focus,
-textarea:focus,
-select:focus {
-    outline: 1px dotted #000000;
-    outline-offset: -3px;
-}
-
-
-/* =========================================================
-   FIELDSETS
-========================================================= */
-
-fieldset {
-    margin: 20px 0;
-    padding: 15px;
-
-    background: var(--win-grey);
-
-    border-top: 2px solid var(--win-shadow);
-    border-left: 2px solid var(--win-shadow);
-    border-right: 2px solid var(--win-light);
-    border-bottom: 2px solid var(--win-light);
-}
-
-legend {
-    padding: 0 5px;
-
-    color: #000000;
-
-    font-weight: bold;
-}
-
-
-/* =========================================================
-   CLASSIC SCROLLBARS
-========================================================= */
-
-* {
-    scrollbar-width: auto;
-    scrollbar-color: var(--win-grey) var(--win-desktop);
-}
-
-
-/* Chromium / WebKit */
-
-::-webkit-scrollbar {
-    width: 16px;
-    height: 16px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--win-grey);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--win-grey);
-
-    border-top: 2px solid var(--win-light);
-    border-left: 2px solid var(--win-light);
-    border-right: 2px solid var(--win-dark);
-    border-bottom: 2px solid var(--win-dark);
-}
-
-::-webkit-scrollbar-button {
-    display: block;
-
-    width: 16px;
-    height: 16px;
-
-    background: var(--win-grey);
-
-    border-top: 2px solid var(--win-light);
-    border-left: 2px solid var(--win-light);
-    border-right: 2px solid var(--win-dark);
-    border-bottom: 2px solid var(--win-dark);
-}
-
-
-/* =========================================================
-   DETAILS / ACCORDION FOCUS
-========================================================= */
-
-summary:focus-visible,
-button:focus-visible,
-a:focus-visible {
-    outline: 1px dotted #000000;
-    outline-offset: -3px;
-}
-
-
-/* =========================================================
-   RESPONSIVE
-========================================================= */
-
-@media (max-width: 1000px) {
-
-    .navbar {
-        margin-left: 12px;
-        margin-right: 12px;
-    }
-
-    .hero {
-        gap: 25px;
-    }
-
-    .hero h1 {
-        font-size: 29px;
-    }
-
-    .chart-content {
-        grid-template-columns: 210px minmax(0, 1fr);
-        gap: 25px;
-    }
-}
-
-
-/* =========================================================
-   TABLET / MOBILE
-========================================================= */
-
-@media (max-width: 800px) {
-
-    /* Navigation */
-
-    .navbar {
-        margin: 8px;
-        padding: 3px;
-
-        flex-wrap: wrap;
-    }
-
-    .navbar::before {
-        top: 3px;
-        left: 3px;
-        right: 3px;
-    }
-
-    .logo,
-    .navbar nav,
-    .theme-toggle {
-        margin-top: 23px;
-    }
-
-    .navbar nav {
-        width: 100%;
-
-        justify-content: flex-start;
-
-        gap: 2px;
-    }
-
-    .navbar nav a {
-        padding: 5px 7px;
-```
 /* ========================================
    WINDOWS 98 LEAD POPUP
 ======================================== */
 
 .lead-popup-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 99999 !important;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 
     padding: 20px;
 
@@ -2532,6 +2352,8 @@ a:focus-visible {
 
     opacity: 0;
     visibility: hidden;
+
+    pointer-events: none;
 
     transition:
         opacity 0.15s ease,
@@ -2541,17 +2363,17 @@ a:focus-visible {
 .lead-popup-overlay.is-visible {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
 }
 
 
-/* ----------------------------------------
-   WINDOW
----------------------------------------- */
-
 .lead-popup {
+    position: relative;
+
     width: min(420px, 100%);
 
     background: #c0c0c0;
+    color: #000000;
 
     border-top: 2px solid #ffffff;
     border-left: 2px solid #ffffff;
@@ -2562,8 +2384,6 @@ a:focus-visible {
         2px 2px 0 #808080,
         4px 4px 0 #000000;
 
-    color: #000000;
-
     font-family:
         "MS Sans Serif",
         Tahoma,
@@ -2571,10 +2391,6 @@ a:focus-visible {
         sans-serif;
 }
 
-
-/* ----------------------------------------
-   TITLE BAR
----------------------------------------- */
 
 .lead-popup-titlebar {
     height: 30px;
@@ -2583,25 +2399,17 @@ a:focus-visible {
     align-items: center;
     justify-content: space-between;
 
+    box-sizing: border-box;
+
     padding: 3px 4px 3px 6px;
 
     background: #000080;
     color: #ffffff;
 
-    font-family:
-        "MS Sans Serif",
-        Tahoma,
-        Arial,
-        sans-serif;
-
     font-size: 13px;
     font-weight: bold;
 }
 
-
-/* ----------------------------------------
-   CLOSE BUTTON
----------------------------------------- */
 
 .lead-popup-close {
     width: 22px;
@@ -2621,10 +2429,7 @@ a:focus-visible {
     border-right: 2px solid #000000;
     border-bottom: 2px solid #000000;
 
-    font-family:
-        Arial,
-        sans-serif;
-
+    font-family: Arial, sans-serif;
     font-size: 16px;
     font-weight: bold;
 
@@ -2633,17 +2438,6 @@ a:focus-visible {
     cursor: pointer;
 }
 
-.lead-popup-close:active {
-    border-top: 2px solid #000000;
-    border-left: 2px solid #000000;
-    border-right: 2px solid #ffffff;
-    border-bottom: 2px solid #ffffff;
-}
-
-
-/* ----------------------------------------
-   CONTENT
----------------------------------------- */
 
 .lead-popup-content {
     padding: 18px;
@@ -2665,10 +2459,6 @@ a:focus-visible {
     line-height: 1.5;
 }
 
-
-/* ----------------------------------------
-   FORM
----------------------------------------- */
 
 .lead-form {
     display: flex;
@@ -2710,23 +2500,10 @@ a:focus-visible {
 
     outline: none;
 
-    font-family:
-        Arial,
-        sans-serif;
-
+    font-family: Arial, sans-serif;
     font-size: 14px;
 }
 
-
-.lead-form-field input:focus {
-    outline: 1px dotted #000000;
-    outline-offset: -3px;
-}
-
-
-/* ----------------------------------------
-   TURNSTILE
----------------------------------------- */
 
 .lead-turnstile {
     min-height: 65px;
@@ -2735,10 +2512,6 @@ a:focus-visible {
     align-items: center;
 }
 
-
-/* ----------------------------------------
-   SUBMIT BUTTON
----------------------------------------- */
 
 .lead-submit {
     align-self: flex-start;
@@ -2770,23 +2543,11 @@ a:focus-visible {
 }
 
 
-.lead-submit:active {
-    border-top: 2px solid #000000;
-    border-left: 2px solid #000000;
-    border-right: 2px solid #ffffff;
-    border-bottom: 2px solid #ffffff;
-}
-
-
 .lead-submit:disabled {
     color: #808080;
     cursor: default;
 }
 
-
-/* ----------------------------------------
-   FORM MESSAGE
----------------------------------------- */
 
 .lead-form-message {
     min-height: 18px;
@@ -2797,10 +2558,6 @@ a:focus-visible {
     line-height: 1.4;
 }
 
-
-/* ----------------------------------------
-   MOBILE
----------------------------------------- */
 
 @media (max-width: 500px) {
 
