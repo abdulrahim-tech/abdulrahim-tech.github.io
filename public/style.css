@@ -2513,3 +2513,307 @@ a:focus-visible {
     .navbar nav a {
         padding: 5px 7px;
 ```
+/* ========================================
+   WINDOWS 98 LEAD POPUP
+======================================== */
+
+.lead-popup-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.15s ease,
+        visibility 0.15s ease;
+}
+
+.lead-popup-overlay.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* ----------------------------------------
+   WINDOW
+---------------------------------------- */
+
+.lead-popup {
+    width: min(420px, 100%);
+
+    background: #c0c0c0;
+
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #000000;
+    border-bottom: 2px solid #000000;
+
+    box-shadow:
+        2px 2px 0 #808080,
+        4px 4px 0 #000000;
+
+    color: #000000;
+
+    font-family:
+        "MS Sans Serif",
+        Tahoma,
+        Arial,
+        sans-serif;
+}
+
+
+/* ----------------------------------------
+   TITLE BAR
+---------------------------------------- */
+
+.lead-popup-titlebar {
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 3px 4px 3px 6px;
+
+    background: #000080;
+    color: #ffffff;
+
+    font-family:
+        "MS Sans Serif",
+        Tahoma,
+        Arial,
+        sans-serif;
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+/* ----------------------------------------
+   CLOSE BUTTON
+---------------------------------------- */
+
+.lead-popup-close {
+    width: 22px;
+    height: 22px;
+
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #c0c0c0;
+    color: #000000;
+
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #000000;
+    border-bottom: 2px solid #000000;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+.lead-popup-close:active {
+    border-top: 2px solid #000000;
+    border-left: 2px solid #000000;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+}
+
+
+/* ----------------------------------------
+   CONTENT
+---------------------------------------- */
+
+.lead-popup-content {
+    padding: 18px;
+}
+
+
+.lead-popup-intro {
+    margin: 0 0 6px;
+
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+.lead-popup-description {
+    margin: 0 0 18px;
+
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+/* ----------------------------------------
+   FORM
+---------------------------------------- */
+
+.lead-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+
+.lead-form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
+.lead-form-field label {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+.lead-form-field input {
+    width: 100%;
+    box-sizing: border-box;
+
+    min-height: 30px;
+
+    padding: 5px 7px;
+
+    background: #ffffff;
+    color: #000000;
+
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+
+    border-radius: 0;
+
+    outline: none;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 14px;
+}
+
+
+.lead-form-field input:focus {
+    outline: 1px dotted #000000;
+    outline-offset: -3px;
+}
+
+
+/* ----------------------------------------
+   TURNSTILE
+---------------------------------------- */
+
+.lead-turnstile {
+    min-height: 65px;
+
+    display: flex;
+    align-items: center;
+}
+
+
+/* ----------------------------------------
+   SUBMIT BUTTON
+---------------------------------------- */
+
+.lead-submit {
+    align-self: flex-start;
+
+    min-width: 100px;
+
+    padding: 7px 18px;
+
+    background: #c0c0c0;
+    color: #000000;
+
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #000000;
+    border-bottom: 2px solid #000000;
+
+    border-radius: 0;
+
+    font-family:
+        "MS Sans Serif",
+        Tahoma,
+        Arial,
+        sans-serif;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.lead-submit:active {
+    border-top: 2px solid #000000;
+    border-left: 2px solid #000000;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+}
+
+
+.lead-submit:disabled {
+    color: #808080;
+    cursor: default;
+}
+
+
+/* ----------------------------------------
+   FORM MESSAGE
+---------------------------------------- */
+
+.lead-form-message {
+    min-height: 18px;
+
+    margin: 0;
+
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+
+/* ----------------------------------------
+   MOBILE
+---------------------------------------- */
+
+@media (max-width: 500px) {
+
+    .lead-popup-overlay {
+        padding: 12px;
+    }
+
+    .lead-popup-content {
+        padding: 14px;
+    }
+
+    .lead-popup {
+        width: 100%;
+    }
+
+}
