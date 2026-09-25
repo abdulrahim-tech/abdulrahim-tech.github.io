@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap");
 
 /* ========================================
    THEME VARIABLES
@@ -2050,5 +2049,1165 @@ td {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
+    }
+}
+/* =========================================================
+   WINDOWS 98 VISUAL OVERRIDE
+   ---------------------------------------------------------
+   This layer intentionally preserves the existing HTML,
+   class names, page layouts and responsive breakpoints.
+   It replaces the visual theme with a Windows 95/98 UI:
+   grey panels, navy title bars, teal desktop, beveled
+   controls, classic system typography and pixel-like UI.
+========================================================= */
+
+/* ---------- WINDOWS 98 PALETTE ---------- */
+
+:root {
+    --bg: #008080;
+    --bg-card: #c0c0c0;
+    --bg-card-hover: #c0c0c0;
+
+    --text: #000000;
+    --text-secondary: #111111;
+    --text-muted: #404040;
+
+    --border: #808080;
+    --border-hover: #000080;
+
+    --cyan: #000080;
+    --green: #008000;
+    --yellow: #808000;
+
+    --dark-cyan: #ffffff;
+
+    --grid-line: transparent;
+    --note-bg: #ffffe1;
+    --shadow-color: #000000;
+}
+
+html[data-theme="light"] {
+    --bg: #008080;
+    --bg-card: #c0c0c0;
+    --bg-card-hover: #c0c0c0;
+
+    --text: #000000;
+    --text-secondary: #111111;
+    --text-muted: #404040;
+
+    --border: #808080;
+    --border-hover: #000080;
+
+    --cyan: #000080;
+    --green: #008000;
+    --yellow: #808000;
+
+    --dark-cyan: #ffffff;
+
+    --grid-line: transparent;
+    --note-bg: #ffffe1;
+    --shadow-color: #000000;
+}
+
+/* ---------- GLOBAL ---------- */
+
+html {
+    scroll-behavior: auto;
+    background: #008080;
+}
+
+body {
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.45;
+
+    color: #000000;
+    background: #008080;
+
+    background-image: none;
+    background-size: auto;
+
+    animation: none;
+    transition: none;
+}
+
+a {
+    color: #0000ee;
+}
+
+a:visited {
+    color: #000080;
+}
+
+::selection {
+    background: #000080;
+    color: #ffffff;
+}
+
+/* Classic Windows 98 scrollbar */
+* {
+    scrollbar-color: #c0c0c0 #008080;
+    scrollbar-width: auto;
+}
+
+/* ---------- CLASSIC 3D BEVEL HELPERS ---------- */
+
+.navbar,
+.theme-toggle,
+.button,
+.hero-visual,
+.specialty-card,
+.client-box,
+.clients-note,
+.about-photo,
+.case-study-card,
+.case-study-section,
+.case-study-chart,
+.chart-year,
+.blog-card,
+.key-takeaway,
+.clarity-line,
+table,
+th,
+td {
+    border-radius: 0 !important;
+}
+
+/* ---------- NAVIGATION / APPLICATION BAR ---------- */
+
+.navbar {
+    position: relative;
+    z-index: 10;
+
+    max-width: 1200px;
+    margin: 12px auto 0;
+    padding: 4px;
+
+    background: #c0c0c0;
+
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #000000;
+    border-bottom: 2px solid #000000;
+
+    box-shadow:
+        inset -1px -1px 0 #808080,
+        inset 1px 1px 0 #dfdfdf;
+}
+
+.logo {
+    color: #ffffff !important;
+
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    letter-spacing: 0 !important;
+
+    padding: 5px 8px;
+
+    background: #000080;
+
+    border-top: 2px solid #000080;
+    border-left: 2px solid #000080;
+    border-right: 2px solid #000080;
+    border-bottom: 2px solid #000080;
+}
+
+.logo img {
+    max-height: 30px;
+}
+
+.logo:hover {
+    color: #ffffff !important;
+    background: #000080 !important;
+}
+
+.navbar nav {
+    gap: 2px;
+}
+
+.navbar nav a {
+    display: inline-block;
+
+    padding: 5px 9px;
+
+    color: #000000 !important;
+    background: #c0c0c0;
+
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif !important;
+    font-size: 13px !important;
+    text-decoration: none;
+}
+
+.navbar nav a:hover,
+.navbar nav a:focus-visible {
+    color: #ffffff !important;
+    background: #000080 !important;
+    outline: none;
+}
+
+.navbar nav a:active {
+    border-top-color: #808080;
+    border-left-color: #808080;
+    border-right-color: #ffffff;
+    border-bottom-color: #ffffff;
+}
+
+/* ---------- THEME TOGGLE ---------- */
+
+.theme-toggle {
+    background: #c0c0c0 !important;
+
+    border-top: 2px solid #ffffff !important;
+    border-left: 2px solid #ffffff !important;
+    border-right: 2px solid #808080 !important;
+    border-bottom: 2px solid #808080 !important;
+
+    box-shadow: 1px 1px 0 #000000;
+}
+
+.theme-toggle:focus-visible {
+    outline: 1px dotted #000000 !important;
+    outline-offset: -4px;
+}
+
+.theme-toggle-track {
+    background: #c0c0c0 !important;
+    border: 0 !important;
+}
+
+.theme-toggle-thumb {
+    background: #000080 !important;
+    border-radius: 0 !important;
+}
+
+html[data-theme="light"] .theme-toggle-track {
+    background: #c0c0c0 !important;
+}
+
+html[data-theme="light"] .theme-toggle-thumb {
+    background: #000080 !important;
+}
+
+.theme-toggle-label {
+    color: #000000 !important;
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif !important;
+    font-size: 12px !important;
+}
+
+/* ---------- TYPOGRAPHY ---------- */
+
+.eyebrow {
+    color: #000080 !important;
+
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif !important;
+    font-size: 12px !important;
+    font-weight: bold !important;
+    letter-spacing: 0 !important;
+    text-transform: uppercase;
+}
+
+.eyebrow::before {
+    content: "" !important;
+}
+
+/* ---------- BUTTONS ---------- */
+
+.button {
+    padding: 6px 16px !important;
+
+    color: #000000 !important;
+    background: #c0c0c0 !important;
+
+    border-top: 2px solid #ffffff !important;
+    border-left: 2px solid #ffffff !important;
+    border-right: 2px solid #808080 !important;
+    border-bottom: 2px solid #808080 !important;
+
+    box-shadow: 1px 1px 0 #000000;
+
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif !important;
+    font-size: 13px !important;
+    font-weight: normal !important;
+
+    transition: none !important;
+}
+
+.button:hover {
+    color: #000000 !important;
+    background: #c0c0c0 !important;
+    border-color: initial;
+    transform: none !important;
+}
+
+.button:active {
+    border-top-color: #808080 !important;
+    border-left-color: #808080 !important;
+    border-right-color: #ffffff !important;
+    border-bottom-color: #ffffff !important;
+
+    box-shadow: none;
+}
+
+.button:focus-visible {
+    outline: 1px dotted #000000 !important;
+    outline-offset: -4px;
+}
+
+.button.primary,
+.button.secondary {
+    color: #000000 !important;
+    background: #c0c0c0 !important;
+    border-color: transparent;
+}
+
+.button.primary:hover,
+.button.secondary:hover {
+    color: #000000 !important;
+    background: #c0c0c0 !important;
+}
+
+/* ---------- HOMEPAGE HERO ---------- */
+
+.hero {
+    position: relative;
+
+    max-width: 1200px;
+    margin: 12px auto 0;
+
+    padding: 0 30px 60px;
+}
+
+.hero-content {
+    color: #000000;
+}
+
+.hero h1 {
+    color: #000000 !important;
+
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif !important;
+    font-weight: bold !important;
+    letter-spacing: 0 !important;
+}
+
+.hero h1::after {
+    content: "" !important;
+    animation: none !important;
+}
+
+.hero h1 span {
+    color: #000080 !important;
+}
+
+.hero-description {
+    color: #111111 !important;
+}
+
+.hero-buttons {
+    gap: 8px;
+}
+
+.hero-image img {
+    filter: none !important;
+
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+
+    box-shadow: 1px 1px 0 #000000;
+}
+
+.hero-image img:hover {
+    filter: none !important;
+    transform: none !important;
+}
+
+.hero-visual {
+    padding: 12px !important;
+
+    background: #000000 !important;
+
+    border-top: 2px solid #ffffff !important;
+    border-left: 2px solid #ffffff !important;
+    border-right: 2px solid #808080 !important;
+    border-bottom: 2px solid #808080 !important;
+
+    box-shadow: 2px 2px 0 #000000;
+}
+
+.hero-visual pre {
+    color: #ffffff !important;
+    background: #000000 !important;
+
+    font-family: "Courier New", monospace !important;
+    font-size: 12px !important;
+}
+
+/* ---------- SECTION HEADINGS ---------- */
+
+.specialties h2,
+.page-cta h2,
+.about-header h1,
+.case-studies-hero h1,
+.case-study-content h2,
+.case-study-cta h2,
+.article-header h1,
+.contact-section h1 {
+    color: #000000 !important;
+
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif !important;
+    font-weight: bold !important;
+    letter-spacing: 0 !important;
+}
+
+.specialties h2::before,
+.about-header h1::before,
+.contact-section h1::before,
+.page-hero h1::before {
+    content: "" !important;
+}
+
+.case-studies-hero h1 span {
+    color: #000080 !important;
+}
+
+/* ---------- SPECIALTIES / CARDS ---------- */
+
+.specialties {
+    background: #c0c0c0 !important;
+
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #000000;
+    border-bottom: 2px solid #000000;
+
+    box-shadow: inset 1px 1px 0 #dfdfdf;
+}
+
+.specialty-grid {
+    gap: 12px;
+}
+
+.specialty-card {
+    background: #c0c0c0 !important;
+
+    border-top: 2px solid #ffffff !important;
+    border-left: 2px solid #ffffff !important;
+    border-right: 2px solid #808080 !important;
+    border-bottom: 2px solid #808080 !important;
+
+    box-shadow: 1px 1px 0 #000000;
+
+    transition: none !important;
+}
+
+.specialty-card:hover {
+    background: #c0c0c0 !important;
+    border-color: #808080 !important;
+    transform: none !important;
+}
+
+.card-number {
+    color: #000080 !important;
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif !important;
+    font-weight: bold !important;
+}
+
+.card-number::before,
+.card-number::after {
+    content: "" !important;
+}
+
+.specialty-card h3 {
+    color: #000000 !important;
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif !important;
+    font-weight: bold !important;
+}
+
+.specialty-card p {
+    color: #111111 !important;
+}
+
+/* ---------- TOOLS ---------- */
+
+.tools-section {
+    background: #008080 !important;
+    color: #ffffff !important;
+}
+
+.tools-list span {
+    color: #000000 !important;
+    background: #c0c0c0 !important;
+
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+
+    box-shadow: 1px 1px 0 #000000;
+
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif !important;
+    font-size: 12px !important;
+
+    transition: none !important;
+}
+
+.tools-list span:hover {
+    color: #ffffff !important;
+    background: #000080 !important;
+    border-color: #000080 !important;
+    transform: none !important;
+}
+
+/* ---------- CTA ---------- */
+
+.cta {
+    background: #000080 !important;
+    color: #ffffff !important;
+
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #000000;
+    border-bottom: 2px solid #000000;
+}
+
+.cta h2 {
+    color: #ffffff !important;
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif !important;
+    font-weight: bold !important;
+}
+
+/* ---------- PAGE HERO ---------- */
+
+.page-hero {
+    background: #c0c0c0 !important;
+    color: #000000 !important;
+
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #000000;
+    border-bottom: 2px solid #000000;
+}
+
+.page-hero h1 {
+    color: #000000 !important;
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif !important;
+    font-weight: bold !important;
+}
+
+.page-hero > p:last-child {
+    color: #111111 !important;
+}
+
+/* ---------- CLIENTS ---------- */
+
+.clients {
+    background: #008080 !important;
+}
+
+.client-box {
+    background: #c0c0c0 !important;
+
+    border-top: 2px solid #ffffff !important;
+    border-left: 2px solid #ffffff !important;
+    border-right: 2px solid #808080 !important;
+    border-bottom: 2px solid #808080 !important;
+
+    box-shadow: 1px 1px 0 #000000;
+
+    transition: none !important;
+}
+
+.client-box:hover {
+    border-color: #808080 !important;
+    transform: none !important;
+}
+
+.client-box summary {
+    color: #000000 !important;
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif !important;
+    font-weight: bold !important;
+
+    background: #c0c0c0 !important;
+}
+
+.client-box summary:hover {
+    color: #ffffff !important;
+    background: #000080 !important;
+}
+
+.plus {
+    color: #000000 !important;
+    font-family: Arial, sans-serif !important;
+}
+
+.client-box[open] .plus {
+    color: #000000 !important;
+    transform: rotate(45deg);
+}
+
+.client-content {
+    border-top: 2px solid #808080 !important;
+}
+
+.client-content h3 {
+    color: #000080 !important;
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif !important;
+    font-weight: bold !important;
+}
+
+.client-content p {
+    color: #111111 !important;
+}
+
+.clients-note {
+    background: #ffffe1 !important;
+    border-left: 0 !important;
+
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+
+    box-shadow: 1px 1px 0 #000000;
+}
+
+.clients-note p {
+    color: #111111 !important;
+}
+
+/* ---------- ABOUT ---------- */
+
+.about-section {
+    color: #000000;
+}
+
+.about-header h1 {
+    color: #000000 !important;
+}
+
+.intro {
+    color: #111111 !important;
+}
+
+.about-text p {
+    color: #111111 !important;
+}
+
+.about-photo {
+    background: #c0c0c0 !important;
+
+    border-top: 2px solid #ffffff !important;
+    border-left: 2px solid #ffffff !important;
+    border-right: 2px solid #808080 !important;
+    border-bottom: 2px solid #808080 !important;
+
+    box-shadow: 1px 1px 0 #000000;
+}
+
+.about-photo img {
+    filter: none !important;
+}
+
+.about-photo figcaption {
+    color: #404040 !important;
+}
+
+/* ---------- CASE STUDIES ---------- */
+
+.case-studies-hero {
+    color: #000000;
+}
+
+.case-studies-hero .eyebrow {
+    color: #000080 !important;
+}
+
+.case-studies-intro {
+    color: #111111 !important;
+}
+
+.case-study-card {
+    background: #c0c0c0 !important;
+
+    border-top: 2px solid #ffffff !important;
+    border-left: 2px solid #ffffff !important;
+    border-right: 2px solid #808080 !important;
+    border-bottom: 2px solid #808080 !important;
+
+    box-shadow: 2px 2px 0 #000000;
+
+    transition: none !important;
+}
+
+.case-study-card:hover {
+    background: #c0c0c0 !important;
+    border-color: #808080 !important;
+    transform: none !important;
+}
+
+.case-study-number {
+    color: #000080 !important;
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif !important;
+    font-weight: bold !important;
+}
+
+.case-study-type {
+    color: #000080 !important;
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif !important;
+    font-weight: bold !important;
+}
+
+.case-study-content h2 {
+    color: #000000 !important;
+}
+
+.case-study-summary {
+    color: #111111 !important;
+}
+
+.case-study-section {
+    background: #ffffff !important;
+
+    border-top: 2px solid #808080 !important;
+    border-left: 2px solid #808080 !important;
+    border-right: 2px solid #ffffff !important;
+    border-bottom: 2px solid #ffffff !important;
+}
+
+.case-study-section h3 {
+    color: #000080 !important;
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif !important;
+    font-weight: bold !important;
+}
+
+.case-study-section p {
+    color: #111111 !important;
+}
+
+.case-study-chart {
+    background: #c0c0c0 !important;
+
+    border-top: 2px solid #ffffff !important;
+    border-left: 2px solid #ffffff !important;
+    border-right: 2px solid #808080 !important;
+    border-bottom: 2px solid #808080 !important;
+
+    box-shadow: 1px 1px 0 #000000;
+}
+
+.case-study-chart-header > div:first-child > span {
+    color: #000080 !important;
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif !important;
+    font-weight: bold !important;
+}
+
+.case-study-chart-header h3 {
+    color: #000000 !important;
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif !important;
+    font-weight: bold !important;
+}
+
+.case-study-chart-header p {
+    color: #404040 !important;
+}
+
+.chart-year {
+    color: #000000 !important;
+    background: #c0c0c0 !important;
+
+    border-top: 2px solid #ffffff !important;
+    border-left: 2px solid #ffffff !important;
+    border-right: 2px solid #808080 !important;
+    border-bottom: 2px solid #808080 !important;
+
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif !important;
+    font-size: 12px !important;
+
+    transition: none !important;
+}
+
+.chart-year:hover {
+    color: #000000 !important;
+    background: #c0c0c0 !important;
+    border-color: #808080 !important;
+}
+
+.chart-year.active {
+    color: #ffffff !important;
+    background: #000080 !important;
+
+    border-top-color: #808080 !important;
+    border-left-color: #808080 !important;
+    border-right-color: #ffffff !important;
+    border-bottom-color: #ffffff !important;
+}
+
+.pie-chart {
+    border-radius: 0 !important;
+
+    background: conic-gradient(
+        #000080 0% 71.6%,
+        #008000 71.6% 89.3%,
+        #808080 89.3% 100%
+    ) !important;
+}
+
+.pie-chart::after {
+    border-radius: 0 !important;
+    background: #c0c0c0 !important;
+}
+
+.pie-chart-center {
+    background: #c0c0c0 !important;
+
+    border-top: 2px solid #ffffff !important;
+    border-left: 2px solid #ffffff !important;
+    border-right: 2px solid #808080 !important;
+    border-bottom: 2px solid #808080 !important;
+}
+
+.pie-chart-center strong {
+    color: #000000 !important;
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif !important;
+    font-weight: bold !important;
+}
+
+.pie-chart-center span {
+    color: #404040 !important;
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif !important;
+}
+
+.legend-dot.main-pages {
+    background: #000080 !important;
+}
+
+.legend-dot.blog {
+    background: #008000 !important;
+}
+
+.legend-dot.activity-hub {
+    background: #808080 !important;
+}
+
+.legend-item strong {
+    color: #000000 !important;
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif !important;
+    font-weight: bold !important;
+}
+
+.legend-item div span {
+    color: #111111 !important;
+}
+
+.case-study-cta {
+    border-top: 2px solid #000000 !important;
+}
+
+.case-study-cta .eyebrow {
+    color: #000080 !important;
+}
+
+.case-study-cta h2 {
+    color: #000000 !important;
+}
+
+/* ---------- BLOG ---------- */
+
+.blog-card {
+    background: #c0c0c0 !important;
+
+    border-top: 2px solid #ffffff !important;
+    border-left: 2px solid #ffffff !important;
+    border-right: 2px solid #808080 !important;
+    border-bottom: 2px solid #808080 !important;
+
+    box-shadow: 1px 1px 0 #000000;
+
+    transition: none !important;
+}
+
+.blog-card:hover {
+    background: #c0c0c0 !important;
+    border-color: #808080 !important;
+    transform: none !important;
+}
+
+.blog-card h2 {
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif !important;
+    font-weight: bold !important;
+}
+
+.blog-card h2 a {
+    color: #000000 !important;
+}
+
+.blog-card h2 a:hover {
+    color: #000080 !important;
+}
+
+.blog-card p {
+    color: #111111 !important;
+}
+
+.blog-read-more {
+    color: #0000ee !important;
+    text-decoration: underline !important;
+}
+
+.blog-read-more:hover {
+    color: #000080 !important;
+}
+
+/* ---------- ARTICLE ---------- */
+
+.article-page {
+    color: #000000;
+}
+
+.article-header .eyebrow {
+    color: #000080 !important;
+}
+
+.article-header h1 {
+    color: #000000 !important;
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif !important;
+    font-weight: bold !important;
+}
+
+.article-intro {
+    color: #111111 !important;
+}
+
+.article-content h2 {
+    color: #000080 !important;
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif !important;
+    font-weight: bold !important;
+}
+
+.article-content h3 {
+    color: #008000 !important;
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif !important;
+    font-weight: bold !important;
+}
+
+.article-content p,
+.article-content li {
+    color: #111111 !important;
+}
+
+.article-content a {
+    color: #0000ee !important;
+}
+
+.article-content a:hover {
+    color: #000080 !important;
+}
+
+.key-takeaway {
+    background: #ffffe1 !important;
+    border-left: 0 !important;
+
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+
+    box-shadow: 1px 1px 0 #000000;
+}
+
+.key-takeaway strong {
+    color: #000080 !important;
+}
+
+.clarity-line {
+    color: #000000 !important;
+    background: #ffffff !important;
+
+    border-top: 2px solid #808080 !important;
+    border-left: 2px solid #808080 !important;
+    border-right: 2px solid #ffffff !important;
+    border-bottom: 2px solid #ffffff !important;
+}
+
+.article-divider {
+    border-top-color: #808080 !important;
+}
+
+.article-credits {
+    color: #404040 !important;
+}
+
+/* ---------- CONTACT ---------- */
+
+.contact-section h1 {
+    color: #000000 !important;
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif !important;
+    font-weight: bold !important;
+}
+
+.contact-section p {
+    color: #111111 !important;
+}
+
+.contact-link {
+    color: #0000ee !important;
+    text-decoration: underline !important;
+}
+
+.contact-link:hover {
+    color: #000080 !important;
+}
+
+/* ---------- TABLES ---------- */
+
+table {
+    background: #c0c0c0 !important;
+
+    border-top: 2px solid #ffffff !important;
+    border-left: 2px solid #ffffff !important;
+    border-right: 2px solid #808080 !important;
+    border-bottom: 2px solid #808080 !important;
+}
+
+th,
+td {
+    border: 1px solid #808080 !important;
+}
+
+th {
+    color: #ffffff !important;
+    background: #000080 !important;
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif !important;
+    font-weight: bold !important;
+}
+
+td {
+    color: #000000 !important;
+    background: #ffffff !important;
+}
+
+/* ---------- GENERIC CONTENT SAFETY ---------- */
+
+strong,
+b {
+    color: #000000;
+}
+
+hr {
+    border-color: #808080;
+}
+
+/* ---------- REMOVE MODERN MOTION ---------- */
+
+*,
+*::before,
+*::after {
+    transition-duration: 0s !important;
+}
+
+.hero-image img,
+.specialty-card,
+.case-study-card,
+.blog-card,
+.client-box {
+    transform: none !important;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes blink {
+    from,
+    to {
+        opacity: 1;
+    }
+}
+
+/* =========================================================
+   WINDOWS 98 RESPONSIVE ADJUSTMENTS
+   ---------------------------------------------------------
+   These only add UI treatment at the existing breakpoints;
+   the original responsive layout rules remain intact above.
+========================================================= */
+
+@media (max-width: 1000px) {
+    .navbar {
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+}
+
+@media (max-width: 800px) {
+    .navbar {
+        margin: 8px;
+    }
+
+    .navbar nav {
+        gap: 2px;
+    }
+
+    .navbar nav a {
+        padding: 5px 7px;
+    }
+
+    .hero,
+    .page-hero,
+    .about-section,
+    .case-studies-hero,
+    .case-studies,
+    .article-page,
+    .contact-section {
+        color: #000000;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        margin: 5px;
+        padding: 3px;
+    }
+
+    .navbar nav a {
+        padding: 4px 6px;
+    }
+
+    .button {
+        box-shadow: 1px 1px 0 #000000;
+    }
+
+    .specialty-card,
+    .case-study-card,
+    .blog-card,
+    .client-box {
+        box-shadow: 1px 1px 0 #000000;
+    }
+}
+
+/* Respect the user's reduced-motion preference while retaining
+   the static Windows 98 appearance. */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto !important;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
     }
 }
