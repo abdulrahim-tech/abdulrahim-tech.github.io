@@ -1161,124 +1161,186 @@ footer {
 }
 
 
-/* =========================================================
-   ABOUT PAGE
-========================================================= */
+/* ========================================
+ABOUT PAGE - WINDOWS 98 LAYOUT FIX
+======================================== */
 
 .about-section {
-    max-width: 1100px;
-    margin: 0 auto;
-
-    padding: 30px;
+width: min(1100px, calc(100% - 40px));
+margin: 40px auto;
+box-sizing: border-box;
 }
 
 .about-header {
-    max-width: 800px;
+margin-bottom: 24px;
+}
 
-    margin-bottom: 30px;
-
-    padding: 0;
-
-    background: var(--win-grey);
-
-    border-top: 2px solid var(--win-light);
-    border-left: 2px solid var(--win-light);
-    border-right: 2px solid var(--win-dark);
-    border-bottom: 2px solid var(--win-dark);
+.about-header .eyebrow {
+margin: 0 0 8px;
 }
 
 .about-header h1 {
-    margin: 0;
-
-    padding: 8px 12px;
-
-    color: #ffffff;
-
-    background: var(--win-blue);
-
-    font-family:
-        Tahoma,
-        "MS Sans Serif",
-        Arial,
-        sans-serif;
-
-    font-size: 18px;
-    font-weight: bold;
-    line-height: 1.4;
+margin: 0;
 }
 
-.about-header h1::before {
-    content: "" !important;
-}
-
-.intro {
-    margin: 0;
-
-    padding: 15px;
-
-    color: #111111;
-    background: var(--win-grey);
-
-    font-size: 15px;
-    line-height: 1.5;
-}
-
+/* Main two-column layout */
 .about-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    align-items: start;
-    gap: 30px;
+display: grid;
+grid-template-columns: minmax(0, 1.7fr) minmax(260px, 0.8fr);
+gap: 28px;
+align-items: start;
 }
 
+/* Text panel */
 .about-text {
-    padding: 20px;
-
-    background: #ffffff;
-
-    border-top: 2px solid var(--win-shadow);
-    border-left: 2px solid var(--win-shadow);
-    border-right: 2px solid var(--win-light);
-    border-bottom: 2px solid var(--win-light);
+min-width: 0;
+box-sizing: border-box;
 }
 
+/* Keep paragraphs naturally spaced */
 .about-text p {
-    margin: 0 0 20px;
-
-    color: #111111;
-
-    font-size: 14px;
-    line-height: 1.6;
+margin: 0 0 18px;
 }
 
 .about-text p:last-child {
-    margin-bottom: 0;
+margin-bottom: 0;
+}
+
+/* Photo panel */
+.about-photo {
+width: 100%;
+min-width: 0;
+box-sizing: border-box;
+
+```
+align-self: start;
+
+display: flex;
+flex-direction: column;
+align-items: stretch;
+
+margin: 0;
+```
+
+}
+
+/* Image itself */
+.about-photo img {
+display: block;
+width: 100%;
+height: auto;
+max-width: 100%;
+
+```
+object-fit: cover;
+box-sizing: border-box;
+
+}
+
+/* Photo caption */
+.about-photo p {
+margin: 0;
+padding: 7px 8px;
+
+```
+text-align: center;
+
+box-sizing: border-box;
+line-height: 1.2;
+```
+
+}
+
+/* ========================================
+WINDOWS 98 PANEL TREATMENT
+======================================== */
+
+.about-text,
+.about-photo {
+background: var(--win-gray, #c0c0c0);
+
+border-top: 2px solid #ffffff;
+border-left: 2px solid #ffffff;
+border-right: 2px solid #404040;
+border-bottom: 2px solid #404040;
+
+padding: 10px;
+
+}
+
+/* Make the image feel like an inset Windows control */
+.about-photo img {
+border-top: 2px solid #404040;
+border-left: 2px solid #404040;
+border-right: 2px solid #ffffff;
+border-bottom: 2px solid #ffffff;
+}
+
+/* Caption stays inside the outer panel */
+.about-photo p {
+color: #000000;
+background: #c0c0c0;
+font-family: Tahoma, "MS Sans Serif", Arial, sans-serif;
+font-size: 13px;
+}
+
+/* ========================================
+TABLET
+======================================== */
+
+@media (max-width: 800px) {
+
+.about-section {
+    width: min(100% - 28px, 700px);
+    margin: 28px auto;
+}
+
+.about-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
 }
 
 .about-photo {
-    overflow: hidden;
-
-    padding: 5px;
-
-    background: var(--win-grey);
+    width: min(100%, 420px);
+    justify-self: center;
 }
 
-.about-photo img {
-    display: block;
+}
 
+/* ========================================
+MOBILE
+======================================== */
+
+@media (max-width: 520px) {
+
+.about-section {
+    width: calc(100% - 20px);
+    margin: 20px auto;
+}
+
+.about-header {
+    margin-bottom: 18px;
+}
+
+.about-content {
+    gap: 16px;
+}
+
+.about-text,
+.about-photo {
+    padding: 8px;
+}
+
+.about-text p {
+    margin-bottom: 15px;
+}
+
+.about-photo {
     width: 100%;
-    height: auto;
-
-    filter: none;
 }
 
-.about-photo figcaption {
-    padding: 7px 3px 3px;
-
-    color: #404040;
-
-    font-size: 11px;
-    text-align: center;
 }
+
 
 
 /* =========================================================
