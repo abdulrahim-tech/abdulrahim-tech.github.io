@@ -34,10 +34,6 @@
 <body>
 
 
-    <!-- ========================================
-         NAVIGATION
-    ======================================== -->
-
   <header class="navbar">
     <a href="/" class="logo">
         <img
@@ -54,28 +50,9 @@
         <a href="/blog/">Blog</a>
         <a href="/contact/">Contact</a>
     </nav>
-
-    <button
-        class="theme-toggle"
-        id="theme-toggle"
-        type="button"
-        aria-label="Switch to light theme"
-        aria-pressed="false"
-    >
-        <span class="theme-toggle-track" aria-hidden="true">
-            <span class="theme-toggle-thumb"></span>
-        </span>
-
-        <span class="theme-toggle-label" id="theme-toggle-label">
-            Dark
-        </span>
-    </button>
 </header>
 
 
-    <!-- ========================================
-         BLOG HEADER
-    ======================================== -->
 
     <main>
 
@@ -93,14 +70,8 @@
         </section>
 
 
-        <!-- ========================================
-             BLOG POSTS
-        ======================================== -->
-
         <section class="blog-list">
 
-
-            <!-- BLOG POST -->
 
             <article class="blog-card">
 
@@ -133,10 +104,6 @@
     </main>
 
 
-    <!-- ========================================
-         FOOTER
-    ======================================== -->
-
     <footer>
 
         <p>
@@ -144,55 +111,6 @@
         </p>
 
     </footer>
-<script>
-    (function () {
-        const html = document.documentElement;
-        const toggle = document.getElementById("theme-toggle");
-        const label = document.getElementById("theme-toggle-label");
-
-        if (!toggle || !label) {
-            return;
-        }
-
-        const savedTheme = localStorage.getItem("rahim-theme");
-
-        if (savedTheme === "light") {
-            html.setAttribute("data-theme", "light");
-        } else {
-            html.setAttribute("data-theme", "dark");
-        }
-
-        function updateToggle() {
-            const isLight = html.getAttribute("data-theme") === "light";
-
-            label.textContent = isLight ? "Light" : "Dark";
-
-            toggle.setAttribute(
-                "aria-label",
-                isLight
-                    ? "Switch to dark theme"
-                    : "Switch to light theme"
-            );
-
-            toggle.setAttribute(
-                "aria-pressed",
-                String(isLight)
-            );
-        }
-
-        updateToggle();
-
-        toggle.addEventListener("click", function () {
-            const isLight = html.getAttribute("data-theme") === "light";
-            const nextTheme = isLight ? "dark" : "light";
-
-            html.setAttribute("data-theme", nextTheme);
-            localStorage.setItem("rahim-theme", nextTheme);
-
-            updateToggle();
-        });
-    })();
-</script>
 
 </body>
 
