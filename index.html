@@ -706,24 +706,213 @@
              * ----------------------------------------
              */
 
-            form.addEventListener(
-                "submit",
-                async function (event) {
+         form.addEventListener(
+    "submit",
+    async function (event) {
 
-                    event.preventDefault();
+        event.preventDefault();
 
 
-                    /*
-                     * Basic browser validation
-                     */
+        /*
+         * ----------------------------------------
+         * BASIC FORM VALIDATION
+         * ----------------------------------------
+         */
 
-                    if (!form.checkValidity()) {
+        if (!form.checkValidity()) {
 
-                        form.reportValidity();
+            form.reportValidity();
 
-                        return;
+            return;
 
+        }
+
+
+        /*
+         * ----------------------------------------
+         * BUILD FORM DATA
+         * ----------------------------------------
+         */
+
+        const formData =
+            new FormData(form);
+
+
+        /*
+         * ----------------------------------------
+         * CHECK TURNSTILE TOKEN
+         * ----------------------------------------
+         */
+
+        const turnstileToken =
+            formData.get("cf-turnstile");
+
+
+        if (
+            !turnstileToken ||
+            String(turnstileToken).trim() === ""
+        ) {
+
+            message.textContent =
+                "Please complete the verification.";
+
+            return;
+
+        }
+
+
+        /*
+         * ----------------------------------------
+         * MAKE SURE SESSION ID IS INCLUDED
+         * ----------------------------------------
+         */
+
+        formData.set(
+            "session_id",
+            sessionId
+        );
+
+
+        /*
+         * ----------------------------------------
+         * DISABLE SUBMIT BUTTON
+         * ----------------------------------------
+         */
+
+        submitButton.disabled = true;
+
+        submitButton.textContent =
+            "Submitting...";
+
+        message.textContent = "";
+
+
+        /*
+         * ----------------------------------------
+         * SEND TO CLOUDFLARE WORKER
+         * ----------------------------------------
+         */
+
+        try {
+
+            const response =
+                await fetch(
+                    WORKER_URL,
+                    {
+                        method: "POST",
+                        body: formData
                     }
+                );
+
+
+            const result =
+                await response.json();
+
+
+            /*
+             * ----------------------------------------
+             * SUCCESS
+             * ----------------------------------------
+             */
+
+            if (
+                response.ok &&
+                result.success
+            ) {
+
+                sessionStorage.setItem(
+                    "rahim-lead-submitted",
+                    "true"
+                );
+
+
+                message.textContent =
+                    "Thanks. I'll get back to you.";
+
+
+                submitButton.textContent =
+                    "Submitted";
+
+
+                setTimeout(
+                    function () {
+
+                        closePopup();
+
+                    },
+                    1800
+                );
+
+
+                return;
+
+            }
+
+
+            /*
+             * ----------------------------------------
+             * SERVER ERROR
+             * ----------------------------------------
+             */
+
+            message.textContent =
+                result.error ||
+                "Something went wrong. Please try again.";
+
+
+            submitButton.disabled =
+                false;
+
+            submitButton.textContent =
+                "Submit";
+
+
+            /*
+             * Reset Turnstile
+             * after failed submission.
+             */
+
+            if (
+                window.turnstile
+            ) {
+
+                window.turnstile.reset();
+
+            }
+
+
+        } catch (error) {
+
+
+            console.error(
+                "Lead form error:",
+                error
+            );
+
+
+            message.textContent =
+                "Unable to submit the form. Please try again.";
+
+
+            submitButton.disabled =
+                false;
+
+            submitButton.textContent =
+                "Submit";
+
+
+            if (
+                window.turnstile
+            ) {
+
+                window.turnstile.reset();
+
+            }
+
+        }
+
+    }
+);
 
 
                     /*
