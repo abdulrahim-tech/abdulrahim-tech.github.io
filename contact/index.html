@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" type="image/jpeg" href="../assets/images/Gemini_Generated_Image_4vft5v4vft5v4vft.jpeg">
+    <link rel="icon" type="image/jpeg"
+        href="../assets/images/Gemini_Generated_Image_4vft5v4vft5v4vft.jpeg">
 
     <title>Contact Me | Rahim Khalil</title>
 
@@ -18,8 +19,8 @@
     {
       "@context": "https://schema.org",
       "@type": "ContactPage",
-      "@id": "https://rahim-seo.com/contact",
-      "url": "https://rahim-seo.com/",
+      "@id": "https://rahim-seo.com/contact/",
+      "url": "https://rahim-seo.com/contact/",
       "name": "Contact Rahim Khalil",
       "description": "Contact Rahim Khalil regarding SEO, content, and digital marketing projects.",
       "mainEntity": {
@@ -27,8 +28,7 @@
         "@id": "https://rahim-seo.com/#person",
         "name": "Rahim Khalil",
         "jobTitle": "SEO Specialist",
-        "email": "mailto:hello@rahim-seo.com",
-     
+        "email": "mailto:hello@rahim-seo.com"
       }
     }
     </script>
@@ -36,60 +36,73 @@
 </head>
 
 <body>
+    <header class="navbar">
 
-   <header class="navbar">
-    <a href="/" class="logo">
-        <img
-            src="/assets/images/Gemini_Generated_Image_4vft5v4vft5v4vft.jpeg"
-            alt="Rahim Khalil"
-        >
-        <span>Rahim Khalil</span>
-    </a>
+        <a href="/" class="logo">
+            <img
+                src="/assets/images/Gemini_Generated_Image_4vft5v4vft5v4vft.jpeg"
+                alt="Rahim Khalil"
+            >
+            <span>Rahim Khalil</span>
+        </a>
 
-    <nav aria-label="Main navigation">
-        <a href="/">Home</a>
-        <a href="/about/">About</a>
-        <a href="/case-studies/">Case Studies</a>
-        <a href="/blog/">Blog</a>
-        <a href="/contact/">Contact</a>
-    </nav>
-</header>
+        <nav aria-label="Main navigation">
+            <a href="/">Home</a>
+            <a href="/about/">About</a>
+            <a href="/case-studies/">Case Studies</a>
+            <a href="/blog/">Blog</a>
+            <a href="/contact/">Contact</a>
+        </nav>
 
+    </header>
 
     <main>
 
         <section class="contact-section">
 
-            <p class="eyebrow">GET IN TOUCH</p>
+            <p class="eyebrow">
+                GET IN TOUCH
+            </p>
 
-            <h1>Contact Me</h1>
+            <h1>
+                Contact Me
+            </h1>
 
             <p class="contact-intro">
                 Interested in working together or want to discuss SEO?
                 Feel free to get in touch.
             </p>
 
-                <div class="contact-item">
-                    <h2>Email</h2>
 
-                    <a href="mailto:hello@rahim-seo.com">
-                        hello@rahim-seo.com
-                    </a>
-                </div>
-<br>
+            <div class="contact-item">
 
-                <div class="contact-item">
-                    <h2>LinkedIn</h2>
+                <h2>
+                    Email
+                </h2>
 
-                    <a href="https://ae.linkedin.com/in/abdulrahim-k-74a1a9235"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        Rahim Khalil
-                    </a>
-                </div>
+                <a href="mailto:hello@rahim-seo.com">
+                    hello@rahim-seo.com
+                </a>
 
             </div>
-<br>
+
+
+            <div class="contact-item">
+
+                <h2>
+                    LinkedIn
+                </h2>
+
+                <a
+                    href="https://ae.linkedin.com/in/abdulrahim-k-74a1a9235"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Rahim Khalil
+                </a>
+
+            </div>
+
 
             <a class="back-link" href="/">
                 Back to Home
@@ -99,61 +112,14 @@
 
     </main>
 
-
     <footer>
 
-        <p>© 2026 Rahim Khalil</p>
+        <p>
+            © 2026 Rahim Khalil
+        </p>
 
     </footer>
-<script>
-    (function () {
-        const html = document.documentElement;
-        const toggle = document.getElementById("theme-toggle");
-        const label = document.getElementById("theme-toggle-label");
 
-        if (!toggle || !label) {
-            return;
-        }
-
-        const savedTheme = localStorage.getItem("rahim-theme");
-
-        if (savedTheme === "light") {
-            html.setAttribute("data-theme", "light");
-        } else {
-            html.setAttribute("data-theme", "dark");
-        }
-
-        function updateToggle() {
-            const isLight = html.getAttribute("data-theme") === "light";
-
-            label.textContent = isLight ? "Light" : "Dark";
-
-            toggle.setAttribute(
-                "aria-label",
-                isLight
-                    ? "Switch to dark theme"
-                    : "Switch to light theme"
-            );
-
-            toggle.setAttribute(
-                "aria-pressed",
-                String(isLight)
-            );
-        }
-
-        updateToggle();
-
-        toggle.addEventListener("click", function () {
-            const isLight = html.getAttribute("data-theme") === "light";
-            const nextTheme = isLight ? "dark" : "light";
-
-            html.setAttribute("data-theme", nextTheme);
-            localStorage.setItem("rahim-theme", nextTheme);
-
-            updateToggle();
-        });
-    })();
-</script>
 </body>
 
 </html>
