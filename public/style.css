@@ -1162,185 +1162,142 @@ footer {
 
 
 /* ========================================
-ABOUT PAGE - WINDOWS 98 LAYOUT FIX
+CONTACT PAGE - WINDOWS 98 LAYOUT
 ======================================== */
 
-.about-section {
-width: min(1100px, calc(100% - 40px));
-margin: 40px auto;
-box-sizing: border-box;
+.contact-section {
+    width: min(1100px, calc(100% - 40px));
+    margin: 40px auto;
+    box-sizing: border-box;
 }
 
-.about-header {
-margin-bottom: 24px;
+.contact-section .eyebrow {
+    margin: 0 0 8px;
 }
 
-.about-header .eyebrow {
-margin: 0 0 8px;
+.contact-section h1 {
+    margin: 0 0 24px;
 }
 
-.about-header h1 {
-margin: 0;
+.contact-intro {
+    margin: 0 0 28px;
+    max-width: 700px;
 }
 
-/* Main two-column layout */
-.about-content {
-display: grid;
-grid-template-columns: minmax(0, 1.7fr) minmax(260px, 0.8fr);
-gap: 28px;
-align-items: start;
+/* Contact information */
+
+.contact-item {
+    width: 100%;
+    max-width: 700px;
+    box-sizing: border-box;
+
+    margin: 0 0 20px;
+    padding: 14px;
+
+    background: var(--win-gray, #c0c0c0);
+
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #404040;
+    border-bottom: 2px solid #404040;
 }
 
-/* Text panel */
-.about-text {
-min-width: 0;
-box-sizing: border-box;
+/* Contact item heading */
+
+.contact-item h2 {
+    margin: 0 0 8px;
+
+    color: #000000;
+
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.2;
 }
 
-/* Keep paragraphs naturally spaced */
-.about-text p {
-margin: 0 0 18px;
+/* Contact links */
+
+.contact-item a {
+    color: #000080;
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif;
+    font-size: 14px;
+    text-decoration: underline;
 }
 
-.about-text p:last-child {
-margin-bottom: 0;
+.contact-item a:hover {
+    color: #000000;
 }
 
-/* Photo panel */
-.about-photo {
-width: 100%;
-min-width: 0;
-box-sizing: border-box;
+/* Back link */
 
-```
-align-self: start;
+.back-link {
+    display: inline-block;
 
-display: flex;
-flex-direction: column;
-align-items: stretch;
+    margin-top: 8px;
+    padding: 7px 12px;
 
-margin: 0;
-```
+    background: #c0c0c0;
 
+    color: #000000;
+
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif;
+    font-size: 13px;
+    text-decoration: none;
+
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #404040;
+    border-bottom: 2px solid #404040;
 }
 
-/* Image itself */
-.about-photo img {
-display: block;
-width: 100%;
-height: auto;
-max-width: 100%;
-
-```
-object-fit: cover;
-box-sizing: border-box;
-
-}
-
-/* Photo caption */
-.about-photo p {
-margin: 0;
-padding: 7px 8px;
-
-```
-text-align: center;
-
-box-sizing: border-box;
-line-height: 1.2;
-```
-
+.back-link:active {
+    border-top: 2px solid #404040;
+    border-left: 2px solid #404040;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
 }
 
 /* ========================================
-WINDOWS 98 PANEL TREATMENT
-======================================== */
-
-.about-text,
-.about-photo {
-background: var(--win-gray, #c0c0c0);
-
-border-top: 2px solid #ffffff;
-border-left: 2px solid #ffffff;
-border-right: 2px solid #404040;
-border-bottom: 2px solid #404040;
-
-padding: 10px;
-
-}
-
-/* Make the image feel like an inset Windows control */
-.about-photo img {
-border-top: 2px solid #404040;
-border-left: 2px solid #404040;
-border-right: 2px solid #ffffff;
-border-bottom: 2px solid #ffffff;
-}
-
-/* Caption stays inside the outer panel */
-.about-photo p {
-color: #000000;
-background: #c0c0c0;
-font-family: Tahoma, "MS Sans Serif", Arial, sans-serif;
-font-size: 13px;
-}
-
-/* ========================================
-TABLET
+CONTACT PAGE - TABLET
 ======================================== */
 
 @media (max-width: 800px) {
 
-.about-section {
-    width: min(100% - 28px, 700px);
-    margin: 28px auto;
-}
+    .contact-section {
+        width: min(100% - 28px, 700px);
+        margin: 28px auto;
+    }
 
-.about-content {
-    grid-template-columns: 1fr;
-    gap: 20px;
-}
-
-.about-photo {
-    width: min(100%, 420px);
-    justify-self: center;
-}
+    .contact-item {
+        max-width: 100%;
+    }
 
 }
 
 /* ========================================
-MOBILE
+CONTACT PAGE - MOBILE
 ======================================== */
 
 @media (max-width: 520px) {
 
-.about-section {
-    width: calc(100% - 20px);
-    margin: 20px auto;
-}
+    .contact-section {
+        width: calc(100% - 20px);
+        margin: 20px auto;
+    }
 
-.about-header {
-    margin-bottom: 18px;
-}
+    .contact-section h1 {
+        margin-bottom: 18px;
+    }
 
-.about-content {
-    gap: 16px;
-}
+    .contact-intro {
+        margin-bottom: 22px;
+    }
 
-.about-text,
-.about-photo {
-    padding: 8px;
-}
-
-.about-text p {
-    margin-bottom: 15px;
-}
-
-.about-photo {
-    width: 100%;
-}
+    .contact-item {
+        padding: 10px;
+        margin-bottom: 16px;
+    }
 
 }
-
 
 
 /* =========================================================
