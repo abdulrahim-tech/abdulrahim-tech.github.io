@@ -2207,3 +2207,58 @@ body {
         clip-path: inset(0 0 0 0);
     }
 }
+
+/* ========================================
+   THEME VARIABLES
+======================================== */
+:root {
+    --bg: #0d0d0d;
+    --bg-card: #161616;
+    --bg-card-hover: #222222;
+    --text: #ffffff;
+    --text-secondary: #a0a0a0;
+    --border: #ffffff;
+    --shadow-color: #000000;
+    --cyan: #00ffff;
+    --green: #00ff66;
+}
+
+/* Light Theme Overrides */
+[data-theme="light"] {
+    --bg: #f0f0f0;
+    --bg-card: #ffffff;
+    --bg-card-hover: #e5e5e5;
+    --text: #111111;
+    --text-secondary: #444444;
+    --border: #111111;
+    --shadow-color: #bbbbbb;
+    --cyan: #0088cc;
+    --green: #008833;
+}
+
+/* Base Body Application */
+body {
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+/* 8-Bit Toggle Button Style */
+.theme-toggle {
+    font-family: "Press Start 2P", monospace;
+    font-size: 10px;
+    padding: 8px 12px;
+    background: var(--bg-card);
+    color: var(--text);
+    border: none;
+    cursor: pointer;
+    box-shadow:
+        -2px 0 0 0 var(--border),
+         2px 0 0 0 var(--border),
+         0 -2px 0 0 var(--border),
+         0  2px 0 0 var(--border);
+}
+
+.theme-toggle:hover {
+    background: var(--cyan);
+    color: #000000;
+}
