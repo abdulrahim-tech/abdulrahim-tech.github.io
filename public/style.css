@@ -2151,17 +2151,18 @@ h1, h2, h3, .eyebrow {
 ======================================== */
 
 .effect {
-    -webkit-mask-image: linear-gradient(to bottom, #000 50%, transparent 50%);
-    mask-image: linear-gradient(to bottom, #000 50%, transparent 50%);
-    
-    -webkit-mask-size: 100% 200%;
-    mask-size: 100% 200%;
-    
-    -webkit-mask-position: 0 100%;
-    mask-position: 0 100%;
+    /* Hard horizontal cut mask */
+    clip-path: inset(0 0 100% 0);
+    animation: effectDraw 0.6s steps(12) forwards;
+}
 
-    /* 'steps(12)' creates the blocky 8-bit row reveal */
-    animation: effectDraw 0.8s steps(12) forwards;
+@keyframes effectDraw {
+    0% {
+        clip-path: inset(0 0 100% 0);
+    }
+    100% {
+        clip-path: inset(0 0 0 0);
+    }
 }
 
 @keyframes effectDraw {
