@@ -2340,3 +2340,40 @@ body {
 .footer-link:hover .retro-icon {
     fill: #000000;
 }
+
+/* ========================================
+   STANDALONE BIG RETRO ICONS
+======================================== */
+
+.footer-contact {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.footer-link-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    box-shadow: 2px 2px 0 0 var(--border);
+}
+
+.footer-link-icon:hover {
+    background: var(--cyan);
+    box-shadow: 2px 2px 0 0 var(--shadow-color);
+}
+
+.retro-icon-large {
+    width: 24px;
+    height: 24px;
+    fill: var(--text);
+    image-rendering: pixelated;
+    flex-shrink: 0;
+}
+
+.footer-link-icon:hover .retro-icon-large {
+    fill: #000000;
+}
