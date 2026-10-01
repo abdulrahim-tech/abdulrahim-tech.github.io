@@ -2316,3 +2316,27 @@ body {
     font-size: 8px;
     margin-top: 8px;
 }
+
+/* ========================================
+   COMPACT RETRO LINK & ICON STYLES
+======================================== */
+
+.footer-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 8px; /* Reduced box size */
+    font-size: 9px;   /* Slightly tighter retro text */
+}
+
+.retro-icon {
+    width: 10px;      /* Shrink icon to match text height */
+    height: 10px;
+    fill: currentColor;
+    image-rendering: pixelated;
+    flex-shrink: 0;
+}
+
+.footer-link:hover .retro-icon {
+    fill: #000000;
+}
