@@ -2145,3 +2145,32 @@ h1, h2, h3, .eyebrow {
     font-family: 'Press Start 2P', monospace;
     font-size: 12px; /* Recommended size: keep 8-bit fonts at multiples of 8 or 10 for sharpness */
 }
+
+/* ========================================
+   TOP-TO-BOTTOM CURTAIN REVEAL (.effect)
+======================================== */
+
+.effect {
+    -webkit-mask-image: linear-gradient(to bottom, #000 50%, transparent 50%);
+    mask-image: linear-gradient(to bottom, #000 50%, transparent 50%);
+    
+    -webkit-mask-size: 100% 200%;
+    mask-size: 100% 200%;
+    
+    -webkit-mask-position: 0 100%;
+    mask-position: 0 100%;
+
+    /* 'steps(12)' creates the blocky 8-bit row reveal */
+    animation: effectDraw 0.8s steps(12) forwards;
+}
+
+@keyframes effectDraw {
+    0% {
+        -webkit-mask-position: 0 100%;
+        mask-position: 0 100%;
+    }
+    100% {
+        -webkit-mask-position: 0 0%;
+        mask-position: 0 0%;
+    }
+}
