@@ -1,97 +1,98 @@
-/* =========================================================
-   WINDOWS 98 SYSTEM VARIABLES
-========================================================= */
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap");
+
+/* ========================================
+   THEME VARIABLES
+======================================== */
 
 :root {
-    --win-desktop: #008080;
+    --bg: #0b0f14;
+    --bg-card: #111821;
+    --bg-card-hover: #172330;
 
-    --win-grey: #c0c0c0;
-    --win-light: #ffffff;
-    --win-highlight: #dfdfdf;
-    --win-shadow: #808080;
-    --win-dark: #000000;
+    --text: #f2f5f7;
+    --text-secondary: #b4bec8;
+    --text-muted: #687583;
 
-    --win-blue: #000080;
-    --win-blue-light: #0000a0;
+    --border: #263442;
+    --border-hover: #00e5ff;
 
-    --win-link: #0000ee;
-    --win-yellow: #ffffe1;
-    --win-green: #008000;
+    --cyan: #00e5ff;
+    --green: #b8ff3d;
+    --yellow: #ffe66d;
 
-    --bg: var(--win-desktop);
-    --bg-card: var(--win-grey);
-    --bg-card-hover: var(--win-grey);
+    --dark-cyan: #061016;
 
-    --text: #000000;
-    --text-secondary: #111111;
-    --text-muted: #404040;
+    --grid-line: rgba(0, 229, 255, 0.035);
+    --note-bg: rgba(184, 255, 61, 0.035);
+    --shadow-color: rgba(0, 0, 0, 0.35);
+}
 
-    --border: var(--win-shadow);
-    --border-hover: var(--win-blue);
+html[data-theme="light"] {
+    --bg: #f2f5e9;
+    --bg-card: #ffffff;
+    --bg-card-hover: #e8f7f5;
 
-    --cyan: var(--win-blue);
-    --green: var(--win-green);
-    --yellow: #808000;
+    --text: #17232b;
+    --text-secondary: #40515a;
+    --text-muted: #64747c;
+
+    --border: #b7c9c9;
+    --border-hover: #007f91;
+
+    --cyan: #007f91;
+    --green: #4b7900;
+    --yellow: #9a7200;
 
     --dark-cyan: #ffffff;
 
-    --grid-line: transparent;
-    --note-bg: var(--win-yellow);
-    --shadow-color: #000000;
+    --grid-line: rgba(0, 127, 145, 0.07);
+    --note-bg: rgba(75, 121, 0, 0.07);
+    --shadow-color: rgba(24, 47, 54, 0.12);
 }
 
 
-/* =========================================================
+/* ========================================
    RESET
-========================================================= */
+======================================== */
 
 * {
     box-sizing: border-box;
 }
 
 html {
-    margin: 0;
-    padding: 0;
-
-    background: var(--win-desktop);
-
-    scroll-behavior: auto;
+    scroll-behavior: smooth;
 }
 
 body {
     min-width: 0;
     margin: 0;
-    padding: 0;
+
+    font-family: "VT323", monospace;
+    font-size: 20px;
+    line-height: 1.5;
 
     color: var(--text);
-    background: var(--win-desktop);
+    background-color: var(--bg);
 
-    font-family:
-        Tahoma,
-        "MS Sans Serif",
-        Arial,
-        sans-serif;
+    background-image:
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
 
-    font-size: 13px;
-    line-height: 1.45;
+    background-size: 32px 32px;
 
-    animation: none;
-    transition: none;
+    animation: fadeIn 0.6s ease-in;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease;
+}
+
+a {
+    color: inherit;
 }
 
 img {
     max-width: 100%;
-}
-
-button,
-input,
-textarea,
-select {
-    font-family:
-        Tahoma,
-        "MS Sans Serif",
-        Arial,
-        sans-serif;
 }
 
 button,
@@ -100,17 +101,9 @@ summary {
     -webkit-tap-highlight-color: transparent;
 }
 
-a {
-    color: var(--win-link);
-}
-
-a:visited {
-    color: #000080;
-}
-
 ::selection {
-    color: #ffffff;
-    background: #000080;
+    background: var(--cyan);
+    color: var(--dark-cyan);
 }
 
 h1,
@@ -121,272 +114,112 @@ p {
     overflow-wrap: anywhere;
 }
 
-hr {
-    border: 0;
-    border-top: 1px solid var(--win-shadow);
-}
 
-
-/* =========================================================
-   CLASSIC WINDOWS 98 3D SURFACES
-========================================================= */
-
-.navbar,
-.theme-toggle,
-.button,
-.hero-visual,
-.specialty-card,
-.client-box,
-.clients-note,
-.about-photo,
-.case-study-card,
-.case-study-section,
-.case-study-chart,
-.chart-year,
-.blog-card,
-.key-takeaway,
-.clarity-line,
-table {
-    border-radius: 0 !important;
-}
-
-
-/* Raised Windows object */
-
-.navbar,
-.theme-toggle,
-.button,
-.specialty-card,
-.client-box,
-.about-photo,
-.case-study-card,
-.case-study-chart,
-.chart-year,
-.blog-card,
-.clarity-line {
-    border-top: 2px solid var(--win-light);
-    border-left: 2px solid var(--win-light);
-    border-right: 2px solid var(--win-dark);
-    border-bottom: 2px solid var(--win-dark);
-
-    box-shadow:
-        inset -1px -1px 0 var(--win-shadow),
-        inset 1px 1px 0 var(--win-highlight);
-}
-
-
-/* Sunken Windows object */
-
-.case-study-section,
-table,
-.key-takeaway {
-    border-top: 2px solid var(--win-shadow);
-    border-left: 2px solid var(--win-shadow);
-    border-right: 2px solid var(--win-light);
-    border-bottom: 2px solid var(--win-light);
-}
-
-
-/* =========================================================
-   WINDOWS 98 DESKTOP
-========================================================= */
-
-body {
-    background-color: var(--win-desktop);
-    background-image: none;
-}
-
-
-/* =========================================================
+/* ========================================
    NAVIGATION
-========================================================= */
+======================================== */
 
 .navbar {
-    position: relative;
-    z-index: 20;
-
     max-width: 1200px;
+    margin: 0 auto;
 
-    margin: 12px auto 0;
-    padding: 4px;
+    padding: 20px 30px;
 
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 30px;
 
-    background: var(--win-grey);
-
-    box-shadow:
-        inset -1px -1px 0 var(--win-shadow),
-        inset 1px 1px 0 var(--win-highlight);
+    border-bottom: 2px solid var(--border);
 }
-
-
-/* Fake application title bar */
-
-.navbar::before {
-    content: "Rahim SEO";
-
-    position: absolute;
-
-    top: 4px;
-    left: 4px;
-    right: 4px;
-
-    height: 22px;
-
-    padding: 3px 7px;
-
-    color: #ffffff;
-    background: var(--win-blue);
-
-    font-size: 12px;
-    font-weight: bold;
-
-    pointer-events: none;
-}
-
-
-/* Keep navigation below title bar */
-
-.logo,
-.navbar nav,
-.theme-toggle {
-    position: relative;
-    z-index: 2;
-
-    margin-top: 24px;
-}
-
-
-/* Logo */
 
 .logo {
     display: flex;
     align-items: center;
-    gap: 7px;
+    gap: 10px;
 
     margin-right: auto;
 
-    padding: 4px 7px;
-
-    color: #ffffff !important;
-    background: var(--win-blue);
-
-    border: 0 !important;
-
-    box-shadow: none !important;
-
+    color: var(--text);
     text-decoration: none;
 
-    font-family:
-        Tahoma,
-        "MS Sans Serif",
-        Arial,
-        sans-serif !important;
-
-    font-size: 12px !important;
-    font-weight: bold !important;
-}
-
-.logo:hover {
-    color: #ffffff !important;
-    background: var(--win-blue-light) !important;
+    font-family: "Press Start 2P", monospace;
+    font-size: 12px;
 }
 
 .logo img {
-    width: 24px;
-    height: 24px;
+    width: 36px;
+    height: 36px;
 
     flex-shrink: 0;
 
     object-fit: cover;
 
-    border: 1px solid #ffffff;
+    border: 2px solid var(--border);
 }
 
-
-/* Navigation links */
+.logo:hover {
+    color: var(--cyan);
+}
 
 .navbar nav {
     display: flex;
     align-items: center;
-    gap: 2px;
+    gap: 24px;
 }
 
 .navbar nav a {
-    display: inline-block;
-
-    padding: 4px 9px;
-
-    color: #000000 !important;
-    background: var(--win-grey);
-
-    border-top: 2px solid var(--win-light);
-    border-left: 2px solid var(--win-light);
-    border-right: 2px solid var(--win-shadow);
-    border-bottom: 2px solid var(--win-shadow);
-
+    color: var(--text-secondary);
     text-decoration: none;
 
-    font-family:
-        Tahoma,
-        "MS Sans Serif",
-        Arial,
-        sans-serif !important;
+    font-family: "VT323", monospace;
+    font-size: 20px;
 
-    font-size: 12px !important;
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease;
 }
 
 .navbar nav a:hover,
 .navbar nav a:focus-visible {
-    color: #ffffff !important;
-    background: var(--win-blue) !important;
-
-    outline: none;
-}
-
-.navbar nav a:active {
-    border-top-color: var(--win-shadow);
-    border-left-color: var(--win-shadow);
-    border-right-color: var(--win-light);
-    border-bottom-color: var(--win-light);
+    color: var(--cyan);
 }
 
 
-/* =========================================================
+/* ========================================
    THEME TOGGLE
-========================================================= */
+======================================== */
 
 .theme-toggle {
     display: inline-flex;
     align-items: center;
-    gap: 7px;
+    gap: 8px;
 
     flex-shrink: 0;
 
-    padding: 4px 7px;
+    padding: 6px 9px;
 
-    color: #000000;
-    background: var(--win-grey);
+    color: var(--text);
+    background: var(--bg-card);
 
+    border: 2px solid var(--border);
     border-radius: 0;
+
+    font-family: "VT323", monospace;
+    font-size: 18px;
 
     cursor: pointer;
 
-    font-size: 12px;
-
-    transition: none;
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease;
 }
 
-.theme-toggle:hover {
-    color: #000000;
-    background: var(--win-grey);
-}
-
+.theme-toggle:hover,
 .theme-toggle:focus-visible {
-    outline: 1px dotted #000000;
-    outline-offset: -4px;
+    color: var(--cyan);
+    border-color: var(--cyan);
+    outline: none;
 }
 
 .theme-toggle-track {
@@ -394,281 +227,199 @@ body {
 
     display: inline-block;
 
-    width: 34px;
-    height: 17px;
+    width: 42px;
+    height: 22px;
 
-    background: #ffffff;
+    background: var(--text-muted);
+    border: 2px solid var(--text);
 
-    border-top: 2px solid var(--win-shadow);
-    border-left: 2px solid var(--win-shadow);
-    border-right: 2px solid var(--win-light);
-    border-bottom: 2px solid var(--win-light);
+    transition: background-color 0.2s ease;
 }
 
 .theme-toggle-thumb {
     position: absolute;
-
     top: 2px;
     left: 2px;
 
-    width: 11px;
-    height: 11px;
+    width: 14px;
+    height: 14px;
 
-    background: var(--win-blue);
+    background: var(--text);
 
-    border: 0;
+    transition: transform 0.2s ease;
+}
 
-    transition: none;
+html[data-theme="light"] .theme-toggle-track {
+    background: var(--green);
 }
 
 html[data-theme="light"] .theme-toggle-thumb {
-    transform: translateX(17px);
-
-    background: var(--win-blue);
+    transform: translateX(18px);
+    background: var(--dark-cyan);
 }
 
 .theme-toggle-label {
-    min-width: 35px;
-
-    color: #000000;
-
+    min-width: 38px;
     text-align: left;
-
-    font-family:
-        Tahoma,
-        "MS Sans Serif",
-        Arial,
-        sans-serif;
-
-    font-size: 11px;
 }
 
 
-/* =========================================================
+/* ========================================
    GENERAL TYPOGRAPHY
-========================================================= */
+======================================== */
 
 .eyebrow {
-    margin: 0 0 15px;
+    margin: 0 0 20px;
 
-    color: var(--win-blue);
+    color: var(--cyan);
 
-    font-family:
-        Tahoma,
-        "MS Sans Serif",
-        Arial,
-        sans-serif;
-
-    font-size: 11px;
-    font-weight: bold;
-
-    letter-spacing: 0;
-
-    text-transform: uppercase;
+    font-family: "Press Start 2P", monospace;
+    font-size: 10px;
+    font-weight: normal;
+    letter-spacing: 1px;
 }
 
 .eyebrow::before {
-    content: "" !important;
+    content: "> ";
+    color: var(--green);
 }
 
 
-/* =========================================================
+/* ========================================
    BUTTONS
-========================================================= */
+======================================== */
 
 .button {
     display: inline-block;
 
-    min-width: 100px;
+    padding: 12px 20px;
 
-    padding: 6px 16px;
+    color: var(--text);
+    background: transparent;
 
-    color: #000000 !important;
-    background: var(--win-grey) !important;
+    border: 2px solid var(--border);
+    border-radius: 0;
 
-    border-top: 2px solid var(--win-light) !important;
-    border-left: 2px solid var(--win-light) !important;
-    border-right: 2px solid var(--win-dark) !important;
-    border-bottom: 2px solid var(--win-dark) !important;
-
-    box-shadow:
-        inset -1px -1px 0 var(--win-shadow),
-        inset 1px 1px 0 var(--win-highlight);
-
-    text-align: center;
     text-decoration: none;
 
-    font-family:
-        Tahoma,
-        "MS Sans Serif",
-        Arial,
-        sans-serif !important;
+    font-family: "VT323", monospace;
+    font-size: 20px;
 
-    font-size: 13px !important;
-    font-weight: normal !important;
-
-    cursor: pointer;
-
-    transition: none !important;
+    transition:
+        transform 0.15s ease,
+        background-color 0.15s ease,
+        color 0.15s ease,
+        border-color 0.15s ease;
 }
 
-.button.primary,
+.button.primary {
+    color: var(--dark-cyan);
+    background: var(--cyan);
+    border-color: var(--cyan);
+}
+
+.button.primary:hover,
+.button.primary:focus-visible {
+    background: var(--green);
+    border-color: var(--green);
+    transform: translateY(-2px);
+}
+
 .button.secondary {
-    color: #000000 !important;
-    background: var(--win-grey) !important;
-    border-color: initial;
+    color: var(--text);
+    background: var(--bg-card);
+    border-color: var(--border);
 }
 
-.button:hover {
-    color: #000000 !important;
-    background: #c0c0c0 !important;
-
-    transform: none !important;
-}
-
-.button:active {
-    border-top-color: var(--win-shadow) !important;
-    border-left-color: var(--win-shadow) !important;
-    border-right-color: var(--win-light) !important;
-    border-bottom-color: var(--win-light) !important;
-
-    box-shadow: none !important;
-}
-
-.button:focus-visible {
-    outline: 1px dotted #000000 !important;
-    outline-offset: -4px;
+.button.secondary:hover,
+.button.secondary:focus-visible {
+    color: var(--cyan);
+    background: var(--bg-card-hover);
+    border-color: var(--cyan);
+    transform: translateY(-2px);
 }
 
 
-/* =========================================================
+/* ========================================
    HOMEPAGE HERO
-========================================================= */
+======================================== */
 
 .hero {
-    position: relative;
-
     max-width: 1200px;
-    margin: 12px auto 0;
-
-    padding: 30px;
+    margin: 0 auto;
+    padding: 100px 30px 120px;
 
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     align-items: center;
-    gap: 50px;
+    gap: 80px;
 }
-
-
-/* Hero becomes a classic application window */
 
 .hero-content {
-    padding: 25px;
-
-    background: var(--win-grey);
-
-    border-top: 2px solid var(--win-light);
-    border-left: 2px solid var(--win-light);
-    border-right: 2px solid var(--win-dark);
-    border-bottom: 2px solid var(--win-dark);
-
-    box-shadow:
-        inset -1px -1px 0 var(--win-shadow),
-        inset 1px 1px 0 var(--win-highlight);
-}
-
-.hero-content::before {
-    content: "SEO SPECIALIST.EXE";
-
-    display: block;
-
-    margin: -25px -25px 25px;
-
-    padding: 4px 7px;
-
-    color: #ffffff;
-    background: var(--win-blue);
-
-    font-size: 12px;
-    font-weight: bold;
+    max-width: 700px;
 }
 
 .hero h1 {
-    margin: 0 0 20px;
+    margin: 0 0 30px;
 
-    color: #000000 !important;
+    color: var(--text);
 
-    font-family:
-        Tahoma,
-        "MS Sans Serif",
-        Arial,
-        sans-serif !important;
-
-    font-size: 34px;
-    font-weight: bold !important;
-    line-height: 1.3;
+    font-family: "Press Start 2P", monospace;
+    font-size: 48px;
+    font-weight: normal;
+    line-height: 1.4;
 }
 
 .hero h1::after {
-    content: "" !important;
+    content: "_";
+    color: var(--green);
+
+    animation: blink 1s steps(1) infinite;
 }
 
 .hero h1 span {
-    color: var(--win-blue) !important;
+    color: var(--cyan);
 }
 
 .hero-description {
     max-width: 650px;
+    margin-bottom: 35px;
 
-    margin-bottom: 25px;
-
-    color: #111111;
-
-    font-size: 16px;
+    color: var(--text-secondary);
+    font-size: 24px;
     line-height: 1.5;
 }
 
 .hero-buttons {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 15px;
 }
-
-
-/* Hero image */
 
 .hero-image img {
     width: 100%;
     max-width: 400px;
 
     display: block;
-
     margin: 0 auto;
-    padding: 5px;
+    padding: 8px;
 
-    background: var(--win-grey);
+    border: 3px solid var(--border);
+    border-radius: 0;
 
-    border-top: 2px solid var(--win-light);
-    border-left: 2px solid var(--win-light);
-    border-right: 2px solid var(--win-dark);
-    border-bottom: 2px solid var(--win-dark);
+    filter: grayscale(100%);
 
-    box-shadow:
-        inset -1px -1px 0 var(--win-shadow),
-        inset 1px 1px 0 var(--win-highlight);
-
-    filter: none;
-
-    transition: none;
+    transition:
+        filter 0.3s ease,
+        transform 0.3s ease,
+        border-color 0.3s ease;
 }
 
 .hero-image img:hover {
-    filter: none;
-    transform: none;
+    filter: grayscale(0%);
+    border-color: var(--cyan);
+    transform: translateY(-3px);
 }
-
-
-/* Hero terminal */
 
 .hero-visual {
     min-height: 300px;
@@ -677,345 +428,259 @@ html[data-theme="light"] .theme-toggle-thumb {
     align-items: center;
     justify-content: center;
 
-    padding: 10px;
+    padding: 25px;
 
-    background: #000000;
+    background: var(--bg-card);
+    border: 3px solid var(--border);
 
-    border-top: 2px solid var(--win-light);
-    border-left: 2px solid var(--win-light);
-    border-right: 2px solid var(--win-dark);
-    border-bottom: 2px solid var(--win-dark);
-
-    box-shadow:
-        inset -1px -1px 0 var(--win-shadow),
-        inset 1px 1px 0 var(--win-highlight);
+    box-shadow: 8px 8px 0 var(--shadow-color);
 }
 
 .hero-visual pre {
     margin: 0;
 
-    color: #ffffff;
-    background: #000000;
+    color: var(--cyan);
 
-    font-family: "Courier New", monospace;
-    font-size: 12px;
-    line-height: 1.25;
+    font-family: "VT323", monospace;
+    font-size: 22px;
+    line-height: 1.2;
 
     white-space: pre-wrap;
 }
 
 
-/* =========================================================
+/* ========================================
    SPECIALTIES
-========================================================= */
+======================================== */
 
 .specialties {
     max-width: 1200px;
     margin: 0 auto;
-
-    padding: 30px;
-
-    background: var(--win-grey);
-
-    border-top: 2px solid var(--win-light);
-    border-left: 2px solid var(--win-light);
-    border-right: 2px solid var(--win-dark);
-    border-bottom: 2px solid var(--win-dark);
-
-    box-shadow:
-        inset -1px -1px 0 var(--win-shadow),
-        inset 1px 1px 0 var(--win-highlight);
+    padding: 100px 30px;
 }
 
 .specialties h2 {
-    margin: 0 0 25px;
+    margin: 0 0 60px;
 
-    padding: 5px 8px;
+    color: var(--text);
 
-    color: #ffffff;
-
-    background: var(--win-blue);
-
-    font-family:
-        Tahoma,
-        "MS Sans Serif",
-        Arial,
-        sans-serif;
-
-    font-size: 16px;
-    font-weight: bold;
-    line-height: 1.4;
+    font-family: "Press Start 2P", monospace;
+    font-size: 28px;
+    font-weight: normal;
+    line-height: 1.5;
 }
 
 .specialties h2::before {
-    content: "" !important;
+    content: "> ";
+    color: var(--cyan);
 }
 
 .specialty-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 20px;
 }
 
 .specialty-card {
-    padding: 20px;
+    padding: 30px;
 
-    background: var(--win-grey);
+    background: var(--bg-card);
+    border: 2px solid var(--border);
 
-    transition: none;
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background-color 0.2s ease;
 }
 
 .specialty-card:hover {
-    background: var(--win-grey);
-    border-color: initial;
-    transform: none;
+    transform: translateY(-3px);
+
+    background: var(--bg-card-hover);
+    border-color: var(--cyan);
 }
 
 .card-number {
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 
-    color: var(--win-blue);
-
-    font-size: 12px;
-    font-weight: bold;
+    color: var(--green);
+    font-size: 18px;
 }
 
-.card-number::before,
+.card-number::before {
+    content: "[";
+}
+
 .card-number::after {
-    content: "";
+    content: "]";
 }
 
 .specialty-card h3 {
-    margin: 0 0 10px;
+    margin: 0 0 15px;
 
-    color: #000000;
+    color: var(--text);
 
-    font-family:
-        Tahoma,
-        "MS Sans Serif",
-        Arial,
-        sans-serif;
-
-    font-size: 14px;
-    font-weight: bold;
-    line-height: 1.4;
+    font-family: "Press Start 2P", monospace;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 1.7;
 }
 
 .specialty-card p {
     margin: 0;
 
-    color: #111111;
-
-    font-size: 13px;
+    color: var(--text-secondary);
+    font-size: 20px;
     line-height: 1.5;
 }
 
 
-/* =========================================================
+/* ========================================
    TOOLS
-========================================================= */
+======================================== */
 
 .tools-section {
     max-width: 1200px;
     margin: 0 auto;
-
-    padding: 30px;
-
-    color: #ffffff;
+    padding: 80px 30px;
 }
 
 .tools-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 10px;
 }
 
 .tools-list span {
-    padding: 5px 9px;
+    padding: 9px 15px;
 
-    color: #000000;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
 
-    background: var(--win-grey);
+    font-size: 18px;
 
-    border-top: 2px solid var(--win-light);
-    border-left: 2px solid var(--win-light);
-    border-right: 2px solid var(--win-shadow);
-    border-bottom: 2px solid var(--win-shadow);
-
-    box-shadow: 1px 1px 0 #000000;
-
-    font-size: 11px;
-
-    transition: none;
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease,
+        color 0.2s ease;
 }
 
 .tools-list span:hover {
-    color: #ffffff;
-
-    background: var(--win-blue);
-
-    border-color: var(--win-blue);
+    background: var(--bg-card-hover);
+    border-color: var(--green);
+    color: var(--green);
 }
 
 
-/* =========================================================
+/* ========================================
    GENERAL CTA
-========================================================= */
+======================================== */
 
 .cta {
     max-width: 1200px;
     margin: 0 auto;
-
-    padding: 30px;
-
-    color: #ffffff;
+    padding: 120px 30px;
 
     text-align: center;
 
-    background: var(--win-blue);
-
-    border-top: 2px solid var(--win-light);
-    border-left: 2px solid var(--win-light);
-    border-right: 2px solid var(--win-dark);
-    border-bottom: 2px solid var(--win-dark);
+    border-top: 2px solid var(--border);
 }
 
 .cta h2 {
-    margin: 0 auto 25px;
+    margin: 0 auto 35px;
 
-    color: #ffffff;
+    color: var(--text);
 
-    font-family:
-        Tahoma,
-        "MS Sans Serif",
-        Arial,
-        sans-serif;
-
-    font-size: 20px;
-    font-weight: bold;
-    line-height: 1.4;
+    font-family: "Press Start 2P", monospace;
+    font-size: 30px;
+    font-weight: normal;
+    line-height: 1.6;
 }
 
 
-/* =========================================================
-   FOOTER / TASKBAR
-========================================================= */
+/* ========================================
+   FOOTER
+======================================== */
 
 footer {
-    margin-top: 30px;
+    padding: 30px;
 
-    padding: 5px 10px;
+    color: var(--text-muted);
 
-    color: #000000;
-
-    background: var(--win-grey);
-
-    border-top: 2px solid var(--win-light);
-    border-left: 2px solid var(--win-light);
-    border-right: 2px solid var(--win-dark);
-    border-bottom: 2px solid var(--win-dark);
-
-    font-size: 11px;
     text-align: center;
+
+    border-top: 2px solid var(--border);
+
+    font-size: 17px;
 }
 
 
-/* =========================================================
+/* ========================================
    GENERAL PAGE HEADERS
-========================================================= */
+======================================== */
 
 .page-header,
 .page-hero {
     max-width: 900px;
-    margin: 20px auto;
-
-    padding: 0;
-
-    background: var(--win-grey);
-
-    border-top: 2px solid var(--win-light);
-    border-left: 2px solid var(--win-light);
-    border-right: 2px solid var(--win-dark);
-    border-bottom: 2px solid var(--win-dark);
-}
-
-.page-header::before,
-.page-hero::before {
-    content: "Rahim SEO - Document";
-
-    display: block;
-
-    padding: 4px 7px;
-
-    color: #ffffff;
-    background: var(--win-blue);
-
-    font-size: 12px;
-    font-weight: bold;
+    margin: 0 auto;
+    padding: 100px 30px 70px;
 }
 
 .page-header h1,
 .page-hero h1 {
     max-width: 800px;
+    margin: 0 0 25px;
 
-    margin: 0;
-    padding: 25px 25px 15px;
+    color: var(--text);
 
-    color: #000000;
-
-    font-family:
-        Tahoma,
-        "MS Sans Serif",
-        Arial,
-        sans-serif;
-
-    font-size: 26px;
-    font-weight: bold;
-    line-height: 1.4;
+    font-family: "Press Start 2P", monospace;
+    font-size: 32px;
+    font-weight: normal;
+    line-height: 1.5;
 }
 
 .page-header h1::before,
 .page-hero h1::before {
-    content: "" !important;
+    content: "> ";
+    color: var(--cyan);
 }
 
 .page-intro,
 .page-hero > p:last-child {
     max-width: 650px;
-
     margin: 0;
-    padding: 0 25px 25px;
 
-    color: #111111;
-
-    font-size: 15px;
+    color: var(--text-secondary);
+    font-size: 23px;
     line-height: 1.5;
 }
 
 
-/* =========================================================
+/* ========================================
    CLIENTS PAGE
-========================================================= */
+======================================== */
 
 .clients {
     max-width: 900px;
     margin: 0 auto;
-
-    padding: 20px 30px 60px;
+    padding: 40px 30px 80px;
 }
 
 .client-box {
-    margin-bottom: 8px;
-
+    margin-bottom: 15px;
     overflow: hidden;
 
-    background: var(--win-grey);
+    background: var(--bg-card);
+    border: 2px solid var(--border);
 
-    transition: none;
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
 }
 
 .client-box:hover {
-    transform: none;
+    transform: translateY(-2px);
+    border-color: var(--cyan);
 }
 
 .client-box summary {
@@ -1024,24 +689,13 @@ footer {
     justify-content: space-between;
     gap: 20px;
 
-    padding: 9px 12px;
-
-    color: #000000;
-
-    background: var(--win-grey);
+    padding: 22px 25px;
 
     cursor: pointer;
-
     list-style: none;
 
-    font-family:
-        Tahoma,
-        "MS Sans Serif",
-        Arial,
-        sans-serif;
-
-    font-size: 13px;
-    font-weight: bold;
+    font-family: "Press Start 2P", monospace;
+    font-size: 12px;
 }
 
 .client-box summary::-webkit-details-marker {
@@ -1049,394 +703,261 @@ footer {
 }
 
 .client-box summary:hover {
-    color: #ffffff;
-    background: var(--win-blue);
-}
-
-.client-box summary:focus-visible {
-    outline: 1px dotted #000000;
-    outline-offset: -4px;
+    color: var(--cyan);
+    background: var(--bg-card-hover);
 }
 
 .plus {
-    color: #000000;
+    color: var(--cyan);
 
-    font-family: Arial, sans-serif;
-    font-size: 16px;
+    font-family: "VT323", monospace;
+    font-size: 30px;
 
-    transition: none;
+    transition:
+        transform 0.2s ease,
+        color 0.2s ease;
 }
 
 .client-box[open] .plus {
-    color: #000000;
+    color: var(--green);
     transform: rotate(45deg);
 }
 
 .client-content {
-    padding: 15px;
+    padding: 0 25px 28px;
 
-    background: #ffffff;
-
-    border-top: 2px solid var(--win-shadow);
+    border-top: 2px solid var(--border);
 }
 
 .client-content h3 {
-    margin: 0 0 8px;
+    margin: 22px 0 10px;
 
-    color: var(--win-blue);
+    color: var(--cyan);
 
-    font-family:
-        Tahoma,
-        "MS Sans Serif",
-        Arial,
-        sans-serif;
-
-    font-size: 13px;
-    font-weight: bold;
+    font-family: "Press Start 2P", monospace;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 1.7;
 }
 
 .client-content p {
     max-width: 650px;
-
     margin: 0;
 
-    color: #111111;
-
-    font-size: 13px;
+    color: var(--text-secondary);
+    font-size: 20px;
     line-height: 1.5;
 }
 
 .clients-note {
     max-width: 900px;
+    margin: 0 auto;
+    padding: 30px;
 
-    margin: 20px auto;
-
-    padding: 15px;
-
-    color: #000000;
-    background: var(--win-yellow);
-
-    border-top: 2px solid var(--win-shadow);
-    border-left: 2px solid var(--win-shadow);
-    border-right: 2px solid var(--win-light);
-    border-bottom: 2px solid var(--win-light);
-
-    box-shadow: 1px 1px 0 #000000;
+    background: var(--note-bg);
+    border-left: 4px solid var(--green);
 }
 
 .clients-note p {
     max-width: 700px;
-
     margin: 0;
 
-    color: #111111;
-
-    font-size: 13px;
+    color: var(--text-secondary);
+    font-size: 21px;
     line-height: 1.5;
 }
 
 .page-cta {
     max-width: 900px;
     margin: 0 auto;
-
-    padding: 50px 30px;
+    padding: 100px 30px;
 
     text-align: center;
 }
 
 .page-cta h2 {
-    margin: 0 0 20px;
+    margin: 0 0 30px;
 
-    color: #ffffff;
+    color: var(--text);
 
-    font-family:
-        Tahoma,
-        "MS Sans Serif",
-        Arial,
-        sans-serif;
-
-    font-size: 19px;
-    font-weight: bold;
-    line-height: 1.4;
-}
-
-
-/* ========================================
-CONTACT PAGE - WINDOWS 98 LAYOUT
-======================================== */
-
-.contact-section {
-    width: min(1100px, calc(100% - 40px));
-    margin: 40px auto;
-    box-sizing: border-box;
-}
-
-.contact-section .eyebrow {
-    margin: 0 0 8px;
-}
-
-.contact-section h1 {
-    margin: 0 0 24px;
-}
-
-.contact-intro {
-    margin: 0 0 28px;
-    max-width: 700px;
-}
-
-/* Contact information */
-
-.contact-item {
-    width: 100%;
-    max-width: 700px;
-    box-sizing: border-box;
-
-    margin: 0 0 20px;
-    padding: 14px;
-
-    background: var(--win-gray, #c0c0c0);
-
-    border-top: 2px solid #ffffff;
-    border-left: 2px solid #ffffff;
-    border-right: 2px solid #404040;
-    border-bottom: 2px solid #404040;
-}
-
-/* Contact item heading */
-
-.contact-item h2 {
-    margin: 0 0 8px;
-
-    color: #000000;
-
-    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.2;
-}
-
-/* Contact links */
-
-.contact-item a {
-    color: #000080;
-    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif;
-    font-size: 14px;
-    text-decoration: underline;
-}
-
-.contact-item a:hover {
-    color: #000000;
-}
-
-/* Back link */
-
-.back-link {
-    display: inline-block;
-
-    margin-top: 8px;
-    padding: 7px 12px;
-
-    background: #c0c0c0;
-
-    color: #000000;
-
-    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif;
-    font-size: 13px;
-    text-decoration: none;
-
-    border-top: 2px solid #ffffff;
-    border-left: 2px solid #ffffff;
-    border-right: 2px solid #404040;
-    border-bottom: 2px solid #404040;
-}
-
-.back-link:active {
-    border-top: 2px solid #404040;
-    border-left: 2px solid #404040;
-    border-right: 2px solid #ffffff;
-    border-bottom: 2px solid #ffffff;
-}
-
-/* ========================================
-CONTACT PAGE - TABLET
-======================================== */
-
-@media (max-width: 800px) {
-
-    .contact-section {
-        width: min(100% - 28px, 700px);
-        margin: 28px auto;
-    }
-
-    .contact-item {
-        max-width: 100%;
-    }
-
-}
-
-/* ========================================
-CONTACT PAGE - MOBILE
-======================================== */
-
-@media (max-width: 520px) {
-
-    .contact-section {
-        width: calc(100% - 20px);
-        margin: 20px auto;
-    }
-
-    .contact-section h1 {
-        margin-bottom: 18px;
-    }
-
-    .contact-intro {
-        margin-bottom: 22px;
-    }
-
-    .contact-item {
-        padding: 10px;
-        margin-bottom: 16px;
-    }
-
-}
-
-
-/* =========================================================
-   CASE STUDIES
-========================================================= */
-
-.case-studies-hero {
-    max-width: 1000px;
-    margin: 20px auto;
-
-    padding: 0;
-
-    background: var(--win-grey);
-
-    border-top: 2px solid var(--win-light);
-    border-left: 2px solid var(--win-light);
-    border-right: 2px solid var(--win-dark);
-    border-bottom: 2px solid var(--win-dark);
-}
-
-.case-studies-hero::before {
-    content: "Case Studies - Explorer";
-
-    display: block;
-
-    padding: 4px 7px;
-
-    color: #ffffff;
-    background: var(--win-blue);
-
-    font-size: 12px;
-    font-weight: bold;
-}
-
-.case-studies-hero .eyebrow {
-    margin: 0;
-
-    padding: 20px 25px 0;
-
-    color: var(--win-blue);
-}
-
-.case-studies-hero h1 {
-    max-width: 850px;
-
-    margin: 0;
-
-    padding: 10px 25px 15px;
-
-    color: #000000;
-
-    font-family:
-        Tahoma,
-        "MS Sans Serif",
-        Arial,
-        sans-serif;
-
-    font-size: 28px;
-    font-weight: bold;
-    line-height: 1.4;
-}
-
-.case-studies-hero h1 span {
-    color: var(--win-blue);
-}
-
-.case-studies-intro {
-    max-width: 700px;
-
-    margin: 0;
-
-    padding: 0 25px 25px;
-
-    color: #111111;
-
-    font-size: 15px;
+    font-family: "Press Start 2P", monospace;
+    font-size: 23px;
+    font-weight: normal;
     line-height: 1.6;
 }
 
 
-/* =========================================================
+/* ========================================
+   ABOUT PAGE
+======================================== */
+
+.about-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 100px 30px;
+}
+
+.about-header {
+    max-width: 800px;
+    margin-bottom: 70px;
+}
+
+.about-header h1 {
+    margin: 0 0 25px;
+
+    color: var(--text);
+
+    font-family: "Press Start 2P", monospace;
+    font-size: 32px;
+    font-weight: normal;
+    line-height: 1.5;
+}
+
+.about-header h1::before {
+    content: "> ";
+    color: var(--cyan);
+}
+
+.intro {
+    color: var(--text-secondary);
+    font-size: 24px;
+    line-height: 1.5;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
+    gap: 70px;
+}
+
+.about-text p {
+    margin-bottom: 30px;
+
+    color: var(--text-secondary);
+    font-size: 21px;
+    line-height: 1.6;
+}
+
+.about-photo {
+    overflow: hidden;
+
+    padding: 10px;
+
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+}
+
+.about-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+
+    filter: grayscale(100%);
+}
+
+.about-photo figcaption {
+    padding-top: 10px;
+
+    color: var(--text-muted);
+    font-size: 17px;
+    text-align: center;
+}
+
+
+/* ========================================
+   CASE STUDIES PAGE
+======================================== */
+
+.case-studies-hero {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 100px 30px 70px;
+}
+
+.case-studies-hero .eyebrow {
+    margin-bottom: 25px;
+}
+
+.case-studies-hero h1 {
+    max-width: 850px;
+    margin: 0 0 30px;
+
+    color: var(--text);
+
+    font-family: "Press Start 2P", monospace;
+    font-size: 36px;
+    font-weight: normal;
+    line-height: 1.6;
+}
+
+.case-studies-hero h1 span {
+    color: var(--cyan);
+}
+
+.case-studies-intro {
+    max-width: 700px;
+    margin: 0;
+
+    color: var(--text-secondary);
+    font-size: 24px;
+    line-height: 1.6;
+}
+
+
+/* ========================================
    CASE STUDY LIST
-========================================================= */
+======================================== */
 
 .case-studies {
     max-width: 1000px;
     margin: 0 auto;
-
-    padding: 20px 30px 70px;
+    padding: 20px 30px 100px;
 }
 
 
-/* =========================================================
+/* ========================================
    CASE STUDY CARD
-========================================================= */
+======================================== */
 
 .case-study-card {
     position: relative;
 
     display: grid;
-    grid-template-columns: 60px minmax(0, 1fr);
-    gap: 20px;
+    grid-template-columns: 70px minmax(0, 1fr);
+    gap: 30px;
 
-    margin-bottom: 15px;
+    padding: 35px;
 
-    padding: 20px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
 
-    background: var(--win-grey);
-
-    transition: none;
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background-color 0.2s ease;
 }
 
 .case-study-card:hover {
-    background: var(--win-grey);
+    transform: translateY(-3px);
 
-    border-top-color: var(--win-light);
-    border-left-color: var(--win-light);
-
-    transform: none;
+    background: var(--bg-card-hover);
+    border-color: var(--cyan);
 }
 
 
-/* =========================================================
+/* ========================================
    CASE STUDY CONTENT
-========================================================= */
+======================================== */
 
 .case-study-number {
-    padding-top: 2px;
+    padding-top: 4px;
 
-    color: var(--win-blue);
+    color: var(--green);
 
-    font-family:
-        Tahoma,
-        "MS Sans Serif",
-        Arial,
-        sans-serif;
-
-    font-size: 14px;
-    font-weight: bold;
+    font-family: "Press Start 2P", monospace;
+    font-size: 16px;
+    line-height: 1.6;
 }
 
 .case-study-content {
@@ -1444,216 +965,192 @@ CONTACT PAGE - MOBILE
 }
 
 .case-study-type {
-    margin: 0 0 10px;
+    margin: 0 0 18px;
 
-    color: var(--win-blue);
+    color: var(--cyan);
 
-    font-family:
-        Tahoma,
-        "MS Sans Serif",
-        Arial,
-        sans-serif;
-
+    font-family: "Press Start 2P", monospace;
     font-size: 10px;
-    font-weight: bold;
-
-    letter-spacing: 0;
+    font-weight: normal;
+    line-height: 1.7;
+    letter-spacing: 0.5px;
 }
 
 .case-study-content h2 {
-    margin: 0 0 15px;
+    margin: 0 0 20px;
 
-    color: #000000;
+    color: var(--text);
 
-    font-family:
-        Tahoma,
-        "MS Sans Serif",
-        Arial,
-        sans-serif;
-
-    font-size: 21px;
-    font-weight: bold;
-    line-height: 1.4;
+    font-family: "Press Start 2P", monospace;
+    font-size: 26px;
+    font-weight: normal;
+    line-height: 1.6;
 }
 
 .case-study-summary {
     max-width: 700px;
+    margin: 0 0 40px;
 
-    margin: 0 0 25px;
-
-    color: #111111;
-
-    font-size: 14px;
+    color: var(--text-secondary);
+    font-size: 23px;
     line-height: 1.6;
 }
 
 
-/* =========================================================
+/* ========================================
    CASE STUDY CHALLENGE / WORK
-========================================================= */
+======================================== */
 
 .case-study-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
+    gap: 25px;
 
-    margin-bottom: 25px;
+    margin-bottom: 50px;
 }
 
 .case-study-section {
-    padding: 15px;
+    padding: 25px;
 
-    background: #ffffff;
+    background: var(--bg);
+    border: 2px solid var(--border);
 }
 
 .case-study-section h3 {
-    margin: 0 0 10px;
+    margin: 0 0 18px;
 
-    color: var(--win-blue);
+    color: var(--green);
 
-    font-family:
-        Tahoma,
-        "MS Sans Serif",
-        Arial,
-        sans-serif;
-
-    font-size: 12px;
-    font-weight: bold;
+    font-family: "Press Start 2P", monospace;
+    font-size: 11px;
+    font-weight: normal;
+    line-height: 1.7;
 }
 
 .case-study-section p {
     margin: 0;
 
-    color: #111111;
-
-    font-size: 13px;
+    color: var(--text-secondary);
+    font-size: 20px;
     line-height: 1.6;
 }
 
 
-/* =========================================================
+/* ========================================
    CASE STUDY CHART
-========================================================= */
+======================================== */
 
 .case-study-chart {
-    padding: 20px;
+    padding: 30px;
 
-    background: var(--win-grey);
+    background: var(--bg);
+    border: 2px solid var(--border);
 }
 
 .case-study-chart-header {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    gap: 20px;
+    gap: 30px;
 
-    margin-bottom: 25px;
+    margin-bottom: 40px;
 }
 
 .case-study-chart-header > div:first-child > span {
     display: block;
+    margin-bottom: 12px;
 
-    margin-bottom: 8px;
+    color: var(--green);
 
-    color: var(--win-blue);
-
-    font-size: 10px;
-    font-weight: bold;
+    font-family: "Press Start 2P", monospace;
+    font-size: 9px;
+    line-height: 1.6;
 }
 
 .case-study-chart-header h3 {
-    margin: 0 0 7px;
+    margin: 0 0 12px;
 
-    color: #000000;
+    color: var(--text);
 
-    font-family:
-        Tahoma,
-        "MS Sans Serif",
-        Arial,
-        sans-serif;
-
-    font-size: 15px;
-    font-weight: bold;
+    font-family: "Press Start 2P", monospace;
+    font-size: 17px;
+    font-weight: normal;
+    line-height: 1.7;
 }
 
 .case-study-chart-header p {
     margin: 0;
 
-    color: #404040;
-
-    font-size: 12px;
+    color: var(--text-muted);
+    font-size: 19px;
     line-height: 1.5;
 }
 
 
-/* =========================================================
+/* ========================================
    CHART YEAR TOGGLE
-========================================================= */
+======================================== */
 
 .chart-toggle {
     display: flex;
     flex-wrap: wrap;
     flex-shrink: 0;
-    gap: 4px;
+    gap: 8px;
 }
 
 .chart-year {
-    padding: 5px 10px;
+    padding: 8px 12px;
 
-    color: #000000;
-    background: var(--win-grey);
+    color: var(--text-muted);
+    background: var(--bg-card);
 
-    font-family:
-        Tahoma,
-        "MS Sans Serif",
-        Arial,
-        sans-serif;
+    border: 2px solid var(--border);
+    border-radius: 0;
 
-    font-size: 11px;
+    font-family: "VT323", monospace;
+    font-size: 18px;
 
     cursor: pointer;
 
-    transition: none;
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease;
 }
 
 .chart-year:hover {
-    color: #000000;
-    background: var(--win-grey);
+    color: var(--cyan);
+    border-color: var(--cyan);
 }
 
 .chart-year.active {
-    color: #ffffff;
-
-    background: var(--win-blue);
-
-    border-top-color: var(--win-shadow);
-    border-left-color: var(--win-shadow);
-    border-right-color: var(--win-light);
-    border-bottom-color: var(--win-light);
+    color: var(--dark-cyan);
+    background: var(--cyan);
+    border-color: var(--cyan);
 }
 
 
-/* =========================================================
+/* ========================================
    CHART CONTENT
-========================================================= */
+======================================== */
 
 .chart-content {
     display: grid;
-    grid-template-columns: 240px minmax(0, 1fr);
+    grid-template-columns: 260px minmax(0, 1fr);
     align-items: center;
-    gap: 35px;
+    gap: 50px;
 }
 
 
-/* =========================================================
+/* ========================================
    DONUT CHART
-========================================================= */
+======================================== */
 
 .pie-chart-wrapper {
     position: relative;
 
-    width: 220px;
-    height: 220px;
+    width: 240px;
+    height: 240px;
 
     margin: 0 auto;
 }
@@ -1667,9 +1164,9 @@ CONTACT PAGE - MOBILE
     border-radius: 50%;
 
     background: conic-gradient(
-        #000080 0% 71.6%,
-        #008000 71.6% 89.3%,
-        #808080 89.3% 100%
+        var(--cyan) 0% 71.6%,
+        var(--green) 71.6% 89.3%,
+        #7c8cff 89.3% 100%
     );
 }
 
@@ -1677,29 +1174,27 @@ CONTACT PAGE - MOBILE
     content: "";
 
     position: absolute;
-
     inset: 28%;
 
     border-radius: 50%;
 
-    background: var(--win-grey);
+    background: var(--bg);
 }
 
 
-/* =========================================================
+/* ========================================
    DONUT CENTER
-========================================================= */
+======================================== */
 
 .pie-chart-center {
     position: absolute;
-
     top: 50%;
     left: 50%;
 
-    z-index: 2;
+    width: 120px;
+    height: 120px;
 
-    width: 110px;
-    height: 110px;
+    z-index: 2;
 
     display: flex;
     flex-direction: column;
@@ -1708,1042 +1203,852 @@ CONTACT PAGE - MOBILE
 
     transform: translate(-50%, -50%);
 
-    background: var(--win-grey);
-
-    border-top: 2px solid var(--win-light);
-    border-left: 2px solid var(--win-light);
-    border-right: 2px solid var(--win-shadow);
-    border-bottom: 2px solid var(--win-shadow);
+    background: var(--bg);
+    border: 2px solid var(--border);
 
     text-align: center;
-
     pointer-events: none;
 }
 
 .pie-chart-center strong {
-    color: #000000;
+    color: var(--text);
 
-    font-family:
-        Tahoma,
-        "MS Sans Serif",
-        Arial,
-        sans-serif;
-
-    font-size: 12px;
-    font-weight: bold;
+    font-family: "Press Start 2P", monospace;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 1.6;
 }
 
 .pie-chart-center span {
-    margin-top: 4px;
+    margin-top: 5px;
 
-    color: #404040;
+    color: var(--text-muted);
 
-    font-size: 11px;
+    font-family: "VT323", monospace;
+    font-size: 17px;
 }
 
 
-/* =========================================================
+/* ========================================
    CHART LEGEND
-========================================================= */
+======================================== */
 
 .pie-chart-legend {
     display: grid;
-    gap: 12px;
+    gap: 22px;
 }
 
 .legend-item {
     display: grid;
-    grid-template-columns: 12px minmax(0, 1fr);
+    grid-template-columns: 14px minmax(0, 1fr);
     align-items: start;
-    gap: 9px;
+    gap: 14px;
 }
 
 .legend-dot {
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
 
-    margin-top: 3px;
+    margin-top: 6px;
 }
 
 .legend-dot.main-pages {
-    background: #000080;
+    background: var(--cyan);
 }
 
 .legend-dot.blog {
-    background: #008000;
+    background: var(--green);
 }
 
 .legend-dot.activity-hub {
-    background: #808080;
+    background: #7c8cff;
 }
 
 .legend-item strong {
     display: block;
+    margin-bottom: 4px;
 
-    margin-bottom: 2px;
+    color: var(--text);
 
-    color: #000000;
-
-    font-family:
-        Tahoma,
-        "MS Sans Serif",
-        Arial,
-        sans-serif;
-
-    font-size: 11px;
-    font-weight: bold;
+    font-family: "Press Start 2P", monospace;
+    font-size: 10px;
+    font-weight: normal;
+    line-height: 1.7;
 }
 
 .legend-item div span {
     display: block;
 
-    color: #111111;
-
-    font-size: 13px;
+    color: var(--text-secondary);
+    font-size: 20px;
     line-height: 1.5;
 }
 
 
-/* =========================================================
+/* ========================================
    CASE STUDY CTA
-========================================================= */
+======================================== */
 
 .case-study-cta {
     max-width: 1000px;
     margin: 0 auto;
-
-    padding: 50px 30px;
+    padding: 100px 30px 120px;
 
     text-align: center;
 
-    border-top: 2px solid #006060;
+    border-top: 2px solid var(--border);
 }
 
 .case-study-cta .eyebrow {
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
 
 .case-study-cta h2 {
-    margin: 0 0 25px;
+    margin: 0 0 35px;
 
-    color: #ffffff;
+    color: var(--text);
 
-    font-family:
-        Tahoma,
-        "MS Sans Serif",
-        Arial,
-        sans-serif;
-
-    font-size: 21px;
-    font-weight: bold;
+    font-family: "Press Start 2P", monospace;
+    font-size: 28px;
+    font-weight: normal;
+    line-height: 1.7;
 }
 
 
-/* =========================================================
+/* ========================================
    BLOG LISTING
-========================================================= */
+======================================== */
 
 .blog-list {
     max-width: 900px;
-
     margin: 0 auto;
-
-    padding: 20px 30px 70px;
+    padding: 20px 30px 100px;
 
     display: grid;
-    gap: 10px;
+    gap: 25px;
 }
 
 .blog-card {
-    padding: 20px;
+    padding: 30px;
 
-    background: var(--win-grey);
+    background: var(--bg-card);
+    border: 2px solid var(--border);
 
-    transition: none;
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background-color 0.2s ease;
 }
 
 .blog-card:hover {
-    background: var(--win-grey);
+    transform: translateY(-3px);
 
-    border-top-color: var(--win-light);
-    border-left-color: var(--win-light);
-
-    transform: none;
+    background: var(--bg-card-hover);
+    border-color: var(--cyan);
 }
 
 .blog-card h2 {
-    margin: 0 0 10px;
+    margin: 0 0 15px;
 
-    font-family:
-        Tahoma,
-        "MS Sans Serif",
-        Arial,
-        sans-serif;
-
-    font-size: 16px;
-    font-weight: bold;
-    line-height: 1.4;
+    font-family: "Press Start 2P", monospace;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 1.7;
 }
 
 .blog-card h2 a {
-    color: #000000;
-
+    color: var(--text);
     text-decoration: none;
 }
 
 .blog-card h2 a:hover {
-    color: #ffffff;
-
-    background: var(--win-blue);
+    color: var(--cyan);
 }
 
 .blog-card p {
-    margin: 0 0 15px;
+    margin: 0 0 20px;
 
-    color: #111111;
-
-    font-size: 13px;
-    line-height: 1.6;
+    color: var(--text-secondary);
+    font-size: 21px;
+    line-height: 1.5;
 }
 
 .blog-read-more {
-    color: var(--win-link);
-
-    font-size: 12px;
-
-    text-decoration: underline;
+    color: var(--green);
+    text-decoration: none;
+    font-size: 20px;
 }
 
 .blog-read-more:hover {
-    color: #ffffff;
-
-    background: var(--win-blue);
+    color: var(--cyan);
 }
 
 
-/* =========================================================
+/* ========================================
    ARTICLE PAGE
-========================================================= */
+======================================== */
 
 .article-page {
     max-width: 900px;
-
-    margin: 20px auto;
-
-    padding: 0;
+    margin: 0 auto;
+    padding: 100px 30px;
 }
 
 .article-header {
-    margin-bottom: 15px;
-
-    padding: 0;
-
-    background: var(--win-grey);
-
-    border-top: 2px solid var(--win-light);
-    border-left: 2px solid var(--win-light);
-    border-right: 2px solid var(--win-dark);
-    border-bottom: 2px solid var(--win-dark);
-}
-
-.article-header::before {
-    content: "Notepad - Article";
-
-    display: block;
-
-    padding: 4px 7px;
-
-    color: #ffffff;
-    background: var(--win-blue);
-
-    font-size: 12px;
-    font-weight: bold;
+    margin-bottom: 60px;
 }
 
 .article-header .eyebrow {
-    margin: 0;
-
-    padding: 20px 25px 0;
+    margin-bottom: 25px;
 }
 
 .article-header h1 {
-    margin: 0;
+    margin: 0 0 25px;
 
-    padding: 10px 25px 15px;
+    color: var(--text);
 
-    color: #000000;
-
-    font-family:
-        Tahoma,
-        "MS Sans Serif",
-        Arial,
-        sans-serif;
-
-    font-size: 27px;
-    font-weight: bold;
-    line-height: 1.4;
+    font-family: "Press Start 2P", monospace;
+    font-size: 36px;
+    font-weight: normal;
+    line-height: 1.6;
 }
 
 .article-intro {
     max-width: 750px;
-
     margin: 0;
 
-    padding: 0 25px 25px;
-
-    color: #111111;
-
-    font-size: 15px;
+    color: var(--text-secondary);
+    font-size: 24px;
     line-height: 1.6;
 }
 
 .article-content {
     max-width: 780px;
-
-    margin: 0 auto;
-
-    padding: 25px;
-
-    background: #ffffff;
-
-    border-top: 2px solid var(--win-shadow);
-    border-left: 2px solid var(--win-shadow);
-    border-right: 2px solid var(--win-light);
-    border-bottom: 2px solid var(--win-light);
 }
 
 .article-content h2 {
-    margin: 40px 0 15px;
+    margin: 60px 0 20px;
 
-    color: var(--win-blue);
+    color: var(--cyan);
 
-    font-family:
-        Tahoma,
-        "MS Sans Serif",
-        Arial,
-        sans-serif;
-
-    font-size: 18px;
-    font-weight: bold;
-    line-height: 1.4;
+    font-family: "Press Start 2P", monospace;
+    font-size: 22px;
+    font-weight: normal;
+    line-height: 1.7;
 }
 
 .article-content h3 {
-    color: var(--win-green);
+    color: var(--green);
 
-    font-family:
-        Tahoma,
-        "MS Sans Serif",
-        Arial,
-        sans-serif;
-
+    font-family: "Press Start 2P", monospace;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: normal;
+    line-height: 1.7;
 }
 
 .article-content p {
-    margin: 0 0 20px;
+    margin: 0 0 25px;
 
-    color: #111111;
-
-    font-size: 14px;
+    color: var(--text-secondary);
+    font-size: 22px;
     line-height: 1.65;
 }
 
 .article-content a {
-    color: var(--win-link);
+    color: var(--cyan);
 
     text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 2px;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
 }
 
 .article-content a:hover {
-    color: #ffffff;
-
-    background: var(--win-blue);
+    color: var(--green);
 }
 
 .article-content ul,
 .article-content ol {
-    margin: 0 0 25px;
-
-    padding-left: 25px;
+    margin: 0 0 30px;
+    padding-left: 30px;
 }
 
 .article-content li {
-    margin-bottom: 7px;
+    margin-bottom: 10px;
 
-    color: #111111;
-
-    font-size: 14px;
+    color: var(--text-secondary);
+    font-size: 22px;
     line-height: 1.6;
 }
 
-
-/* =========================================================
-   ARTICLE CALLOUTS
-========================================================= */
-
 .key-takeaway {
-    margin: 25px 0;
+    margin: 35px 0;
+    padding: 25px;
 
-    padding: 15px;
-
-    color: #000000;
-
-    background: var(--win-yellow);
-
-    box-shadow: 1px 1px 0 #000000;
+    background: var(--note-bg);
+    border-left: 4px solid var(--green);
 }
 
 .key-takeaway strong {
-    color: var(--win-blue);
+    color: var(--green);
 }
 
 .clarity-line {
-    margin: 25px 0;
+    margin: 30px 0;
+    padding: 20px;
 
-    padding: 12px;
+    color: var(--text);
+    background: var(--bg-card);
+    border: 2px solid var(--border);
 
-    color: #000000;
-
-    background: #ffffff;
+    font-size: 22px;
 }
 
 .article-divider {
-    margin: 35px 0;
+    margin: 50px 0;
 
     border: 0;
-
-    border-top: 1px solid var(--win-shadow);
+    border-top: 2px solid var(--border);
 }
 
 .article-credits {
-    color: #404040;
-
-    font-size: 11px;
+    color: var(--text-muted);
+    font-size: 18px;
 }
 
 
-/* =========================================================
+/* ========================================
    CONTACT PAGE
-========================================================= */
+======================================== */
 
 .contact-section {
     max-width: 900px;
-
-    margin: 20px auto;
-
-    padding: 0;
-
-    background: var(--win-grey);
-
-    border-top: 2px solid var(--win-light);
-    border-left: 2px solid var(--win-light);
-    border-right: 2px solid var(--win-dark);
-    border-bottom: 2px solid var(--win-dark);
-}
-
-.contact-section::before {
-    content: "Contact - Message";
-
-    display: block;
-
-    padding: 4px 7px;
-
-    color: #ffffff;
-    background: var(--win-blue);
-
-    font-size: 12px;
-    font-weight: bold;
+    margin: 0 auto;
+    padding: 100px 30px;
 }
 
 .contact-section h1 {
-    margin: 0;
+    margin: 0 0 25px;
 
-    padding: 25px 25px 10px;
+    color: var(--text);
 
-    color: #000000;
-
-    font-family:
-        Tahoma,
-        "MS Sans Serif",
-        Arial,
-        sans-serif;
-
-    font-size: 25px;
-    font-weight: bold;
+    font-family: "Press Start 2P", monospace;
+    font-size: 32px;
+    font-weight: normal;
+    line-height: 1.5;
 }
 
 .contact-section h1::before {
-    content: "" !important;
+    content: "> ";
+    color: var(--cyan);
 }
 
 .contact-section p {
     max-width: 700px;
 
-    margin: 0;
-
-    padding: 0 25px 20px;
-
-    color: #111111;
-
-    font-size: 14px;
+    color: var(--text-secondary);
+    font-size: 22px;
     line-height: 1.6;
 }
 
 .contact-link {
-    color: var(--win-link);
-
-    text-decoration: underline;
+    color: var(--cyan);
+    text-decoration: none;
 }
 
 .contact-link:hover {
-    color: #ffffff;
-
-    background: var(--win-blue);
+    color: var(--green);
 }
 
 
-/* =========================================================
+/* ========================================
    TABLES
-========================================================= */
+======================================== */
 
 table {
     width: 100%;
+    margin: 30px 0;
 
-    margin: 25px 0;
+    border-collapse: collapse;
 
-    border-collapse: separate;
-    border-spacing: 0;
-
-    background: var(--win-grey);
-
-    font-size: 13px;
+    font-size: 20px;
 }
 
 th,
 td {
-    padding: 8px;
+    padding: 12px;
 
     text-align: left;
 
-    border: 1px solid var(--win-shadow);
+    border: 2px solid var(--border);
 }
 
 th {
-    color: #ffffff;
-
-    background: var(--win-blue);
-
-    font-family:
-        Tahoma,
-        "MS Sans Serif",
-        Arial,
-        sans-serif;
-
-    font-weight: bold;
+    color: var(--cyan);
+    background: var(--bg-card);
 }
 
 td {
-    color: #000000;
-
-    background: #ffffff;
-}
-
-
-/* =========================================================
-   GENERIC HTML ELEMENTS
-========================================================= */
-
-strong,
-b {
-    color: #000000;
-}
-
-code,
-pre {
-    font-family: "Courier New", monospace;
-}
-
-code {
-    padding: 1px 3px;
-
-    color: #000000;
-    background: #eeeeee;
-
-    border: 1px solid #808080;
-}
-
-blockquote {
-    margin: 20px 0;
-    padding: 10px 15px;
-
-    color: #111111;
-    background: var(--win-yellow);
-
-    border-top: 2px solid var(--win-shadow);
-    border-left: 2px solid var(--win-shadow);
-    border-right: 2px solid var(--win-light);
-    border-bottom: 2px solid var(--win-light);
-}
-
-
-/* ========================================
-   WINDOWS 98 LEAD POPUP
-======================================== */
-
-.lead-popup-overlay {
-    position: fixed !important;
-    inset: 0 !important;
-    z-index: 99999 !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-
-    padding: 20px;
-
-    background: rgba(0, 0, 0, 0.45);
-
-    opacity: 0;
-    visibility: hidden;
-
-    pointer-events: none;
-
-    transition:
-        opacity 0.15s ease,
-        visibility 0.15s ease;
-}
-
-.lead-popup-overlay.is-visible {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-}
-
-
-.lead-popup {
-    position: relative;
-
-    width: min(420px, 100%);
-
-    background: #c0c0c0;
-    color: #000000;
-
-    border-top: 2px solid #ffffff;
-    border-left: 2px solid #ffffff;
-    border-right: 2px solid #000000;
-    border-bottom: 2px solid #000000;
-
-    box-shadow:
-        2px 2px 0 #808080,
-        4px 4px 0 #000000;
-
-    font-family:
-        "MS Sans Serif",
-        Tahoma,
-        Arial,
-        sans-serif;
-}
-
-
-.lead-popup-titlebar {
-    height: 30px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    box-sizing: border-box;
-
-    padding: 3px 4px 3px 6px;
-
-    background: #000080;
-    color: #ffffff;
-
-    font-size: 13px;
-    font-weight: bold;
-}
-
-
-.lead-popup-close {
-    width: 22px;
-    height: 22px;
-
-    padding: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: #c0c0c0;
-    color: #000000;
-
-    border-top: 2px solid #ffffff;
-    border-left: 2px solid #ffffff;
-    border-right: 2px solid #000000;
-    border-bottom: 2px solid #000000;
-
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-
-    line-height: 1;
-
-    cursor: pointer;
-}
-
-
-.lead-popup-content {
-    padding: 18px;
-}
-
-
-.lead-popup-intro {
-    margin: 0 0 6px;
-
-    font-size: 18px;
-    font-weight: bold;
-}
-
-
-.lead-popup-description {
-    margin: 0 0 18px;
-
-    font-size: 13px;
-    line-height: 1.5;
-}
-
-
-.lead-form {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-}
-
-
-.lead-form-field {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-
-.lead-form-field label {
-    font-size: 13px;
-    font-weight: bold;
-}
-
-
-.lead-form-field input {
-    width: 100%;
-    box-sizing: border-box;
-
-    min-height: 30px;
-
-    padding: 5px 7px;
-
-    background: #ffffff;
-    color: #000000;
-
-    border-top: 2px solid #808080;
-    border-left: 2px solid #808080;
-    border-right: 2px solid #ffffff;
-    border-bottom: 2px solid #ffffff;
-
-    border-radius: 0;
-
-    outline: none;
-
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-}
-
-
-.lead-turnstile {
-    min-height: 65px;
-
-    display: flex;
-    align-items: center;
-}
-
-
-.lead-submit {
-    align-self: flex-start;
-
-    min-width: 100px;
-
-    padding: 7px 18px;
-
-    background: #c0c0c0;
-    color: #000000;
-
-    border-top: 2px solid #ffffff;
-    border-left: 2px solid #ffffff;
-    border-right: 2px solid #000000;
-    border-bottom: 2px solid #000000;
-
-    border-radius: 0;
-
-    font-family:
-        "MS Sans Serif",
-        Tahoma,
-        Arial,
-        sans-serif;
-
-    font-size: 13px;
-    font-weight: bold;
-
-    cursor: pointer;
-}
-
-
-.lead-submit:disabled {
-    color: #808080;
-    cursor: default;
-}
-
-
-.lead-form-message {
-    min-height: 18px;
-
-    margin: 0;
-
-    font-size: 12px;
-    line-height: 1.4;
-}
-
-
-@media (max-width: 500px) {
-
-    .lead-popup-overlay {
-        padding: 12px;
-    }
-
-    .lead-popup-content {
-        padding: 14px;
-    }
-
-    .lead-popup {
-        width: 100%;
-    }
-
-}
-
-/* ========================================
-   CLIENT TESTIMONIALS
-======================================== */
-
-.testimonials-section {
-    width: min(1100px, calc(100% - 40px));
-    margin: 70px auto;
-}
-
-.testimonials-section .section-header {
-    margin-bottom: 24px;
-}
-
-.testimonials-section .eyebrow {
-    margin: 0 0 8px;
-}
-
-.testimonials-section h2 {
-    margin: 0;
-}
-
-.testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
-
-.testimonial-window {
-    background: var(--bg-card);
-    border: 2px solid var(--text);
-    box-shadow: 5px 5px 0 var(--text);
-}
-
-.window-titlebar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 8px 10px;
-
-    background: var(--text);
-    color: var(--bg);
-
-    font-family: "Press Start 2P", monospace;
-    font-size: 10px;
-    line-height: 1.4;
-}
-
-.window-controls {
-    letter-spacing: 2px;
-}
-
-.testimonial-content {
-    padding: 28px 24px;
-    min-height: 140px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.testimonial-quote {
-    margin: 0;
-    font-family: "VT323", monospace;
-    font-size: 24px;
-    line-height: 1.3;
-}
-
-.testimonial-author {
-    margin: 24px 0 0;
-    font-family: "VT323", monospace;
-    font-size: 18px;
-    color: var(--text-secondary);
-}
-
-
-/* Mobile */
-
-@media (max-width: 700px) {
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .testimonial-window {
-        box-shadow: 4px 4px 0 var(--text);
-    }
-}
-
-/* ========================================
-ABOUT PAGE - WINDOWS 98 LAYOUT
-======================================== */
-
-.about-section {
-    width: min(1100px, calc(100% - 40px));
-    margin: 40px auto;
-    box-sizing: border-box;
-}
-
-.about-header {
-    margin-bottom: 28px;
-}
-
-.about-header .eyebrow {
-    margin: 0 0 8px;
-}
-
-.about-header h1 {
-    margin: 0;
-}
-
-/* About content */
-
-.about-content {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 320px;
-    gap: 40px;
-    align-items: start;
-}
-
-/* About text */
-
-.about-text {
-    max-width: 700px;
-}
-
-.about-text p {
-    margin: 0 0 20px;
-}
-
-.about-text p:last-child {
-    margin-bottom: 0;
-}
-
-/* About photo */
-
-.about-photo {
-    width: 100%;
-}
-
-.about-photo img {
-    display: block;
-    width: 100%;
-    height: auto;
-
-    border-top: 2px solid #ffffff;
-    border-left: 2px solid #ffffff;
-    border-right: 2px solid #404040;
-    border-bottom: 2px solid #404040;
-
-    box-sizing: border-box;
-}
-
-.about-photo p {
-    margin: 8px 0 0;
-
-    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif;
-    font-size: 12px;
     color: var(--text-secondary);
 }
 
 
 /* ========================================
-ABOUT PAGE - TABLET
+   ANIMATIONS
+======================================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes blink {
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 1000px) {
+
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .navbar nav {
+        gap: 16px;
+    }
+
+    .hero {
+        gap: 45px;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+}
+
+
+/* ========================================
+   MOBILE
 ======================================== */
 
 @media (max-width: 800px) {
 
+    /* Navigation */
+
+    .navbar {
+        padding: 20px;
+    }
+
+    .navbar nav {
+        width: 100%;
+
+        justify-content: flex-start;
+        gap: 12px 18px;
+    }
+
+    .navbar nav a {
+        font-size: 18px;
+    }
+
+    .theme-toggle {
+        margin-left: auto;
+    }
+
+
+    /* Homepage */
+
+    .hero {
+        grid-template-columns: 1fr;
+
+        padding: 70px 20px 80px;
+
+        gap: 50px;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .hero-description {
+        font-size: 21px;
+    }
+
+    .hero-image {
+        order: -1;
+    }
+
+    .hero-image img {
+        max-width: 280px;
+    }
+
+
+    /* Specialties */
+
+    .specialties {
+        padding: 70px 20px;
+    }
+
+    .specialties h2 {
+        font-size: 21px;
+    }
+
+    .specialty-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Tools */
+
+    .tools-section {
+        padding: 60px 20px;
+    }
+
+
+    /* General CTA */
+
+    .cta {
+        padding: 80px 20px;
+    }
+
+    .cta h2 {
+        font-size: 21px;
+    }
+
+
+    /* Page headers */
+
+    .page-header,
+    .page-hero {
+        padding: 70px 20px 50px;
+    }
+
+    .page-header h1,
+    .page-hero h1 {
+        font-size: 22px;
+    }
+
+
+    /* Clients */
+
+    .clients {
+        padding: 10px 20px 60px;
+    }
+
+    .client-box summary {
+        padding: 20px;
+        font-size: 10px;
+    }
+
+    .clients-note {
+        margin: 0 20px;
+        padding: 20px;
+    }
+
+    .page-cta {
+        padding: 70px 20px;
+    }
+
+
+    /* About */
+
     .about-section {
-        width: min(100% - 28px, 700px);
-        margin: 28px auto;
+        padding: 70px 20px;
     }
 
     .about-content {
         grid-template-columns: 1fr;
-        gap: 28px;
+        gap: 40px;
     }
 
-    .about-text {
-        max-width: 100%;
+    .about-header h1 {
+        font-size: 23px;
     }
 
-    .about-photo {
-        max-width: 400px;
+    .intro {
+        font-size: 22px;
     }
 
+
+    /* Case Studies */
+
+    .case-studies-hero {
+        padding: 70px 20px 50px;
+    }
+
+    .case-studies-hero h1 {
+        font-size: 26px;
+    }
+
+    .case-studies-intro {
+        font-size: 21px;
+    }
+
+    .case-studies {
+        padding: 10px 20px 70px;
+    }
+
+    .case-study-card {
+        grid-template-columns: 1fr;
+        gap: 20px;
+
+        padding: 25px;
+    }
+
+    .case-study-number {
+        padding-top: 0;
+        font-size: 13px;
+    }
+
+    .case-study-content h2 {
+        font-size: 21px;
+    }
+
+    .case-study-summary {
+        margin-bottom: 35px;
+        font-size: 21px;
+    }
+
+    .case-study-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .case-study-chart {
+        padding: 20px;
+    }
+
+    .case-study-chart-header {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .chart-toggle {
+        width: 100%;
+    }
+
+    .chart-year {
+        flex: 1;
+    }
+
+    .chart-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .pie-chart-wrapper {
+        width: 210px;
+        height: 210px;
+    }
+
+    .pie-chart-center {
+        width: 105px;
+        height: 105px;
+    }
+
+    .pie-chart-center strong {
+        font-size: 10px;
+    }
+
+    .case-study-cta {
+        padding: 70px 20px 90px;
+    }
+
+    .case-study-cta h2 {
+        font-size: 21px;
+    }
+
+
+    /* Blog */
+
+    .blog-list {
+        padding: 10px 20px 70px;
+    }
+
+    .blog-card {
+        padding: 22px;
+    }
+
+    .blog-card h2 {
+        font-size: 14px;
+    }
+
+
+    /* Article */
+
+    .article-page {
+        padding: 70px 20px;
+    }
+
+    .article-header h1 {
+        font-size: 25px;
+    }
+
+    .article-intro {
+        font-size: 21px;
+    }
+
+    .article-content h2 {
+        font-size: 18px;
+    }
+
+    .article-content p,
+    .article-content li {
+        font-size: 21px;
+    }
+
+
+    /* Contact */
+
+    .contact-section {
+        padding: 70px 20px;
+    }
+
+    .contact-section h1 {
+        font-size: 23px;
+    }
 }
 
 
 /* ========================================
-ABOUT PAGE - MOBILE
+   SMALL MOBILE
 ======================================== */
 
-@media (max-width: 520px) {
+@media (max-width: 480px) {
 
-    .about-section {
-        width: calc(100% - 20px);
-        margin: 20px auto;
+    .logo {
+        font-size: 10px;
     }
 
-    .about-header {
-        margin-bottom: 22px;
+    .logo img {
+        width: 30px;
+        height: 30px;
     }
 
-    .about-content {
-        gap: 22px;
+    .theme-toggle-label {
+        display: none;
     }
 
-    .about-text p {
-        margin-bottom: 16px;
+
+    /* Homepage */
+
+    .hero h1 {
+        font-size: 24px;
     }
 
-    .about-photo {
-        max-width: 100%;
+    .hero-description {
+        font-size: 20px;
     }
 
+    .button {
+        width: 100%;
+        text-align: center;
+    }
+
+
+    /* Specialties */
+
+    .specialty-card {
+        padding: 22px;
+    }
+
+
+    /* Case Studies */
+
+    .case-studies-hero h1 {
+        font-size: 21px;
+    }
+
+    .case-study-card {
+        padding: 20px;
+    }
+
+    .case-study-type {
+        font-size: 8px;
+    }
+
+    .case-study-content h2 {
+        font-size: 18px;
+    }
+
+    .case-study-summary {
+        font-size: 20px;
+    }
+
+    .case-study-section {
+        padding: 20px;
+    }
+
+    .case-study-section h3 {
+        font-size: 9px;
+    }
+
+    .case-study-chart {
+        padding: 15px;
+    }
+
+    .case-study-chart-header h3 {
+        font-size: 14px;
+    }
+
+    .chart-year {
+        font-size: 16px;
+    }
+
+    .pie-chart-wrapper {
+        width: 180px;
+        height: 180px;
+    }
+
+    .pie-chart-center {
+        width: 90px;
+        height: 90px;
+    }
+
+    .pie-chart-center strong {
+        font-size: 8px;
+    }
+
+    .legend-item strong {
+        font-size: 8px;
+    }
+
+
+    /* Article */
+
+    .article-header h1 {
+        font-size: 21px;
+    }
+}
+
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
