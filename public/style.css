@@ -427,7 +427,7 @@ html[data-theme="light"] .theme-toggle-thumb {
 }
 
 .hero-image img {
-    width: 100%;
+ width: 100%;
     max-width: 400px;
 
     display: block;
@@ -442,17 +442,24 @@ html[data-theme="light"] .theme-toggle-thumb {
          0  3px 0 0 var(--border);
 
     filter: grayscale(100%);
+    
+    /* Smooth movement transition */
+    transition: transform 0.15s ease, filter 0.15s ease, box-shadow 0.15s ease;
 }
 
 .hero-image img:hover {
     filter: grayscale(0%);
+    
+    /* Moves the image up by 6px */
+    transform: translateY(-6px);
+
     box-shadow:
         -3px 0 0 0 var(--cyan),
          3px 0 0 0 var(--cyan),
          0 -3px 0 0 var(--cyan),
-         0  3px 0 0 var(--cyan);
+         0  3px 0 0 var(--cyan),
+         0  6px 0 0 var(--shadow-color);
 }
-
 .hero-visual {
     min-height: 300px;
 
