@@ -2080,6 +2080,10 @@ td {
 ======================================== */
 
 .testimonials-grid {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    box-sizing: border-box;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: stretch;
@@ -2089,6 +2093,9 @@ td {
 .testimonial-window {
     width: 100%;
     min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -2112,6 +2119,9 @@ td {
 
 .testimonial-content p {
     margin-top: 0;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-break: normal;
     color: var(--text-secondary);
 }
 
