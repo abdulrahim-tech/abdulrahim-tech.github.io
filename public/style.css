@@ -2175,3 +2175,35 @@ h1, h2, h3, .eyebrow {
         mask-position: 0 0%;
     }
 }
+
+/* ========================================
+   HARD 8-BIT OVERRIDES (NO FADES / HARD CUTS)
+======================================== */
+
+/* Disable page-level opacity fades */
+body {
+    animation: none !important;
+}
+
+/* Force instant step transitions instead of smooth fades on hover */
+*,
+*::before,
+*::after {
+    transition-duration: 0.01s !important;
+    transition-timing-function: steps(1) !important;
+}
+
+/* Hard 8-bit curtain reveal (.effect) */
+.effect {
+    clip-path: inset(0 0 100% 0);
+    animation: effectDraw 0.6s steps(12) forwards;
+}
+
+@keyframes effectDraw {
+    0% {
+        clip-path: inset(0 0 100% 0);
+    }
+    100% {
+        clip-path: inset(0 0 0 0);
+    }
+}
