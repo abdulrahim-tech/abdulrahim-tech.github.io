@@ -2109,3 +2109,14 @@ td {
         grid-template-columns: 1fr;
     }
 }
+
+/* For retro pixel headings */
+h1, h2, h3, .eyebrow {
+    font-family: 'Press Start 2P', monospace;
+}
+
+/* For retro buttons */
+.button {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 12px; /* Recommended size: keep 8-bit fonts at multiples of 8 or 10 for sharpness */
+}
