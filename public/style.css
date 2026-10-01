@@ -2012,11 +2012,16 @@ td {
     align-items: center;
     padding: 8px 14px;
     background: var(--border);
-    color: var(--text);
+    color: #000000 !important;
     font-family: "Press Start 2P", monospace;
     font-size: 10px;
 }
 
+/* Force inner text elements to inherit black text */
+.window-titlebar span,
+.window-titlebar .window-controls {
+    color: #000000 !important;
+}
 .testimonial-content {
     padding: 25px;
 }
