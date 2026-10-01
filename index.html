@@ -304,8 +304,6 @@
     <script>
     const toggleBtn = document.getElementById('theme-toggle');
     const currentTheme = localStorage.getItem('theme') || 'dark';
-
-    // Set initial theme state on page load
     if (currentTheme === 'light') {
         document.documentElement.setAttribute('data-theme', 'light');
         if (toggleBtn) toggleBtn.textContent = '[ DARK ]';
@@ -313,8 +311,6 @@
         document.documentElement.setAttribute('data-theme', 'dark');
         if (toggleBtn) toggleBtn.textContent = '[ LIGHT ]';
     }
-
-    // Toggle theme with hard 8-bit snap
     if (toggleBtn) {
         toggleBtn.addEventListener('click', () => {
             let theme = document.documentElement.getAttribute('data-theme');
