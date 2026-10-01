@@ -40,6 +40,9 @@
         <a href="/case-studies/">Case Studies</a>
         <a href="/blog/">Blog</a>
         <a href="/contact/">Contact</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+        [ LIGHT ]
+        </button>
     </nav>
 
 </header>
@@ -406,5 +409,34 @@ updateChart("2025");
 
 </script>
 </div>
+    <script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+
+    // Set initial theme state on page load
+    if (currentTheme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+        if (toggleBtn) toggleBtn.textContent = '[ DARK ]';
+    } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        if (toggleBtn) toggleBtn.textContent = '[ LIGHT ]';
+    }
+
+    // Toggle theme with hard 8-bit snap
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
+            let theme = document.documentElement.getAttribute('data-theme');
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                toggleBtn.textContent = '[ LIGHT ]';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+                toggleBtn.textContent = '[ DARK ]';
+            }
+        });
+    }
+</script>
 </body>
 </html>
