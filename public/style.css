@@ -595,9 +595,9 @@ html[data-theme="light"] .theme-toggle-thumb {
 ======================================== */
 
 .tools-section {
-    max-width: 1200px;
+   max-width: 1200px;
     margin: 0 auto;
-    padding: 80px 30px;
+    padding: 40px 30px 20px; /* Top Right/Left Bottom */
 }
 
 .tools-list {
@@ -1950,11 +1950,10 @@ td {
 ======================================== */
 
 .testimonials-section {
-    max-width: 1200px;
+   max-width: 1200px;
     margin: 0 auto;
-    padding: 80px 30px;
+    padding: 20px 30px 80px; /* Top Right/Left Bottom */
 }
-
 .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
