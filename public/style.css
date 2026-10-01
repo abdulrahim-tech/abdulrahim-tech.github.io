@@ -2014,3 +2014,98 @@ td {
         grid-template-columns: 1fr;
     }
 }
+
+/* ========================================
+   CONTACT PAGE
+======================================== */
+
+.contact-section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 100px 30px;
+}
+
+.contact-section h1 {
+    margin: 0 0 25px;
+    color: var(--text);
+    font-family: "Press Start 2P", monospace;
+    font-size: 32px;
+    font-weight: normal;
+    line-height: 1.5;
+}
+
+.contact-section h1::before {
+    content: "> ";
+    color: var(--cyan);
+}
+
+.contact-intro {
+    max-width: 700px;
+    margin-bottom: 40px;
+    color: var(--text-secondary);
+    font-size: 22px;
+    line-height: 1.6;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+/* 8-Bit Box Styling */
+.contact-item {
+    padding: 25px;
+    background: var(--bg-card);
+    border: none;
+    box-shadow:
+        -3px 0 0 0 var(--border),
+         3px 0 0 0 var(--border),
+         0 -3px 0 0 var(--border),
+         0  3px 0 0 var(--border),
+         5px 5px 0 0 var(--shadow-color);
+    transition: transform 0.1s steps(2);
+}
+
+.contact-item:hover {
+    transform: translate(-2px, -2px);
+    background: var(--bg-card-hover);
+    box-shadow:
+        -3px 0 0 0 var(--cyan),
+         3px 0 0 0 var(--cyan),
+         0 -3px 0 0 var(--cyan),
+         0  3px 0 0 var(--cyan),
+         7px 7px 0 0 var(--shadow-color);
+}
+
+.contact-item h2 {
+    margin: 0 0 15px;
+    color: var(--green);
+    font-family: "Press Start 2P", monospace;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.contact-link {
+    color: var(--cyan);
+    font-size: 20px;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    word-break: break-all;
+}
+
+.contact-link:hover {
+    color: var(--green);
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
