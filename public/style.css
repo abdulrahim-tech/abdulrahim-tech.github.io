@@ -878,16 +878,22 @@ footer {
 }
 
 .about-photo {
-    overflow: hidden;
-
-    padding: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 8px;
 
     background: var(--bg-card);
+    border: none;
+    
+    /* 8-bit retro border */
     box-shadow:
         -3px 0 0 0 var(--border),
          3px 0 0 0 var(--border),
          0 -3px 0 0 var(--border),
          0  3px 0 0 var(--border);
+
+    /* Smooth movement and color transition */
+    transition: transform 0.15s ease, filter 0.15s ease, box-shadow 0.15s ease;
 }
 
 .about-photo img {
@@ -895,17 +901,37 @@ footer {
     width: 100%;
     height: auto;
 
+    /* Crisp 8-bit image scaling and black-and-white filter */
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
     filter: grayscale(100%);
+
+    transition: filter 0.15s ease;
+}
+
+.about-photo:hover {
+    /* Moves the image up by 6px on hover */
+    transform: translateY(-6px);
+
+    /* Cyan border switch and shadow block */
+    box-shadow:
+        -3px 0 0 0 var(--cyan),
+         3px 0 0 0 var(--cyan),
+         0 -3px 0 0 var(--cyan),
+         0  3px 0 0 var(--cyan),
+         0  6px 0 0 var(--shadow-color);
+}
+
+.about-photo:hover img {
+    filter: grayscale(0%);
 }
 
 .about-photo figcaption {
     padding-top: 10px;
-
     color: var(--text-muted);
     font-size: 17px;
     text-align: center;
 }
-
 
 /* ========================================
    CASE STUDIES PAGE
