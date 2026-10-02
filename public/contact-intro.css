@@ -1,602 +1,436 @@
+/* ========================================
+   CONTACT — INTEGRATED PAGE REVEAL
+======================================== */
 
-/* ==========================================
-   CONTACT — MULTIDIMENSIONAL INTRO
-   Duration: 2.7 seconds
-========================================== */
+.verse-contact {
+    --reveal-cyan: #39dcff;
+    --reveal-pink: #ff397c;
+    --reveal-purple: #894aff;
+}
 
-.verse-intro {
-    --intro-pink: #ff397c;
-    --intro-cyan: #39dcff;
-    --intro-purple: #894aff;
-    --intro-dark: #080b20;
+/* ========================================
+   HEADING ENTRANCE
+======================================== */
 
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 99999;
-
-    overflow: hidden;
+.verse-contact .contact-heading {
+    position: relative;
     isolation: isolate;
-
-    color: #ffffff;
-    background: var(--intro-dark);
-
-    font-family: "Barlow Condensed", sans-serif;
 }
 
-html.contact-intro-playing .verse-intro {
-    display: block;
+.verse-contact .contact-heading .eyebrow {
+    animation:
+        contactEyebrowReveal .65s ease-out both,
+        visibleFlicker 5s 2s infinite steps(1, end);
 }
 
-html.contact-intro-playing .verse-contact > .effect {
-    visibility: hidden;
-}
-
-.verse-intro *,
-.verse-intro *::before,
-.verse-intro *::after {
-    box-sizing: border-box;
-}
-
-.verse-intro .intro-frame {
-    position: absolute;
-    inset: 0;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    overflow: hidden;
-
-    animation: introFrameShake 2.7s steps(1, end) both;
-}
-
-/* Background texture */
-
-.verse-intro .intro-noise {
-    position: absolute;
-    inset: -30%;
-
-    z-index: 8;
-    pointer-events: none;
-
-    opacity: .2;
-
-    background-image: repeating-linear-gradient(
-        0deg,
-        transparent 0,
-        transparent 3px,
-        rgba(255, 255, 255, .16) 4px,
-        transparent 5px
-    );
-
-    animation: introNoise .16s steps(3, end) infinite;
-}
-
-.verse-intro .intro-grid {
-    position: absolute;
-    inset: 0;
-
-    opacity: .15;
-
-    background-image:
-        linear-gradient(rgba(57, 220, 255, .25) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(57, 220, 255, .25) 1px, transparent 1px);
-
-    background-size: 45px 45px;
-
-    transform: perspective(600px) rotateX(12deg) scale(1.2);
-
-    animation: introGrid 2.7s linear both;
-}
-
-/* Opening colour flashes */
-
-.verse-intro .intro-flash {
-    position: absolute;
-    inset: 0;
-    z-index: 6;
-
-    opacity: 0;
-    pointer-events: none;
-}
-
-.verse-intro .intro-flash-one {
-    background: var(--intro-pink);
-    animation: introFlashOne 2.7s steps(1, end) both;
-}
-
-.verse-intro .intro-flash-two {
-    background: var(--intro-cyan);
-    animation: introFlashTwo 2.7s steps(1, end) both;
-}
-
-/* Rapid montage */
-
-.verse-intro .intro-montage {
-    position: absolute;
-    inset: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    pointer-events: none;
-}
-
-.verse-intro .intro-word {
-    position: absolute;
-
-    opacity: 0;
-
-    font-size: clamp(100px, 19vw, 330px);
-    font-weight: 900;
-    line-height: .8;
-    letter-spacing: -.065em;
-
-    white-space: nowrap;
-}
-
-.verse-intro .word-one {
-    color: var(--intro-cyan);
-
-    text-shadow:
-        10px 0 var(--intro-pink),
-        -10px 0 var(--intro-purple);
-
-    animation: montageOne 2.7s steps(1, end) both;
-}
-
-.verse-intro .word-two {
-    color: var(--intro-pink);
-
-    text-shadow:
-        -9px 0 var(--intro-cyan),
-        9px 0 var(--intro-purple);
-
-    animation: montageTwo 2.7s steps(1, end) both;
-}
-
-.verse-intro .word-three {
-    color: #ffffff;
-
-    text-shadow:
-        12px 0 var(--intro-cyan),
-        -12px 0 var(--intro-pink);
-
-    animation: montageThree 2.7s steps(1, end) both;
-}
-
-/* Final title card */
-
-.verse-intro .intro-title {
+.verse-contact .contact-heading h1 {
     position: relative;
-    z-index: 4;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    width: 100%;
-    padding: 24px;
-
-    text-align: center;
-
-    opacity: 0;
-
-    animation: introTitleReveal 2.7s steps(1, end) both;
+    animation: contactHeadingReveal 1.4s ease-out both;
 }
 
-.verse-intro .intro-kicker,
-.verse-intro .intro-subtitle {
-    font-family: "DM Sans", sans-serif;
-    font-size: clamp(9px, 1vw, 13px);
-    font-weight: 800;
-    letter-spacing: .25em;
-}
-
-.verse-intro .intro-kicker {
-    margin-bottom: 25px;
-    color: var(--intro-cyan);
-}
-
-.verse-intro .intro-subtitle {
-    margin-top: 30px;
-    color: #ffffff;
-}
-
-.verse-intro .intro-title-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    width: 100%;
-
-    font-size: clamp(110px, 21vw, 330px);
-    font-weight: 900;
-
-    line-height: .72;
-    letter-spacing: -.07em;
-}
-
-.verse-intro .intro-title-line {
+.verse-contact .contact-heading .heading-line {
     position: relative;
-    display: block;
-    width: fit-content;
-
-    color: #ffffff;
-
-    animation: introRGB 2.7s steps(1, end) both;
+    will-change: transform;
 }
 
-.verse-intro .intro-title-accent {
-    color: var(--intro-pink);
+/* LET'S */
+
+.verse-contact .contact-heading .heading-line:first-child {
+    animation:
+        contactLineOne 2s steps(1, end) both,
+        contactAmbientGlitch 8s 2s infinite steps(1, end);
 }
 
-.verse-intro .intro-title-line::before,
-.verse-intro .intro-title-line::after {
-    content: attr(data-text);
+/* TALK. */
 
-    position: absolute;
-    inset: 0;
-
-    font: inherit;
-    line-height: inherit;
-    letter-spacing: inherit;
-
-    pointer-events: none;
+.verse-contact .contact-heading .heading-line:nth-child(2) {
+    animation:
+        contactLineTwo 2s steps(1, end) both,
+        contactAmbientGlitch 8s 2.5s infinite steps(1, end);
 }
 
-.verse-intro .intro-title-line::before {
-    color: var(--intro-cyan);
+/* ========================================
+   TEMPORARY RGB DISTORTION
+======================================== */
 
-    animation: introSliceCyan 2.7s steps(1, end) both;
+.verse-contact .contact-heading .glitch-text::before {
+    animation:
+        contactIntroCyan 2s steps(1, end) both,
+        strongGlitchOne 4s 2s infinite steps(1, end);
 }
 
-.verse-intro .intro-title-line::after {
-    color: var(--intro-pink);
-
-    animation: introSlicePink 2.7s steps(1, end) both;
+.verse-contact .contact-heading .glitch-text::after {
+    animation:
+        contactIntroPink 2s steps(1, end) both,
+        strongGlitchTwo 4s 2s infinite steps(1, end);
 }
 
-/* Horizontal screen tears */
+/* ========================================
+   SUPPORTING TEXT
+======================================== */
 
-.verse-intro .intro-slice {
-    position: absolute;
-    z-index: 5;
-
-    left: -10%;
-    width: 120%;
-
-    opacity: 0;
-    pointer-events: none;
-
-    mix-blend-mode: screen;
+.verse-contact .contact-heading .contact-intro {
+    animation: contactCopyReveal 1.1s .65s ease-out both;
 }
 
-.verse-intro .slice-one {
-    top: 32%;
-    height: 13px;
+/* ========================================
+   CONTACT CARD ENTRANCE
+======================================== */
 
-    background: var(--intro-cyan);
-
-    animation: screenTearOne 2.7s steps(1, end) both;
+.verse-contact .contact-grid {
+    perspective: 1000px;
 }
 
-.verse-intro .slice-two {
-    top: 58%;
-    height: 26px;
-
-    background: var(--intro-pink);
-
-    animation: screenTearTwo 2.7s steps(1, end) both;
+.verse-contact .contact-item:nth-child(1) {
+    animation: contactCardReveal .8s .85s cubic-bezier(
+        .16, 1, .3, 1
+    ) both;
 }
 
-.verse-intro .slice-three {
-    top: 74%;
-    height: 5px;
-
-    background: #ffffff;
-
-    animation: screenTearThree 2.7s steps(1, end) both;
+.verse-contact .contact-item:nth-child(2) {
+    animation: contactCardReveal .8s 1.05s cubic-bezier(
+        .16, 1, .3, 1
+    ) both;
 }
 
-/* Progress indicator */
+.verse-contact .contact-item.glitch-card:hover {
+    transform: translate(-5px, -5px);
 
-.verse-intro .intro-progress {
-    position: absolute;
-    z-index: 20;
-
-    bottom: 0;
-    left: 0;
-
-    width: 100%;
-    height: 4px;
-
-    background: var(--intro-cyan);
-    box-shadow: 0 0 15px var(--intro-pink);
-
-    transform: scaleX(0);
-    transform-origin: left;
-
-    animation: introProgress 2.7s linear both;
+    box-shadow:
+        5px 5px 0 var(--reveal-pink),
+        10px 10px 0 rgba(57, 220, 255, .35);
 }
 
-/* Skip button */
+/* ========================================
+   BOTTOM DETAILS
+======================================== */
 
-.verse-intro .intro-skip {
-    position: absolute;
-    z-index: 30;
-
-    right: 25px;
-    bottom: 30px;
-
-    padding: 12px 17px;
-
-    color: #ffffff;
-    background: rgba(8, 11, 32, .8);
-
-    border: 1px solid var(--intro-cyan);
-    border-radius: 0;
-
-    font: 800 11px "DM Sans", sans-serif;
-    letter-spacing: .1em;
-
-    cursor: pointer;
+.verse-contact .contact-bottom {
+    animation: contactBottomReveal .7s 1.35s ease-out both;
 }
 
-.verse-intro .intro-skip:hover,
-.verse-intro .intro-skip:focus-visible {
-    color: var(--intro-dark);
-    background: var(--intro-cyan);
-}
+/* ========================================
+   ENTRANCE KEYFRAMES
+======================================== */
 
-/* ==========================================
-   TIMELINE
-========================================== */
+@keyframes contactEyebrowReveal {
 
-@keyframes montageOne {
-    0%, 5% { opacity: 0; }
-    6% { opacity: 1; transform: scale(1.6) translateX(-8%); }
-    12% { transform: scale(1.1) translateX(4%); }
-    15%, 100% { opacity: 0; }
-}
-
-@keyframes montageTwo {
-    0%, 15% { opacity: 0; }
-    16% { opacity: 1; transform: scale(1.5) translateX(10%); }
-    23% { transform: scale(.95) translateX(-5%); }
-    27%, 100% { opacity: 0; }
-}
-
-@keyframes montageThree {
-    0%, 27% { opacity: 0; }
-    28% { opacity: 1; transform: scale(1.7) translateX(-6%); }
-    35% { transform: scale(1) translateX(3%); }
-    40%, 100% { opacity: 0; }
-}
-
-@keyframes introTitleReveal {
-    0%, 39% {
+    0% {
         opacity: 0;
-        transform: scale(1.3);
-    }
-
-    40% {
-        opacity: 1;
-        transform: scale(1.3);
-    }
-
-    47% {
-        transform: scale(.92) skewX(-5deg);
-    }
-
-    51% {
-        transform: scale(1.08) skewX(3deg);
-    }
-
-    58% {
-        transform: scale(1);
-    }
-
-    70%, 94% {
-        opacity: 1;
-        transform: scale(1);
+        transform: translateY(8px);
+        letter-spacing: .45em;
     }
 
     100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes contactHeadingReveal {
+
+    0% {
+        opacity: .65;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+}
+
+@keyframes contactLineOne {
+
+    0% {
         opacity: 0;
-        transform: scale(1.08);
-    }
-}
-
-@keyframes introRGB {
-    0%, 43%, 57%, 100% {
-        text-shadow: none;
-    }
-
-    44% {
-        text-shadow:
-            -15px 0 var(--intro-cyan),
-            15px 0 var(--intro-pink);
-    }
-
-    48% {
-        text-shadow:
-            20px 0 var(--intro-cyan),
-            -20px 0 var(--intro-pink);
-    }
-
-    53% {
-        text-shadow:
-            -8px 0 var(--intro-cyan),
-            8px 0 var(--intro-pink);
-    }
-}
-
-@keyframes introSliceCyan {
-    0%, 42%, 59%, 100% {
-        opacity: 0;
-        transform: translateX(0);
-        clip-path: inset(0);
-    }
-
-    44% {
-        opacity: 1;
-        transform: translateX(-17px);
-        clip-path: inset(12% 0 60% 0);
-    }
-
-    48% {
-        opacity: 1;
-        transform: translateX(23px);
-        clip-path: inset(45% 0 20% 0);
-    }
-
-    53% {
-        opacity: 1;
-        transform: translateX(-12px);
-        clip-path: inset(70% 0 5% 0);
-    }
-}
-
-@keyframes introSlicePink {
-    0%, 42%, 59%, 100% {
-        opacity: 0;
-        transform: translateX(0);
-        clip-path: inset(0);
-    }
-
-    44% {
-        opacity: 1;
-        transform: translateX(17px);
-        clip-path: inset(55% 0 15% 0);
-    }
-
-    48% {
-        opacity: 1;
-        transform: translateX(-23px);
-        clip-path: inset(10% 0 65% 0);
-    }
-
-    53% {
-        opacity: 1;
-        transform: translateX(12px);
-        clip-path: inset(30% 0 35% 0);
-    }
-}
-
-@keyframes introFrameShake {
-    0%, 39%, 60%, 100% {
-        transform: translate(0);
+        transform: translateX(-18px);
         filter: none;
     }
 
-    42% { transform: translate(-8px, 2px); }
-    45% { transform: translate(10px, -4px); }
-    48% { transform: translate(-13px, 0); }
-    51% { transform: translate(6px, 3px); }
-    55% { transform: translate(-3px, -2px); }
+    12% {
+        opacity: 1;
+        transform: translateX(5px);
+
+        filter:
+            drop-shadow(-8px 0 var(--reveal-cyan))
+            drop-shadow(8px 0 var(--reveal-pink));
+    }
+
+    17% {
+        transform: translateX(-5px);
+
+        filter:
+            drop-shadow(6px 0 var(--reveal-cyan))
+            drop-shadow(-6px 0 var(--reveal-pink));
+    }
+
+    22% {
+        transform: translateX(2px);
+        filter: none;
+    }
+
+    28%, 100% {
+        opacity: 1;
+        transform: translateX(0);
+        filter: none;
+    }
+
 }
 
-@keyframes introFlashOne {
-    0%, 13%, 16%, 25%, 28%, 49%, 51%, 100% {
+@keyframes contactLineTwo {
+
+    0%, 18% {
         opacity: 0;
+        transform: translateX(22px);
+        filter: none;
     }
 
-    14%, 26% { opacity: .85; }
-    50% { opacity: .5; }
+    23% {
+        opacity: 1;
+        transform: translateX(-8px);
+
+        filter:
+            drop-shadow(-12px 0 var(--reveal-cyan))
+            drop-shadow(12px 0 var(--reveal-pink));
+    }
+
+    27% {
+        transform: translateX(9px);
+
+        filter:
+            drop-shadow(8px 0 var(--reveal-cyan))
+            drop-shadow(-8px 0 var(--reveal-pink));
+    }
+
+    31% {
+        transform: translateX(-4px);
+
+        filter:
+            drop-shadow(-5px 0 var(--reveal-cyan))
+            drop-shadow(5px 0 var(--reveal-pink));
+    }
+
+    36%, 100% {
+        opacity: 1;
+        transform: translateX(0);
+        filter: none;
+    }
+
 }
 
-@keyframes introFlashTwo {
-    0%, 24%, 27%, 38%, 41%, 55%, 57%, 100% {
+/* ========================================
+   CHROMATIC GLITCH SLICES
+======================================== */
+
+@keyframes contactIntroCyan {
+
+    0%, 5%, 13%, 18%, 23%, 28%, 100% {
         opacity: 0;
+        transform: translateX(0);
+        clip-path: inset(0);
     }
 
-    25%, 39% { opacity: .85; }
-    56% { opacity: .4; }
-}
-
-@keyframes screenTearOne {
-    0%, 43%, 47%, 51%, 100% { opacity: 0; }
-    44% { opacity: .9; transform: translateX(-6%); }
-    46% { opacity: .6; transform: translateX(7%); }
-    49% { opacity: .8; transform: translateX(-4%); }
-}
-
-@keyframes screenTearTwo {
-    0%, 45%, 49%, 54%, 100% { opacity: 0; }
-    46% { opacity: .9; transform: translateX(8%); }
-    48% { opacity: .7; transform: translateX(-9%); }
-    52% { opacity: .8; transform: translateX(4%); }
-}
-
-@keyframes screenTearThree {
-    0%, 47%, 51%, 56%, 100% { opacity: 0; }
-    48% { opacity: 1; transform: translateX(-10%); }
-    50% { opacity: .8; transform: translateX(5%); }
-    54% { opacity: .7; transform: translateX(-3%); }
-}
-
-@keyframes introNoise {
-    from { transform: translateY(0); }
-    to { transform: translateY(12px); }
-}
-
-@keyframes introGrid {
-    from { background-position: 0 0; }
-    to { background-position: 90px 90px; }
-}
-
-@keyframes introProgress {
-    to { transform: scaleX(1); }
-}
-
-/* ==========================================
-   MOBILE
-========================================== */
-
-@media (max-width: 600px) {
-
-    .verse-intro .intro-title-main {
-        font-size: clamp(90px, 23vw, 150px);
+    7% {
+        opacity: 1;
+        transform: translateX(-11px);
+        clip-path: inset(12% 0 60% 0);
     }
 
-    .verse-intro .intro-word {
-        font-size: clamp(70px, 20vw, 125px);
+    10% {
+        opacity: .9;
+        transform: translateX(8px);
+        clip-path: inset(50% 0 20% 0);
     }
 
-    .verse-intro .intro-kicker,
-    .verse-intro .intro-subtitle {
-        font-size: 9px;
-        letter-spacing: .12em;
+    20% {
+        opacity: 1;
+        transform: translateX(-15px);
+        clip-path: inset(70% 0 5% 0);
     }
 
-    .verse-intro .intro-skip {
-        right: 15px;
-        bottom: 22px;
+    25% {
+        opacity: .85;
+        transform: translateX(10px);
+        clip-path: inset(30% 0 40% 0);
     }
 
 }
 
-/* ==========================================
-   REDUCED MOTION
-========================================== */
+@keyframes contactIntroPink {
+
+    0%, 5%, 13%, 18%, 23%, 28%, 100% {
+        opacity: 0;
+        transform: translateX(0);
+        clip-path: inset(0);
+    }
+
+    7% {
+        opacity: 1;
+        transform: translateX(11px);
+        clip-path: inset(55% 0 15% 0);
+    }
+
+    10% {
+        opacity: .9;
+        transform: translateX(-8px);
+        clip-path: inset(10% 0 65% 0);
+    }
+
+    20% {
+        opacity: 1;
+        transform: translateX(15px);
+        clip-path: inset(15% 0 60% 0);
+    }
+
+    25% {
+        opacity: .85;
+        transform: translateX(-10px);
+        clip-path: inset(60% 0 10% 0);
+    }
+
+}
+
+/* ========================================
+   PARAGRAPH REVEAL
+======================================== */
+
+@keyframes contactCopyReveal {
+
+    0% {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* ========================================
+   CARD REVEAL
+======================================== */
+
+@keyframes contactCardReveal {
+
+    0% {
+        opacity: 0;
+        transform: translateY(24px) skewY(1deg);
+
+        filter:
+            drop-shadow(-7px 0 var(--reveal-cyan))
+            drop-shadow(7px 0 var(--reveal-pink));
+    }
+
+    35% {
+        opacity: 1;
+
+        filter:
+            drop-shadow(-3px 0 var(--reveal-cyan))
+            drop-shadow(3px 0 var(--reveal-pink));
+    }
+
+    65% {
+        transform: translateY(-3px) skewY(0);
+        filter: none;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) skewY(0);
+        filter: none;
+    }
+
+}
+
+/* ========================================
+   BOTTOM DETAILS
+======================================== */
+
+@keyframes contactBottomReveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* ========================================
+   CONTINUOUS AMBIENT GLITCH
+======================================== */
+
+@keyframes contactAmbientGlitch {
+
+    0%, 88%, 94%, 97%, 100% {
+        transform: translateX(0) skewX(0);
+        filter: none;
+    }
+
+    89% {
+        transform: translateX(-4px) skewX(-2deg);
+        filter: drop-shadow(5px 0 #39dcff);
+    }
+
+    90% {
+        transform: translateX(5px) skewX(2deg);
+        filter: drop-shadow(-5px 0 #ff397c);
+    }
+
+    92% {
+        transform: translateX(-2px);
+
+        filter:
+            drop-shadow(3px 0 #39dcff)
+            drop-shadow(-3px 0 #ff397c);
+    }
+
+    95% {
+        transform: translateX(2px);
+    }
+
+}
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
 
 @media (prefers-reduced-motion: reduce) {
 
-    .verse-intro,
-    .verse-intro * {
+    .verse-contact .contact-heading .eyebrow,
+    .verse-contact .contact-heading h1,
+    .verse-contact .contact-heading .heading-line,
+    .verse-contact .contact-heading .glitch-text::before,
+    .verse-contact .contact-heading .glitch-text::after,
+    .verse-contact .contact-heading .contact-intro,
+    .verse-contact .contact-item,
+    .verse-contact .contact-bottom {
         animation: none !important;
         transition: none !important;
     }
 
-    html.contact-intro-playing .verse-intro {
-        display: none;
+    .verse-contact .contact-heading .eyebrow,
+    .verse-contact .contact-heading h1,
+    .verse-contact .contact-heading .heading-line,
+    .verse-contact .contact-heading .contact-intro,
+    .verse-contact .contact-item,
+    .verse-contact .contact-bottom {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
     }
 
-    html.contact-intro-playing .verse-contact > .effect {
-        visibility: visible;
+    .verse-contact .contact-heading .glitch-text::before,
+    .verse-contact .contact-heading .glitch-text::after {
+        opacity: 0 !important;
     }
 
 }
