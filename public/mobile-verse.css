@@ -1,0 +1,748 @@
+
+/* ==========================================
+   RAHIM SEO — MOBILE VERSE
+   Shared navigation + Case Studies
+   Load this stylesheet LAST.
+========================================== */
+
+
+/* ==========================================
+   01. SHARED MOBILE FOUNDATION
+========================================== */
+
+@media (max-width: 767px) {
+
+    html,
+    body {
+        width: 100%;
+        min-width: 320px;
+    }
+
+    body {
+        overflow-x: clip;
+    }
+
+    .effect {
+        width: 100%;
+        min-width: 0;
+    }
+
+    /* NAVIGATION */
+
+    .navbar,
+    .verse-case-studies .navbar {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+
+        width: 100%;
+        max-width: 100%;
+
+        gap: 16px;
+
+        padding: 17px 20px;
+
+        border-bottom: 1px solid var(--verse-line);
+    }
+
+    .navbar .logo,
+    .verse-case-studies .logo {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+
+        flex: 1 1 auto;
+        width: auto;
+        min-width: 0;
+
+        margin: 0;
+
+        font-size: 23px;
+        line-height: 1;
+    }
+
+    .navbar .logo img,
+    .verse-case-studies .logo img {
+        width: 38px;
+        height: 38px;
+
+        flex: 0 0 38px;
+    }
+
+    /*
+       Preserve all six navigation links.
+       Two rows instead of a hamburger menu.
+    */
+
+    .navbar nav,
+    .verse-case-studies .navbar nav {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+
+        width: 100%;
+        min-width: 0;
+
+        gap: 12px 18px;
+    }
+
+    .navbar nav a,
+    .verse-case-studies .navbar nav a {
+        display: inline-flex;
+
+        padding: 4px 0;
+
+        font-family: "DM Sans", sans-serif;
+        font-size: 11px;
+        font-weight: 800;
+        line-height: 1.4;
+
+        letter-spacing: .025em;
+        white-space: nowrap;
+    }
+
+    .navbar nav a[aria-current="page"],
+    .verse-case-studies .navbar nav a[aria-current="page"] {
+        color: var(--verse-pink);
+    }
+
+    .navbar .theme-toggle,
+    .verse-case-studies .theme-toggle {
+        min-height: 30px;
+
+        margin-left: 0;
+        padding: 7px 10px;
+
+        font-family: "DM Sans", sans-serif;
+        font-size: 10px;
+        font-weight: 800;
+
+        white-space: nowrap;
+    }
+
+    /* SHARED FOOTER */
+
+    .retro-footer {
+        padding: 35px 20px;
+    }
+
+    .footer-container {
+        gap: 24px;
+    }
+
+    .footer-nav {
+        justify-content: center;
+        gap: 12px 18px;
+    }
+
+    .footer-nav a {
+        font-size: 11px;
+    }
+
+    .footer-contact {
+        gap: 20px;
+    }
+
+}
+
+
+/* ==========================================
+   02. CASE STUDIES — TABLET
+========================================== */
+
+@media (max-width: 1000px) {
+
+    .verse-case-studies .case-studies-hero {
+        min-height: auto;
+    }
+
+    .verse-case-studies .case-study-introduction {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 35px;
+    }
+
+    .verse-case-studies .chart-content {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+
+        gap: 50px;
+    }
+
+    .verse-case-studies .chart-visual {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .verse-case-studies .pie-chart-wrapper {
+        width: min(100%, 560px);
+        max-width: 560px;
+
+        aspect-ratio: 1 / 1;
+    }
+
+    .verse-case-studies .pie-chart-legend {
+        width: 100%;
+        max-width: 560px;
+
+        justify-self: center;
+    }
+
+}
+
+
+/* ==========================================
+   03. CASE STUDIES — MOBILE
+========================================== */
+
+@media (max-width: 767px) {
+
+    /* HERO */
+
+    .verse-case-studies .case-studies-hero {
+        min-height: auto;
+
+        padding:
+            80px
+            20px
+            65px;
+    }
+
+    .verse-case-studies .case-hero-content {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .verse-case-studies .case-intro-eyebrow {
+        margin-bottom: 35px;
+
+        font-size: 10px;
+        letter-spacing: .09em;
+    }
+
+    .verse-case-studies .verse-heading {
+        width: 100%;
+        max-width: 100%;
+
+        font-size: clamp(60px, 12vw, 91px);
+        line-height: .83;
+        letter-spacing: -.065em;
+    }
+
+    .verse-case-studies .heading-line {
+        display: block;
+
+        max-width: 100%;
+        width: fit-content;
+
+        white-space: nowrap;
+    }
+
+    .verse-case-studies .heading-shift {
+        margin-left: clamp(10px, 5vw, 35px);
+    }
+
+    .verse-case-studies .heading-results {
+        margin-left: clamp(5px, 3vw, 20px);
+    }
+
+    .verse-case-studies .case-studies-intro {
+        max-width: 480px;
+
+        margin-top: 48px;
+
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    .verse-case-studies .hero-bottom {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 12px;
+
+        margin-top: 55px;
+        padding-top: 17px;
+
+        font-size: 9px;
+        letter-spacing: .09em;
+    }
+
+    .verse-case-studies .hero-background-word {
+        right: -10%;
+        bottom: 10%;
+
+        font-size: clamp(110px, 28vw, 190px);
+    }
+
+    /* Atmospheric background remains visible */
+
+    .verse-case-studies .verse-orb {
+        filter: blur(65px);
+    }
+
+    .verse-case-studies .orb-one {
+        width: 280px;
+        height: 280px;
+    }
+
+    .verse-case-studies .orb-two {
+        width: 240px;
+        height: 240px;
+    }
+
+    .verse-case-studies .orb-three {
+        width: 260px;
+        height: 260px;
+    }
+
+    /* PROJECT CONTAINER */
+
+    .verse-case-studies .case-studies {
+        padding:
+            60px
+            20px
+            85px;
+    }
+
+    .verse-case-studies .case-study-topline {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 12px;
+
+        padding-bottom: 20px;
+    }
+
+    .verse-case-studies .case-study-number,
+    .verse-case-studies .case-study-type {
+        font-size: 10px;
+        letter-spacing: .08em;
+    }
+
+    /* CLIENT INTRODUCTION */
+
+    .verse-case-studies .case-study-introduction {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+
+        gap: 28px;
+
+        padding: 55px 0 65px;
+    }
+
+    .verse-case-studies .case-study-introduction h2 {
+        font-size: clamp(95px, 21vw, 145px);
+        line-height: .8;
+    }
+
+    .verse-case-studies .case-study-summary {
+        max-width: 540px;
+
+        font-size: 18px;
+        line-height: 1.65;
+    }
+
+    /* CHALLENGE + WORK */
+
+    .verse-case-studies .case-study-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+
+        gap: 22px;
+
+        margin-bottom: 75px;
+    }
+
+    .verse-case-studies .case-study-section {
+        min-height: 0;
+
+        padding: 28px;
+    }
+
+    .verse-case-studies .case-study-section:nth-child(2) {
+        transform: none;
+    }
+
+    .verse-case-studies .section-index {
+        margin-bottom: 35px;
+    }
+
+    .verse-case-studies .case-study-section h3 {
+        font-size: clamp(51px, 10vw, 70px);
+    }
+
+    .verse-case-studies .case-study-section p {
+        font-size: 14px;
+        line-height: 1.85;
+    }
+
+    /* CHART CARD */
+
+    .verse-case-studies .case-study-chart {
+        width: 100%;
+        min-width: 0;
+
+        padding: 28px 18px;
+
+        overflow: visible;
+    }
+
+    .verse-case-studies .case-study-chart-header {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 28px;
+
+        margin-bottom: 45px;
+    }
+
+    .verse-case-studies .chart-heading {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .verse-case-studies .chart-heading h3 {
+        font-size: clamp(55px, 11vw, 80px);
+        line-height: .9;
+    }
+
+    .verse-case-studies .chart-description {
+        margin-top: 22px;
+
+        font-size: 14px;
+        line-height: 1.75;
+    }
+
+    /* YEAR SELECTOR */
+
+    .verse-case-studies .chart-toggle {
+        display: flex;
+        flex-wrap: nowrap;
+
+        width: 100%;
+        max-width: 100%;
+
+        gap: 5px;
+        padding: 4px;
+    }
+
+    .verse-case-studies .chart-year {
+        flex: 1 1 0;
+        min-width: 0;
+
+        padding: 12px 5px;
+
+        font-size: 10px;
+        letter-spacing: 0;
+        text-align: center;
+    }
+
+    /* DONUT CHART */
+
+    .verse-case-studies .chart-content {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+
+        width: 100%;
+        min-width: 0;
+
+        gap: 38px;
+    }
+
+    .verse-case-studies .chart-visual {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        width: 100%;
+        min-width: 0;
+
+        overflow: visible;
+    }
+
+    /*
+       Crucial:
+       Use the chart card's available width.
+       Do not force 340px onto a narrower container.
+    */
+
+    .verse-case-studies .pie-chart-wrapper {
+        position: relative;
+
+        width: min(100%, 440px);
+        max-width: 440px;
+        height: auto;
+
+        aspect-ratio: 1 / 1;
+
+        flex: 0 0 auto;
+
+        margin: 0 auto;
+        padding: 0;
+
+        overflow: visible;
+    }
+
+    .verse-case-studies .pie-chart {
+        position: absolute;
+        inset: 0;
+
+        width: 100%;
+        height: 100%;
+
+        border-radius: 50%;
+
+        transform: rotate(-90deg);
+    }
+
+    .verse-case-studies .pie-chart::after {
+        inset: 23%;
+    }
+
+    /* Centre number */
+
+    .verse-case-studies .pie-chart-center {
+        position: absolute;
+
+        top: 50%;
+        left: 50%;
+
+        width: 50%;
+        height: 50%;
+
+        transform: translate(-50%, -50%);
+    }
+
+    .verse-case-studies .pie-chart-center strong {
+        font-size: clamp(35px, 8vw, 53px);
+        line-height: 1;
+    }
+
+    .verse-case-studies .pie-chart-center span {
+        margin-top: 5px;
+
+        font-size: clamp(7px, 1.8vw, 9px);
+        letter-spacing: .07em;
+    }
+
+    /*
+       Individual click counts remain positioned
+       by your existing JavaScript.
+
+       Only their typography changes.
+    */
+
+    .verse-case-studies .chart-segment-labels {
+        position: absolute;
+        inset: 0;
+
+        z-index: 4;
+
+        pointer-events: none;
+    }
+
+    .verse-case-studies .segment-value {
+        position: absolute;
+
+        margin: 0;
+        padding: 0;
+
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: clamp(12px, 3.1vw, 20px);
+        font-weight: 900;
+        line-height: 1;
+
+        letter-spacing: -.035em;
+        white-space: nowrap;
+
+        transform: translate(-50%, -50%);
+    }
+
+    .verse-case-studies .segment-main,
+    .verse-case-studies .segment-blog {
+        color: #080b20;
+    }
+
+    .verse-case-studies .segment-activity {
+        color: #fff;
+    }
+
+    .verse-case-studies .chart-visual-caption {
+        margin-top: 25px;
+
+        font-size: 9px;
+        letter-spacing: .07em;
+    }
+
+    /* LEGEND */
+
+    .verse-case-studies .pie-chart-legend {
+        width: 100%;
+        max-width: 440px;
+
+        margin: 0 auto;
+
+        justify-self: center;
+    }
+
+    .verse-case-studies .legend-heading {
+        margin-bottom: 10px;
+    }
+
+    .verse-case-studies .legend-item {
+        gap: 14px;
+        padding: 16px 0;
+    }
+
+    .verse-case-studies .legend-information strong {
+        font-size: 14px;
+    }
+
+    .verse-case-studies .legend-information span {
+        font-size: 12px;
+    }
+
+    .verse-case-studies .legend-footer {
+        margin-top: 25px;
+    }
+
+    .verse-case-studies .chart-bottom {
+        margin-top: 45px;
+
+        font-size: 9px;
+        letter-spacing: .07em;
+    }
+
+    /* FINAL CTA */
+
+    .verse-case-studies .case-study-cta {
+        padding: 95px 20px;
+    }
+
+    .verse-case-studies .case-study-cta h2 {
+        max-width: 100%;
+
+        font-size: clamp(62px, 12vw, 95px);
+        line-height: .85;
+    }
+
+    .verse-case-studies .cta-endnote {
+        margin-top: 60px;
+
+        font-size: 9px;
+        letter-spacing: .09em;
+    }
+
+}
+
+
+/* ==========================================
+   04. SMALL PHONES — 320px TO 390px
+========================================== */
+
+@media (max-width: 390px) {
+
+    .navbar,
+    .verse-case-studies .navbar {
+        padding: 15px 16px;
+        gap: 13px;
+    }
+
+    .navbar .logo,
+    .verse-case-studies .logo {
+        font-size: 21px;
+    }
+
+    .navbar .logo img,
+    .verse-case-studies .logo img {
+        width: 35px;
+        height: 35px;
+
+        flex-basis: 35px;
+    }
+
+    .navbar nav,
+    .verse-case-studies .navbar nav {
+        gap: 10px 13px;
+    }
+
+    .navbar nav a,
+    .verse-case-studies .navbar nav a {
+        font-size: 10px;
+    }
+
+    .verse-case-studies .case-studies-hero {
+        padding: 70px 16px 55px;
+    }
+
+    .verse-case-studies .verse-heading {
+        font-size: clamp(52px, 13.5vw, 60px);
+        letter-spacing: -.075em;
+    }
+
+    .verse-case-studies .heading-shift {
+        margin-left: 12px;
+    }
+
+    .verse-case-studies .heading-results {
+        margin-left: 5px;
+    }
+
+    .verse-case-studies .case-studies {
+        padding: 55px 16px 75px;
+    }
+
+    .verse-case-studies .case-study-section {
+        padding: 23px;
+    }
+
+    /*
+       Reduce the card's internal padding to give
+       the donut as much horizontal room as possible.
+    */
+
+    .verse-case-studies .case-study-chart {
+        padding: 25px 12px;
+    }
+
+    .verse-case-studies .pie-chart-wrapper {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .verse-case-studies .pie-chart-center strong {
+        font-size: clamp(32px, 9vw, 38px);
+    }
+
+    .verse-case-studies .pie-chart-center span {
+        font-size: 7px;
+        letter-spacing: .025em;
+    }
+
+    .verse-case-studies .segment-value {
+        font-size: clamp(10px, 2.9vw, 12px);
+        letter-spacing: -.04em;
+    }
+
+    .verse-case-studies .case-study-cta h2 {
+        font-size: clamp(54px, 13.5vw, 65px);
+    }
+
+}
+
+
+/* ==========================================
+   05. REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .verse-case-studies .segment-value {
+        transition: none;
+    }
+
+}
