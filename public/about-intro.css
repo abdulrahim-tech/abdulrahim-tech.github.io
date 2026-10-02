@@ -793,3 +793,212 @@
     }
 
 }
+
+
+/* ========================================
+   ABOUT INTRO — CONTINUOUS TEXT GLITCH
+======================================== */
+
+.verse-about .about-intro-glitch {
+    position: relative;
+    isolation: isolate;
+
+    animation:
+        aboutBioReveal .8s .85s ease-out both,
+        aboutIntroAmbient 8s 1.8s infinite steps(1, end);
+}
+
+/* RGB text duplicates */
+
+.verse-about .about-intro-glitch::before,
+.verse-about .about-intro-glitch::after {
+    content: attr(data-text);
+
+    position: absolute;
+    inset: 0;
+
+    font: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+
+    pointer-events: none;
+    opacity: 0;
+}
+
+/* Cyan layer */
+
+.verse-about .about-intro-glitch::before {
+    color: #39dcff;
+
+    animation:
+        aboutIntroCyanLoop 8s 1.8s infinite steps(1, end);
+}
+
+/* Magenta layer */
+
+.verse-about .about-intro-glitch::after {
+    color: #ff397c;
+
+    animation:
+        aboutIntroPinkLoop 8s 1.8s infinite steps(1, end);
+}
+
+/* ========================================
+   MAIN TEXT DISTORTION
+======================================== */
+
+@keyframes aboutIntroAmbient {
+
+    0%, 83%, 90%, 94%, 100% {
+        transform: translateX(0);
+        filter: none;
+    }
+
+    84% {
+        transform: translateX(-3px);
+
+        filter:
+            drop-shadow(-3px 0 #39dcff)
+            drop-shadow(3px 0 #ff397c);
+    }
+
+    85% {
+        transform: translateX(3px);
+
+        filter:
+            drop-shadow(3px 0 #39dcff)
+            drop-shadow(-3px 0 #ff397c);
+    }
+
+    87% {
+        transform: translateX(-2px);
+        filter: none;
+    }
+
+    89% {
+        transform: translateX(2px);
+
+        filter:
+            drop-shadow(-2px 0 #39dcff)
+            drop-shadow(2px 0 #ff397c);
+    }
+
+    92% {
+        transform: translateX(-1px);
+        filter: none;
+    }
+
+}
+
+/* ========================================
+   CYAN GLITCH SLICES
+======================================== */
+
+@keyframes aboutIntroCyanLoop {
+
+    0%, 83%, 90%, 94%, 100% {
+        opacity: 0;
+        transform: translateX(0);
+        clip-path: inset(0);
+    }
+
+    84% {
+        opacity: .95;
+        transform: translateX(-7px);
+        clip-path: inset(12% 0 60% 0);
+    }
+
+    85% {
+        opacity: .8;
+        transform: translateX(5px);
+        clip-path: inset(55% 0 15% 0);
+    }
+
+    87% {
+        opacity: .9;
+        transform: translateX(-4px);
+        clip-path: inset(72% 0 6% 0);
+    }
+
+    89% {
+        opacity: .7;
+        transform: translateX(6px);
+        clip-path: inset(30% 0 45% 0);
+    }
+
+    92% {
+        opacity: .8;
+        transform: translateX(-3px);
+        clip-path: inset(60% 0 15% 0);
+    }
+
+}
+
+/* ========================================
+   MAGENTA GLITCH SLICES
+======================================== */
+
+@keyframes aboutIntroPinkLoop {
+
+    0%, 83%, 90%, 94%, 100% {
+        opacity: 0;
+        transform: translateX(0);
+        clip-path: inset(0);
+    }
+
+    84% {
+        opacity: .95;
+        transform: translateX(7px);
+        clip-path: inset(55% 0 15% 0);
+    }
+
+    85% {
+        opacity: .8;
+        transform: translateX(-5px);
+        clip-path: inset(12% 0 60% 0);
+    }
+
+    87% {
+        opacity: .9;
+        transform: translateX(4px);
+        clip-path: inset(20% 0 55% 0);
+    }
+
+    89% {
+        opacity: .7;
+        transform: translateX(-6px);
+        clip-path: inset(65% 0 10% 0);
+    }
+
+    92% {
+        opacity: .8;
+        transform: translateX(3px);
+        clip-path: inset(10% 0 65% 0);
+    }
+
+}
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .verse-about .about-intro-glitch,
+    .verse-about .about-intro-glitch::before,
+    .verse-about .about-intro-glitch::after {
+        animation: none !important;
+        transform: none !important;
+        filter: none !important;
+    }
+
+    .verse-about .about-intro-glitch {
+        opacity: 1 !important;
+    }
+
+    .verse-about .about-intro-glitch::before,
+    .verse-about .about-intro-glitch::after {
+        opacity: 0 !important;
+    }
+
+}
