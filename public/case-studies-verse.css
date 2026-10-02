@@ -1449,26 +1449,70 @@ html[data-theme="light"] .verse-case-studies {
 
 /* Main Pages — Cyan */
 
-.verse-case-studies .segment-main {
-    top: 48%;
-    left: 79%;
+
+/* ========================================
+   DONUT CHART — DYNAMIC SEGMENT LABELS
+======================================== */
+
+.verse-case-studies .chart-segment-labels {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+
+    pointer-events: none;
 }
 
-/* Blog — Pink */
+.verse-case-studies .segment-value {
+    position: absolute;
+
+    display: block;
+
+    margin: 0;
+    padding: 0;
+
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(18px, 2.2vw, 32px);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -.025em;
+
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    text-align: center;
+
+    transform: translate(-50%, -50%);
+
+    text-shadow: none;
+
+    transition:
+        top .45s ease,
+        left .45s ease;
+}
+
+/* Label colours */
+
+.verse-case-studies .segment-main {
+    color: #080b20;
+}
 
 .verse-case-studies .segment-blog {
-    top: 85%;
-    left: 40%;
+    color: #080b20;
 }
-
-/* Business Activity Pages — Purple */
 
 .verse-case-studies .segment-activity {
-    top: 61%;
-    left: 17%;
-
-    color: #fff;
+    color: #ffffff;
 }
+
+/* Mobile */
+
+@media (max-width: 520px) {
+
+    .verse-case-studies .segment-value {
+        font-size: clamp(15px, 4vw, 20px);
+    }
+
+}
+
 
 /* Smaller chart sizes */
 
