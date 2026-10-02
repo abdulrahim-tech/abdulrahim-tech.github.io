@@ -1002,3 +1002,78 @@
     }
 
 }
+
+
+/* ========================================
+   ABOUT PHOTO — PRESERVE ORIGINAL TILT
+======================================== */
+
+/* Keep the original transform from about-verse.css */
+
+.verse-about .about-photo {
+    animation:
+        aboutPhotoRevealFixed 1.1s .7s
+        cubic-bezier(.16, 1, .3, 1) both;
+}
+
+/* Animate appearance without changing rotation */
+
+@keyframes aboutPhotoRevealFixed {
+
+    0% {
+        opacity: 0;
+
+        filter:
+            drop-shadow(-8px 0 #39dcff)
+            drop-shadow(8px 0 #ff397c);
+    }
+
+    35% {
+        opacity: 1;
+
+        filter:
+            drop-shadow(-5px 0 #39dcff)
+            drop-shadow(5px 0 #ff397c);
+    }
+
+    65% {
+        filter:
+            drop-shadow(3px 0 #39dcff)
+            drop-shadow(-3px 0 #ff397c);
+    }
+
+    100% {
+        opacity: 1;
+        filter: none;
+    }
+
+}
+
+/* Glitch only the image INSIDE the tilted frame */
+
+.verse-about .about-photo .image-composition > img {
+    animation:
+        aboutImageGlitch 9s 2s infinite steps(1, end);
+}
+
+.verse-about .about-photo .image-ghost {
+    animation:
+        aboutImageGhostContinuous 9s 2s infinite steps(1, end);
+}
+
+.verse-about .about-photo .image-grain {
+    animation:
+        aboutImageScanline 9s 2s infinite steps(1, end);
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .verse-about .about-photo {
+        animation: none !important;
+        opacity: 1 !important;
+        filter: none !important;
+    }
+
+}
