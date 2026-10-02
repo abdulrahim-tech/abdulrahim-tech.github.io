@@ -19,11 +19,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="/public/style.css">
-    <link rel="stylesheet" href="/public/about-comic.css">
+    <link rel="stylesheet" href="/public/about-verse.css">
 
     <script type="application/ld+json">
     {
@@ -53,7 +53,7 @@
     </script>
 </head>
 
-<body class="comic-about">
+<body class="verse-about">
 
 <div class="effect">
 
@@ -63,7 +63,6 @@
             <img
                 src="/assets/images/Gemini_Generated_Image_4vft5v4vft5v4vft.jpeg"
                 alt="Rahim Khalil">
-
             <span>Rahim Khalil</span>
         </a>
 
@@ -76,9 +75,9 @@
 
             <button id="theme-toggle"
                 class="theme-toggle"
-                aria-label="Toggle theme"
-                aria-pressed="false">
-                [ LIGHT ]
+                type="button"
+                aria-label="Toggle theme">
+                LIGHT MODE
             </button>
         </nav>
 
@@ -88,34 +87,43 @@
 
         <section class="about-section">
 
+            <!-- ATMOSPHERIC BACKGROUND -->
+
+            <div class="verse-atmosphere" aria-hidden="true">
+                <div class="verse-orb orb-one"></div>
+                <div class="verse-orb orb-two"></div>
+                <div class="verse-orb orb-three"></div>
+            </div>
+
+            <!-- HERO -->
+
             <div class="about-header">
 
-                <p class="eyebrow">THE PERSON BEHIND THE SEARCH</p>
+                <p class="eyebrow">
+                    / INTRODUCING THE PERSON BEHIND THE SEARCH
+                </p>
 
-                <h1>
-                    WHO I AM
-                    <span class="heading-accent">& WHAT I DO.</span>
+                <h1 class="verse-heading">
+                    <span class="heading-line">WHO I</span>
+                    <span class="heading-line heading-shift">AM<span class="period">.</span></span>
                 </h1>
 
-                <span class="header-decoration" aria-hidden="true">
-                    EST. IN CURIOSITY / STILL EXPLORING
-                </span>
+                <p class="heading-subtitle">
+                    CURIOUS BY NATURE.
+                    <span>SEO BY PROFESSION.</span>
+                </p>
 
             </div>
+
+            <!-- MAIN CONTENT -->
 
             <div class="about-content">
 
                 <div class="about-text">
 
-                    <div class="intro-panel">
-
-                        <span class="panel-label">01 / INTRODUCTION</span>
-
-                        <p>
-                            I'm Rahim, an SEO Specialist based in Dubai.
-                        </p>
-
-                    </div>
+                    <p class="about-intro">
+                        I'm Rahim, an SEO Specialist based in Dubai.
+                    </p>
 
                     <div class="about-story">
 
@@ -134,13 +142,15 @@
                             trying to understand it.
                         </p>
 
-                        <p class="cat-note">
+                        <p>
                             I'm also a HUGE fan of cats, partly because you
                             never quite know what they're going to do next.
                         </p>
 
-                        <div class="story-divider" aria-hidden="true">
-                            <span>MEET THE PROFESSIONAL SIDE</span>
+                        <div class="verse-divider" aria-hidden="true">
+                            <span>01</span>
+                            <div></div>
+                            <span>02</span>
                         </div>
 
                         <p>
@@ -163,32 +173,44 @@
 
                 </div>
 
+                <!-- IMAGE COMPOSITION -->
+
                 <figure class="about-photo">
 
-                    <div class="photo-frame">
+                    <div class="image-composition">
+
+                        <div class="image-ghost" aria-hidden="true"></div>
 
                         <img
                             src="/assets/images/Gemini_Generated_Image_oajr0doajr0doajr.jpeg"
-                            alt="Me playing pool"
-                            width="500"
-                            height="650"
+                            alt="Rahim playing pool"
                             loading="eager">
+
+                        <div class="image-grain" aria-hidden="true"></div>
+
+                        <span class="image-coordinate coordinate-top" aria-hidden="true">
+                            25°12' N / 55°16' E
+                        </span>
+
+                        <span class="image-coordinate coordinate-bottom" aria-hidden="true">
+                            FRAME_001 / RAHIM
+                        </span>
 
                     </div>
 
-                    <figcaption>FIG. 01 — ME PLAYING POOL.</figcaption>
-
-                    <span class="photo-stamp" aria-hidden="true">
-                        OFF THE CLOCK
-                    </span>
+                    <figcaption>
+                        ME PLAYING POOL.
+                        <span>OUTSIDE THE SEARCH RESULTS.</span>
+                    </figcaption>
 
                 </figure>
 
             </div>
 
-            <div class="about-endmark" aria-hidden="true">
-                <span>TO BE CONTINUED...</span>
-                <span>↗</span>
+            <div class="about-outro" aria-hidden="true">
+                <span>ALWAYS LEARNING</span>
+                <span class="outro-star">✳</span>
+                <span>ALWAYS EXPLORING</span>
             </div>
 
         </section>
@@ -226,7 +248,7 @@
 
                     <svg class="retro-icon-large" viewBox="0 0 16 16"
                         xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                        <path d="M0 2h16v12H0V2zm2 2v1h2v1h2v1h4V5h2V4h2V3H2v1zm0 2v5h12V6h-2v1h-2v1H6V7H4V6H2z"/>
+                        <path d="M0 2h16v12H0V2zm2 2v1h2v1h2v1h4V5h2V4h2V1H2v1zm0 2v7h12V6h-2v1h-2v1H6V7H4V6H2z"/>
                     </svg>
 
                 </a>
@@ -244,36 +266,26 @@
 <script>
     const toggleBtn = document.getElementById('theme-toggle');
 
-    function applyTheme(theme) {
+    function setTheme(theme) {
         document.documentElement.setAttribute('data-theme', theme);
 
-        if (toggleBtn) {
-            toggleBtn.textContent =
-                theme === 'light' ? '[ DARK ]' : '[ LIGHT ]';
-
-            toggleBtn.setAttribute(
-                'aria-pressed',
-                String(theme === 'light')
-            );
-        }
+        toggleBtn.textContent =
+            theme === 'dark' ? 'LIGHT MODE' : 'DARK MODE';
     }
 
     const savedTheme = localStorage.getItem('theme') || 'dark';
 
-    applyTheme(savedTheme);
+    setTheme(savedTheme);
 
-    if (toggleBtn) {
-        toggleBtn.addEventListener('click', () => {
-            const currentTheme =
-                document.documentElement.getAttribute('data-theme');
+    toggleBtn.addEventListener('click', () => {
+        const current =
+            document.documentElement.getAttribute('data-theme');
 
-            const nextTheme =
-                currentTheme === 'dark' ? 'light' : 'dark';
+        const next = current === 'dark' ? 'light' : 'dark';
 
-            applyTheme(nextTheme);
-            localStorage.setItem('theme', nextTheme);
-        });
-    }
+        setTheme(next);
+        localStorage.setItem('theme', next);
+    });
 </script>
 
 </body>
