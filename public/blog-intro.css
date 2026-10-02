@@ -1,0 +1,622 @@
+
+/* ========================================
+   BLOG — INTEGRATED PAGE REVEAL
+======================================== */
+
+.verse-blog {
+    --blog-glitch-cyan: #39dcff;
+    --blog-glitch-pink: #ff397c;
+    --blog-glitch-purple: #894aff;
+}
+
+/* ========================================
+   HERO HEADING
+======================================== */
+
+.verse-blog .blog-hero-content {
+    position: relative;
+    isolation: isolate;
+}
+
+.verse-blog .blog-hero-content > .eyebrow {
+    animation:
+        blogEyebrowReveal .65s ease-out both,
+        blogLabelFlicker 7s 2s infinite steps(1, end);
+}
+
+.verse-blog .verse-heading {
+    position: relative;
+    isolation: isolate;
+}
+
+.verse-blog .verse-heading .heading-line {
+    position: relative;
+    will-change: transform;
+}
+
+/* SEO NOTES */
+
+.verse-blog .verse-heading .heading-line:nth-child(1) {
+    animation:
+        blogHeadingOne 2s steps(1, end) both,
+        blogAmbientGlitch 9s 2s infinite steps(1, end);
+}
+
+/* & */
+
+.verse-blog .verse-heading .heading-line:nth-child(2) {
+    animation:
+        blogHeadingTwo 2s steps(1, end) both,
+        blogAmbientGlitch 11s 3s infinite steps(1, end);
+}
+
+/* EXPERIMENTS. */
+
+.verse-blog .verse-heading .heading-line:nth-child(3) {
+    animation:
+        blogHeadingThree 2s steps(1, end) both,
+        blogAmbientGlitch 10s 3.5s infinite steps(1, end);
+}
+
+/* ========================================
+   RGB SEPARATION
+======================================== */
+
+.verse-blog .verse-heading .glitch-text::before {
+    animation:
+        blogIntroCyan 2s steps(1, end) both,
+        strongGlitchOne 5s 2s infinite steps(1, end);
+}
+
+.verse-blog .verse-heading .glitch-text::after {
+    animation:
+        blogIntroPink 2s steps(1, end) both,
+        strongGlitchTwo 5s 2s infinite steps(1, end);
+}
+
+/* ========================================
+   SUPPORTING CONTENT
+======================================== */
+
+.verse-blog .blog-hero-description {
+    animation: blogCopyReveal .9s .7s ease-out both;
+}
+
+.verse-blog .blog-hero-bottom {
+    animation: blogCopyReveal .8s 1s ease-out both;
+}
+
+.verse-blog .hero-background-word {
+    animation: blogBackgroundReveal 1.5s .3s ease-out both;
+}
+
+/* ========================================
+   ARCHIVE HEADING
+======================================== */
+
+.verse-blog .blog-list-header > div {
+    animation: blogArchiveReveal .8s .25s ease-out both;
+}
+
+.verse-blog .blog-list-header h2 .glitch-text {
+    position: relative;
+    display: inline-block;
+}
+
+.verse-blog .blog-list-header h2 .glitch-text::before,
+.verse-blog .blog-list-header h2 .glitch-text::after {
+    content: attr(data-text);
+
+    position: absolute;
+    inset: 0;
+
+    font: inherit;
+    letter-spacing: inherit;
+    line-height: inherit;
+
+    pointer-events: none;
+    opacity: 0;
+}
+
+.verse-blog .blog-list-header h2 .glitch-text::before {
+    color: var(--blog-glitch-cyan);
+
+    animation: blogArchiveCyan 9s 2s infinite steps(1, end);
+}
+
+.verse-blog .blog-list-header h2 .glitch-text::after {
+    color: var(--blog-glitch-pink);
+
+    animation: blogArchivePink 9s 2s infinite steps(1, end);
+}
+
+/* ========================================
+   BLOG CARDS
+======================================== */
+
+.verse-blog .blog-grid {
+    perspective: 1000px;
+}
+
+.verse-blog .blog-card {
+    position: relative;
+    isolation: isolate;
+}
+
+.verse-blog .blog-card:nth-child(1) {
+    animation: blogCardReveal .85s .5s cubic-bezier(
+        .16, 1, .3, 1
+    ) both;
+}
+
+.verse-blog .blog-card:nth-child(2) {
+    animation: blogCardReveal .85s .65s cubic-bezier(
+        .16, 1, .3, 1
+    ) both;
+}
+
+.verse-blog .blog-card:nth-child(3) {
+    animation: blogCardReveal .85s .8s cubic-bezier(
+        .16, 1, .3, 1
+    ) both;
+}
+
+.verse-blog .blog-card:nth-child(n+4) {
+    animation: blogCardReveal .85s .95s cubic-bezier(
+        .16, 1, .3, 1
+    ) both;
+}
+
+/* Card hover effect */
+
+.verse-blog .blog-card.glitch-card:hover {
+    transform: translate(-5px, -5px);
+
+    box-shadow:
+        5px 5px 0 var(--blog-glitch-pink),
+        10px 10px 0 rgba(57, 220, 255, .3);
+}
+
+.verse-blog .blog-card.glitch-card:hover h3 {
+    animation: blogCardTextGlitch .35s steps(2, end);
+}
+
+/* ========================================
+   PAGE-LOAD KEYFRAMES
+======================================== */
+
+@keyframes blogEyebrowReveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+        letter-spacing: .35em;
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* SEO NOTES */
+
+@keyframes blogHeadingOne {
+
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+        filter: none;
+    }
+
+    10% {
+        opacity: 1;
+        transform: translateX(7px);
+
+        filter:
+            drop-shadow(-10px 0 #39dcff)
+            drop-shadow(10px 0 #ff397c);
+    }
+
+    15% {
+        transform: translateX(-5px);
+
+        filter:
+            drop-shadow(6px 0 #39dcff)
+            drop-shadow(-6px 0 #ff397c);
+    }
+
+    23%, 100% {
+        opacity: 1;
+        transform: translateX(0);
+        filter: none;
+    }
+
+}
+
+/* & */
+
+@keyframes blogHeadingTwo {
+
+    0%, 14% {
+        opacity: 0;
+        transform: translateX(14px);
+        filter: none;
+    }
+
+    19% {
+        opacity: 1;
+        transform: translateX(-6px);
+
+        filter:
+            drop-shadow(-7px 0 #39dcff)
+            drop-shadow(7px 0 #ff397c);
+    }
+
+    25% {
+        transform: translateX(4px);
+        filter: none;
+    }
+
+    32%, 100% {
+        opacity: 1;
+        transform: translateX(0);
+        filter: none;
+    }
+
+}
+
+/* EXPERIMENTS. */
+
+@keyframes blogHeadingThree {
+
+    0%, 22% {
+        opacity: 0;
+        transform: translateX(24px);
+        filter: none;
+    }
+
+    27% {
+        opacity: 1;
+        transform: translateX(-9px);
+
+        filter:
+            drop-shadow(-13px 0 #39dcff)
+            drop-shadow(13px 0 #ff397c);
+    }
+
+    32% {
+        transform: translateX(7px);
+
+        filter:
+            drop-shadow(7px 0 #39dcff)
+            drop-shadow(-7px 0 #ff397c);
+    }
+
+    37% {
+        transform: translateX(-3px);
+        filter: none;
+    }
+
+    43%, 100% {
+        opacity: 1;
+        transform: translateX(0);
+        filter: none;
+    }
+
+}
+
+/* ========================================
+   INTRO GLITCH SLICES
+======================================== */
+
+@keyframes blogIntroCyan {
+
+    0%, 5%, 13%, 18%, 24%, 31%, 100% {
+        opacity: 0;
+        transform: translateX(0);
+        clip-path: inset(0);
+    }
+
+    7% {
+        opacity: 1;
+        transform: translateX(-12px);
+        clip-path: inset(12% 0 60% 0);
+    }
+
+    10% {
+        opacity: .9;
+        transform: translateX(9px);
+        clip-path: inset(48% 0 22% 0);
+    }
+
+    20% {
+        opacity: 1;
+        transform: translateX(-15px);
+        clip-path: inset(70% 0 5% 0);
+    }
+
+    27% {
+        opacity: .85;
+        transform: translateX(11px);
+        clip-path: inset(30% 0 40% 0);
+    }
+
+}
+
+@keyframes blogIntroPink {
+
+    0%, 5%, 13%, 18%, 24%, 31%, 100% {
+        opacity: 0;
+        transform: translateX(0);
+        clip-path: inset(0);
+    }
+
+    7% {
+        opacity: 1;
+        transform: translateX(12px);
+        clip-path: inset(55% 0 15% 0);
+    }
+
+    10% {
+        opacity: .9;
+        transform: translateX(-9px);
+        clip-path: inset(10% 0 65% 0);
+    }
+
+    20% {
+        opacity: 1;
+        transform: translateX(15px);
+        clip-path: inset(15% 0 60% 0);
+    }
+
+    27% {
+        opacity: .85;
+        transform: translateX(-11px);
+        clip-path: inset(60% 0 10% 0);
+    }
+
+}
+
+/* ========================================
+   SECONDARY REVEALS
+======================================== */
+
+@keyframes blogCopyReveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes blogBackgroundReveal {
+
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: .08;
+        transform: translateX(0);
+    }
+
+}
+
+@keyframes blogArchiveReveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes blogCardReveal {
+
+    0% {
+        opacity: 0;
+        transform: translateY(25px) skewY(1deg);
+
+        filter:
+            drop-shadow(-6px 0 #39dcff)
+            drop-shadow(6px 0 #ff397c);
+    }
+
+    40% {
+        opacity: 1;
+
+        filter:
+            drop-shadow(-3px 0 #39dcff)
+            drop-shadow(3px 0 #ff397c);
+    }
+
+    70% {
+        transform: translateY(-3px) skewY(0);
+        filter: none;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) skewY(0);
+        filter: none;
+    }
+
+}
+
+/* ========================================
+   CONTINUOUS EFFECTS
+======================================== */
+
+@keyframes blogAmbientGlitch {
+
+    0%, 89%, 94%, 97%, 100% {
+        transform: translateX(0) skewX(0);
+        filter: none;
+    }
+
+    90% {
+        transform: translateX(-4px) skewX(-2deg);
+        filter: drop-shadow(5px 0 #39dcff);
+    }
+
+    91% {
+        transform: translateX(5px) skewX(2deg);
+        filter: drop-shadow(-5px 0 #ff397c);
+    }
+
+    93% {
+        transform: translateX(-2px);
+
+        filter:
+            drop-shadow(3px 0 #39dcff)
+            drop-shadow(-3px 0 #ff397c);
+    }
+
+    95% {
+        transform: translateX(2px);
+    }
+
+}
+
+@keyframes blogLabelFlicker {
+
+    0%, 92%, 96%, 100% {
+        opacity: 1;
+    }
+
+    93% {
+        opacity: .2;
+    }
+
+    94% {
+        opacity: .65;
+    }
+
+}
+
+@keyframes blogArchiveCyan {
+
+    0%, 88%, 94%, 100% {
+        opacity: 0;
+        transform: translateX(0);
+        clip-path: inset(0);
+    }
+
+    89% {
+        opacity: .9;
+        transform: translateX(-6px);
+        clip-path: inset(15% 0 55% 0);
+    }
+
+    91% {
+        opacity: .8;
+        transform: translateX(4px);
+        clip-path: inset(60% 0 10% 0);
+    }
+
+}
+
+@keyframes blogArchivePink {
+
+    0%, 88%, 94%, 100% {
+        opacity: 0;
+        transform: translateX(0);
+        clip-path: inset(0);
+    }
+
+    89% {
+        opacity: .9;
+        transform: translateX(6px);
+        clip-path: inset(55% 0 15% 0);
+    }
+
+    91% {
+        opacity: .8;
+        transform: translateX(-4px);
+        clip-path: inset(10% 0 65% 0);
+    }
+
+}
+
+@keyframes blogCardTextGlitch {
+
+    0%, 100% {
+        transform: translateX(0);
+        text-shadow: none;
+    }
+
+    25% {
+        transform: translateX(-3px);
+
+        text-shadow:
+            -4px 0 #39dcff,
+            4px 0 #ff397c;
+    }
+
+    50% {
+        transform: translateX(3px);
+
+        text-shadow:
+            4px 0 #39dcff,
+            -4px 0 #ff397c;
+    }
+
+    75% {
+        transform: translateX(-2px);
+    }
+
+}
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .verse-blog .blog-hero-content > .eyebrow,
+    .verse-blog .verse-heading .heading-line,
+    .verse-blog .verse-heading .glitch-text::before,
+    .verse-blog .verse-heading .glitch-text::after,
+    .verse-blog .blog-hero-description,
+    .verse-blog .blog-hero-bottom,
+    .verse-blog .hero-background-word,
+    .verse-blog .blog-list-header > div,
+    .verse-blog .blog-list-header .glitch-text::before,
+    .verse-blog .blog-list-header .glitch-text::after,
+    .verse-blog .blog-card {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .verse-blog .verse-heading .heading-line,
+    .verse-blog .blog-hero-description,
+    .verse-blog .blog-hero-bottom,
+    .verse-blog .blog-list-header > div,
+    .verse-blog .blog-card {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+    }
+
+    .verse-blog .verse-heading .glitch-text::before,
+    .verse-blog .verse-heading .glitch-text::after,
+    .verse-blog .blog-list-header .glitch-text::before,
+    .verse-blog .blog-list-header .glitch-text::after {
+        opacity: 0 !important;
+    }
+
+}
