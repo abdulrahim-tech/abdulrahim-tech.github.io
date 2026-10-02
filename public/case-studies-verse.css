@@ -665,43 +665,61 @@ html[data-theme="light"] .verse-case-studies {
     box-shadow: none;
 }
 
-/* ==========================================
-   DONUT CHART
-========================================== */
 
-.verse-case-studies .chart-content {
-    display: grid;
-    grid-template-columns: minmax(0,1.1fr) minmax(270px,.9fr);
-    align-items: center;
-    gap: clamp(40px,6vw,100px);
-}
+/* ==========================================
+   DONUT CHART — ASPECT RATIO FIX
+========================================== */
 
 .verse-case-studies .chart-visual {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
     min-width: 0;
 }
 
+/* Square container */
+
 .verse-case-studies .pie-chart-wrapper {
     position: relative;
+    display: block;
 
-    width: min(100%,420px);
-    aspect-ratio: 1;
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    aspect-ratio: 1 / 1;
 
+    flex: 0 0 auto;
     margin: 0 auto;
+    padding: 0;
 
-    display: grid;
-    place-items: center;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
 }
+
+/* Circular chart */
 
 .verse-case-studies .pie-chart {
     position: absolute;
     inset: 0;
 
+    display: block;
+
     width: 100%;
     height: 100%;
+    min-width: 0;
+    min-height: 0;
 
+    margin: 0;
+    padding: 0;
+
+    border: none;
     border-radius: 50%;
-    box-shadow: none;
 
     background: conic-gradient(
         var(--chart-main) 0% 71.6%,
@@ -709,23 +727,40 @@ html[data-theme="light"] .verse-case-studies {
         var(--chart-activity) 89.3% 100%
     );
 
+    box-shadow: none;
     transform: rotate(-90deg);
-    transition: background .3s ease;
 }
+
+/* Donut opening */
 
 .verse-case-studies .pie-chart::after {
     content: "";
 
     position: absolute;
-    inset: 24%;
+    inset: 23%;
 
-    border-radius: 50%;
+    display: block;
+
+    width: auto;
+    height: auto;
+
     background: var(--verse-surface);
+    border: none;
+    border-radius: 50%;
+
+    transform: none;
 }
 
+/* Number positioned exactly in the centre */
+
 .verse-case-studies .pie-chart-center {
-    position: relative;
-    z-index: 2;
+    position: absolute;
+    z-index: 3;
+
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
 
     display: flex;
     flex-direction: column;
@@ -736,38 +771,90 @@ html[data-theme="light"] .verse-case-studies {
     width: 50%;
     height: 50%;
 
+    margin: 0;
+    padding: 0;
+
     background: transparent;
     border: none;
+    border-radius: 0;
     box-shadow: none;
 
     text-align: center;
+
+    transform: translate(-50%, -50%);
 }
 
 .verse-case-studies .pie-chart-center strong {
+    display: block;
+
+    margin: 0;
+    padding: 0;
+
     color: var(--verse-text);
 
-    font: 900 clamp(35px,5vw,65px)/1 "Barlow Condensed", sans-serif;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(36px, 4vw, 60px);
+    font-weight: 900;
+    line-height: 1;
     letter-spacing: -.045em;
+
     font-variant-numeric: tabular-nums;
+    white-space: nowrap;
 }
 
 .verse-case-studies .pie-chart-center span {
+    display: block;
+
+    margin-top: 5px;
+
     color: var(--verse-muted);
 
-    font: 800 9px "DM Sans", sans-serif;
+    font-family: "DM Sans", sans-serif;
+    font-size: 9px;
+    font-weight: 800;
+    line-height: 1.4;
     letter-spacing: .12em;
+    white-space: nowrap;
 }
+
+/* Caption stays below the chart */
 
 .verse-case-studies .chart-visual-caption {
     display: block;
-    margin-top: 30px;
+
+    position: relative;
+
+    width: 100%;
+    margin: 30px 0 0;
+    padding: 0;
 
     color: var(--verse-muted);
 
-    font: 800 10px "DM Sans", sans-serif;
+    font-family: "DM Sans", sans-serif;
+    font-size: 10px;
+    font-weight: 800;
     letter-spacing: .12em;
     text-align: center;
 }
+
+/* Mobile */
+
+@media (max-width: 520px) {
+
+    .verse-case-studies .pie-chart-wrapper {
+        width: min(100%, 290px);
+        max-width: 290px;
+    }
+
+    .verse-case-studies .pie-chart-center strong {
+        font-size: 39px;
+    }
+
+    .verse-case-studies .pie-chart-center span {
+        font-size: 8px;
+    }
+}
+
 
 /* ==========================================
    LEGEND
