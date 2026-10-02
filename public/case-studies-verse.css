@@ -1409,3 +1409,73 @@ html[data-theme="light"] .verse-case-studies {
     }
 
 }
+
+
+/* ========================================
+   DONUT CHART — SEGMENT VALUES
+======================================== */
+
+.verse-case-studies .chart-segment-labels {
+    position: absolute;
+    inset: 0;
+
+    z-index: 4;
+
+    pointer-events: none;
+
+    font-family: "Barlow Condensed", sans-serif;
+}
+
+.verse-case-studies .segment-value {
+    position: absolute;
+
+    display: block;
+
+    color: #080b20;
+
+    font-size: clamp(19px, 2.2vw, 32px);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -.025em;
+
+    font-variant-numeric: tabular-nums;
+
+    white-space: nowrap;
+
+    transform: translate(-50%, -50%);
+
+    text-shadow: 0 1px 1px rgba(255,255,255,.12);
+}
+
+/* Main Pages — Cyan */
+
+.verse-case-studies .segment-main {
+    top: 48%;
+    left: 79%;
+}
+
+/* Blog — Pink */
+
+.verse-case-studies .segment-blog {
+    top: 85%;
+    left: 40%;
+}
+
+/* Business Activity Pages — Purple */
+
+.verse-case-studies .segment-activity {
+    top: 61%;
+    left: 17%;
+
+    color: #fff;
+}
+
+/* Smaller chart sizes */
+
+@media (max-width: 520px) {
+
+    .verse-case-studies .segment-value {
+        font-size: clamp(15px, 4vw, 20px);
+    }
+
+}
