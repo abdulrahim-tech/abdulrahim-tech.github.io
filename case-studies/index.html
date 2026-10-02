@@ -18,7 +18,7 @@
     <link
         rel="icon"
         type="image/jpeg"
-        href="/assets/images/Gemini_Generated_Image_4vft5v4vft5v4vft5v4vft.jpeg?v=2"
+        href="/assets/images/Gemini_Generated_Image_4vft5v4vft5v4vft.jpeg?v=2"
     >
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,6 +33,286 @@
     <link rel="stylesheet" href="/public/glitch.css?v=5">
     <link rel="stylesheet" href="/public/case-studies-verse.css">
     <link rel="stylesheet" href="/public/case-studies-intro.css?v=1">
+    <link rel="stylesheet" href="/public/mobile-verse.css?v=1">
+    <link rel="stylesheet" href="/public/interaction-glitch.css?v=1">
+
+    <style>
+
+        .verse-case-studies .case-study-chart {
+            isolation: isolate;
+        }
+
+        .verse-case-studies .chart-content.chart-reveal-ready {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .verse-case-studies .chart-content.chart-reveal-active {
+            visibility: visible;
+            animation: chartEntrance .95s steps(1, end) both;
+        }
+
+        .verse-case-studies .chart-reveal-active .chart-visual {
+            animation: chartVisualEntrance .95s steps(1, end) both;
+        }
+
+        .verse-case-studies .chart-reveal-active .pie-chart {
+            animation: chartDonutEntrance .95s steps(1, end) both;
+        }
+
+        .verse-case-studies .chart-reveal-active .pie-chart-center {
+            animation: chartCentreEntrance .95s steps(1, end) both;
+        }
+
+        .verse-case-studies .chart-reveal-active .segment-value {
+            animation: chartValueEntrance .95s steps(1, end) both;
+        }
+
+        .verse-case-studies .chart-reveal-active .pie-chart-legend {
+            animation: chartLegendEntrance .95s steps(1, end) both;
+        }
+
+        @keyframes chartEntrance {
+
+            0% {
+                opacity: 0;
+                filter: contrast(2);
+            }
+
+            12% {
+                opacity: .85;
+                filter: hue-rotate(70deg);
+            }
+
+            19% {
+                opacity: .08;
+            }
+
+            27% {
+                opacity: 1;
+                filter: contrast(1.8);
+            }
+
+            34% {
+                opacity: .2;
+                filter: hue-rotate(-45deg);
+            }
+
+            43% {
+                opacity: 1;
+            }
+
+            51% {
+                opacity: .55;
+                filter: brightness(1.7);
+            }
+
+            63%, 100% {
+                opacity: 1;
+                filter: none;
+            }
+
+        }
+
+        @keyframes chartVisualEntrance {
+
+            0% {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+
+            12% {
+                opacity: 1;
+                transform: translateX(9px);
+                filter:
+                    drop-shadow(-8px 0 #39dcff)
+                    drop-shadow(8px 0 #ff397c);
+            }
+
+            20% {
+                transform: translateX(-7px);
+            }
+
+            29% {
+                opacity: .3;
+                transform: translateX(5px);
+            }
+
+            42% {
+                opacity: 1;
+                transform: translateX(-3px);
+            }
+
+            55% {
+                transform: none;
+                filter: none;
+            }
+
+            100% {
+                opacity: 1;
+                transform: none;
+                filter: none;
+            }
+
+        }
+
+        @keyframes chartDonutEntrance {
+
+            0% {
+                opacity: 0;
+                transform: rotate(-115deg) scale(.75);
+                clip-path: inset(0 100% 0 0);
+            }
+
+            12% {
+                opacity: 1;
+                transform: rotate(-84deg) scale(1.03);
+                clip-path: inset(0 0 0 0);
+            }
+
+            20% {
+                opacity: .25;
+                transform: rotate(-96deg);
+                clip-path: inset(45% 0 20% 0);
+            }
+
+            30% {
+                opacity: 1;
+                transform: rotate(-87deg);
+                clip-path: inset(0 0 0 0);
+            }
+
+            40% {
+                transform: rotate(-93deg);
+                clip-path: inset(15% 0 60% 0);
+            }
+
+            52% {
+                opacity: 1;
+                transform: rotate(-90deg);
+                clip-path: inset(0 0 0 0);
+            }
+
+            100% {
+                opacity: 1;
+                transform: rotate(-90deg);
+                clip-path: none;
+            }
+
+        }
+
+        @keyframes chartCentreEntrance {
+
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(.6);
+            }
+
+            20% {
+                opacity: 1;
+                transform: translate(calc(-50% - 5px), -50%);
+                filter: drop-shadow(-4px 0 #39dcff);
+            }
+
+            32% {
+                opacity: .2;
+                transform: translate(calc(-50% + 5px), -50%);
+                filter: drop-shadow(4px 0 #ff397c);
+            }
+
+            45% {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+                filter: none;
+            }
+
+        }
+
+        @keyframes chartValueEntrance {
+
+            0%, 15% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scaleX(1.5);
+            }
+
+            23% {
+                opacity: 1;
+                transform: translate(calc(-50% - 4px), -50%);
+            }
+
+            32% {
+                opacity: .15;
+                transform: translate(calc(-50% + 4px), -50%);
+            }
+
+            44% {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+
+            52% {
+                opacity: .35;
+            }
+
+            65%, 100% {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+
+        }
+
+        @keyframes chartLegendEntrance {
+
+            0%, 25% {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+
+            32% {
+                opacity: 1;
+                transform: translateX(-6px);
+            }
+
+            42% {
+                opacity: .2;
+                transform: translateX(5px);
+            }
+
+            53% {
+                opacity: 1;
+                transform: translateX(-2px);
+            }
+
+            65%, 100% {
+                opacity: 1;
+                transform: none;
+            }
+
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .verse-case-studies .chart-content.chart-reveal-ready,
+            .verse-case-studies .chart-content.chart-reveal-active {
+                opacity: 1;
+                visibility: visible;
+                animation: none !important;
+            }
+
+            .verse-case-studies .chart-reveal-active *,
+            .verse-case-studies .chart-reveal-active *::before,
+            .verse-case-studies .chart-reveal-active *::after {
+                animation: none !important;
+            }
+
+        }
+
+    </style>
 
 </head>
 
@@ -255,6 +535,7 @@
 
                     <section
                         class="case-study-chart"
+                        id="caseStudyChart"
                         aria-labelledby="chartTitle"
                     >
 
@@ -265,7 +546,6 @@
                                 <p class="eyebrow">
                                     / 03 — SEARCH PERFORMANCE
                                 </p>
-
 
                                 <h3 id="chartTitle">
 
@@ -320,7 +600,10 @@
 
                         </div>
 
-                        <div class="chart-content">
+                        <div
+                            class="chart-content"
+                            id="chartRevealContent"
+                        >
 
                             <div class="chart-visual">
 
@@ -524,7 +807,7 @@
 
             <nav class="footer-nav" aria-label="Footer navigation">
 
-                                <a href="/" class="glitch-link">
+                <a href="/" class="glitch-link">
                     HOME
                 </a>
 
@@ -532,21 +815,21 @@
                     ABOUT
                 </a>
 
-                <a
-                    href="/clients/"
-                    class="glitch-link"
-                    aria-current="page"
-                >
+                <a href="/clients/" class="glitch-link">
                     CLIENTS &amp; BRANDS
                 </a>
 
-                <a href="/case-studies/" class="glitch-link">
+                <a
+                    href="/case-studies/"
+                    class="glitch-link"
+                    aria-current="page"
+                >
                     CASE STUDIES
                 </a>
 
                 <a href="/blog/" class="glitch-link">
-                BLOG
-            </a>
+                    BLOG
+                </a>
 
                 <a href="/contact/" class="glitch-link">
                     CONTACT
@@ -622,7 +905,6 @@
 
     };
 
-
     const pieChart =
         document.getElementById("clicksPieChart");
 
@@ -641,7 +923,6 @@
     const selectedPeriod =
         document.getElementById("selectedPeriod");
 
-
     const chartMainValue =
         document.getElementById("chartMainValue");
 
@@ -651,9 +932,29 @@
     const chartActivityValue =
         document.getElementById("chartActivityValue");
 
-
     const yearButtons =
         document.querySelectorAll(".chart-year");
+
+    const chartWrapper =
+        document.querySelector(".pie-chart-wrapper");
+
+    const chartLegend =
+        document.querySelector(".pie-chart-legend");
+
+    const chartSection =
+        document.getElementById("caseStudyChart");
+
+    const chartRevealContent =
+        document.getElementById("chartRevealContent");
+
+    const reducedMotion =
+        window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    let chartSwitchTimer = null;
+
+    let chartHasEntered = false;
+
+    let currentChartYear = "2025";
 
 
     function positionSegmentLabel(
@@ -665,25 +966,8 @@
         const midpoint =
             startPercentage + segmentPercentage / 2;
 
-        /*
-           CSS conic-gradient begins at 12 o'clock.
-
-           The chart also has rotate(-90deg),
-           moving its starting point to 9 o'clock.
-
-           The following angle accounts for both.
-        */
-
         const angle =
             (midpoint / 100) * 2 * Math.PI - Math.PI;
-
-        /*
-           Position labels approximately halfway
-           through the coloured donut ring.
-
-           Outer radius = 50%
-           Inner radius = 27%
-        */
 
         const radius = 38.5;
 
@@ -705,12 +989,12 @@
 
         if (!data) return;
 
+        currentChartYear = String(year);
 
         const total =
             data.mainPages +
             data.blog +
             data.activityHub;
-
 
         const mainPercentage =
             (data.mainPages / total) * 100;
@@ -721,12 +1005,11 @@
         const activityPercentage =
             (data.activityHub / total) * 100;
 
-
-        const mainEnd = mainPercentage;
+        const mainEnd =
+            mainPercentage;
 
         const blogEnd =
             mainPercentage + blogPercentage;
-
 
         pieChart.style.background = `
             conic-gradient(
@@ -736,14 +1019,8 @@
             )
         `;
 
-
-        /* Update total clicks */
-
         totalClicks.textContent =
             total.toLocaleString();
-
-
-        /* Update individual numbers on the chart */
 
         chartMainValue.textContent =
             data.mainPages.toLocaleString();
@@ -753,9 +1030,6 @@
 
         chartActivityValue.textContent =
             data.activityHub.toLocaleString();
-
-
-        /* Dynamically align numbers with their segments */
 
         positionSegmentLabel(
             chartMainValue,
@@ -775,9 +1049,6 @@
             activityPercentage
         );
 
-
-        /* Update legend */
-
         mainPagesValue.textContent =
             `${data.mainPages.toLocaleString()} · ${mainPercentage.toFixed(1)}%`;
 
@@ -787,14 +1058,8 @@
         activityHubValue.textContent =
             `${data.activityHub.toLocaleString()} · ${activityPercentage.toFixed(1)}%`;
 
-
-        /* Update selected reporting period */
-
         selectedPeriod.textContent =
             `JAN–JUN ${year}`;
-
-
-        /* Update accessible chart description */
 
         pieChart.setAttribute(
             "aria-label",
@@ -803,9 +1068,6 @@
             `Blog ${data.blog.toLocaleString()}, ` +
             `Business Activity Pages ${data.activityHub.toLocaleString()}.`
         );
-
-
-        /* Update active year button */
 
         yearButtons.forEach(button => {
 
@@ -824,18 +1086,168 @@
     }
 
 
+    function clearChartSwitchClasses() {
+
+        chartWrapper.classList.remove("chart-switching");
+
+        chartLegend.classList.remove("chart-data-switching");
+
+        yearButtons.forEach(button => {
+
+            button.classList.remove("year-switching");
+
+        });
+
+    }
+
+
+    function switchChartYear(year, button) {
+
+        if (String(year) === currentChartYear) {
+            return;
+        }
+
+        clearTimeout(chartSwitchTimer);
+
+        clearChartSwitchClasses();
+
+        if (reducedMotion.matches || !chartHasEntered) {
+
+            updateChart(year);
+            return;
+
+        }
+
+        void chartWrapper.offsetWidth;
+
+        chartWrapper.classList.add("chart-switching");
+
+        chartLegend.classList.add("chart-data-switching");
+
+        button.classList.add("year-switching");
+
+        updateChart(year);
+
+        chartSwitchTimer = setTimeout(() => {
+
+            clearChartSwitchClasses();
+
+        }, 520);
+
+    }
+
+
     yearButtons.forEach(button => {
 
         button.addEventListener("click", () => {
 
-            updateChart(button.dataset.year);
+            switchChartYear(
+                button.dataset.year,
+                button
+            );
 
         });
 
     });
 
 
+    function revealChart() {
+
+        if (chartHasEntered) {
+            return;
+        }
+
+        chartHasEntered = true;
+
+        chartRevealContent.classList.remove(
+            "chart-reveal-ready"
+        );
+
+        if (reducedMotion.matches) {
+
+            chartRevealContent.style.opacity = "1";
+            chartRevealContent.style.visibility = "visible";
+
+            return;
+
+        }
+
+        chartRevealContent.classList.add(
+            "chart-reveal-active"
+        );
+
+        chartRevealContent.addEventListener(
+            "animationend",
+            event => {
+
+                if (
+                    event.target !== chartRevealContent ||
+                    event.animationName !== "chartEntrance"
+                ) {
+                    return;
+                }
+
+                chartRevealContent.classList.remove(
+                    "chart-reveal-active"
+                );
+
+                chartRevealContent.style.opacity = "1";
+                chartRevealContent.style.visibility = "visible";
+
+            },
+            { once: true }
+        );
+
+    }
+
+
     updateChart("2025");
+
+
+    if (reducedMotion.matches) {
+
+        revealChart();
+
+    } else if ("IntersectionObserver" in window) {
+
+        chartRevealContent.classList.add(
+            "chart-reveal-ready"
+        );
+
+        const chartObserver =
+            new IntersectionObserver(
+
+                entries => {
+
+                    entries.forEach(entry => {
+
+                        if (!entry.isIntersecting) {
+                            return;
+                        }
+
+                        revealChart();
+
+                        chartObserver.disconnect();
+
+                    });
+
+                },
+
+                {
+                    root: null,
+                    rootMargin: "0px 0px -8% 0px",
+                    threshold: 0.08
+                }
+
+            );
+
+        chartObserver.observe(chartSection);
+
+    } else {
+
+        revealChart();
+
+    }
 
 </script>
 
@@ -844,24 +1256,29 @@
     const toggleBtn =
         document.getElementById("theme-toggle");
 
+    let themeSwitchTimer = null;
+
 
     function setTheme(theme) {
 
+        const selectedTheme =
+            theme === "light" ? "light" : "dark";
+
         document.documentElement.setAttribute(
             "data-theme",
-            theme
+            selectedTheme
         );
 
         if (toggleBtn) {
 
             toggleBtn.textContent =
-                theme === "dark"
+                selectedTheme === "dark"
                     ? "LIGHT MODE"
                     : "DARK MODE";
 
             toggleBtn.setAttribute(
                 "aria-pressed",
-                String(theme === "light")
+                String(selectedTheme === "light")
             );
 
         }
@@ -882,7 +1299,6 @@
 
     }
 
-
     setTheme(savedTheme);
 
 
@@ -891,10 +1307,32 @@
         toggleBtn.addEventListener("click", () => {
 
             const current =
-                document.documentElement.getAttribute("data-theme");
+                document.documentElement.getAttribute(
+                    "data-theme"
+                );
 
             const next =
                 current === "dark" ? "light" : "dark";
+
+            clearTimeout(themeSwitchTimer);
+
+            document.body.classList.remove(
+                "theme-switching"
+            );
+
+            if (
+                !window.matchMedia(
+                    "(prefers-reduced-motion: reduce)"
+                ).matches
+            ) {
+
+                void document.body.offsetWidth;
+
+                document.body.classList.add(
+                    "theme-switching"
+                );
+
+            }
 
             setTheme(next);
 
@@ -903,6 +1341,14 @@
                 localStorage.setItem("theme", next);
 
             } catch (error) {}
+
+            themeSwitchTimer = setTimeout(() => {
+
+                document.body.classList.remove(
+                    "theme-switching"
+                );
+
+            }, 680);
 
         });
 
