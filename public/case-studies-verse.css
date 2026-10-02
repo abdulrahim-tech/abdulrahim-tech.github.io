@@ -1277,3 +1277,135 @@ html[data-theme="light"] .verse-case-studies {
         transition: none !important;
     }
 }
+
+
+/* ========================================
+   CHART — VISUAL-FIRST LAYOUT
+======================================== */
+
+/* Give the donut chart more importance */
+
+.verse-case-studies .chart-content {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.4fr)
+        minmax(280px, .85fr);
+
+    align-items: center;
+    gap: clamp(35px, 5vw, 90px);
+}
+
+/* Allow the chart to become significantly larger */
+
+.verse-case-studies .chart-visual {
+    width: 100%;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.verse-case-studies .pie-chart-wrapper {
+    width: 100%;
+    max-width: 650px;
+
+    aspect-ratio: 1 / 1;
+
+    margin: 0 auto;
+}
+
+/* Increase the central number */
+
+.verse-case-studies .pie-chart-center strong {
+    font-size: clamp(48px, 5.5vw, 85px);
+    line-height: 1;
+}
+
+.verse-case-studies .pie-chart-center span {
+    margin-top: 10px;
+    font-size: clamp(9px, .85vw, 12px);
+}
+
+/* Keep the legend compact */
+
+.verse-case-studies .pie-chart-legend {
+    width: 100%;
+    max-width: 420px;
+    justify-self: end;
+}
+
+.verse-case-studies .legend-heading {
+    margin-bottom: 15px;
+}
+
+.verse-case-studies .legend-item {
+    gap: 15px;
+    padding: 17px 0;
+}
+
+.verse-case-studies .legend-information {
+    gap: 4px;
+}
+
+.verse-case-studies .legend-information strong {
+    font-size: 14px;
+}
+
+.verse-case-studies .legend-information span {
+    font-size: 12px;
+}
+
+.verse-case-studies .legend-footer {
+    margin-top: 22px;
+    padding-top: 15px;
+}
+
+/* Caption follows the width of the chart */
+
+.verse-case-studies .chart-visual-caption {
+    margin-top: 25px;
+    font-size: 10px;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 1000px) {
+
+    .verse-case-studies .chart-content {
+        grid-template-columns: 1fr;
+        gap: 55px;
+    }
+
+    .verse-case-studies .pie-chart-wrapper {
+        width: min(100%, 560px);
+        max-width: 560px;
+    }
+
+    .verse-case-studies .pie-chart-legend {
+        max-width: 560px;
+        justify-self: center;
+    }
+
+}
+
+@media (max-width: 520px) {
+
+    .verse-case-studies .pie-chart-wrapper {
+        width: min(100%, 340px);
+        max-width: 340px;
+    }
+
+    .verse-case-studies .pie-chart-center strong {
+        font-size: clamp(36px, 10vw, 48px);
+    }
+
+    .verse-case-studies .chart-content {
+        gap: 40px;
+    }
+
+}
