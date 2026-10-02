@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 
@@ -16,7 +15,7 @@
     <link
         rel="icon"
         type="image/jpeg"
-        href="/assets/images/Gemini_Generated_Image_4vft5v4vft5v4vft5v4vft.jpeg"
+        href="/assets/images/Gemini_Generated_Image_4vft5v4vft5v4vft.jpeg"
     >
 
     <link rel="stylesheet" href="/public/style.css">
@@ -27,6 +26,8 @@
     >
 
     <link rel="stylesheet" href="/public/article-verse.css">
+    <link rel="stylesheet" href="/public/glitch.css?v=5">
+    <link rel="stylesheet" href="/public/article-intro.css?v=1">
 </head>
 
 <body class="verse-article">
@@ -35,7 +36,7 @@
 
     <header class="navbar">
 
-        <a href="/" class="logo">
+        <a href="/" class="logo glitch-hover">
             <img
                 src="/assets/images/Gemini_Generated_Image_4vft5v4vft5v4vft.jpeg"
                 alt="Rahim Khalil"
@@ -44,15 +45,15 @@
         </a>
 
         <nav aria-label="Main navigation">
-            <a href="/">Home</a>
-            <a href="/about/">About</a>
-            <a href="/case-studies/">Case Studies</a>
-            <a href="/blog/" aria-current="page">Blog</a>
-            <a href="/contact/">Contact</a>
+            <a href="/" class="glitch-link">Home</a>
+            <a href="/about/" class="glitch-link">About</a>
+            <a href="/case-studies/" class="glitch-link">Case Studies</a>
+            <a href="/blog/" class="glitch-link" aria-current="page">Blog</a>
+            <a href="/contact/" class="glitch-link">Contact</a>
 
             <button
                 id="theme-toggle"
-                class="theme-toggle"
+                class="theme-toggle glitch-hover"
                 type="button"
                 aria-label="Toggle theme"
             >
@@ -68,7 +69,7 @@
 
             <header class="article-header">
 
-                <a href="/blog/" class="article-back">
+                <a href="/blog/" class="article-back glitch-hover">
                     ← ALL ARTICLES
                 </a>
 
@@ -79,7 +80,10 @@
 
                 <p class="eyebrow">SEO / GEO / AEO</p>
 
-                <h1>The SEO/GEO/AIO Definitive Guide</h1>
+                <h1
+                    class="article-title-glitch"
+                    data-text="The SEO/GEO/AIO Definitive Guide"
+                >The SEO/GEO/AIO Definitive Guide</h1>
 
                 <p class="article-intro">
                     Since the rise of AI search, GEO, AEO and other new SEO
@@ -445,9 +449,9 @@
         <div class="footer-container">
 
             <nav class="footer-nav" aria-label="Footer navigation">
-                <a href="/">HOME</a>
-                <a href="/about/">ABOUT</a>
-                <a href="/contact/">CONTACT</a>
+                <a href="/" class="glitch-link">HOME</a>
+                <a href="/about/" class="glitch-link">ABOUT</a>
+                <a href="/contact/" class="glitch-link">CONTACT</a>
             </nav>
 
             <div class="footer-contact">
@@ -456,7 +460,7 @@
                     href="https://ae.linkedin.com/in/abdulrahim-k-74a1a9235"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="footer-link-icon"
+                    class="footer-link-icon glitch-hover"
                     aria-label="LinkedIn"
                 >
                     <svg
@@ -471,7 +475,7 @@
 
                 <a
                     href="mailto:hello@rahim-seo.com"
-                    class="footer-link-icon"
+                    class="footer-link-icon glitch-hover"
                     aria-label="Email"
                 >
                     <svg
@@ -511,8 +515,14 @@
         }
     }
 
-    const savedTheme =
-        localStorage.getItem("theme") === "light" ? "light" : "dark";
+    let savedTheme = "dark";
+
+    try {
+        savedTheme =
+            localStorage.getItem("theme") === "light" ? "light" : "dark";
+    } catch (error) {
+        savedTheme = "dark";
+    }
 
     setTheme(savedTheme);
 
@@ -524,7 +534,10 @@
             const next = current === "dark" ? "light" : "dark";
 
             setTheme(next);
-            localStorage.setItem("theme", next);
+
+            try {
+                localStorage.setItem("theme", next);
+            } catch (error) {}
         });
     }
 </script>
