@@ -1,532 +1,742 @@
 
-/* ========================================
-   ABOUT PAGE — COMIC EDITORIAL REDESIGN
-======================================== */
+/* ==========================================
+   VERSE — ABOUT PAGE
+   Chromatic / atmospheric / editorial
+========================================== */
 
-.comic-about {
-    --paper: #f3eddb;
-    --ink: #111111;
-    --accent: #ff3b30;
-    --electric: #f7df35;
-    --blue: #36c5f0;
-    --panel: #fff9e9;
-    --muted: #514e48;
+.verse-about {
+    --verse-bg: #080b20;
+    --verse-text: #f5f3ff;
+    --verse-muted: #b4b8d3;
+
+    --verse-pink: #ff397c;
+    --verse-cyan: #39dcff;
+    --verse-purple: #894aff;
 
     margin: 0;
-    color: var(--ink);
-    background: var(--paper);
+
+    color: var(--verse-text);
+    background: var(--verse-bg);
 
     font-family: "DM Sans", sans-serif;
     font-size: 16px;
-    line-height: 1.65;
+    line-height: 1.7;
 
     -webkit-font-smoothing: antialiased;
-
-    background-image:
-        radial-gradient(rgba(0,0,0,.075) .8px, transparent .8px);
-
-    background-size: 7px 7px;
 }
 
-html[data-theme="dark"] .comic-about {
-    --paper: #131313;
-    --ink: #f6f0e2;
-    --panel: #222222;
-    --muted: #c0b9a9;
+/* LIGHT MODE */
 
-    background-image:
-        radial-gradient(rgba(255,255,255,.045) .8px, transparent .8px);
+html[data-theme="light"] .verse-about {
+    --verse-bg: #f0e7f8;
+    --verse-text: #17112f;
+    --verse-muted: #514c6e;
+
+    --verse-pink: #e80065;
+    --verse-cyan: #007da8;
+    --verse-purple: #7543d9;
 }
 
-.comic-about img {
+/* GLOBAL OVERRIDES */
+
+.verse-about *,
+.verse-about *::before,
+.verse-about *::after {
+    box-sizing: border-box;
+}
+
+.verse-about img {
     image-rendering: auto;
 }
 
-.comic-about h1,
-.comic-about h2,
-.comic-about h3 {
-    font-family: "Archivo Black", sans-serif;
-    font-weight: 400;
+.verse-about .effect {
+    opacity: 1;
+    animation: none;
+    clip-path: none;
+    transform: none;
+    overflow: clip;
+}
+
+.verse-about h1,
+.verse-about h2,
+.verse-about h3 {
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 900;
     letter-spacing: -.045em;
 }
 
-.comic-about .effect {
-    overflow: clip;
-    animation: none;
-    transform: none;
-    clip-path: none;
-    opacity: 1;
-}
+/* ==========================================
+   NAVIGATION
+========================================== */
 
-/* NAVIGATION */
+.verse-about .navbar {
+    position: relative;
+    z-index: 20;
 
-.comic-about .navbar {
     max-width: 1440px;
-    padding: 22px clamp(20px, 5vw, 72px);
+    padding: 22px clamp(20px, 5vw, 70px);
 
-    border-bottom: 3px solid var(--ink);
-    background: var(--paper);
+    border-bottom: 1px solid rgba(140, 135, 190, .25);
 }
 
-.comic-about .logo {
-    font-family: "Archivo Black", sans-serif;
-    font-size: 17px;
+.verse-about .logo {
+    color: var(--verse-text);
+
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: -.03em;
     text-transform: uppercase;
-    letter-spacing: -.05em;
-    color: var(--ink);
 }
 
-.comic-about .logo img {
+.verse-about .logo img {
     width: 42px;
     height: 42px;
+
     object-fit: cover;
 
-    border: 2px solid var(--ink);
-    box-shadow: 3px 3px 0 var(--accent);
-    image-rendering: auto;
+    border-radius: 50%;
+    box-shadow:
+        -2px 0 var(--verse-cyan),
+         2px 0 var(--verse-pink);
 }
 
-.comic-about .navbar nav {
-    gap: clamp(10px, 1.8vw, 26px);
-}
+.verse-about .navbar nav a {
+    color: var(--verse-muted);
 
-.comic-about .navbar nav a {
     font-family: "DM Sans", sans-serif;
     font-size: 12px;
     font-weight: 800;
+    letter-spacing: .04em;
     text-transform: uppercase;
-    letter-spacing: .035em;
-    color: var(--ink);
+
+    transition: color .2s ease;
 }
 
-.comic-about .navbar nav a:hover,
-.comic-about .navbar nav a[aria-current="page"] {
-    color: var(--accent);
+.verse-about .navbar nav a:hover,
+.verse-about .navbar nav a[aria-current="page"] {
+    color: var(--verse-pink);
 }
 
-.comic-about .theme-toggle {
+.verse-about .theme-toggle {
     padding: 8px 12px;
-    background: var(--electric);
-    color: #111;
-    border: 2px solid #111;
-    box-shadow: 3px 3px 0 var(--ink);
+
+    color: var(--verse-text);
+    background: transparent;
+
+    border: 1px solid var(--verse-purple);
+    box-shadow: none;
 
     font-family: "DM Sans", sans-serif;
     font-size: 11px;
     font-weight: 800;
+    letter-spacing: .05em;
 }
 
-/* MAIN ABOUT SECTION */
-
-.comic-about .about-section {
-    max-width: 1440px;
-    padding: clamp(55px, 8vw, 110px)
-             clamp(20px, 5vw, 72px)
-             90px;
+.verse-about .theme-toggle:hover {
+    color: var(--verse-cyan);
+    border-color: var(--verse-cyan);
+    box-shadow: none;
 }
 
-/* HEADER */
+/* ==========================================
+   ATMOSPHERIC CANVAS
+========================================== */
 
-.comic-about .about-header {
+.verse-about .about-section {
     position: relative;
-    max-width: 100%;
-    margin-bottom: 80px;
+    isolation: isolate;
+
+    max-width: 1440px;
+    min-height: 100vh;
+
+    margin: 0 auto;
+    padding:
+        clamp(70px, 9vw, 140px)
+        clamp(20px, 5vw, 70px)
+        90px;
 }
 
-.comic-about .eyebrow {
-    display: inline-block;
-    margin: 0 0 25px;
-    padding: 7px 13px;
+.verse-about .verse-atmosphere {
+    position: absolute;
+    z-index: -1;
 
-    color: #111;
-    background: var(--electric);
-    border: 2px solid #111;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            ellipse at 85% 18%,
+            rgba(136, 45, 255, .23),
+            transparent 42%
+        ),
+        radial-gradient(
+            ellipse at 8% 45%,
+            rgba(236, 26, 108, .14),
+            transparent 45%
+        ),
+        radial-gradient(
+            ellipse at 75% 85%,
+            rgba(25, 155, 255, .13),
+            transparent 48%
+        );
+}
+
+.verse-about .verse-atmosphere::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        radial-gradient(
+            rgba(255,255,255,.2) .7px,
+            transparent .9px
+        );
+
+    background-size: 6px 6px;
+    opacity: .16;
+    pointer-events: none;
+}
+
+/* FLOATING COLOR FIELDS */
+
+.verse-about .verse-orb {
+    position: absolute;
+    border-radius: 50%;
+
+    filter: blur(75px);
+    opacity: .45;
+
+    animation: verseFloat 13s ease-in-out infinite alternate;
+}
+
+.verse-about .orb-one {
+    width: 420px;
+    height: 420px;
+
+    top: 5%;
+    right: -150px;
+
+    background: #ad35ff;
+}
+
+.verse-about .orb-two {
+    width: 350px;
+    height: 350px;
+
+    top: 38%;
+    left: -220px;
+
+    background: #ed256c;
+    animation-delay: -4s;
+}
+
+.verse-about .orb-three {
+    width: 380px;
+    height: 380px;
+
+    bottom: 5%;
+    right: 8%;
+
+    background: #126bff;
+    animation-delay: -8s;
+}
+
+@keyframes verseFloat {
+    from {
+        transform: translate(0, 0) scale(1);
+    }
+
+    to {
+        transform: translate(35px, -35px) scale(1.15);
+    }
+}
+
+/* ==========================================
+   HEADER / LARGE TYPOGRAPHY
+========================================== */
+
+.verse-about .about-header {
+    position: relative;
+    z-index: 2;
+
+    max-width: none;
+    margin-bottom: 90px;
+}
+
+.verse-about .eyebrow {
+    margin: 0 0 30px;
+
+    color: var(--verse-cyan);
 
     font-family: "DM Sans", sans-serif;
     font-size: 11px;
-    font-weight: 900;
-    letter-spacing: .08em;
-    transform: rotate(-2deg);
-}
-
-.comic-about .eyebrow::before {
-    content: none;
-}
-
-.comic-about .about-header h1 {
-    position: relative;
-    z-index: 1;
-
-    max-width: 1200px;
-    margin: 0;
-    padding: 0;
-
-    font-family: "Archivo Black", sans-serif;
-    font-size: clamp(55px, 9vw, 145px);
-    line-height: .94;
-    letter-spacing: -.075em;
-    text-transform: uppercase;
-
-    color: var(--ink);
-}
-
-.comic-about .about-header h1::before {
-    content: none;
-}
-
-.comic-about .heading-accent {
-    display: block;
-    width: fit-content;
-
-    color: var(--accent);
-    text-shadow: 4px 4px 0 var(--ink);
-}
-
-.comic-about .header-decoration {
-    display: inline-block;
-    margin-top: 28px;
-    padding: 8px 0;
-
-    border-top: 2px solid var(--ink);
-    border-bottom: 2px solid var(--ink);
-
-    color: var(--muted);
-    font-size: 10px;
     font-weight: 800;
     letter-spacing: .18em;
 }
 
-/* CONTENT LAYOUT */
+.verse-about .eyebrow::before {
+    content: none;
+}
 
-.comic-about .about-content {
+.verse-about .verse-heading {
+    margin: 0;
+
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(100px, 16vw, 245px);
+    font-weight: 900;
+
+    line-height: .69;
+    letter-spacing: -.075em;
+
+    color: var(--verse-text);
+    text-transform: uppercase;
+}
+
+.verse-about .verse-heading::before {
+    content: none;
+}
+
+.verse-about .heading-line {
+    display: block;
+    width: fit-content;
+}
+
+.verse-about .heading-line:first-child {
+    text-shadow:
+        -3px 0 rgba(57,220,255,.85),
+         3px 0 rgba(255,57,124,.7);
+}
+
+.verse-about .heading-shift {
+    position: relative;
+    margin-left: clamp(25px, 8vw, 115px);
+
+    color: var(--verse-pink);
+
+    text-shadow:
+        -5px 2px var(--verse-cyan),
+         5px -2px rgba(130,45,255,.75);
+}
+
+.verse-about .period {
+    color: var(--verse-cyan);
+}
+
+.verse-about .heading-subtitle {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    margin: 50px 0 0;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: clamp(11px, 1.2vw, 14px);
+    font-weight: 800;
+    letter-spacing: .17em;
+}
+
+.verse-about .heading-subtitle span {
+    color: var(--verse-pink);
+}
+
+/* ==========================================
+   CONTENT
+========================================== */
+
+.verse-about .about-content {
+    position: relative;
+    z-index: 2;
+
     display: grid;
-    grid-template-columns: minmax(0, 1.3fr) minmax(280px, .85fr);
-    gap: clamp(35px, 6vw, 90px);
+    grid-template-columns: minmax(0, 1.05fr) minmax(300px, .9fr);
+
+    gap: clamp(40px, 6vw, 100px);
     align-items: start;
 }
 
-.comic-about .about-text {
+.verse-about .about-text {
     min-width: 0;
 }
 
-/* INTRO PANEL */
+.verse-about .about-intro {
+    margin: 0 0 40px;
 
-.comic-about .intro-panel {
-    position: relative;
+    color: var(--verse-text);
 
-    margin: 0 0 42px;
-    padding: 28px 32px;
-
-    color: #111;
-    background: var(--electric);
-
-    border: 3px solid #111;
-    box-shadow: 8px 8px 0 var(--accent);
-    transform: rotate(-1deg);
-}
-
-.comic-about .panel-label {
-    display: block;
-    margin-bottom: 15px;
-
-    font-size: 10px;
-    font-weight: 900;
-    letter-spacing: .16em;
-}
-
-.comic-about .intro-panel p {
-    margin: 0;
-    color: #111;
-
-    font-family: "Archivo Black", sans-serif;
-    font-size: clamp(23px, 3vw, 38px);
-    line-height: 1.2;
-    letter-spacing: -.045em;
-}
-
-/* BODY COPY */
-
-.comic-about .about-story p {
-    max-width: 680px;
-    margin: 0 0 25px;
-
-    color: var(--ink);
-    font-family: "DM Sans", sans-serif;
-    font-size: clamp(15px, 1.2vw, 18px);
-    font-weight: 500;
-    line-height: 1.85;
-}
-
-.comic-about .about-story .cat-note {
-    position: relative;
-
-    margin: 35px 0;
-    padding: 20px 24px;
-
-    background: var(--panel);
-    border: 2px solid var(--ink);
-    border-left: 9px solid var(--accent);
-
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(34px, 4vw, 58px);
     font-weight: 800;
-    box-shadow: 5px 5px 0 var(--ink);
+
+    line-height: 1.05;
+    letter-spacing: -.035em;
+
+    text-shadow:
+        -2px 0 var(--verse-cyan),
+         2px 0 var(--verse-pink);
 }
 
-/* SECTION BREAK */
+.verse-about .about-story p {
+    max-width: 640px;
+    margin: 0 0 27px;
 
-.comic-about .story-divider {
+    color: var(--verse-muted);
+
+    font-family: "DM Sans", sans-serif;
+    font-size: clamp(15px, 1.25vw, 18px);
+    font-weight: 500;
+    line-height: 1.9;
+}
+
+/* COLOR-SEPARATED DIVIDER */
+
+.verse-about .verse-divider {
     display: flex;
     align-items: center;
     gap: 16px;
-    margin: 48px 0 30px;
+
+    margin: 45px 0;
+
+    color: var(--verse-cyan);
+
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 19px;
+    font-weight: 900;
 }
 
-.comic-about .story-divider::after {
-    content: "";
-    height: 3px;
+.verse-about .verse-divider div {
+    height: 2px;
     flex: 1;
-    background: var(--ink);
+
+    background: linear-gradient(
+        90deg,
+        var(--verse-cyan),
+        var(--verse-purple),
+        var(--verse-pink)
+    );
 }
 
-.comic-about .story-divider span {
-    font-family: "Archivo Black", sans-serif;
-    font-size: 12px;
-    line-height: 1.4;
-    letter-spacing: -.025em;
-    color: var(--accent);
-}
+/* ==========================================
+   IMAGE COMPOSITION
+========================================== */
 
-/* PHOTO */
-
-.comic-about .about-photo {
+.verse-about .about-photo {
     position: relative;
 
     width: 100%;
-    max-width: 480px;
-    margin: 35px 0 0;
+    max-width: 530px;
+
+    margin: -60px auto 0;
     padding: 0;
 
     background: transparent;
-    border: 0;
+    border: none;
     box-shadow: none;
 
-    transform: rotate(3deg);
-    transition: transform .25s ease;
+    transform: rotate(-3deg);
+    transition: transform .35s ease;
 }
 
-.comic-about .about-photo:hover {
-    transform: rotate(0deg) translateY(-5px);
+.verse-about .about-photo:hover {
+    transform: rotate(0deg) translateY(-8px);
     box-shadow: none;
 }
 
-.comic-about .photo-frame {
+.verse-about .image-composition {
     position: relative;
-    overflow: hidden;
+    isolation: isolate;
 
-    padding: 9px;
-    background: var(--panel);
-    border: 4px solid var(--ink);
-    box-shadow: 13px 13px 0 var(--blue);
+    width: 100%;
+    aspect-ratio: 4 / 5;
+
+    overflow: visible;
 }
 
-.comic-about .photo-frame::after {
-    content: "";
+/* COLOR-CHANNEL GHOST */
+
+.verse-about .image-ghost {
     position: absolute;
-    inset: 9px;
+    z-index: -1;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--verse-cyan),
+            var(--verse-purple) 50%,
+            var(--verse-pink)
+        );
+
+    transform: translate(18px, 16px);
+    clip-path: polygon(
+        0 3%,
+        97% 0,
+        100% 94%,
+        4% 100%
+    );
+}
+
+.verse-about .image-composition img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    filter:
+        grayscale(100%)
+        contrast(1.4)
+        sepia(.25)
+        hue-rotate(170deg)
+        saturate(1.6);
+
+    clip-path: polygon(
+        0 3%,
+        97% 0,
+        100% 94%,
+        4% 100%
+    );
+
+    transition: filter .35s ease;
+}
+
+.verse-about .about-photo:hover img {
+    filter:
+        grayscale(0%)
+        contrast(1.12)
+        saturate(1.25);
+}
+
+/* PRINT TEXTURE */
+
+.verse-about .image-grain {
+    position: absolute;
+    inset: 0;
+
     pointer-events: none;
 
     background-image:
-        radial-gradient(rgba(0,0,0,.22) 1px, transparent 1.5px);
+        radial-gradient(
+            rgba(0,0,0,.5) .8px,
+            transparent 1px
+        );
 
-    background-size: 5px 5px;
+    background-size: 4px 4px;
     mix-blend-mode: multiply;
-    opacity: .48;
+    opacity: .38;
+
+    clip-path: polygon(
+        0 3%,
+        97% 0,
+        100% 94%,
+        4% 100%
+    );
 }
 
-.comic-about .about-photo img {
-    display: block;
-    width: 100%;
-    height: auto;
-    padding: 0;
+/* COORDINATE DETAILS */
 
-    object-fit: cover;
-    filter: grayscale(100%) contrast(1.2);
-
-    transition: filter .25s ease;
-}
-
-.comic-about .about-photo:hover img {
-    filter: grayscale(0%) contrast(1.1);
-}
-
-.comic-about .about-photo figcaption {
-    margin-top: 20px;
-    padding: 0;
-
-    color: var(--ink);
-    font-family: "DM Sans", sans-serif;
-    font-size: 11px;
-    font-weight: 900;
-    text-align: left;
-    letter-spacing: .08em;
-}
-
-.comic-about .photo-stamp {
+.verse-about .image-coordinate {
     position: absolute;
-    z-index: 2;
-    right: -17px;
-    top: -20px;
-
-    padding: 10px 13px;
+    z-index: 3;
 
     color: #fff;
-    background: var(--accent);
-    border: 2px solid #111;
 
-    font-family: "Archivo Black", sans-serif;
-    font-size: 12px;
-    line-height: 1.1;
-    text-align: center;
+    font-family: "DM Sans", sans-serif;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .12em;
 
-    transform: rotate(8deg);
-    box-shadow: 4px 4px 0 #111;
+    text-shadow: 1px 1px 4px #000;
 }
 
-/* END MARK */
+.verse-about .coordinate-top {
+    top: 22px;
+    left: 22px;
+}
 
-.comic-about .about-endmark {
+.verse-about .coordinate-bottom {
+    right: 22px;
+    bottom: 38px;
+}
+
+.verse-about .about-photo figcaption {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    margin-top: 30px;
+    padding: 0;
+
+    color: var(--verse-text);
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-align: left;
+}
+
+.verse-about .about-photo figcaption span {
+    color: var(--verse-cyan);
+}
+
+/* ==========================================
+   OUTRO
+========================================== */
+
+.verse-about .about-outro {
+    display: flex;
+    justify-content: center;
     align-items: center;
+    gap: clamp(12px, 3vw, 40px);
 
-    margin-top: 100px;
-    padding: 18px 0;
+    margin-top: 130px;
+    padding: 30px 0;
 
-    border-top: 5px solid var(--ink);
-    border-bottom: 5px solid var(--ink);
+    border-top: 1px solid rgba(150,150,200,.3);
 
-    font-family: "Archivo Black", sans-serif;
-    font-size: clamp(17px, 3vw, 36px);
-    letter-spacing: -.04em;
-    color: var(--ink);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(19px, 3vw, 42px);
+    font-weight: 900;
+    letter-spacing: -.02em;
+
+    color: var(--verse-text);
 }
 
-.comic-about .about-endmark span:last-child {
-    color: var(--accent);
+.verse-about .outro-star {
+    color: var(--verse-pink);
     font-size: 1.5em;
+    animation: starRotate 18s linear infinite;
 }
 
-/* FOOTER */
+@keyframes starRotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
 
-.comic-about .retro-footer {
-    padding: 35px 25px;
+/* ==========================================
+   FOOTER
+========================================== */
 
-    background: var(--ink);
-    color: var(--paper);
-    border-top: 6px solid var(--accent);
+.verse-about .retro-footer {
+    padding: 40px 25px;
+
+    color: var(--verse-muted);
+    background: rgba(0,0,0,.2);
+
+    border-top: 1px solid rgba(150,150,200,.25);
 
     font-family: "DM Sans", sans-serif;
 }
 
-.comic-about .footer-container {
-    max-width: 1300px;
-    margin: 0 auto;
-}
+.verse-about .footer-nav a {
+    color: var(--verse-text);
 
-.comic-about .footer-nav a {
-    color: var(--paper);
     font-family: "DM Sans", sans-serif;
     font-size: 12px;
     font-weight: 800;
     letter-spacing: .08em;
 }
 
-.comic-about .footer-nav a:hover {
-    color: var(--accent);
+.verse-about .footer-nav a:hover {
+    color: var(--verse-pink);
 }
 
-.comic-about .footer-link-icon {
-    color: var(--paper);
+.verse-about .footer-link-icon {
+    color: var(--verse-text);
 }
 
-.comic-about .footer-link-icon svg {
+.verse-about .footer-link-icon svg {
     fill: currentColor;
 }
 
-.comic-about .footer-copy {
+.verse-about .footer-copy {
+    color: var(--verse-muted);
+
     font-family: "DM Sans", sans-serif;
     font-size: 12px;
-    color: var(--paper);
-    opacity: .7;
 }
 
-/* RESPONSIVE */
+/* ==========================================
+   RESPONSIVE
+========================================== */
 
 @media (max-width: 900px) {
 
-    .comic-about .about-content {
+    .verse-about .about-content {
         grid-template-columns: 1fr;
-        gap: 55px;
+        gap: 70px;
     }
 
-    .comic-about .about-photo {
-        max-width: 440px;
-        margin: 0 auto 20px;
+    .verse-about .about-photo {
+        width: min(80%, 460px);
+        margin: 0 auto;
     }
 
-    .comic-about .about-header {
-        margin-bottom: 55px;
-    }
-
-    .comic-about .navbar {
+    .verse-about .navbar {
         flex-wrap: wrap;
     }
 
-    .comic-about .navbar nav {
+    .verse-about .navbar nav {
         width: 100%;
         flex-wrap: wrap;
-        gap: 14px;
+        gap: 15px;
+    }
+
+    .verse-about .about-header {
+        margin-bottom: 75px;
     }
 }
 
 @media (max-width: 520px) {
 
-    .comic-about .about-section {
-        padding: 60px 22px;
+    .verse-about .about-section {
+        padding: 70px 22px;
     }
 
-    .comic-about .about-header h1 {
-        font-size: clamp(42px, 12vw, 65px);
+    .verse-about .verse-heading {
+        font-size: clamp(90px, 25vw, 135px);
         overflow-wrap: normal;
     }
 
-    .comic-about .heading-accent {
-        text-shadow: 2px 2px 0 var(--ink);
+    .verse-about .heading-shift {
+        margin-left: 30px;
     }
 
-    .comic-about .intro-panel {
-        padding: 22px;
-        box-shadow: 5px 5px 0 var(--accent);
-    }
-
-    .comic-about .about-story p {
-        font-size: 15px;
-        line-height: 1.75;
-    }
-
-    .comic-about .photo-stamp {
-        right: -8px;
+    .verse-about .heading-subtitle {
+        margin-top: 35px;
         font-size: 10px;
     }
 
-    .comic-about .about-endmark {
-        margin-top: 70px;
+    .verse-about .about-intro {
+        font-size: 38px;
+    }
+
+    .verse-about .about-story p {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    .verse-about .about-photo {
+        width: 88%;
+    }
+
+    .verse-about .about-outro {
+        margin-top: 90px;
+        gap: 10px;
+        font-size: 20px;
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .comic-about *,
-    .comic-about *::before,
-    .comic-about *::after {
+
+    .verse-about *,
+    .verse-about *::before,
+    .verse-about *::after {
         animation: none !important;
         transition: none !important;
     }
