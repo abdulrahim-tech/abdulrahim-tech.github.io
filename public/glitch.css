@@ -1,0 +1,395 @@
+
+/* ==========================================
+   GLITCH SYSTEM — RAHIM SEO
+   Chromatic / Digital / Atmospheric
+========================================== */
+
+/* ==========================================
+   01. GLOBAL ANIMATION VARIABLES
+========================================== */
+
+:root {
+    --glitch-cyan: #39dcff;
+    --glitch-pink: #ff397c;
+    --glitch-purple: #894aff;
+
+    --glitch-speed: 4s;
+}
+
+/* ==========================================
+   02. CHROMATIC HEADING GLITCH
+========================================== */
+
+.glitch-text {
+    position: relative;
+    display: inline-block;
+
+    isolation: isolate;
+}
+
+/* Duplicate text layers */
+
+.glitch-text::before,
+.glitch-text::after {
+    content: attr(data-text);
+
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+
+    opacity: 0;
+}
+
+/* Cyan layer */
+
+.glitch-text::before {
+    color: var(--glitch-cyan);
+
+    z-index: -1;
+
+    animation: glitchCyan 7s infinite;
+}
+
+/* Magenta layer */
+
+.glitch-text::after {
+    color: var(--glitch-pink);
+
+    z-index: -1;
+
+    animation: glitchPink 7s infinite;
+}
+
+/* Cyan displacement */
+
+@keyframes glitchCyan {
+
+    0%, 91%, 94%, 97%, 100% {
+        opacity: 0;
+        transform: translate(0);
+    }
+
+    92% {
+        opacity: .85;
+        transform: translate(-5px, 1px);
+    }
+
+    93% {
+        opacity: .7;
+        transform: translate(4px, -2px);
+    }
+
+    95% {
+        opacity: .8;
+        transform: translate(-3px, 0);
+    }
+
+    96% {
+        opacity: .6;
+        transform: translate(2px, 1px);
+    }
+
+}
+
+/* Magenta displacement */
+
+@keyframes glitchPink {
+
+    0%, 91%, 94%, 97%, 100% {
+        opacity: 0;
+        transform: translate(0);
+    }
+
+    92% {
+        opacity: .7;
+        transform: translate(5px, -1px);
+    }
+
+    93% {
+        opacity: .85;
+        transform: translate(-4px, 2px);
+    }
+
+    95% {
+        opacity: .6;
+        transform: translate(3px, 0);
+    }
+
+    96% {
+        opacity: .8;
+        transform: translate(-2px, -1px);
+    }
+
+}
+
+/* ==========================================
+   03. HOVER GLITCH
+========================================== */
+
+.glitch-hover {
+    position: relative;
+    transition: text-shadow .15s ease;
+}
+
+.glitch-hover:hover {
+    animation: hoverGlitch .35s steps(2, end);
+}
+
+@keyframes hoverGlitch {
+
+    0% {
+        text-shadow:
+            -3px 0 var(--glitch-cyan),
+             3px 0 var(--glitch-pink);
+
+        transform: translateX(0);
+    }
+
+    25% {
+        text-shadow:
+             4px 0 var(--glitch-cyan),
+            -4px 0 var(--glitch-pink);
+
+        transform: translateX(-2px);
+    }
+
+    50% {
+        text-shadow:
+            -5px 0 var(--glitch-cyan),
+             5px 0 var(--glitch-pink);
+
+        transform: translateX(2px);
+    }
+
+    75% {
+        text-shadow:
+             2px 0 var(--glitch-cyan),
+            -2px 0 var(--glitch-pink);
+
+        transform: translateX(-1px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+
+}
+
+/* ==========================================
+   04. FLICKERING EYEBROW TEXT
+========================================== */
+
+.glitch-flicker {
+    animation: digitalFlicker 9s infinite;
+}
+
+@keyframes digitalFlicker {
+
+    0%, 92%, 94%, 96%, 100% {
+        opacity: 1;
+    }
+
+    93% {
+        opacity: .35;
+    }
+
+    95% {
+        opacity: .7;
+    }
+
+}
+
+/* ==========================================
+   05. GLITCH CARD HOVER
+========================================== */
+
+.glitch-card {
+    position: relative;
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
+}
+
+.glitch-card:hover {
+    transform: translate(-3px, -3px);
+
+    border-color: var(--glitch-cyan);
+
+    box-shadow:
+        4px 4px 0 var(--glitch-pink),
+        8px 8px 0 rgba(57, 220, 255, .15);
+}
+
+/* ==========================================
+   06. GLITCH BUTTON
+========================================== */
+
+.glitch-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.glitch-button::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 45%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, .45),
+        transparent
+    );
+
+    transform: skewX(-20deg);
+
+    transition: left .5s ease;
+}
+
+.glitch-button:hover::after {
+    left: 150%;
+}
+
+/* ==========================================
+   07. ANIMATED UNDERLINE
+========================================== */
+
+.glitch-link {
+    position: relative;
+    text-decoration: none;
+}
+
+.glitch-link::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -5px;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--glitch-cyan);
+
+    box-shadow:
+        2px 2px 0 var(--glitch-pink);
+
+    transition: width .25s ease;
+}
+
+.glitch-link:hover::after {
+    width: 100%;
+}
+
+/* ==========================================
+   08. SUBTLE SCANLINE OVERLAY
+========================================== */
+
+.glitch-scanlines {
+    position: relative;
+    isolation: isolate;
+}
+
+.glitch-scanlines::after {
+    content: "";
+
+    position: absolute;
+    z-index: 5;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 4px,
+        rgba(0, 0, 0, .045) 5px,
+        transparent 6px
+    );
+
+    opacity: .35;
+}
+
+/* ==========================================
+   09. GLITCH IMAGE
+========================================== */
+
+.glitch-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.glitch-image img {
+    transition:
+        transform .4s ease,
+        filter .4s ease;
+}
+
+.glitch-image:hover img {
+    transform: scale(1.035);
+
+    filter:
+        contrast(1.12)
+        saturate(1.3);
+
+    animation: imageGlitch .4s steps(2, end);
+}
+
+@keyframes imageGlitch {
+
+    0%, 100% {
+        transform: translate(0) scale(1.035);
+    }
+
+    25% {
+        transform: translate(-3px, 1px) scale(1.04);
+    }
+
+    50% {
+        transform: translate(3px, -1px) scale(1.035);
+    }
+
+    75% {
+        transform: translate(-1px, 2px) scale(1.04);
+    }
+
+}
+
+/* ==========================================
+   10. ACCESSIBILITY
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .glitch-text::before,
+    .glitch-text::after,
+    .glitch-hover,
+    .glitch-flicker,
+    .glitch-card,
+    .glitch-button::after,
+    .glitch-link::after,
+    .glitch-image img {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .glitch-text::before,
+    .glitch-text::after {
+        display: none;
+    }
+
+}
