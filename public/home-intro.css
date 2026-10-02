@@ -1,0 +1,909 @@
+
+/* ========================================
+   HOME — MULTIVERSE GLITCH SYSTEM
+======================================== */
+
+.verse-home {
+    --home-cyan: #39dcff;
+    --home-pink: #ff397c;
+    --home-purple: #894aff;
+}
+
+/* ========================================
+   HERO ENTRANCE
+======================================== */
+
+.verse-home .hero-content > .eyebrow {
+    animation: homeEyebrowEnter .6s ease-out both;
+}
+
+.verse-home .hero .verse-heading {
+    position: relative;
+}
+
+.verse-home .hero .heading-line {
+    position: relative;
+    will-change: transform;
+}
+
+/* GROW */
+
+.verse-home .hero .heading-line:nth-child(1) {
+    animation:
+        homeHeadingOne 1.9s steps(1, end) both,
+        homeHeadingAmbient 6s 2s infinite steps(1, end);
+}
+
+/* THROUGH */
+
+.verse-home .hero .heading-line:nth-child(2) {
+    animation:
+        homeHeadingTwo 1.9s steps(1, end) both,
+        homeHeadingAmbient 6s 2.6s infinite steps(1, end);
+}
+
+/* SEARCH. */
+
+.verse-home .hero .heading-line:nth-child(3) {
+    animation:
+        homeHeadingThree 1.9s steps(1, end) both,
+        homeHeadingAmbient 6s 3.2s infinite steps(1, end);
+}
+
+/* ========================================
+   HEADING RGB SEPARATION
+======================================== */
+
+.verse-home .hero .glitch-text::before {
+    animation:
+        homeHeadingCyan 1.9s steps(1, end) both,
+        homeCyanAmbient 6s 2s infinite steps(1, end);
+}
+
+.verse-home .hero .glitch-text::after {
+    animation:
+        homeHeadingPink 1.9s steps(1, end) both,
+        homePinkAmbient 6s 2s infinite steps(1, end);
+}
+
+/* ========================================
+   KICKER — EVERY 4 SECONDS
+======================================== */
+
+.verse-home .home-kicker-glitch {
+    position: relative;
+    isolation: isolate;
+
+    animation:
+        homeCopyEnter .8s .6s ease-out backwards,
+        homeKickerAmbient 4s 1.8s infinite steps(1, end);
+}
+
+.verse-home .home-kicker-glitch::before,
+.verse-home .home-kicker-glitch::after {
+    content: attr(data-text);
+
+    position: absolute;
+    inset: 0;
+
+    font: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+
+    pointer-events: none;
+    opacity: 0;
+}
+
+.verse-home .home-kicker-glitch::before {
+    color: var(--home-cyan);
+
+    animation:
+        homeKickerCyan 4s 1.8s infinite steps(1, end);
+}
+
+.verse-home .home-kicker-glitch::after {
+    color: var(--home-pink);
+
+    animation:
+        homeKickerPink 4s 1.8s infinite steps(1, end);
+}
+
+/* ========================================
+   HERO COPY AND BUTTONS
+======================================== */
+
+.verse-home .hero-description {
+    animation: homeCopyEnter .8s .8s ease-out both;
+}
+
+.verse-home .hero-buttons {
+    animation: homeCopyEnter .8s 1s ease-out both;
+}
+
+.verse-home .hero-coordinate {
+    animation: homeCopyEnter .7s 1.15s ease-out both;
+}
+
+/* ========================================
+   PHOTOGRAPH — ENTRANCE
+======================================== */
+
+.verse-home .hero-image {
+    animation:
+        homePhotoEnter 1.1s .45s
+        cubic-bezier(.16, 1, .3, 1) both;
+}
+
+.verse-home .hero-image-composition {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+/* ========================================
+   PHOTOGRAPH — EVERY 3 SECONDS
+======================================== */
+
+.verse-home .hero-image-composition > img {
+    position: relative;
+    z-index: 2;
+
+    animation:
+        homeImageGlitch 3s 2s infinite steps(1, end);
+}
+
+/* Image duplicate used for chromatic tearing */
+
+.verse-home .hero-image-ghost {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+
+    background-image:
+        url("/assets/images/Gemini_Generated_Image_4vft5v4vft5v4vft.jpeg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    pointer-events: none;
+
+    opacity: 0;
+    mix-blend-mode: screen;
+
+    animation:
+        homeImageGhost 3s 2s infinite steps(1, end);
+}
+
+/* Horizontal interference */
+
+.verse-home .hero-image-grain {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+
+    pointer-events: none;
+
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            transparent 0,
+            transparent 3px,
+            rgba(57, 220, 255, .12) 4px,
+            transparent 5px
+        );
+
+    opacity: 0;
+
+    animation:
+        homeImageScanlines 3s 2s infinite steps(1, end);
+}
+
+.verse-home .hero-image-label {
+    z-index: 5;
+}
+
+/* ========================================
+   SECTION DETAILS
+======================================== */
+
+.verse-home .specialty-card {
+    position: relative;
+    isolation: isolate;
+}
+
+.verse-home .specialty-card:hover {
+    box-shadow:
+        5px 5px 0 var(--home-pink),
+        10px 10px 0 var(--home-cyan);
+}
+
+.verse-home .specialty-card:hover h3 {
+    animation:
+        homeCardTextGlitch .35s steps(2, end);
+}
+
+.verse-home .testimonial-window {
+    position: relative;
+    isolation: isolate;
+}
+
+.verse-home .testimonial-window:hover {
+    box-shadow:
+        4px 4px 0 var(--home-cyan),
+        8px 8px 0 var(--home-pink);
+}
+
+.verse-home .specialties .section-heading h2 span,
+.verse-home .tools-heading h2 span,
+.verse-home .testimonials-section .section-header h2 span,
+.verse-home .cta h2 span {
+    display: inline-block;
+
+    animation:
+        homeSectionAmbient 13s 3s infinite steps(1, end);
+}
+
+/* ========================================
+   INITIAL HEADING KEYFRAMES
+======================================== */
+
+@keyframes homeEyebrowEnter {
+
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+        letter-spacing: .35em;
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes homeHeadingOne {
+
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+        filter: none;
+    }
+
+    10% {
+        opacity: 1;
+        transform: translateX(7px);
+
+        filter:
+            drop-shadow(-10px 0 #39dcff)
+            drop-shadow(10px 0 #ff397c);
+    }
+
+    15% {
+        transform: translateX(-5px);
+        filter: none;
+    }
+
+    23%, 100% {
+        opacity: 1;
+        transform: translateX(0);
+        filter: none;
+    }
+
+}
+
+@keyframes homeHeadingTwo {
+
+    0%, 12% {
+        opacity: 0;
+        transform: translateX(18px);
+        filter: none;
+    }
+
+    18% {
+        opacity: 1;
+        transform: translateX(-8px);
+
+        filter:
+            drop-shadow(-9px 0 #39dcff)
+            drop-shadow(9px 0 #ff397c);
+    }
+
+    24% {
+        transform: translateX(5px);
+        filter: none;
+    }
+
+    32%, 100% {
+        opacity: 1;
+        transform: translateX(0);
+        filter: none;
+    }
+
+}
+
+@keyframes homeHeadingThree {
+
+    0%, 20% {
+        opacity: 0;
+        transform: translateX(24px);
+        filter: none;
+    }
+
+    26% {
+        opacity: 1;
+        transform: translateX(-10px);
+
+        filter:
+            drop-shadow(-13px 0 #39dcff)
+            drop-shadow(13px 0 #ff397c);
+    }
+
+    32% {
+        transform: translateX(7px);
+
+        filter:
+            drop-shadow(5px 0 #39dcff)
+            drop-shadow(-5px 0 #ff397c);
+    }
+
+    42%, 100% {
+        opacity: 1;
+        transform: translateX(0);
+        filter: none;
+    }
+
+}
+
+/* ========================================
+   INITIAL RGB SLICES
+======================================== */
+
+@keyframes homeHeadingCyan {
+
+    0%, 5%, 13%, 19%, 27%, 100% {
+        opacity: 0;
+        transform: none;
+        clip-path: inset(0);
+    }
+
+    7% {
+        opacity: 1;
+        transform: translateX(-12px);
+        clip-path: inset(12% 0 60% 0);
+    }
+
+    10% {
+        opacity: .85;
+        transform: translateX(9px);
+        clip-path: inset(50% 0 20% 0);
+    }
+
+    22% {
+        opacity: .95;
+        transform: translateX(-14px);
+        clip-path: inset(70% 0 6% 0);
+    }
+
+}
+
+@keyframes homeHeadingPink {
+
+    0%, 5%, 13%, 19%, 27%, 100% {
+        opacity: 0;
+        transform: none;
+        clip-path: inset(0);
+    }
+
+    7% {
+        opacity: 1;
+        transform: translateX(12px);
+        clip-path: inset(55% 0 15% 0);
+    }
+
+    10% {
+        opacity: .85;
+        transform: translateX(-9px);
+        clip-path: inset(10% 0 65% 0);
+    }
+
+    22% {
+        opacity: .95;
+        transform: translateX(14px);
+        clip-path: inset(17% 0 58% 0);
+    }
+
+}
+
+/* ========================================
+   CONTENT ENTRANCE
+======================================== */
+
+@keyframes homeCopyEnter {
+
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes homePhotoEnter {
+
+    0% {
+        opacity: 0;
+        transform: translate(20px, 20px) skewY(1deg);
+
+        filter:
+            drop-shadow(-9px 0 #39dcff)
+            drop-shadow(9px 0 #ff397c);
+    }
+
+    40% {
+        opacity: 1;
+
+        filter:
+            drop-shadow(-5px 0 #39dcff)
+            drop-shadow(5px 0 #ff397c);
+    }
+
+    75% {
+        transform: translate(-2px, -3px) skewY(0);
+        filter: none;
+    }
+
+    100% {
+        opacity: 1;
+        transform: none;
+        filter: none;
+    }
+
+}
+
+/* ========================================
+   RECURRING HEADING GLITCH — 6 SECONDS
+======================================== */
+
+@keyframes homeHeadingAmbient {
+
+    0%, 89%, 94%, 97%, 100% {
+        transform: translateX(0) skewX(0);
+        filter: none;
+    }
+
+    90% {
+        transform: translateX(-4px) skewX(-2deg);
+        filter: drop-shadow(5px 0 #39dcff);
+    }
+
+    91% {
+        transform: translateX(5px) skewX(2deg);
+        filter: drop-shadow(-5px 0 #ff397c);
+    }
+
+    93% {
+        transform: translateX(-2px);
+
+        filter:
+            drop-shadow(3px 0 #39dcff)
+            drop-shadow(-3px 0 #ff397c);
+    }
+
+    95% {
+        transform: translateX(2px);
+    }
+
+}
+
+@keyframes homeCyanAmbient {
+
+    0%, 89%, 94%, 100% {
+        opacity: 0;
+        transform: none;
+        clip-path: inset(0);
+    }
+
+    90% {
+        opacity: .8;
+        transform: translateX(-6px);
+        clip-path: inset(35% 0 40% 0);
+    }
+
+    92% {
+        opacity: .65;
+        transform: translateX(4px);
+        clip-path: inset(70% 0 10% 0);
+    }
+
+}
+
+@keyframes homePinkAmbient {
+
+    0%, 89%, 94%, 100% {
+        opacity: 0;
+        transform: none;
+        clip-path: inset(0);
+    }
+
+    90% {
+        opacity: .8;
+        transform: translateX(6px);
+        clip-path: inset(60% 0 15% 0);
+    }
+
+    92% {
+        opacity: .65;
+        transform: translateX(-4px);
+        clip-path: inset(10% 0 65% 0);
+    }
+
+}
+
+/* ========================================
+   RECURRING KICKER GLITCH — 4 SECONDS
+======================================== */
+
+@keyframes homeKickerAmbient {
+
+    0%, 83%, 90%, 94%, 100% {
+        transform: translateX(0);
+        filter: none;
+    }
+
+    84% {
+        transform: translateX(-3px);
+
+        filter:
+            drop-shadow(-3px 0 #39dcff)
+            drop-shadow(3px 0 #ff397c);
+    }
+
+    85% {
+        transform: translateX(3px);
+
+        filter:
+            drop-shadow(3px 0 #39dcff)
+            drop-shadow(-3px 0 #ff397c);
+    }
+
+    87% {
+        transform: translateX(-2px);
+        filter: none;
+    }
+
+    89% {
+        transform: translateX(2px);
+        filter: drop-shadow(2px 0 #39dcff);
+    }
+
+}
+
+@keyframes homeKickerCyan {
+
+    0%, 83%, 90%, 94%, 100% {
+        opacity: 0;
+        transform: none;
+        clip-path: inset(0);
+    }
+
+    84% {
+        opacity: .95;
+        transform: translateX(-7px);
+        clip-path: inset(12% 0 60% 0);
+    }
+
+    85% {
+        opacity: .8;
+        transform: translateX(5px);
+        clip-path: inset(55% 0 15% 0);
+    }
+
+    87% {
+        opacity: .9;
+        transform: translateX(-4px);
+        clip-path: inset(72% 0 6% 0);
+    }
+
+    89% {
+        opacity: .7;
+        transform: translateX(6px);
+        clip-path: inset(30% 0 45% 0);
+    }
+
+}
+
+@keyframes homeKickerPink {
+
+    0%, 83%, 90%, 94%, 100% {
+        opacity: 0;
+        transform: none;
+        clip-path: inset(0);
+    }
+
+    84% {
+        opacity: .95;
+        transform: translateX(7px);
+        clip-path: inset(55% 0 15% 0);
+    }
+
+    85% {
+        opacity: .8;
+        transform: translateX(-5px);
+        clip-path: inset(12% 0 60% 0);
+    }
+
+    87% {
+        opacity: .9;
+        transform: translateX(4px);
+        clip-path: inset(20% 0 55% 0);
+    }
+
+    89% {
+        opacity: .7;
+        transform: translateX(-6px);
+        clip-path: inset(65% 0 10% 0);
+    }
+
+}
+
+/* ========================================
+   PHOTOGRAPH GLITCH — 3 SECONDS
+======================================== */
+
+@keyframes homeImageGlitch {
+
+    0%, 86%, 90%, 93%, 96%, 100% {
+        transform: none;
+        filter: none;
+    }
+
+    87% {
+        transform: translateX(-4px);
+
+        filter:
+            drop-shadow(5px 0 #39dcff)
+            drop-shadow(-5px 0 #ff397c);
+    }
+
+    88% {
+        transform: translate(4px, -1px);
+
+        filter:
+            drop-shadow(-6px 0 #39dcff)
+            drop-shadow(6px 0 #ff397c);
+    }
+
+    89% {
+        transform: translate(-2px, 1px);
+        filter: contrast(1.25) saturate(1.5);
+    }
+
+    91% {
+        transform: translateX(3px);
+        filter: hue-rotate(12deg) contrast(1.2);
+    }
+
+    92% {
+        transform: translateX(-3px);
+        filter: none;
+    }
+
+    94% {
+        transform: translateX(2px);
+
+        filter:
+            drop-shadow(-4px 0 #ff397c)
+            drop-shadow(4px 0 #39dcff);
+    }
+
+    95% {
+        transform: translateX(-1px);
+        filter: contrast(1.15);
+    }
+
+}
+
+@keyframes homeImageGhost {
+
+    0%, 86%, 90%, 93%, 96%, 100% {
+        opacity: 0;
+        transform: none;
+        clip-path: inset(0);
+        filter: none;
+    }
+
+    87% {
+        opacity: .85;
+        transform: translateX(10px);
+        clip-path: inset(12% 0 62% 0);
+        filter: hue-rotate(160deg) saturate(3);
+    }
+
+    88% {
+        opacity: .65;
+        transform: translateX(-9px);
+        clip-path: inset(48% 0 28% 0);
+        filter: hue-rotate(300deg) saturate(3);
+    }
+
+    89% {
+        opacity: .8;
+        transform: translateX(7px);
+        clip-path: inset(73% 0 8% 0);
+        filter: hue-rotate(160deg) saturate(3);
+    }
+
+    91% {
+        opacity: .75;
+        transform: translateX(-12px);
+        clip-path: inset(25% 0 52% 0);
+        filter: hue-rotate(300deg) saturate(3);
+    }
+
+    92% {
+        opacity: .6;
+        transform: translateX(5px);
+        clip-path: inset(60% 0 15% 0);
+        filter: hue-rotate(160deg) saturate(3);
+    }
+
+    94% {
+        opacity: .8;
+        transform: translateX(9px);
+        clip-path: inset(38% 0 35% 0);
+        filter: hue-rotate(300deg) saturate(3);
+    }
+
+    95% {
+        opacity: .5;
+        transform: translateX(-6px);
+        clip-path: inset(8% 0 72% 0);
+        filter: hue-rotate(160deg) saturate(3);
+    }
+
+}
+
+@keyframes homeImageScanlines {
+
+    0%, 86%, 90%, 93%, 96%, 100% {
+        opacity: 0;
+        transform: none;
+    }
+
+    87%, 88% {
+        opacity: .8;
+        transform: translateY(-3px);
+    }
+
+    89% {
+        opacity: .3;
+    }
+
+    91%, 92% {
+        opacity: .6;
+        transform: translateY(4px);
+    }
+
+    94%, 95% {
+        opacity: .7;
+        transform: translateY(-2px);
+    }
+
+}
+
+/* ========================================
+   CARD AND SECTION GLITCHES
+======================================== */
+
+@keyframes homeCardTextGlitch {
+
+    0%, 100% {
+        transform: none;
+        text-shadow: none;
+    }
+
+    25% {
+        transform: translateX(-3px);
+
+        text-shadow:
+            -4px 0 #39dcff,
+            4px 0 #ff397c;
+    }
+
+    50% {
+        transform: translateX(3px);
+
+        text-shadow:
+            4px 0 #39dcff,
+            -4px 0 #ff397c;
+    }
+
+    75% {
+        transform: translateX(-2px);
+        text-shadow: none;
+    }
+
+}
+
+@keyframes homeSectionAmbient {
+
+    0%, 91%, 95%, 100% {
+        text-shadow: none;
+        transform: none;
+    }
+
+    92% {
+        text-shadow:
+            -3px 0 #39dcff,
+            3px 0 #ff397c;
+    }
+
+    93% {
+        text-shadow:
+            2px 0 #39dcff,
+            -2px 0 #ff397c;
+    }
+
+    94% {
+        text-shadow: none;
+    }
+
+}
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .verse-home .hero-content > .eyebrow,
+    .verse-home .hero .heading-line,
+    .verse-home .hero .glitch-text::before,
+    .verse-home .hero .glitch-text::after,
+    .verse-home .home-kicker-glitch,
+    .verse-home .home-kicker-glitch::before,
+    .verse-home .home-kicker-glitch::after,
+    .verse-home .hero-description,
+    .verse-home .hero-buttons,
+    .verse-home .hero-coordinate,
+    .verse-home .hero-image,
+    .verse-home .hero-image-composition > img,
+    .verse-home .hero-image-ghost,
+    .verse-home .hero-image-grain,
+    .verse-home .specialties .section-heading h2 span,
+    .verse-home .tools-heading h2 span,
+    .verse-home .testimonials-section .section-header h2 span,
+    .verse-home .cta h2 span {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .verse-home .hero-content > .eyebrow,
+    .verse-home .hero .heading-line,
+    .verse-home .home-kicker-glitch,
+    .verse-home .hero-description,
+    .verse-home .hero-buttons,
+    .verse-home .hero-coordinate,
+    .verse-home .hero-image,
+    .verse-home .hero-image-composition > img {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+    }
+
+    .verse-home .hero .glitch-text::before,
+    .verse-home .hero .glitch-text::after,
+    .verse-home .home-kicker-glitch::before,
+    .verse-home .home-kicker-glitch::after,
+    .verse-home .hero-image-ghost,
+    .verse-home .hero-image-grain {
+        opacity: 0 !important;
+    }
+
+}
