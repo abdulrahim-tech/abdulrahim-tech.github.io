@@ -3,8 +3,22 @@
 <html lang="en" data-theme="dark">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script>
+        try {
+            if (
+                sessionStorage.getItem("contactIntroSeen") !== "1" &&
+                !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+            ) {
+                document.documentElement.classList.add("contact-intro-playing");
+            }
+        } catch (error) {
+            document.documentElement.classList.remove("contact-intro-playing");
+        }
+    </script>
 
     <title>Contact Rahim Khalil | SEO Specialist</title>
 
@@ -31,7 +45,9 @@
 
     <link rel="stylesheet" href="/public/style.css">
     <link rel="stylesheet" href="/public/contact-verse.css">
-    <link rel="stylesheet" href="/public/glitch.css?v=3">
+    <link rel="stylesheet" href="/public/glitch.css?v=4">
+    <link rel="stylesheet" href="/public/contact-intro.css?v=1">
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -54,6 +70,95 @@
 
 <body class="verse-contact">
 
+<div
+    class="verse-intro"
+    id="verse-intro"
+    aria-label="Contact page introduction"
+>
+
+    <div class="intro-noise" aria-hidden="true"></div>
+    <div class="intro-grid" aria-hidden="true"></div>
+
+    <div class="intro-flash intro-flash-one" aria-hidden="true"></div>
+    <div class="intro-flash intro-flash-two" aria-hidden="true"></div>
+
+    <div class="intro-frame">
+
+        <div class="intro-montage" aria-hidden="true">
+
+            <span class="intro-word word-one">
+                SEARCH.
+            </span>
+
+            <span class="intro-word word-two">
+                STRATEGY.
+            </span>
+
+            <span class="intro-word word-three">
+                CONNECT.
+            </span>
+
+        </div>
+
+        <div class="intro-title">
+
+            <span class="intro-kicker">
+                RAHIM KHALIL / CONTACT
+            </span>
+
+            <div class="intro-title-main">
+
+                <span
+                    class="intro-title-line"
+                    data-text="LET'S"
+                >
+                    LET'S
+                </span>
+
+                <span
+                    class="intro-title-line intro-title-accent"
+                    data-text="TALK."
+                >
+                    TALK.
+                </span>
+
+            </div>
+
+            <span class="intro-subtitle">
+                OPEN A CONVERSATION
+            </span>
+
+        </div>
+
+        <div
+            class="intro-slice slice-one"
+            aria-hidden="true"
+        ></div>
+
+        <div
+            class="intro-slice slice-two"
+            aria-hidden="true"
+        ></div>
+
+        <div
+            class="intro-slice slice-three"
+            aria-hidden="true"
+        ></div>
+
+    </div>
+
+    <div class="intro-progress" aria-hidden="true"></div>
+
+    <button
+        class="intro-skip"
+        id="intro-skip"
+        type="button"
+    >
+        SKIP INTRO ↗
+    </button>
+
+</div>
+
 <div class="effect">
 
     <header class="navbar">
@@ -71,15 +176,21 @@
 
         <nav aria-label="Main navigation">
 
-            <a href="/" class="glitch-link">Home</a>
+            <a href="/" class="glitch-link">
+                Home
+            </a>
 
-            <a href="/about/" class="glitch-link">About</a>
+            <a href="/about/" class="glitch-link">
+                About
+            </a>
 
             <a href="/case-studies/" class="glitch-link">
                 Case Studies
             </a>
 
-            <a href="/blog/" class="glitch-link">Blog</a>
+            <a href="/blog/" class="glitch-link">
+                Blog
+            </a>
 
             <a
                 href="/contact/"
@@ -106,12 +217,13 @@
 
         <section class="contact-section">
 
-            <div class="contact-atmosphere" aria-hidden="true">
+            <div
+                class="contact-atmosphere"
+                aria-hidden="true"
+            >
 
                 <div class="contact-orb orb-one"></div>
-
                 <div class="contact-orb orb-two"></div>
-
                 <div class="contact-orb orb-three"></div>
 
             </div>
@@ -370,10 +482,20 @@
 
     }
 
-    const savedTheme =
-        localStorage.getItem("theme") === "light"
-            ? "light"
-            : "dark";
+    let savedTheme = "dark";
+
+    try {
+
+        savedTheme =
+            localStorage.getItem("theme") === "light"
+                ? "light"
+                : "dark";
+
+    } catch (error) {
+
+        savedTheme = "dark";
+
+    }
 
     setTheme(savedTheme);
 
@@ -391,9 +513,66 @@
 
             setTheme(next);
 
-            localStorage.setItem("theme", next);
+            try {
+
+                localStorage.setItem("theme", next);
+
+            } catch (error) {}
 
         });
+
+    }
+
+    const intro = document.getElementById("verse-intro");
+    const skipButton = document.getElementById("intro-skip");
+
+    function finishIntro() {
+
+        document.documentElement.classList.remove(
+            "contact-intro-playing"
+        );
+
+        if (intro) {
+
+            intro.setAttribute("aria-hidden", "true");
+
+        }
+
+        try {
+
+            sessionStorage.setItem("contactIntroSeen", "1");
+
+        } catch (error) {}
+
+    }
+
+    if (
+        intro &&
+        document.documentElement.classList.contains(
+            "contact-intro-playing"
+        )
+    ) {
+
+        const introTimer = window.setTimeout(
+            finishIntro,
+            2700
+        );
+
+        if (skipButton) {
+
+            skipButton.addEventListener("click", () => {
+
+                window.clearTimeout(introTimer);
+
+                finishIntro();
+
+            });
+
+        }
+
+    } else if (intro) {
+
+        intro.setAttribute("aria-hidden", "true");
 
     }
 
