@@ -1,0 +1,449 @@
+
+/* ==========================================
+   INTERACTION GLITCH
+   Chart Toggle + Theme Switching
+========================================== */
+
+/* ==========================================
+   01. CHART YEAR SWITCH
+========================================== */
+
+.verse-case-studies .pie-chart-wrapper {
+    isolation: isolate;
+}
+
+.verse-case-studies .pie-chart-wrapper::before,
+.verse-case-studies .pie-chart-wrapper::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    z-index: 5;
+
+    border-radius: 50%;
+    pointer-events: none;
+
+    opacity: 0;
+}
+
+/* Cyan displacement */
+
+.verse-case-studies .pie-chart-wrapper::before {
+    border: 5px solid var(--verse-cyan);
+    mix-blend-mode: screen;
+}
+
+/* Magenta displacement */
+
+.verse-case-studies .pie-chart-wrapper::after {
+    border: 5px solid var(--verse-pink);
+    mix-blend-mode: screen;
+}
+
+.verse-case-studies .pie-chart-wrapper.chart-switching {
+    animation: chartRealityShift .52s steps(1, end) both;
+}
+
+.verse-case-studies .chart-switching::before {
+    animation: chartCyanSplit .52s steps(1, end) both;
+}
+
+.verse-case-studies .chart-switching::after {
+    animation: chartPinkSplit .52s steps(1, end) both;
+}
+
+.verse-case-studies .chart-switching .pie-chart {
+    animation: chartSliceGlitch .52s steps(1, end) both;
+}
+
+.verse-case-studies .chart-switching .pie-chart-center,
+.verse-case-studies .chart-switching .segment-value {
+    animation: chartNumberGlitch .52s steps(1, end) both;
+}
+
+/* Preserve the centre's required positioning */
+
+.verse-case-studies .chart-switching .pie-chart-center {
+    animation-name: chartCenterGlitch;
+}
+
+/* Legend data */
+
+.verse-case-studies .pie-chart-legend.chart-data-switching
+.legend-information span,
+
+.verse-case-studies .pie-chart-legend.chart-data-switching
+.legend-footer strong {
+    animation: chartLegendGlitch .52s steps(1, end) both;
+}
+
+/* Year buttons */
+
+.verse-case-studies .chart-year.year-switching {
+    animation: chartButtonGlitch .52s steps(1, end) both;
+}
+
+@keyframes chartRealityShift {
+
+    0%, 100% {
+        filter: none;
+    }
+
+    12% {
+        filter: contrast(1.6) saturate(2);
+    }
+
+    22% {
+        filter: hue-rotate(35deg);
+    }
+
+    31% {
+        filter: brightness(1.7);
+    }
+
+    45% {
+        filter: hue-rotate(-25deg);
+    }
+
+    65% {
+        filter: contrast(1.3);
+    }
+
+}
+
+@keyframes chartCyanSplit {
+
+    0%, 100% {
+        opacity: 0;
+        transform: none;
+    }
+
+    13%, 24% {
+        opacity: .8;
+        transform: translate(-9px, 3px) scale(1.01);
+    }
+
+    35%, 48% {
+        opacity: .45;
+        transform: translate(5px, -2px);
+    }
+
+}
+
+@keyframes chartPinkSplit {
+
+    0%, 100% {
+        opacity: 0;
+        transform: none;
+    }
+
+    13%, 24% {
+        opacity: .8;
+        transform: translate(9px, -3px) scale(.99);
+    }
+
+    35%, 48% {
+        opacity: .5;
+        transform: translate(-5px, 2px);
+    }
+
+}
+
+@keyframes chartSliceGlitch {
+
+    0%, 100% {
+        transform: rotate(-90deg);
+        opacity: 1;
+    }
+
+    12% {
+        transform: rotate(-87deg) translateX(5px);
+    }
+
+    23% {
+        transform: rotate(-93deg) translateX(-6px);
+    }
+
+    36% {
+        transform: rotate(-90deg);
+        opacity: .55;
+    }
+
+    48% {
+        transform: rotate(-89deg);
+        opacity: 1;
+    }
+
+}
+
+@keyframes chartNumberGlitch {
+
+    0%, 100% {
+        opacity: 1;
+    }
+
+    12%, 28% {
+        opacity: .2;
+        text-shadow: -3px 0 #39dcff, 3px 0 #ff397c;
+    }
+
+    35%, 47% {
+        opacity: 1;
+        text-shadow: 3px 0 #39dcff, -3px 0 #ff397c;
+    }
+
+    55% {
+        opacity: .35;
+    }
+
+}
+
+@keyframes chartCenterGlitch {
+
+    0%, 100% {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+
+    12%, 25% {
+        transform: translate(calc(-50% - 4px), -50%);
+        opacity: .4;
+    }
+
+    35%, 48% {
+        transform: translate(calc(-50% + 4px), -50%);
+        opacity: 1;
+    }
+
+    55% {
+        opacity: .3;
+    }
+
+}
+
+@keyframes chartLegendGlitch {
+
+    0%, 100% {
+        opacity: 1;
+        transform: none;
+    }
+
+    12%, 25% {
+        opacity: .15;
+        transform: translateX(-5px);
+    }
+
+    35%, 48% {
+        opacity: 1;
+        transform: translateX(4px);
+    }
+
+    55% {
+        opacity: .35;
+    }
+
+}
+
+@keyframes chartButtonGlitch {
+
+    0%, 100% {
+        transform: none;
+        filter: none;
+    }
+
+    15%, 28% {
+        transform: translateX(-3px);
+        filter: brightness(1.8);
+    }
+
+    35%, 48% {
+        transform: translateX(3px);
+    }
+
+}
+
+
+/* ==========================================
+   02. FULL PAGE THEME GLITCH
+========================================== */
+
+/*
+   Applied to body only while switching.
+   The overlay is fixed, so it does not
+   change page height or document layout.
+*/
+
+body {
+    position: relative;
+}
+
+body::after {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    z-index: 99999;
+
+    pointer-events: none;
+
+    opacity: 0;
+    visibility: hidden;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            transparent 3px,
+            rgba(57, 220, 255, .2) 4px,
+            transparent 5px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(57, 220, 255, .13),
+            transparent 35%,
+            rgba(255, 57, 124, .15)
+        );
+
+    mix-blend-mode: difference;
+}
+
+body.theme-switching::after {
+    visibility: visible;
+    animation: themeScanGlitch .68s steps(1, end) both;
+}
+
+/* The content briefly splits into RGB layers */
+
+body.theme-switching .effect {
+    animation: themeRealityGlitch .68s steps(1, end) both;
+}
+
+/* Headings experience additional chromatic displacement */
+
+body.theme-switching h1,
+body.theme-switching h2,
+body.theme-switching h3 {
+    animation: themeTextGlitch .68s steps(1, end) both;
+}
+
+@keyframes themeRealityGlitch {
+
+    0%, 100% {
+        transform: none;
+        filter: none;
+        opacity: 1;
+    }
+
+    10% {
+        transform: translateX(-3px);
+        filter:
+            drop-shadow(-5px 0 #39dcff)
+            drop-shadow(5px 0 #ff397c);
+    }
+
+    19% {
+        transform: translateX(4px);
+        filter: contrast(1.5);
+    }
+
+    28% {
+        transform: translateX(-2px);
+        filter: hue-rotate(35deg);
+    }
+
+    38% {
+        transform: none;
+        filter: brightness(1.6);
+    }
+
+    49% {
+        transform: translateX(3px);
+        filter: invert(.12);
+    }
+
+    60% {
+        transform: translateX(-2px);
+        filter: contrast(1.4);
+    }
+
+    75% {
+        transform: none;
+        filter: none;
+    }
+
+}
+
+@keyframes themeTextGlitch {
+
+    0%, 100% {
+        text-shadow: none;
+    }
+
+    12%, 25% {
+        text-shadow:
+            -5px 0 #39dcff,
+             5px 0 #ff397c;
+    }
+
+    35%, 48% {
+        text-shadow:
+             4px 0 #39dcff,
+            -4px 0 #ff397c;
+    }
+
+    58% {
+        text-shadow:
+            -2px 0 #894aff,
+             2px 0 #ff397c;
+    }
+
+}
+
+@keyframes themeScanGlitch {
+
+    0%, 100% {
+        opacity: 0;
+    }
+
+    10%, 23% {
+        opacity: .75;
+        transform: translateX(-5px);
+    }
+
+    30%, 43% {
+        opacity: .9;
+        transform: translateX(5px);
+    }
+
+    50%, 65% {
+        opacity: .4;
+        transform: none;
+    }
+
+}
+
+
+/* ==========================================
+   03. REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    body.theme-switching .effect,
+    body.theme-switching::after,
+    body.theme-switching h1,
+    body.theme-switching h2,
+    body.theme-switching h3,
+
+    .verse-case-studies .chart-switching,
+    .verse-case-studies .chart-switching::before,
+    .verse-case-studies .chart-switching::after,
+    .verse-case-studies .chart-switching *,
+    .verse-case-studies .chart-data-switching *,
+    .verse-case-studies .year-switching {
+        animation: none !important;
+    }
+
+}
