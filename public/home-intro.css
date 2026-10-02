@@ -433,33 +433,119 @@
 
 }
 
-@keyframes homePhotoEnter {
 
-    0% {
+/* ========================================
+   HOME PHOTO — GLITCH INTO EXISTENCE
+======================================== */
+
+@keyframes homePhotoMaterialise {
+
+    0%, 8% {
         opacity: 0;
-        transform: translate(20px, 20px) skewY(1deg);
+        filter: none;
+        clip-path: inset(0 0 100% 0);
+    }
+
+    9% {
+        opacity: .85;
+
+        clip-path: inset(12% 0 65% 0);
+
+        filter:
+            drop-shadow(-14px 0 #39dcff)
+            drop-shadow(14px 0 #ff397c);
+    }
+
+    12% {
+        opacity: 0;
+        clip-path: inset(0);
+    }
+
+    18% {
+        opacity: .9;
+
+        clip-path: inset(60% 0 15% 0);
+
+        filter:
+            drop-shadow(10px 0 #39dcff)
+            drop-shadow(-10px 0 #ff397c);
+    }
+
+    23% {
+        opacity: .2;
+        clip-path: inset(0);
+        filter: none;
+    }
+
+    29% {
+        opacity: 1;
+
+        clip-path: inset(25% 0 35% 0);
 
         filter:
             drop-shadow(-9px 0 #39dcff)
             drop-shadow(9px 0 #ff397c);
     }
 
+    34% {
+        opacity: 0;
+        clip-path: inset(0);
+    }
+
     40% {
+        opacity: .9;
+
+        clip-path: inset(5% 0 8% 0);
+
+        filter:
+            drop-shadow(7px 0 #39dcff)
+            drop-shadow(-7px 0 #ff397c);
+    }
+
+    45% {
+        opacity: .4;
+        clip-path: inset(0);
+        filter: contrast(1.6) saturate(2);
+    }
+
+    52% {
         opacity: 1;
+        clip-path: inset(0);
 
         filter:
             drop-shadow(-5px 0 #39dcff)
             drop-shadow(5px 0 #ff397c);
     }
 
-    75% {
-        transform: translate(-2px, -3px) skewY(0);
+    57% {
+        opacity: .65;
+        filter: hue-rotate(35deg) contrast(1.3);
+    }
+
+    64% {
+        opacity: 1;
+
+        filter:
+            drop-shadow(3px 0 #39dcff)
+            drop-shadow(-3px 0 #ff397c);
+    }
+
+    70% {
+        opacity: .8;
         filter: none;
     }
 
-    100% {
+    76% {
         opacity: 1;
-        transform: none;
+
+        filter:
+            drop-shadow(-2px 0 #39dcff)
+            drop-shadow(2px 0 #ff397c);
+    }
+
+    83%, 100% {
+        opacity: 1;
+        clip-path: inset(0);
         filter: none;
     }
 
