@@ -1451,3 +1451,121 @@
     }
 
 }
+
+
+/* ========================================
+   CLIENTS PAGE — NAVBAR DESIGN OVERRIDE
+======================================== */
+
+.verse-clients .navbar {
+    position: relative;
+    z-index: 100;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+
+    width: 100%;
+    padding: 22px max(30px, calc((100vw - 1200px) / 2));
+
+    background: var(--clients-bg);
+    border: 0;
+    border-bottom: 1px solid var(--clients-border);
+
+    box-shadow: none;
+    font-family: "DM Sans", sans-serif;
+}
+
+.verse-clients .navbar .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+
+    text-decoration: none;
+    color: var(--clients-text);
+
+    font-family: "DM Sans", sans-serif;
+    font-size: .95rem;
+    font-weight: 800;
+    letter-spacing: -.025em;
+}
+
+.verse-clients .navbar .logo img {
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid var(--clients-pink);
+}
+
+.verse-clients .navbar nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: clamp(12px, 1.6vw, 25px);
+}
+
+.verse-clients .navbar nav > a {
+    padding: 5px 0;
+
+    color: var(--clients-muted);
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: .76rem;
+    font-weight: 800;
+    letter-spacing: .025em;
+    text-decoration: none;
+
+    transition: color .2s ease;
+}
+
+.verse-clients .navbar nav > a:hover,
+.verse-clients .navbar nav > a[aria-current="page"] {
+    color: var(--clients-cyan);
+}
+
+.verse-clients .navbar .theme-toggle {
+    padding: 9px 12px;
+
+    background: transparent;
+    color: var(--clients-text);
+    border: 1px solid var(--clients-border);
+    border-radius: 0;
+    box-shadow: none;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: .65rem;
+    font-weight: 800;
+    letter-spacing: .08em;
+
+    cursor: pointer;
+}
+
+.verse-clients .navbar .theme-toggle:hover {
+    border-color: var(--clients-pink);
+    color: var(--clients-pink);
+}
+
+/* Mobile */
+
+@media (max-width: 850px) {
+
+    .verse-clients .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .verse-clients .navbar nav {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 12px 18px;
+    }
+
+}
