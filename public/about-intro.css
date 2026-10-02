@@ -1,0 +1,795 @@
+
+/* ========================================
+   ABOUT — INTEGRATED PAGE REVEAL
+======================================== */
+
+.verse-about {
+    --about-glitch-cyan: #39dcff;
+    --about-glitch-pink: #ff397c;
+    --about-glitch-purple: #894aff;
+}
+
+/* ========================================
+   HEADING ENTRANCE
+======================================== */
+
+.verse-about .about-header {
+    position: relative;
+    isolation: isolate;
+}
+
+.verse-about .about-header > .eyebrow {
+    animation: aboutEyebrowReveal .6s ease-out both;
+}
+
+.verse-about .verse-heading {
+    position: relative;
+}
+
+.verse-about .verse-heading .heading-line {
+    position: relative;
+    will-change: transform;
+}
+
+/* WHO I */
+
+.verse-about .verse-heading .heading-line:first-child {
+    animation:
+        aboutHeadingOne 2s steps(1, end) both,
+        aboutAmbientGlitch 10s 2s infinite steps(1, end);
+}
+
+/* AM. */
+
+.verse-about .verse-heading .heading-line:nth-child(2) {
+    animation:
+        aboutHeadingTwo 2s steps(1, end) both,
+        aboutAmbientGlitch 11s 3s infinite steps(1, end);
+}
+
+/* ========================================
+   HEADING RGB SEPARATION
+======================================== */
+
+.verse-about .verse-heading .glitch-text::before {
+    animation:
+        aboutIntroCyan 2s steps(1, end) both,
+        aboutCyanAmbient 9s 2s infinite steps(1, end);
+}
+
+.verse-about .verse-heading .glitch-text::after {
+    animation:
+        aboutIntroPink 2s steps(1, end) both,
+        aboutPinkAmbient 9s 2s infinite steps(1, end);
+}
+
+/* ========================================
+   SUBTITLE
+======================================== */
+
+.verse-about .heading-subtitle {
+    animation: aboutSubtitleReveal .85s .65s ease-out both;
+}
+
+/* ========================================
+   BIOGRAPHY
+======================================== */
+
+.verse-about .about-intro {
+    animation: aboutBioReveal .8s .85s ease-out both;
+}
+
+.verse-about .about-story {
+    animation: aboutBioReveal .9s 1s ease-out both;
+}
+
+/* ========================================
+   PHOTOGRAPH REVEAL
+======================================== */
+
+.verse-about .about-photo {
+    position: relative;
+
+    animation: aboutPhotoReveal 1.1s .7s cubic-bezier(
+        .16, 1, .3, 1
+    ) both;
+}
+
+.verse-about .image-composition {
+    position: relative;
+    isolation: isolate;
+}
+
+.verse-about .image-composition > img {
+    position: relative;
+    z-index: 2;
+}
+
+.verse-about .image-ghost {
+    animation: aboutPhotoGhost 1.7s .7s steps(1, end) both;
+}
+
+.verse-about .image-grain {
+    pointer-events: none;
+}
+
+.verse-about .image-coordinate {
+    animation: aboutCoordinateReveal .65s 1.3s ease-out both;
+}
+
+.verse-about .about-photo figcaption {
+    animation: aboutCaptionReveal .7s 1.3s ease-out both;
+}
+
+/* ========================================
+   BOTTOM DETAIL
+======================================== */
+
+.verse-about .about-outro {
+    animation: aboutOutroReveal .75s 1.45s ease-out both;
+}
+
+/* ========================================
+   HEADING KEYFRAMES
+======================================== */
+
+@keyframes aboutEyebrowReveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+        letter-spacing: .35em;
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes aboutHeadingOne {
+
+    0% {
+        opacity: 0;
+        transform: translateX(-18px);
+        filter: none;
+    }
+
+    10% {
+        opacity: 1;
+        transform: translateX(6px);
+
+        filter:
+            drop-shadow(-9px 0 #39dcff)
+            drop-shadow(9px 0 #ff397c);
+    }
+
+    15% {
+        transform: translateX(-5px);
+
+        filter:
+            drop-shadow(5px 0 #39dcff)
+            drop-shadow(-5px 0 #ff397c);
+    }
+
+    23%, 100% {
+        opacity: 1;
+        transform: translateX(0);
+        filter: none;
+    }
+
+}
+
+@keyframes aboutHeadingTwo {
+
+    0%, 17% {
+        opacity: 0;
+        transform: translateX(18px);
+        filter: none;
+    }
+
+    22% {
+        opacity: 1;
+        transform: translateX(-8px);
+
+        filter:
+            drop-shadow(-12px 0 #39dcff)
+            drop-shadow(12px 0 #ff397c);
+    }
+
+    27% {
+        transform: translateX(6px);
+
+        filter:
+            drop-shadow(7px 0 #39dcff)
+            drop-shadow(-7px 0 #ff397c);
+    }
+
+    34%, 100% {
+        opacity: 1;
+        transform: translateX(0);
+        filter: none;
+    }
+
+}
+
+/* ========================================
+   INITIAL CHROMATIC SLICES
+======================================== */
+
+@keyframes aboutIntroCyan {
+
+    0%, 5%, 13%, 19%, 26%, 100% {
+        opacity: 0;
+        transform: translateX(0);
+        clip-path: inset(0);
+    }
+
+    7% {
+        opacity: 1;
+        transform: translateX(-10px);
+        clip-path: inset(12% 0 60% 0);
+    }
+
+    10% {
+        opacity: .85;
+        transform: translateX(7px);
+        clip-path: inset(53% 0 16% 0);
+    }
+
+    22% {
+        opacity: .95;
+        transform: translateX(-13px);
+        clip-path: inset(68% 0 7% 0);
+    }
+
+}
+
+@keyframes aboutIntroPink {
+
+    0%, 5%, 13%, 19%, 26%, 100% {
+        opacity: 0;
+        transform: translateX(0);
+        clip-path: inset(0);
+    }
+
+    7% {
+        opacity: 1;
+        transform: translateX(10px);
+        clip-path: inset(55% 0 15% 0);
+    }
+
+    10% {
+        opacity: .85;
+        transform: translateX(-7px);
+        clip-path: inset(10% 0 63% 0);
+    }
+
+    22% {
+        opacity: .95;
+        transform: translateX(13px);
+        clip-path: inset(17% 0 58% 0);
+    }
+
+}
+
+/* ========================================
+   CONTENT REVEALS
+======================================== */
+
+@keyframes aboutSubtitleReveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes aboutBioReveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes aboutPhotoReveal {
+
+    0% {
+        opacity: 0;
+        transform: translate(15px, 18px) skewY(1deg);
+
+        filter:
+            drop-shadow(-9px 0 #39dcff)
+            drop-shadow(9px 0 #ff397c);
+    }
+
+    40% {
+        opacity: 1;
+
+        filter:
+            drop-shadow(-5px 0 #39dcff)
+            drop-shadow(5px 0 #ff397c);
+    }
+
+    70% {
+        transform: translate(-2px, -3px) skewY(0);
+        filter: none;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0, 0) skewY(0);
+        filter: none;
+    }
+
+}
+
+@keyframes aboutPhotoGhost {
+
+    0%, 40%, 53%, 67%, 100% {
+        opacity: 0;
+        transform: translate(0, 0);
+    }
+
+    44% {
+        opacity: .8;
+        transform: translate(-12px, 3px);
+    }
+
+    49% {
+        opacity: .5;
+        transform: translate(9px, -2px);
+    }
+
+    58% {
+        opacity: .7;
+        transform: translate(-6px, 2px);
+    }
+
+}
+
+@keyframes aboutCoordinateReveal {
+
+    from {
+        opacity: 0;
+        transform: translateX(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
+
+@keyframes aboutCaptionReveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(7px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes aboutOutroReveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* ========================================
+   OCCASIONAL AMBIENT GLITCH
+======================================== */
+
+@keyframes aboutAmbientGlitch {
+
+    0%, 89%, 94%, 97%, 100% {
+        transform: translateX(0) skewX(0);
+        filter: none;
+    }
+
+    90% {
+        transform: translateX(-3px) skewX(-2deg);
+        filter: drop-shadow(4px 0 #39dcff);
+    }
+
+    91% {
+        transform: translateX(4px) skewX(2deg);
+        filter: drop-shadow(-4px 0 #ff397c);
+    }
+
+    93% {
+        transform: translateX(-2px);
+
+        filter:
+            drop-shadow(3px 0 #39dcff)
+            drop-shadow(-3px 0 #ff397c);
+    }
+
+}
+
+@keyframes aboutCyanAmbient {
+
+    0%, 89%, 94%, 100% {
+        opacity: 0;
+        transform: none;
+        clip-path: inset(0);
+    }
+
+    90% {
+        opacity: .7;
+        transform: translateX(-5px);
+        clip-path: inset(35% 0 40% 0);
+    }
+
+    92% {
+        opacity: .55;
+        transform: translateX(3px);
+        clip-path: inset(70% 0 10% 0);
+    }
+
+}
+
+@keyframes aboutPinkAmbient {
+
+    0%, 89%, 94%, 100% {
+        opacity: 0;
+        transform: none;
+        clip-path: inset(0);
+    }
+
+    90% {
+        opacity: .7;
+        transform: translateX(5px);
+        clip-path: inset(60% 0 15% 0);
+    }
+
+    92% {
+        opacity: .55;
+        transform: translateX(-3px);
+        clip-path: inset(10% 0 65% 0);
+    }
+
+}
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .verse-about .about-header > .eyebrow,
+    .verse-about .verse-heading .heading-line,
+    .verse-about .verse-heading .glitch-text::before,
+    .verse-about .verse-heading .glitch-text::after,
+    .verse-about .heading-subtitle,
+    .verse-about .about-intro,
+    .verse-about .about-story,
+    .verse-about .about-photo,
+    .verse-about .image-ghost,
+    .verse-about .image-coordinate,
+    .verse-about .about-photo figcaption,
+    .verse-about .about-outro {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .verse-about .about-header > .eyebrow,
+    .verse-about .verse-heading .heading-line,
+    .verse-about .heading-subtitle,
+    .verse-about .about-intro,
+    .verse-about .about-story,
+    .verse-about .about-photo,
+    .verse-about .image-coordinate,
+    .verse-about .about-photo figcaption,
+    .verse-about .about-outro {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+    }
+
+    .verse-about .verse-heading .glitch-text::before,
+    .verse-about .verse-heading .glitch-text::after {
+        opacity: 0 !important;
+    }
+
+}
+
+
+/* ========================================
+   ABOUT PHOTO — CONTINUOUS GLITCH
+======================================== */
+
+.verse-about .about-photo .image-composition {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+/* Keep the photograph above its decorative background */
+
+.verse-about .about-photo .image-composition > img {
+    position: relative;
+    z-index: 2;
+
+    animation:
+        aboutImageGlitch 9s 2s infinite steps(1, end);
+}
+
+/* RGB ghost: duplicates the photograph without extra HTML */
+
+.verse-about .about-photo .image-ghost {
+    position: absolute;
+    inset: 0;
+
+    z-index: 3;
+
+    background-image:
+        url("/assets/images/Gemini_Generated_Image_oajr0doajr0doajr.jpeg");
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    pointer-events: none;
+
+    opacity: 0;
+    mix-blend-mode: screen;
+
+    animation:
+        aboutImageGhostContinuous 9s 2s infinite steps(1, end);
+}
+
+/* Occasional scanline / horizontal tear */
+
+.verse-about .about-photo .image-grain {
+    position: absolute;
+    inset: 0;
+
+    z-index: 4;
+    pointer-events: none;
+
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            transparent 0,
+            transparent 3px,
+            rgba(57, 220, 255, .12) 4px,
+            transparent 5px
+        );
+
+    opacity: 0;
+
+    animation:
+        aboutImageScanline 9s 2s infinite steps(1, end);
+}
+
+/* ========================================
+   MAIN IMAGE DISTORTION
+======================================== */
+
+@keyframes aboutImageGlitch {
+
+    0%, 86%, 90%, 93%, 96%, 100% {
+        transform: translate(0, 0);
+        filter: none;
+        clip-path: inset(0);
+    }
+
+    87% {
+        transform: translate(-4px, 0);
+
+        filter:
+            drop-shadow(5px 0 #39dcff)
+            drop-shadow(-5px 0 #ff397c);
+    }
+
+    88% {
+        transform: translate(4px, -1px);
+
+        filter:
+            drop-shadow(-6px 0 #39dcff)
+            drop-shadow(6px 0 #ff397c);
+    }
+
+    89% {
+        transform: translate(-2px, 1px);
+        filter: contrast(1.25) saturate(1.5);
+    }
+
+    91% {
+        transform: translate(3px, 0);
+        filter: hue-rotate(12deg) contrast(1.2);
+    }
+
+    92% {
+        transform: translate(-3px, 0);
+        filter: none;
+    }
+
+    94% {
+        transform: translate(2px, 0);
+
+        filter:
+            drop-shadow(-4px 0 #ff397c)
+            drop-shadow(4px 0 #39dcff);
+    }
+
+    95% {
+        transform: translate(-1px, 0);
+        filter: contrast(1.15);
+    }
+
+}
+
+/* ========================================
+   CHROMATIC IMAGE GHOST
+======================================== */
+
+@keyframes aboutImageGhostContinuous {
+
+    0%, 86%, 90%, 93%, 96%, 100% {
+        opacity: 0;
+        transform: translateX(0);
+        clip-path: inset(0);
+        filter: none;
+    }
+
+    87% {
+        opacity: .85;
+        transform: translateX(10px);
+
+        clip-path: inset(12% 0 62% 0);
+
+        filter:
+            hue-rotate(160deg)
+            saturate(3);
+    }
+
+    88% {
+        opacity: .65;
+        transform: translateX(-9px);
+
+        clip-path: inset(48% 0 28% 0);
+
+        filter:
+            hue-rotate(300deg)
+            saturate(3);
+    }
+
+    89% {
+        opacity: .8;
+        transform: translateX(7px);
+
+        clip-path: inset(73% 0 8% 0);
+
+        filter:
+            hue-rotate(160deg)
+            saturate(3);
+    }
+
+    91% {
+        opacity: .75;
+        transform: translateX(-12px);
+
+        clip-path: inset(25% 0 52% 0);
+
+        filter:
+            hue-rotate(300deg)
+            saturate(3);
+    }
+
+    92% {
+        opacity: .6;
+        transform: translateX(5px);
+
+        clip-path: inset(60% 0 15% 0);
+
+        filter:
+            hue-rotate(160deg)
+            saturate(3);
+    }
+
+    94% {
+        opacity: .8;
+        transform: translateX(9px);
+
+        clip-path: inset(38% 0 35% 0);
+
+        filter:
+            hue-rotate(300deg)
+            saturate(3);
+    }
+
+    95% {
+        opacity: .5;
+        transform: translateX(-6px);
+
+        clip-path: inset(8% 0 72% 0);
+
+        filter:
+            hue-rotate(160deg)
+            saturate(3);
+    }
+
+}
+
+/* ========================================
+   SCANLINE BURST
+======================================== */
+
+@keyframes aboutImageScanline {
+
+    0%, 86%, 90%, 93%, 96%, 100% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+
+    87%, 88% {
+        opacity: .8;
+        transform: translateY(-3px);
+    }
+
+    89% {
+        opacity: .3;
+    }
+
+    91%, 92% {
+        opacity: .6;
+        transform: translateY(4px);
+    }
+
+    94%, 95% {
+        opacity: .7;
+        transform: translateY(-2px);
+    }
+
+}
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .verse-about .about-photo .image-composition > img,
+    .verse-about .about-photo .image-ghost,
+    .verse-about .about-photo .image-grain {
+        animation: none !important;
+        transform: none !important;
+        filter: none !important;
+    }
+
+    .verse-about .about-photo .image-ghost,
+    .verse-about .about-photo .image-grain {
+        opacity: 0 !important;
+    }
+
+}
