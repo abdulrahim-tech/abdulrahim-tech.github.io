@@ -1453,119 +1453,178 @@
 }
 
 
+
 /* ========================================
-   CLIENTS PAGE — NAVBAR DESIGN OVERRIDE
+   CLIENTS NAVBAR — MATCH ABOUT PAGE
 ======================================== */
+
+.verse-clients {
+    --verse-bg: #080b20;
+    --verse-text: #f5f3ff;
+    --verse-muted: #b4b8d3;
+
+    --verse-pink: #ff397c;
+    --verse-cyan: #39dcff;
+    --verse-purple: #894aff;
+
+    font-family: "DM Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Light theme */
+
+html[data-theme="light"] .verse-clients {
+    --verse-bg: #f0e7f8;
+    --verse-text: #17112f;
+    --verse-muted: #514c6e;
+
+    --verse-pink: #e80065;
+    --verse-cyan: #007da8;
+    --verse-purple: #7543d9;
+}
+
+/* Navbar container */
 
 .verse-clients .navbar {
     position: relative;
-    z-index: 100;
+    z-index: 20;
 
     display: flex;
-    justify-content: space-between;
     align-items: center;
     gap: 30px;
 
     width: 100%;
-    padding: 22px max(30px, calc((100vw - 1200px) / 2));
+    max-width: 1440px;
 
-    background: var(--clients-bg);
+    margin: 0 auto;
+    padding: 22px clamp(20px, 5vw, 70px);
+
+    background: transparent;
+
     border: 0;
-    border-bottom: 1px solid var(--clients-border);
+    border-bottom: 1px solid rgba(140, 135, 190, .25);
 
     box-shadow: none;
-    font-family: "DM Sans", sans-serif;
 }
 
+/* Logo */
+
 .verse-clients .navbar .logo {
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    gap: 11px;
+    gap: 10px;
 
+    margin-right: auto;
+
+    color: var(--verse-text);
     text-decoration: none;
-    color: var(--clients-text);
 
-    font-family: "DM Sans", sans-serif;
-    font-size: .95rem;
-    font-weight: 800;
-    letter-spacing: -.025em;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: -.03em;
+    text-transform: uppercase;
 }
 
 .verse-clients .navbar .logo img {
-    width: 36px;
-    height: 36px;
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
     object-fit: cover;
+    image-rendering: auto;
+
+    border: 0;
     border-radius: 50%;
-    border: 1px solid var(--clients-pink);
+
+    box-shadow:
+        -2px 0 var(--verse-cyan),
+         2px 0 var(--verse-pink);
 }
+
+/* Navigation layout */
 
 .verse-clients .navbar nav {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
     align-items: center;
-    gap: clamp(12px, 1.6vw, 25px);
+    gap: 24px;
 }
 
-.verse-clients .navbar nav > a {
-    padding: 5px 0;
+/* Navigation links */
 
-    color: var(--clients-muted);
+.verse-clients .navbar nav a {
+    padding: 0;
+
+    color: var(--verse-muted);
     background: transparent;
+
     border: 0;
     box-shadow: none;
 
     font-family: "DM Sans", sans-serif;
-    font-size: .76rem;
+    font-size: 12px;
     font-weight: 800;
-    letter-spacing: .025em;
+    letter-spacing: .04em;
+    text-transform: uppercase;
     text-decoration: none;
 
     transition: color .2s ease;
 }
 
-.verse-clients .navbar nav > a:hover,
-.verse-clients .navbar nav > a[aria-current="page"] {
-    color: var(--clients-cyan);
+.verse-clients .navbar nav a:hover,
+.verse-clients .navbar nav a:focus-visible,
+.verse-clients .navbar nav a[aria-current="page"] {
+    color: var(--verse-pink);
 }
 
-.verse-clients .navbar .theme-toggle {
-    padding: 9px 12px;
+/* Theme toggle */
 
+.verse-clients .navbar .theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    padding: 8px 12px;
+
+    color: var(--verse-text);
     background: transparent;
-    color: var(--clients-text);
-    border: 1px solid var(--clients-border);
+
+    border: 1px solid var(--verse-purple);
     border-radius: 0;
     box-shadow: none;
 
     font-family: "DM Sans", sans-serif;
-    font-size: .65rem;
+    font-size: 11px;
     font-weight: 800;
-    letter-spacing: .08em;
+    letter-spacing: .05em;
 
     cursor: pointer;
 }
 
-.verse-clients .navbar .theme-toggle:hover {
-    border-color: var(--clients-pink);
-    color: var(--clients-pink);
+.verse-clients .navbar .theme-toggle:hover,
+.verse-clients .navbar .theme-toggle:focus-visible {
+    color: var(--verse-cyan);
+    border-color: var(--verse-cyan);
+    box-shadow: none;
 }
 
-/* Mobile */
+/* ========================================
+   RESPONSIVE NAVIGATION
+======================================== */
 
-@media (max-width: 850px) {
+@media (max-width: 900px) {
 
     .verse-clients .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 20px;
-        gap: 20px;
+        flex-wrap: wrap;
     }
 
     .verse-clients .navbar nav {
         width: 100%;
-        justify-content: flex-start;
-        gap: 12px 18px;
+        flex-wrap: wrap;
+        gap: 15px;
     }
 
 }
