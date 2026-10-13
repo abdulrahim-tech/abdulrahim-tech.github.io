@@ -920,3 +920,211 @@ textarea {
     }
 
 }
+
+
+/* =========================================
+   FULL-SCREEN THEME SWITCH GLITCH
+========================================= */
+
+html.theme-glitching body {
+    animation: theme-screen-glitch 650ms steps(1, end) both;
+    will-change: transform, filter;
+}
+
+/* Full-screen glitch overlays */
+
+html.theme-glitching::before,
+html.theme-glitching::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2147483647;
+}
+
+/* RGB scanline distortion */
+
+html.theme-glitching::before {
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            transparent 9px,
+            rgba(0, 229, 255, 0.16) 10px,
+            transparent 12px,
+            rgba(255, 0, 120, 0.12) 14px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(0, 229, 255, 0.22),
+            transparent 38%,
+            rgba(255, 0, 120, 0.2)
+        );
+
+    mix-blend-mode: difference;
+    animation: theme-scanlines 650ms steps(1, end) both;
+}
+
+/* Horizontal screen tearing */
+
+html.theme-glitching::after {
+    background: linear-gradient(
+        90deg,
+        rgba(0, 229, 255, 0.65) 0%,
+        transparent 30%,
+        rgba(255, 0, 120, 0.65) 65%,
+        transparent 100%
+    );
+
+    mix-blend-mode: screen;
+    animation: theme-screen-tear 650ms steps(1, end) both;
+}
+
+/* Entire-page displacement */
+
+@keyframes theme-screen-glitch {
+    0%, 100% {
+        transform: translate(0, 0);
+        filter: none;
+    }
+
+    8% {
+        transform: translate(-7px, 2px) skewX(-0.5deg);
+        filter: hue-rotate(35deg) contrast(1.35);
+    }
+
+    15% {
+        transform: translate(6px, -2px);
+        filter: hue-rotate(-45deg);
+    }
+
+    24% {
+        transform: translate(-10px, 0);
+        filter: saturate(2.5) contrast(1.5);
+    }
+
+    33% {
+        transform: translate(3px, 2px);
+        filter: brightness(1.5);
+    }
+
+    43% {
+        transform: translate(-5px, -1px);
+        filter: hue-rotate(75deg);
+    }
+
+    55% {
+        transform: translate(8px, 0);
+        filter: contrast(1.8) saturate(0.5);
+    }
+
+    68% {
+        transform: translate(-3px, 1px);
+        filter: brightness(1.25);
+    }
+
+    80% {
+        transform: translate(2px, 0);
+        filter: saturate(1.3);
+    }
+
+    90% {
+        transform: translate(-1px, 0);
+        filter: none;
+    }
+}
+
+/* Scanline bursts */
+
+@keyframes theme-scanlines {
+    0%, 100% {
+        opacity: 0;
+        transform: translateX(0);
+    }
+
+    10% {
+        opacity: 0.8;
+        transform: translateX(-12px);
+    }
+
+    20% {
+        opacity: 0.3;
+        transform: translateX(15px);
+    }
+
+    35% {
+        opacity: 0.9;
+        transform: translateX(-20px);
+    }
+
+    50% {
+        opacity: 0.4;
+        transform: translateX(10px);
+    }
+
+    70% {
+        opacity: 0.7;
+        transform: translateX(-7px);
+    }
+
+    85% {
+        opacity: 0.15;
+        transform: translateX(3px);
+    }
+}
+
+/* Moving screen slices */
+
+@keyframes theme-screen-tear {
+    0%, 100% {
+        opacity: 0;
+        clip-path: inset(100% 0 0 0);
+    }
+
+    12% {
+        opacity: 0.85;
+        clip-path: inset(12% 0 72% 0);
+        transform: translateX(-16px);
+    }
+
+    25% {
+        opacity: 0.5;
+        clip-path: inset(48% 0 38% 0);
+        transform: translateX(20px);
+    }
+
+    40% {
+        opacity: 0.9;
+        clip-path: inset(5% 0 10% 0);
+        transform: translateX(-8px);
+    }
+
+    58% {
+        opacity: 0.65;
+        clip-path: inset(65% 0 20% 0);
+        transform: translateX(14px);
+    }
+
+    75% {
+        opacity: 0.35;
+        clip-path: inset(30% 0 56% 0);
+        transform: translateX(-5px);
+    }
+
+    90% {
+        opacity: 0;
+        clip-path: inset(100% 0 0 0);
+    }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    html.theme-glitching body,
+    html.theme-glitching::before,
+    html.theme-glitching::after {
+        animation: none !important;
+    }
+}
