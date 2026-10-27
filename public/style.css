@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap");
+
 /* ===========================================================
    RAHIM SEO | WINDOWS XP LUNA
    Global replacement stylesheet
@@ -1326,3 +1328,196 @@ html[data-theme="dark"] .xp-home .hero-kicker { color: #c5f1a5; }
         animation-duration: .01ms !important;
     }
 }
+
+/* ============================================================
+   WINDOWS XP LUNA â€” INTERACTIVE PORTFOLIO SHELL
+   Single stylesheet. This section styles the reference-inspired
+   Explorer layout, desktop, browser chrome, taskbar and live windows.
+   ============================================================ */
+[hidden] { display: none !important; }
+body.xp-home {
+    background-color: #4c99ed;
+    background-image:
+      radial-gradient(ellipse 15% 6% at 14% 11%, #fff 15%, rgba(255,255,255,.75) 34%, transparent 65%),
+      radial-gradient(ellipse 18% 7% at 75% 19%, #fff 15%, rgba(255,255,255,.75) 33%, transparent 68%),
+      radial-gradient(ellipse 95% 23% at 12% 107%, #238d17 0%, #47ad23 48%, transparent 49%),
+      radial-gradient(ellipse 86% 23% at 80% 113%, #5eba32 0%, #68b933 54%, transparent 55%),
+      linear-gradient(180deg,#1571ed 0%,#4eaaff 38%,#9ad6fc 72%,#49a72a 73%,#147925 100%);
+    background-attachment: fixed;
+    padding-bottom: 51px;
+}
+html[data-theme="dark"] body.xp-home {
+    background-image: radial-gradient(ellipse 75% 40% at 45% 106%, #173f5b 0%,transparent 60%), linear-gradient(#122453,#254986 62%,#182c48);
+}
+.xp-home .effect { overflow: visible; max-width: 1440px; margin: 7px auto 24px; background: transparent; }
+.xp-browser-chrome {margin: 0 12px; border: 2px solid #174fb2; border-radius: 9px 9px 0 0; box-shadow: 0 2px 12px #064a7f63; overflow: hidden;}
+.xp-browser-title {position:relative; display:flex; align-items:center; gap:8px; min-height:29px; padding:4px 13px; background:linear-gradient(#43a4ff 0%,#1369eb 33%,#0648b9 85%,#14488c); color:white; font:bold 12px Tahoma,Verdana,sans-serif; text-shadow:1px 1px #16418b;}
+.xp-browser-title-suffix {font-weight:normal;}
+.xp-browser-decor {margin-left:auto; display:flex;gap:4px;}
+.xp-browser-decor i {width:18px;height:18px;border:1px solid #fff;border-radius:3px;background:linear-gradient(#69a8ff,#1769d7);box-shadow: inset 1px 1px #ffffff7a;}
+.xp-browser-decor i:last-child {background:linear-gradient(#ffb1a4,#d63413);}
+.xp-browser-tools {background:linear-gradient(#fbfbf9,#e6e9e4);border-top:1px solid #bfd6f2;display:flex;align-items:center;gap:12px;padding:6px 11px;font:12px Tahoma,Verdana,sans-serif;color:#224476;}
+.xp-browser-arrows {white-space:nowrap;color:#507295;font-size:15px;}
+.xp-address {display:flex;align-items:center;flex:1;gap:10px;min-width:0;}
+.xp-address-url {background:white;border:1px solid #7b9cba;box-shadow:inset 1px 1px #c7d5e0;padding:5px 7px;color:#204e9c;display:block;flex:1;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.xp-go {font-weight:bold;color:#177a10;white-space:nowrap;}
+.xp-home .navbar {margin:0 12px; width:calc(100% - 24px);max-width:none;min-height:71px;border-radius:0;background:linear-gradient(#fefefe,#dce8fa);border:2px solid #296aca;border-top:0;border-bottom:4px solid #1164cb;box-shadow:0 2px 4px #224f9570;padding:11px 20px;gap:14px;}
+.xp-home .navbar .logo {color:#0644ae;text-shadow:none;font:bold 21px Tahoma,Verdana,sans-serif;}
+.xp-home .navbar .logo:hover {color:#075ccf;}
+.xp-home .navbar .logo .xp-brand-icon {font-size:32px;filter:drop-shadow(1px 2px 1px #6f89a8);}
+.xp-home .navbar .logo .xp-brand-image {display:none;}
+.xp-home .navbar nav a {color:#073b90;text-shadow:none;border-color:transparent;font-size:12px;font-weight:bold;padding:9px 10px;}
+.xp-home .navbar nav a:hover,.xp-home .navbar nav a:focus-visible {background:#d1e6ff;color:#024aae;border-color:#7cabeb;}
+.xp-home .navbar nav a[aria-current="page"] {background:linear-gradient(#edf5ff,#c5ddff);border-color:#91b5ec;color:#084ba4;box-shadow: inset 0 1px white,0 1px 2px #92bad4;}
+.xp-nav-icon {display:inline-block;margin-right:6px;font-size:17px;line-height:1;}
+.xp-home .navbar .theme-toggle {margin-left:6px;}
+.xp-home .xp-workspace {display:grid;grid-template-columns:219px minmax(0,1fr);gap:13px;padding:12px 15px 4px;align-items:start;}
+.xp-home main {width:100%; min-width:0; margin:0; display:grid; gap:13px;}
+.xp-sidebar {display:flex;flex-direction:column;gap:13px;position:sticky;top:12px;}
+.xp-explorer-box {border:1px solid #2e77ce;border-radius:7px 7px 6px 6px;overflow:hidden;background:#eaf3ff;box-shadow:0 2px 5px #0c427e44;}
+.xp-explorer-title {min-height:31px;padding:7px 11px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(#fff,#c0d8fa);color:#0745b1;font:700 12px Tahoma,Verdana,sans-serif;}
+.xp-explorer-title span {color:#0b5cc6;}
+.xp-explorer-links {display:flex;flex-direction:column;gap:1px;padding:8px;}
+.xp-explorer-links a, .xp-explorer-links button, .xp-explorer-links span {min-height:27px;padding:5px 8px;color:#0c326a;background:transparent;border:0;border-radius:3px;text-align:left;text-decoration:none;font:12px/1.4 Tahoma,Verdana,sans-serif;white-space:normal;}
+.xp-explorer-links a:hover, .xp-explorer-links button:hover {background:#b9d9fe;color:#002d80;}
+.xp-explorer-links a[aria-current="page"] {background:linear-gradient(#79a9f3,#4a8de9);color:#fff;}
+.xp-explorer-links button {cursor:pointer;}
+.xp-tool-items span {font-size:11px;}
+.xp-home .xp-window {padding:0 18px 18px;border:2px solid #0055bc;border-radius:8px 8px 6px 6px;background:#fbfdff;box-shadow:0 4px 7px #064b9445,inset 0 0 0 1px white;overflow:visible;scroll-margin-top:12px;}
+.xp-home .xp-titlebar {margin:0 -18px 0;min-height:30px;border-radius:5px 5px 0 0;padding:4px 6px 4px 10px;font-size:12px;background:linear-gradient(#53a9ff,#0964dd 35%,#0450b9 88%,#0039a0);}
+.xp-home .xp-title-actions {gap:3px;}
+.xp-home .xp-title-action {width:21px;height:21px;padding:0;border:1px solid white;border-radius:4px;font:700 15px/1 Tahoma,sans-serif;color:#fff;cursor:pointer;background:linear-gradient(#72b7ff,#176ad3 60%,#124db5);text-shadow:0 1px #184fa4;}
+.xp-home .xp-title-action:hover {filter:brightness(1.22);}
+.xp-home .xp-title-action:active {transform:translateY(1px);}
+.xp-home .xp-title-action.xp-close {background:linear-gradient(#ffa98e,#e75e3e 52%,#c92812);}
+.xp-home .xp-toolbar {margin:0 -18px 0;padding:5px 14px;min-height:26px;color:#5276ae;font-size:11px;background:linear-gradient(#fff,#e9f2fc);}
+.xp-home .xp-statusbar {margin:9px -18px -18px;padding:5px 10px;font-size:10px;color:#4c648c;background:#e8effb;}
+.xp-home .hero {grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);gap:0 22px;}
+.xp-home .hero > .xp-titlebar {margin-bottom:0;}
+.xp-home .hero-content {padding:24px 5px 23px;}
+.xp-home .hero .eyebrow {font-family:'VT323',monospace;font-size:18px;color:#1762a8;background:none;border:0;box-shadow:none;margin:0 0 8px;padding:0;}
+.xp-home .xp-heading {font-family:'Press Start 2P','VT323',monospace;font-size:clamp(21px,2.8vw,37px);line-height:1.5;letter-spacing:-.04em;color:#103885;margin:0 0 17px;text-shadow:2px 2px 0 #a4c8f4;}
+.xp-home .xp-heading .heading-line {white-space:normal;}
+.xp-home .heading-shift {color:#1173bf;}
+.xp-home .heading-final {color:#147c23;}
+.xp-home .hero-kicker {border-left:3px solid #58a031;font-size:11px;color:#125b2f;background:#eff8ed;padding:7px 9px;}
+.xp-home .hero-description {font:12px/1.6 Tahoma,Verdana,sans-serif;color:#24335b;margin:0 0 18px;}
+.xp-home .hero-buttons {margin:0 0 10px;}
+.xp-home .button {border:1px solid #7e98c8;box-shadow: inset 1px 1px #fff, 1px 2px #718ca780;font-weight:bold;}
+.xp-home .button.primary {background:linear-gradient(#8fe877 0%,#3fbd21 51%,#138211);border-color:#156d11;color:white;}
+.xp-home .hero-coordinate {font-family:'VT323',monospace;font-size:17px;letter-spacing:.04em;}
+.xp-home .hero-image {margin:16px 2px 15px;max-width:400px;}
+.xp-home .hero-image-composition {position:relative;padding:6px;background:#fff;border:2px solid #78a8e2;border-radius:5px;box-shadow:2px 3px #89b3e5;}
+.xp-home .hero-image-composition::before {content:'ðŸ“·  rahim.jpg';font:700 12px Tahoma,sans-serif;color:white;background:linear-gradient(#5dabf5,#0755ca);margin:-6px -6px 6px;padding:4px 7px;}
+.xp-home .hero-image-composition img {height:auto;max-height:330px;aspect-ratio:6/6;object-fit:cover;}
+.xp-photo-note {white-space:pre-line;position:absolute;right:-10px;bottom:35px;width:130px;padding:12px 12px;transform:rotate(5deg);background:#fff2ac;color:#58451d;box-shadow:2px 4px 8px #233c6550;font:14px/1.4 'VT323',monospace;}
+.xp-home .hero-image-label,.xp-home .hero-image-caption {display:none;}
+.xp-home .section-heading,.xp-home .tools-heading,.xp-home .section-header {margin:13px 0 12px;}
+.xp-home .section-heading .eyebrow,.xp-home .tools-heading .eyebrow,.xp-home .section-header .eyebrow,.xp-home .cta .eyebrow {display:none;}
+.xp-home .section-heading h2,.xp-home .tools-heading h2,.xp-home .section-header h2,.xp-home .cta h2 {font:bold 22px/1.3 Tahoma,Verdana,sans-serif;margin:0 0 6px;color:#083779;}
+.xp-home .section-heading h2 br,.xp-home .tools-heading h2 br,.xp-home .section-header h2 br {display:none;}
+.xp-home .section-description {font-size:12px;}
+.xp-home .specialty-grid {grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;}
+.xp-home .specialty-card {min-height:150px;padding:0 11px 18px;background:linear-gradient(#fff,#edf3fc);border:1px solid #a1badb;border-radius:5px;box-shadow:inset 1px 1px #fff;}
+.xp-home .specialty-card::before {margin:0 -11px 11px;padding:5px 10px;background:linear-gradient(#f5faff,#dce7f6);font-size:11px;}
+.xp-home .specialty-card h3 {font:bold 17px Tahoma,Verdana,sans-serif;color:#073c9e;}
+.xp-home .specialty-card p {font-size:12px;line-height:1.55;}
+.xp-home .specialty-card .card-number {font:16px 'VT323',monospace;margin-bottom:4px;}
+.xp-home .tools-list {grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;}
+.xp-home .tools-list span {justify-content:center;text-align:center;min-height:67px;flex-direction:column;gap:5px;padding:8px 3px;font-size:11px;line-height:1.25;}
+.xp-home .tools-list span::before {height:18px;width:21px;flex:0 0 18px;}
+.xp-home .tools-bottom {margin-top:9px;padding-top:8px;font-size:10px;}
+.xp-home .testimonials-grid {gap:10px;}
+.xp-home .testimonial-window {padding:0 14px 15px;}
+.xp-home .testimonial-window::before {margin:0 -14px 11px;padding:6px 12px;}
+.xp-home .testimonial-quote {font:600 17px/1.4 Tahoma,Verdana,sans-serif;}
+.xp-home .cta {padding-bottom:22px;}
+.xp-home .cta h2 {font-size:24px;margin:16px 0;}
+.xp-home .cta .button {margin:0 0 12px;}
+.xp-home .retro-footer {max-width:unset;width:calc(100% - 30px);margin:13px 15px 20px;border-radius:6px;padding:12px;}
+/* Window transitions and states: titlebar remains when minimized, taskbar restores closed windows. */
+.xp-home .xp-window.is-closed {display:none !important;}
+.xp-home .xp-window.is-minimized {padding-bottom:0;}
+.xp-home .xp-window.is-minimized > :not(.xp-titlebar) {display:none !important;}
+.xp-home .xp-window.is-minimized > .xp-titlebar {margin-bottom:0;border-radius:5px;grid-column:1/-1;}
+.xp-home .xp-window.is-maximized {position:fixed !important;inset:10px 10px 49px !important;z-index:600;max-width:none !important;width:auto !important;height:auto !important;margin:0 !important;overflow:auto;align-content:start;box-shadow:0 0 0 100vmax #05295a66,0 6px 28px #111a3290;}
+.xp-home .xp-window.is-maximized .xp-titlebar {position:sticky;top:0;z-index:2;}
+.xp-home .xp-window.is-maximized.hero .hero-image {justify-self:center;}
+body.has-maximized-window {overflow:hidden;}
+/* Fixed Windows XP taskbar with open and restore actions. */
+.xp-taskbar {position:fixed;z-index:800;bottom:0;left:0;right:0;display:flex;align-items:center;gap:7px;height:43px;background:linear-gradient(#349dff 0%,#095ae0 15%,#0051c9 74%,#08419f 100%);border-top:2px solid #7ac5ff;box-shadow:0 -2px 7px #102f6c70;color:#fff;font:11px Tahoma,Verdana,sans-serif;}
+.xp-start {height:39px;min-width:114px;flex-shrink:0;padding:0 15px 0 11px;border:1px solid #1f6817;border-top-color:#8fec87;border-radius:0 17px 15px 0;background:linear-gradient(#7ee15d,#35a52a 45%,#1b7d1f);color:white;text-align:left;box-shadow:inset 0 2px #c0f4ad,2px 0 #0b3a6d;font-size:15px;font-weight:bold;text-shadow:1px 1px #236b26;}
+.xp-start em {font-style:italic;}
+.xp-start:hover {filter:brightness(1.12);}
+.xp-taskbar-windows {display:flex;min-width:0;gap:4px;flex:1;overflow:auto;scrollbar-width:thin;}
+.xp-taskbar-windows button {color:white;flex:0 1 144px;min-width:72px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:7px 10px;border:1px solid #73a5ee;border-radius:3px;background:linear-gradient(#479dff,#105dc5);box-shadow:inset 0 1px #bbd8ff55;text-align:left;font:11px Tahoma,Verdana,sans-serif;cursor:pointer;}
+.xp-taskbar-windows button.is-inactive {opacity:.67;background:linear-gradient(#236dc8,#1552a2);}
+.xp-taskbar-windows button.is-active {background:linear-gradient(#1153ae,#327dd4);box-shadow:inset 1px 1px 3px #0b347b;}
+.xp-taskbar-windows button:hover {filter:brightness(1.18);}
+.xp-tray {display:flex;gap:10px;align-items:center;height:100%;padding:0 12px;background:linear-gradient(#4ecbff,#128aca);border-left:1px solid #7cbbfd;white-space:nowrap;}
+.xp-start-menu {position:fixed;z-index:850;left:0;bottom:43px;width:min(330px,calc(100vw - 12px));border:2px solid #0957c5;border-radius:7px 7px 0 0;background:#f6f8ff;box-shadow:3px 0 13px #063a7c88;overflow:hidden;}
+.xp-start-user {padding:13px 15px;background:linear-gradient(#5dabff,#0a59cc);font:bold 16px Tahoma,Verdana,sans-serif;color:white;}
+.xp-start-user small {display:block;padding-left:32px;font-size:11px;font-weight:400;}
+.xp-start-links {display:flex;flex-direction:column;gap:2px;padding:10px;}
+.xp-start-links a,.xp-start-links button {display:block;padding:8px 12px;border:0;border-radius:3px;color:#0e346f;background:transparent;text-decoration:none;text-align:left;font:13px Tahoma,Verdana,sans-serif;cursor:pointer;}
+.xp-start-links a:hover,.xp-start-links button:hover {color:white;background:#316ed0;}
+html[data-theme="dark"] .xp-home .xp-window {background:#273a59;color:#eff6ff;}
+html[data-theme="dark"] .xp-home .hero-description, html[data-theme="dark"] .xp-home .specialty-card p, html[data-theme="dark"] .xp-home .testimonial-quote {color:#d5e1f7;}
+html[data-theme="dark"] .xp-home .specialty-card,html[data-theme="dark"] .xp-home .testimonial-window {background:#324668;}
+html[data-theme="dark"] .xp-home .section-heading h2,html[data-theme="dark"] .xp-home .tools-heading h2,html[data-theme="dark"] .xp-home .section-header h2,html[data-theme="dark"] .xp-home .cta h2 {color:#e6f3ff;}
+html[data-theme="dark"] .xp-home .xp-heading {color:#ddebff;text-shadow:2px 2px #214f7f;}
+html[data-theme="dark"] .xp-home .hero-kicker {background:#224831;color:#cbf5da;}
+@media (max-width:1120px) {
+ .xp-home .xp-workspace {grid-template-columns:190px minmax(0,1fr);gap:9px;padding:10px 11px 3px;}
+ .xp-home .navbar .logo {font-size:17px;}
+ .xp-home .navbar nav a {padding:8px 6px;font-size:10px;}
+ .xp-nav-icon {font-size:13px;margin-right:3px;}
+ .xp-home .xp-heading {font-size:clamp(19px,2.7vw,30px);}
+}
+@media (max-width:920px) {
+ .xp-home .navbar {width:calc(100% - 24px);margin:0 12px;min-height:59px;}
+ .xp-home .xp-mobile-menu {margin-left:auto;}
+ .xp-home .navbar nav a {font-size:12px;padding:9px;}
+ .xp-home .xp-workspace {grid-template-columns:minmax(0,1fr);}
+ .xp-sidebar {display:none;}
+ .xp-home .hero {grid-template-columns:minmax(0,1.05fr) minmax(210px,.95fr);}
+ .xp-home .hero-content {padding:17px 0;}
+ .xp-home .xp-heading {font-size:clamp(19px,3.3vw,30px);}
+}
+@media (max-width:700px) {
+ .xp-browser-chrome {margin:0 5px;}
+ .xp-browser-title-suffix,.xp-browser-arrows {display:none;}
+ .xp-browser-tools {gap:5px;padding:5px;}
+ .xp-address {gap:5px;}
+ .xp-address>span:first-child {display:none;}
+ .xp-home .navbar {width:calc(100% - 10px);margin:0 5px;padding:8px 10px;}
+ .xp-home .xp-workspace {padding:7px 6px;}
+ .xp-home main {gap:10px;}
+ .xp-home .xp-window {padding:0 13px 13px;}
+ .xp-home .xp-titlebar {margin:0 -13px;}
+ .xp-home .xp-toolbar {margin:0 -13px;}
+ .xp-home .xp-statusbar {margin:8px -13px -13px;}
+ .xp-home .hero {grid-template-columns:1fr;}
+ .xp-home .hero-content {padding:19px 4px 5px;}
+ .xp-home .xp-heading {font-size:clamp(20px,5.9vw,34px);}
+ .xp-home .hero-image {margin:8px auto 23px;max-width:330px;}
+ .xp-photo-note {right:-6px;bottom:20px;}
+ .xp-home .specialty-grid {grid-template-columns:1fr;}
+ .xp-home .tools-list {grid-template-columns:repeat(2,minmax(0,1fr));}
+ .xp-home .testimonial-window {padding-bottom:16px;}
+ .xp-home .testimonials-grid {grid-template-columns:1fr;}
+ .xp-home .retro-footer {margin:7px 6px 14px;width:calc(100% - 12px);}
+ .xp-taskbar {height:44px;gap:4px;}
+ .xp-start {min-width:79px;padding:0 7px;font-size:13px;}
+ .xp-tray {padding:0 7px;gap:4px;}
+ .xp-tray span {display:none;}
+ .xp-taskbar-windows button {min-width:52px;flex-basis:90px;padding:7px 5px;font-size:10px;}
+ .xp-start-menu {bottom:44px;}
+}
+@media (max-width:380px) {
+ .xp-home .xp-heading {font-size:18px;}
+ .xp-browser-title {font-size:10px;}
+ .xp-taskbar-windows button {min-width:44px;font-size:9px;}
+ .xp-tray {font-size:10px;}
+}
+@media (prefers-reduced-motion:reduce) { .xp-home *, .xp-taskbar * {scroll-behavior:auto !important;transition:none !important;} }
