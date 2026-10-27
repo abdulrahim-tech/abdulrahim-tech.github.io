@@ -1,99 +1,89 @@
-@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap");
 
-/* ===========================================================
-   RAHIM SEO | WINDOWS XP LUNA
-   Global replacement stylesheet
-   Shared design system and homepage styles in one file.
-   =========================================================== */
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap");
 
-/* ===========================================================
-   01. WINDOWS XP DESIGN TOKENS
-   =========================================================== */
+/* ========================================
+   RAHIM SEO â€” GLOBAL DESIGN SYSTEM
+   Chromatic / Atmospheric / Editorial
+======================================== */
 
-:root,
-html[data-theme="light"] {
-    color-scheme: light;
+/* ========================================
+   01. DESIGN TOKENS
+======================================== */
 
-    --font-heading: Tahoma, "Trebuchet MS", Verdana, sans-serif;
-    --font-body: Tahoma, Verdana, sans-serif;
+:root {
+    color-scheme: dark;
+
+    --verse-bg: #080b20;
+    --verse-text: #f5f3ff;
+    --verse-muted: #b4b8d3;
+
+    --verse-pink: #ff397c;
+    --verse-cyan: #39dcff;
+    --verse-purple: #894aff;
+
+    --verse-surface: #14162e;
+    --verse-line: rgba(150, 150, 210, .28);
+
+    --font-heading: "Barlow Condensed", sans-serif;
+    --font-body: "DM Sans", sans-serif;
 
     --site-width: 1440px;
     --site-padding: clamp(20px, 5vw, 70px);
 
-    /* Windows XP Luna */
-    --xp-desktop: #e8effa;
-    --xp-shell: #ece9d8;
-    --xp-window: #ffffff;
-    --xp-window-soft: #f6f8fc;
-    --xp-text: #172647;
-    --xp-secondary: #4e6182;
-    --xp-border: #91b1d7;
-    --xp-border-strong: #3975c1;
-    --xp-blue: #1763bd;
-    --xp-blue-hover: #2679dd;
-    --xp-blue-deep: #0a3e97;
-    --xp-green: #4f9f34;
-    --xp-green-dark: #2f741c;
-    --xp-title-start: #0647b5;
-    --xp-title-mid: #1269e5;
-    --xp-title-end: #338cf0;
-    --xp-shadow: rgba(27, 59, 121, 0.18);
-    --xp-focus: #ef9e25;
+    /* Compatibility aliases for existing page CSS */
 
-    /* Shared semantic aliases for additional pages. */
-    --bg: var(--xp-desktop);
-    --bg-card: var(--xp-window);
-    --bg-card-hover: #edf4ff;
-    --text: var(--xp-text);
-    --text-secondary: var(--xp-secondary);
-    --text-muted: var(--xp-secondary);
-    --border: var(--xp-border);
-    --border-hover: var(--xp-blue);
-    --cyan: var(--xp-blue-hover);
-    --pink: var(--xp-blue);
-    --purple: var(--xp-blue-deep);
-    --green: var(--xp-green);
-    --yellow: #f1c94b;
-    --shadow-color: var(--xp-shadow);
+    --bg: var(--verse-bg);
+    --bg-card: var(--verse-surface);
+    --bg-card-hover: #1d2040;
 
-    /* Retain distinct series colors for case study charts. */
-    --chart-main: #1b70c9;
-    --chart-blog: #54a13c;
-    --chart-activity: #ef9b24;
+    --text: var(--verse-text);
+    --text-secondary: var(--verse-muted);
+    --text-muted: var(--verse-muted);
+
+    --border: var(--verse-line);
+    --border-hover: var(--verse-cyan);
+
+    --cyan: var(--verse-cyan);
+    --pink: var(--verse-pink);
+    --purple: var(--verse-purple);
+
+    --shadow-color: rgba(0, 0, 0, .3);
+
+    --chart-main: #39dcff;
+    --chart-blog: #ff397c;
+    --chart-activity: #894aff;
 }
 
-/* Royale Noir: a darker XP-inspired setting for existing theme toggle. */
-html[data-theme="dark"] {
-    color-scheme: dark;
+/* ========================================
+   02. LIGHT THEME
+======================================== */
 
-    --xp-desktop: #16233b;
-    --xp-shell: #25344d;
-    --xp-window: #263852;
-    --xp-window-soft: #30435f;
-    --xp-text: #f4f7ff;
-    --xp-secondary: #c3d0e5;
-    --xp-border: #526e98;
-    --xp-border-strong: #7aa8ec;
-    --xp-blue: #80b7ff;
-    --xp-blue-hover: #a5d0ff;
-    --xp-blue-deep: #6ca2f8;
-    --xp-green: #8acb69;
-    --xp-green-dark: #67a549;
-    --xp-title-start: #112e67;
-    --xp-title-mid: #23569a;
-    --xp-title-end: #396fa8;
-    --xp-shadow: rgba(0, 0, 0, 0.38);
-    --xp-focus: #ffca61;
+html[data-theme="light"] {
+    color-scheme: light;
 
-    --bg-card-hover: #344e70;
-    --chart-main: #78b7ff;
-    --chart-blog: #8bd26c;
-    --chart-activity: #ffbe65;
+    --verse-bg: #f0e7f8;
+    --verse-text: #17112f;
+    --verse-muted: #514c6e;
+
+    --verse-pink: #e80065;
+    --verse-cyan: #007da8;
+    --verse-purple: #7543d9;
+
+    --verse-surface: #e4d9f4;
+    --verse-line: rgba(60, 40, 100, .23);
+
+    --bg-card-hover: #ddd0f1;
+
+    --shadow-color: rgba(40, 25, 75, .15);
+
+    --chart-main: #39dcff;
+    --chart-blog: #ff397c;
+    --chart-activity: #894aff;
 }
 
-/* ===========================================================
-   02. RESET AND BASE
-   =========================================================== */
+/* ========================================
+   03. RESET
+======================================== */
 
 *,
 *::before,
@@ -109,22 +99,18 @@ html {
 
 body {
     min-width: 320px;
-    min-height: 100vh;
     margin: 0;
-    color: var(--xp-text);
-    background-color: var(--xp-desktop);
-    background-image: linear-gradient(
-        180deg,
-        color-mix(in srgb, var(--xp-title-end) 13%, var(--xp-desktop)) 0,
-        var(--xp-desktop) 420px
-    );
+
+    color: var(--verse-text);
+    background: var(--verse-bg);
+
     font-family: var(--font-body);
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.65;
-    -webkit-font-smoothing: auto;
-    -moz-osx-font-smoothing: auto;
-    transition: background-color .2s ease, color .2s ease;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.7;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body,
@@ -150,7 +136,7 @@ img {
 }
 
 a {
-    color: var(--xp-blue);
+    color: inherit;
 }
 
 button,
@@ -191,10 +177,9 @@ h3,
 h4,
 h5,
 h6 {
-    color: var(--xp-text);
     font-family: var(--font-heading);
-    font-weight: 700;
-    letter-spacing: -.025em;
+    font-weight: 900;
+    letter-spacing: -.045em;
 }
 
 p {
@@ -202,26 +187,31 @@ p {
 }
 
 ::selection {
-    color: #fff;
-    background: #245ed0;
+    color: #080b20;
+    background: #39dcff;
 }
 
 :focus-visible {
-    outline: 2px solid var(--xp-focus);
-    outline-offset: 3px;
+    outline: 2px solid var(--verse-cyan);
+    outline-offset: 5px;
 }
 
-/* ===========================================================
-   03. SHARED PAGE WRAPPER
-   =========================================================== */
+/* ========================================
+   04. SHARED PAGE WRAPPER
+======================================== */
 
 .effect {
     position: relative;
     min-height: 100vh;
+
     opacity: 1;
     visibility: visible;
+
     background: transparent;
 }
+
+/* No global animation is applied to .effect.
+   Page-specific intro files control entrances. */
 
 main {
     display: block;
@@ -233,208 +223,222 @@ article {
     min-width: 0;
 }
 
-/* ===========================================================
-   04. XP NAVIGATION / EXPLORER TOOLBAR
-   =========================================================== */
+/* ========================================
+   05. NAVIGATION
+======================================== */
 
 .navbar {
     position: relative;
     z-index: 100;
+
     display: flex;
     align-items: center;
-    gap: 18px;
-    width: min(var(--site-width), calc(100% - 24px));
+    gap: 30px;
+
+    width: 100%;
     max-width: var(--site-width);
-    margin: 12px auto 0;
-    padding: 11px 16px;
-    color: #fff;
-    background: linear-gradient(
-        180deg,
-        var(--xp-title-end) 0%,
-        var(--xp-title-mid) 18%,
-        var(--xp-title-start) 88%,
-        #073b92 100%
-    );
-    border: 1px solid #154c9a;
-    border-radius: 9px 9px 5px 5px;
-    box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, .5),
-        inset 0 -1px 0 rgba(0, 25, 79, .45),
-        0 3px 8px var(--xp-shadow);
+
+    margin: 0 auto;
+    padding: 22px var(--site-padding);
+
+    color: var(--verse-text);
+    background: transparent;
+
+    border: 0;
+    border-bottom: 1px solid var(--verse-line);
+
+    box-shadow: none;
 }
+
+/* Logo */
 
 .logo {
     display: inline-flex;
     align-items: center;
     gap: 10px;
+
     flex-shrink: 0;
     margin-right: auto;
-    color: #fff;
+
+    color: var(--verse-text);
+
     font-family: var(--font-heading);
-    font-size: 21px;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -.02em;
+    font-size: 25px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -.03em;
+
     text-decoration: none;
-    text-transform: none;
-    text-shadow: 0 1px 1px rgba(0, 30, 85, .45);
+    text-transform: uppercase;
 }
 
 .logo img {
     display: block;
-    width: 40px;
-    height: 40px;
+
+    width: 42px;
+    height: 42px;
+
     flex-shrink: 0;
+
     object-fit: cover;
     image-rendering: auto;
-    border: 2px solid rgba(255, 255, 255, .95);
-    border-radius: 6px;
-    box-shadow: 0 1px 3px rgba(0, 10, 55, .5);
+
+    border: 0;
+    border-radius: 50%;
+
+    box-shadow:
+        -2px 0 var(--verse-cyan),
+         2px 0 var(--verse-pink);
 }
 
 .logo:hover,
 .logo:focus-visible {
-    color: #fff;
-    text-decoration: underline;
+    color: var(--verse-cyan);
 }
+
+/* Navigation links */
 
 .navbar nav {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: 5px;
+    gap: 24px;
+
     min-width: 0;
 }
 
 .navbar nav a {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    min-height: 33px;
-    padding: 7px 11px;
-    color: #fff;
+
+    padding: 5px 0;
+
+    color: var(--verse-muted);
     background: transparent;
-    border: 1px solid transparent;
-    border-radius: 4px;
+
+    border: 0;
     box-shadow: none;
+
     font-family: var(--font-body);
     font-size: 12px;
-    font-weight: 700;
-    line-height: 1.3;
-    letter-spacing: 0;
+    font-weight: 800;
+    line-height: 1.4;
+    letter-spacing: .04em;
+
     text-decoration: none;
-    text-transform: none;
+    text-transform: uppercase;
     white-space: nowrap;
-    text-shadow: 0 1px 1px rgba(0, 30, 85, .5);
-    transition: background-color .15s ease, border-color .15s ease;
+
+    transition: color .2s ease;
 }
 
 .navbar nav a:hover,
-.navbar nav a:focus-visible {
-    color: #fff;
-    background: rgba(255, 255, 255, .16);
-    border-color: rgba(255, 255, 255, .4);
-}
-
+.navbar nav a:focus-visible,
 .navbar nav a[aria-current="page"] {
-    color: #143e7d;
-    background: linear-gradient(#fff, #dbeaff);
-    border-color: #8da9d8;
-    text-shadow: none;
-    box-shadow: inset 0 1px 0 #fff;
+    color: var(--verse-pink);
 }
 
-/* ===========================================================
-   05. THEME TOGGLE / XP CONTROL
-   =========================================================== */
+/* ========================================
+   06. THEME TOGGLE
+======================================== */
 
 .theme-toggle {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
+
     flex-shrink: 0;
-    min-height: 33px;
-    padding: 6px 12px;
-    color: #183a6d;
-    background: linear-gradient(180deg, #fff 0%, #f1f6ff 48%, #c9dcf7 100%);
-    border: 1px solid #7a9ac5;
-    border-radius: 5px;
-    box-shadow: inset 0 1px 0 #fff, 0 1px 1px rgba(0, 20, 70, .2);
+
+    min-height: 36px;
+    padding: 8px 12px;
+
+    color: var(--verse-text);
+    background: transparent;
+
+    border: 1px solid var(--verse-purple);
+    border-radius: 0;
+
+    box-shadow: none;
+
     font-family: var(--font-body);
-    font-size: 12px;
-    font-weight: 700;
+    font-size: 11px;
+    font-weight: 800;
     line-height: 1.3;
-    letter-spacing: 0;
+    letter-spacing: .05em;
+
     white-space: nowrap;
+
     cursor: pointer;
-    transition: filter .15s ease, transform .15s ease;
+
+    transition:
+        color .2s ease,
+        border-color .2s ease,
+        background .2s ease;
 }
 
 .theme-toggle:hover,
 .theme-toggle:focus-visible {
-    color: #13366a;
-    background: linear-gradient(180deg, #fffef7 0%, #ffedb8 100%);
-    border-color: #ce8e22;
-    box-shadow: inset 0 1px 0 #fff, 0 1px 3px rgba(0, 20, 70, .25);
+    color: var(--verse-cyan);
+    background: rgba(137, 74, 255, .07);
+    border-color: var(--verse-cyan);
+
+    box-shadow: none;
 }
 
-.theme-toggle:active {
-    transform: translateY(1px);
-}
+/* Compatibility for older toggle markup */
 
 .theme-toggle-track {
     position: relative;
+
     display: inline-block;
-    width: 36px;
-    height: 19px;
-    background: #b7d0ed;
-    border: 1px solid #6e91c3;
-    border-radius: 10px;
-    box-shadow: inset 0 1px 2px rgba(15, 43, 88, .28);
+
+    width: 35px;
+    height: 18px;
+
+    background: var(--verse-surface);
+    border: 1px solid var(--verse-purple);
+    border-radius: 20px;
 }
 
 .theme-toggle-thumb {
     position: absolute;
     top: 2px;
     left: 2px;
-    width: 13px;
-    height: 13px;
-    background: linear-gradient(180deg, #fff, #d9e8f7);
-    border: 1px solid #7296bd;
+
+    width: 12px;
+    height: 12px;
+
+    background: var(--verse-cyan);
     border-radius: 50%;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+
     transition: transform .2s ease;
 }
 
 html[data-theme="light"] .theme-toggle-thumb {
     transform: translateX(17px);
-    background: linear-gradient(#f4ffe6, #8ec977);
-    border-color: #528f32;
+    background: var(--verse-pink);
 }
 
 .theme-toggle-label {
     display: inline-block;
 }
 
-/* ===========================================================
-   06. TYPE / XP LABELS
-   =========================================================== */
+/* ========================================
+   07. TYPOGRAPHY
+======================================== */
 
 .eyebrow {
-    display: inline-block;
-    margin: 0 0 20px;
-    padding: 5px 10px;
-    color: #fff;
-    background: linear-gradient(180deg, var(--xp-title-end), var(--xp-title-start));
-    border: 1px solid var(--xp-blue-deep);
-    border-radius: 4px;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35);
+    margin: 0 0 24px;
+
+    color: var(--verse-cyan);
+
     font-family: var(--font-body);
     font-size: 11px;
-    font-weight: 700;
-    line-height: 1.35;
-    letter-spacing: .025em;
+    font-weight: 800;
+    line-height: 1.5;
+    letter-spacing: .16em;
+
     text-transform: uppercase;
 }
 
@@ -443,20 +447,18 @@ html[data-theme="light"] .theme-toggle-thumb {
     content: none;
 }
 
-.xp-heading {
+.verse-heading {
     margin: 0;
-    color: var(--xp-text);
-    font-family: var(--font-heading);
-    font-size: clamp(48px, 8vw, 116px);
-    font-weight: 700;
-    line-height: .98;
-    letter-spacing: -.055em;
-    text-transform: none;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
-}
 
-html[data-theme="dark"] .xp-heading {
-    text-shadow: none;
+    color: var(--verse-text);
+
+    font-family: var(--font-heading);
+    font-size: clamp(75px, 10vw, 160px);
+    font-weight: 900;
+    line-height: .82;
+    letter-spacing: -.065em;
+
+    text-transform: uppercase;
 }
 
 .heading-line {
@@ -465,128 +467,144 @@ html[data-theme="dark"] .xp-heading {
 }
 
 .period {
-    color: var(--xp-green);
+    color: var(--verse-pink);
 }
 
 .section-description {
-    color: var(--xp-secondary);
-    font-size: 15px;
+    color: var(--verse-muted);
+    font-size: 16px;
     line-height: 1.8;
 }
 
-/* ===========================================================
-   07. XP BUTTONS
-   =========================================================== */
+/* ========================================
+   08. SHARED BUTTONS
+======================================== */
 
 .button {
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
-    gap: 18px;
-    min-height: 42px;
-    padding: 10px 17px;
-    color: #17355c;
-    background: linear-gradient(180deg, #fff 0%, #f5f9ff 43%, #d9e7fb 100%);
-    border: 1px solid #7294bf;
-    border-radius: 5px;
-    box-shadow: inset 0 1px 0 #fff, 0 1px 2px rgba(24, 65, 123, .16);
+    gap: 25px;
+
+    min-height: 49px;
+    padding: 15px 20px;
+
+    color: var(--verse-text);
+    background: transparent;
+
+    border: 1px solid var(--verse-purple);
+    border-radius: 0;
+
+    box-shadow: none;
+
     font-family: var(--font-body);
     font-size: 12px;
-    font-weight: 700;
+    font-weight: 800;
     line-height: 1.3;
-    letter-spacing: 0;
+    letter-spacing: .06em;
+
     text-decoration: none;
-    text-transform: none;
+    text-transform: uppercase;
+
     cursor: pointer;
-    transition: border-color .15s ease, filter .15s ease, transform .15s ease;
+
+    transition:
+        transform .2s ease,
+        background .2s ease,
+        color .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease;
 }
 
 .button.primary {
     color: #fff;
-    background: linear-gradient(180deg, #8dd66a 0%, #4da83b 47%, #328321 100%);
-    border-color: #317522;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), 0 2px 3px rgba(30, 76, 28, .24);
-    text-shadow: 0 1px 1px rgba(23, 81, 19, .5);
+    background: var(--verse-pink);
+
+    border-color: var(--verse-pink);
+
+    box-shadow: 4px 4px 0 var(--verse-cyan);
 }
 
 .button.secondary {
-    color: #17355c;
-    background: linear-gradient(180deg, #fff, #dceafd);
-    border-color: #7294bf;
+    color: var(--verse-text);
+    background: transparent;
+
+    border-color: var(--verse-purple);
 }
 
 .button:hover,
 .button:focus-visible {
-    transform: none;
-    filter: brightness(1.045);
-    border-color: #e4a038;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .75), 0 0 0 2px rgba(246, 175, 52, .18);
-}
+    transform: translateY(-4px);
 
-.button:active {
-    transform: translateY(1px);
-    filter: brightness(.95);
+    border-color: var(--verse-cyan);
+
+    box-shadow: 4px 4px 0 var(--verse-cyan);
 }
 
 .button span {
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1;
 }
 
-/* ===========================================================
-   08. WINDOW SURFACES / PANELS
-   =========================================================== */
+/* ========================================
+   09. COMMON SURFACES
+======================================== */
 
 .card,
 .panel {
     min-width: 0;
-    color: var(--xp-text);
-    background: linear-gradient(180deg, var(--xp-window) 0%, var(--xp-window-soft) 100%);
-    border: 1px solid var(--xp-border);
-    border-top: 5px solid var(--xp-border-strong);
-    border-radius: 7px;
-    box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, .45),
-        0 3px 11px var(--xp-shadow);
+
+    color: var(--verse-text);
+    background: var(--verse-surface);
+
+    border: 1px solid var(--verse-line);
+    border-radius: 0;
+
+    box-shadow: none;
 }
 
 .divider {
     width: 100%;
     height: 1px;
-    background: var(--xp-border);
+
+    background: var(--verse-line);
     border: 0;
 }
 
-/* ===========================================================
-   09. FORMS / CLASSIC XP INPUT FIELDS
-   =========================================================== */
+/* ========================================
+   10. SHARED FORM ELEMENTS
+======================================== */
 
 input,
 textarea,
 select {
     max-width: 100%;
-    color: var(--xp-text);
-    background: var(--xp-window);
-    border: 1px solid var(--xp-border-strong);
-    border-radius: 3px;
-    box-shadow: inset 1px 1px 2px rgba(10, 35, 80, .12);
+
+    color: var(--verse-text);
+    background: var(--verse-surface);
+
+    border: 1px solid var(--verse-line);
+    border-radius: 0;
+
     font-family: var(--font-body);
-    font-size: 13px;
-    transition: border-color .15s ease, box-shadow .15s ease;
+    font-size: 15px;
+
+    transition:
+        border-color .2s ease,
+        background .2s ease;
 }
 
 input:focus,
 textarea:focus,
 select:focus {
-    border-color: var(--xp-blue-hover);
-    outline: 1px solid var(--xp-focus);
-    outline-offset: 1px;
-    box-shadow: inset 1px 1px 2px rgba(10, 35, 80, .12), 0 0 0 2px rgba(73, 135, 218, .12);
+    border-color: var(--verse-cyan);
+    outline: 1px solid var(--verse-cyan);
+    outline-offset: 2px;
 }
 
 input::placeholder,
 textarea::placeholder {
-    color: var(--xp-secondary);
+    color: var(--verse-muted);
     opacity: .8;
 }
 
@@ -594,24 +612,23 @@ textarea {
     resize: vertical;
 }
 
-/* ===========================================================
-   10. XP-STYLE FOOTER / STATUS AREA
-   =========================================================== */
+/* ========================================
+   11. SHARED FOOTER
+======================================== */
 
 .retro-footer {
     position: relative;
-    width: min(var(--site-width), calc(100% - 24px));
-    margin: 28px auto 12px;
-    padding: 23px var(--site-padding);
-    color: #fff;
-    background: linear-gradient(180deg,
-        var(--xp-title-end) 0%,
-        var(--xp-title-mid) 19%,
-        var(--xp-title-start) 100%
-    );
-    border: 1px solid #164891;
-    border-radius: 5px 5px 9px 9px;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35), 0 2px 8px var(--xp-shadow);
+
+    width: 100%;
+    margin-top: 0;
+    padding: 40px var(--site-padding);
+
+    color: var(--verse-muted);
+    background: rgba(0, 0, 0, .12);
+
+    border: 0;
+    border-top: 1px solid var(--verse-line);
+
     font-family: var(--font-body);
     font-size: 12px;
 }
@@ -620,10 +637,13 @@ textarea {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 19px;
+    gap: 25px;
+
     width: 100%;
     max-width: var(--site-width);
+
     margin: 0 auto;
+
     text-align: center;
 }
 
@@ -632,35 +652,40 @@ textarea {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 7px 12px;
+    gap: 14px 25px;
 }
 
 .footer-nav a {
     display: inline-flex;
     align-items: center;
-    padding: 5px 9px;
-    color: #fff;
+
+    padding: 0;
+
+    color: var(--verse-text);
     background: transparent;
-    border: 1px solid transparent;
-    border-radius: 4px;
+
+    border: 0;
     box-shadow: none;
+
     font-family: var(--font-body);
     font-size: 12px;
-    font-weight: 700;
+    font-weight: 800;
     line-height: 1.5;
-    letter-spacing: 0;
+    letter-spacing: .08em;
+
     text-decoration: none;
-    text-transform: none;
-    transition: background-color .15s ease;
+    text-transform: uppercase;
+
+    transition: color .2s ease;
 }
 
 .footer-nav a:hover,
 .footer-nav a:focus-visible,
 .footer-nav a[aria-current="page"] {
-    color: #fff;
-    background: rgba(255, 255, 255, .19);
-    border-color: rgba(255, 255, 255, .33);
+    color: var(--verse-pink);
 }
+
+/* Footer social links */
 
 .footer-contact {
     display: flex;
@@ -676,18 +701,24 @@ textarea {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    color: #fff;
+
+    color: var(--verse-text);
     background: transparent;
+
     border: 0;
     box-shadow: none;
+
     text-decoration: none;
-    transition: color .15s ease, transform .15s ease;
+
+    transition:
+        color .2s ease,
+        transform .2s ease;
 }
 
 .footer-link:hover,
 .footer-link-icon:hover {
-    color: #dff8c9;
-    transform: none;
+    color: var(--verse-cyan);
+    transform: translateY(-2px);
 }
 
 .footer-link-icon {
@@ -701,7 +732,9 @@ textarea {
     display: block;
     width: 20px;
     height: 20px;
+
     fill: currentColor;
+
     image-rendering: auto;
 }
 
@@ -712,146 +745,170 @@ textarea {
 
 .footer-copy {
     margin: 0;
-    color: rgba(255, 255, 255, .82);
+
+    color: var(--verse-muted);
+
     font-family: var(--font-body);
-    font-size: 11px;
-    font-weight: 400;
+    font-size: 12px;
+    font-weight: 500;
     line-height: 1.5;
 }
 
-/* ===========================================================
-   12. TABLET NAVIGATION
-   =========================================================== */
+/* ========================================
+   12. SHARED ATMOSPHERIC ELEMENTS
+======================================== */
+
+.verse-atmosphere,
+.cta-atmosphere {
+    pointer-events: none;
+}
+
+.verse-orb {
+    pointer-events: none;
+}
+
+.hero-background-word {
+    pointer-events: none;
+    user-select: none;
+}
+
+/* ========================================
+   13. TABLET NAVIGATION
+======================================== */
 
 @media (max-width: 1050px) {
+
     .navbar {
         flex-wrap: wrap;
-        gap: 12px;
+        gap: 18px;
     }
 
     .navbar nav {
         width: 100%;
+
         justify-content: flex-start;
         flex-wrap: wrap;
-        gap: 5px;
+
+        gap: 12px 22px;
     }
+
 }
 
-/* ===========================================================
-   13. MOBILE
-   =========================================================== */
+/* ========================================
+   14. MOBILE FOUNDATION
+======================================== */
 
 @media (max-width: 767px) {
+
     :root {
         --site-padding: 20px;
     }
 
     .navbar {
-        width: calc(100% - 16px);
-        margin-top: 8px;
-        padding: 12px;
-        gap: 12px;
-        border-radius: 8px;
+        padding: 18px 20px;
+        gap: 15px;
     }
 
     .logo {
-        font-size: 18px;
+        font-size: 23px;
     }
 
     .logo img {
-        width: 36px;
-        height: 36px;
+        width: 38px;
+        height: 38px;
     }
 
     .navbar nav {
-        gap: 3px;
+        gap: 12px 18px;
     }
 
     .navbar nav a {
-        min-height: 32px;
-        padding: 7px 9px;
         font-size: 11px;
     }
 
     .theme-toggle {
-        min-height: 32px;
-        padding: 6px 9px;
-        font-size: 11px;
+        min-height: 34px;
+        padding: 8px 10px;
+        font-size: 10px;
     }
 
     .eyebrow {
         font-size: 10px;
-    }
-
-    .xp-heading {
-        font-size: clamp(43px, 10vw, 70px);
+        letter-spacing: .12em;
     }
 
     .button {
-        min-height: 42px;
-        padding: 10px 14px;
+        min-height: 46px;
+        padding: 13px 16px;
     }
 
     .retro-footer {
-        width: calc(100% - 16px);
-        margin: 16px auto 8px;
-        padding: 25px 16px;
+        padding: 35px 20px;
     }
 
     .footer-container {
-        gap: 16px;
+        gap: 22px;
     }
 
     .footer-nav {
-        gap: 4px;
+        gap: 12px 18px;
     }
 
     .footer-nav a {
         font-size: 11px;
     }
+
 }
 
+/* ========================================
+   15. SMALL MOBILE
+======================================== */
+
 @media (max-width: 380px) {
+
     :root {
         --site-padding: 16px;
     }
 
     .navbar {
-        padding: 10px;
+        padding: 16px;
     }
 
     .logo {
-        font-size: 17px;
+        font-size: 21px;
     }
 
     .logo img {
-        width: 34px;
-        height: 34px;
+        width: 35px;
+        height: 35px;
+    }
+
+    .navbar nav {
+        gap: 10px 14px;
     }
 
     .navbar nav a {
         font-size: 10px;
-        padding-inline: 7px;
     }
 
     .retro-footer {
-        padding-inline: 12px;
+        padding-inline: 16px;
     }
+
 }
 
-/* ===========================================================
-   14. ACCESSIBILITY
-   =========================================================== */
+/* ========================================
+   16. ACCESSIBILITY
+======================================== */
 
 @media (prefers-reduced-motion: reduce) {
+
     html {
         scroll-behavior: auto;
     }
 
-    body,
     .navbar a,
     .theme-toggle,
-    .theme-toggle-thumb,
     .button,
     .footer-nav a,
     .footer-link,
@@ -859,665 +916,215 @@ textarea {
     input,
     textarea,
     select {
-        transition: none !important;
+        transition: none;
+    }
+
+}
+
+
+/* =========================================
+   FULL-SCREEN THEME SWITCH GLITCH
+========================================= */
+
+html.theme-glitching body {
+    animation: theme-screen-glitch 650ms steps(1, end) both;
+    will-change: transform, filter;
+}
+
+/* Full-screen glitch overlays */
+
+html.theme-glitching::before,
+html.theme-glitching::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2147483647;
+}
+
+/* RGB scanline distortion */
+
+html.theme-glitching::before {
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            transparent 9px,
+            rgba(0, 229, 255, 0.16) 10px,
+            transparent 12px,
+            rgba(255, 0, 120, 0.12) 14px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(0, 229, 255, 0.22),
+            transparent 38%,
+            rgba(255, 0, 120, 0.2)
+        );
+
+    mix-blend-mode: difference;
+    animation: theme-scanlines 650ms steps(1, end) both;
+}
+
+/* Horizontal screen tearing */
+
+html.theme-glitching::after {
+    background: linear-gradient(
+        90deg,
+        rgba(0, 229, 255, 0.65) 0%,
+        transparent 30%,
+        rgba(255, 0, 120, 0.65) 65%,
+        transparent 100%
+    );
+
+    mix-blend-mode: screen;
+    animation: theme-screen-tear 650ms steps(1, end) both;
+}
+
+/* Entire-page displacement */
+
+@keyframes theme-screen-glitch {
+    0%, 100% {
+        transform: translate(0, 0);
+        filter: none;
+    }
+
+    8% {
+        transform: translate(-7px, 2px) skewX(-0.5deg);
+        filter: hue-rotate(35deg) contrast(1.35);
+    }
+
+    15% {
+        transform: translate(6px, -2px);
+        filter: hue-rotate(-45deg);
+    }
+
+    24% {
+        transform: translate(-10px, 0);
+        filter: saturate(2.5) contrast(1.5);
+    }
+
+    33% {
+        transform: translate(3px, 2px);
+        filter: brightness(1.5);
+    }
+
+    43% {
+        transform: translate(-5px, -1px);
+        filter: hue-rotate(75deg);
+    }
+
+    55% {
+        transform: translate(8px, 0);
+        filter: contrast(1.8) saturate(0.5);
+    }
+
+    68% {
+        transform: translate(-3px, 1px);
+        filter: brightness(1.25);
+    }
+
+    80% {
+        transform: translate(2px, 0);
+        filter: saturate(1.3);
+    }
+
+    90% {
+        transform: translate(-1px, 0);
+        filter: none;
+    }
+}
+
+/* Scanline bursts */
+
+@keyframes theme-scanlines {
+    0%, 100% {
+        opacity: 0;
+        transform: translateX(0);
+    }
+
+    10% {
+        opacity: 0.8;
+        transform: translateX(-12px);
+    }
+
+    20% {
+        opacity: 0.3;
+        transform: translateX(15px);
+    }
+
+    35% {
+        opacity: 0.9;
+        transform: translateX(-20px);
+    }
+
+    50% {
+        opacity: 0.4;
+        transform: translateX(10px);
+    }
+
+    70% {
+        opacity: 0.7;
+        transform: translateX(-7px);
+    }
+
+    85% {
+        opacity: 0.15;
+        transform: translateX(3px);
+    }
+}
+
+/* Moving screen slices */
+
+@keyframes theme-screen-tear {
+    0%, 100% {
+        opacity: 0;
+        clip-path: inset(100% 0 0 0);
+    }
+
+    12% {
+        opacity: 0.85;
+        clip-path: inset(12% 0 72% 0);
+        transform: translateX(-16px);
+    }
+
+    25% {
+        opacity: 0.5;
+        clip-path: inset(48% 0 38% 0);
+        transform: translateX(20px);
+    }
+
+    40% {
+        opacity: 0.9;
+        clip-path: inset(5% 0 10% 0);
+        transform: translateX(-8px);
+    }
+
+    58% {
+        opacity: 0.65;
+        clip-path: inset(65% 0 20% 0);
+        transform: translateX(14px);
+    }
+
+    75% {
+        opacity: 0.35;
+        clip-path: inset(30% 0 56% 0);
+        transform: translateX(-5px);
+    }
+
+    90% {
+        opacity: 0;
+        clip-path: inset(100% 0 0 0);
+    }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    html.theme-glitching body,
+    html.theme-glitching::before,
+    html.theme-glitching::after {
         animation: none !important;
     }
 }
-
-
-/* ===============================================================
-   WINDOWS XP LUNA | HOMEPAGE COMPONENTS
-   Homepage-specific rules are scoped to .xp-home.
-   One CSS file for shared styling AND homepage layout.
-   =============================================================== */
-
-/* Desktop-inspired wallpaper without turning the site into a fake OS */
-body.xp-home {
-    background-color: var(--xp-desktop);
-    background-image:
-        radial-gradient(ellipse 72% 28% at 90% 4%, rgba(255,255,255,.54) 0%, transparent 100%),
-        linear-gradient(180deg, color-mix(in srgb, var(--xp-title-end) 22%, var(--xp-desktop)) 0%, var(--xp-desktop) 470px);
-    background-attachment: fixed;
-}
-
-html[data-theme="dark"] body.xp-home {
-    background-image: radial-gradient(ellipse 85% 40% at 15% 0%, rgba(72,124,197,.18), transparent 90%),
-        linear-gradient(180deg, #12213c 0%, var(--xp-desktop) 530px);
-}
-
-.xp-home .effect { overflow: clip; }
-.xp-home main {
-    width: min(1260px, calc(100% - 40px));
-    margin: 23px auto 0;
-    display: grid;
-    gap: 24px;
-}
-
-/* 01. Top navigation, with native XP-style active tabs */
-.xp-home .navbar {
-    max-width: 1260px;
-    width: min(1260px, calc(100% - 40px));
-    flex-wrap: nowrap;
-    min-height: 67px;
-    margin-top: 18px;
-    padding: 11px 18px;
-    border-radius: 9px 9px 6px 6px;
-}
-.xp-home .navbar .logo { font-size: 19px; }
-.xp-home .navbar .logo img { border-radius: 5px; }
-.xp-home .navbar nav {
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    width: auto;
-    gap: 3px;
-    margin-left: auto;
-}
-.xp-home .navbar nav a { font-size: 11px; padding: 7px 9px; }
-.xp-home .navbar .theme-toggle { margin-left: 8px; font-size: 11px; }
-.xp-home .xp-mobile-menu { display: none; }
-
-/* 02. Windows, title bars, controls */
-.xp-home .xp-window {
-    position: relative;
-    min-width: 0;
-    padding: 0 34px 34px;
-    color: var(--xp-text);
-    background: var(--xp-window);
-    border: 1px solid var(--xp-border-strong);
-    border-radius: 9px 9px 7px 7px;
-    box-shadow:
-        0 6px 20px var(--xp-shadow),
-        inset 0 0 0 3px color-mix(in srgb, var(--xp-window) 80%, var(--xp-border));
-}
-.xp-home .xp-titlebar {
-    display: flex;
-    align-items: center;
-    gap: 9px;
-    min-height: 40px;
-    margin: 0 -34px 30px;
-    padding: 5px 8px 5px 12px;
-    color: #fff;
-    background: linear-gradient(180deg,
-        #62aaff 0%, var(--xp-title-end) 11%, var(--xp-title-mid) 34%,
-        var(--xp-title-start) 86%, #073d95 100%);
-    border-radius: 7px 7px 0 0;
-    border-bottom: 1px solid #07377e;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,.5);
-    font-family: Tahoma, Verdana, sans-serif;
-    font-weight: 700;
-    font-size: 13px;
-    text-shadow: 0 1px 1px rgba(0, 20, 74, .5);
-}
-html[data-theme="dark"] .xp-home .xp-titlebar {
-    background: linear-gradient(180deg, #4777b4 0%, var(--xp-title-end) 14%,
-        var(--xp-title-mid) 49%, var(--xp-title-start) 100%);
-}
-.xp-home .xp-title-icon {
-    display: grid;
-    grid-template-columns: 6px 6px;
-    gap: 1px;
-    flex: 0 0 auto;
-    padding: 2px;
-    background: rgba(255,255,255,.92);
-    border: 1px solid #2365bd;
-    border-radius: 2px;
-    box-shadow: 0 1px 1px #05356c;
-}
-.xp-home .xp-title-icon i { width: 6px; height: 6px; background: #1670e0; }
-.xp-home .xp-title-icon i:nth-child(2),
-.xp-home .xp-title-icon i:nth-child(3) { background: #5aa936; }
-.xp-home .xp-title-text { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
-.xp-home .xp-title-actions { display: flex; gap: 3px; margin-left: auto; flex-shrink: 0; }
-.xp-home .xp-title-action {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 23px;
-    height: 22px;
-    color: #fff;
-    border: 1px solid rgba(255,255,255,.86);
-    border-radius: 3px;
-    background: linear-gradient(135deg, #61aeff, #1f62c9 62%, #1550ac);
-    box-shadow: inset 0 1px 1px rgba(255,255,255,.68), 0 0 0 1px rgba(0,26,99,.25);
-    font-size: 15px;
-    line-height: 1;
-    font-weight: 700;
-}
-.xp-home .xp-title-action:last-child {
-    background: linear-gradient(135deg, #faac94, #df4224 50%, #b42313);
-}
-.xp-home .xp-toolbar {
-    grid-column: 1 / -1;
-    display: flex;
-    gap: 12px;
-    justify-content: space-between;
-    align-items: center;
-    margin: -30px -34px 0;
-    padding: 9px 20px;
-    color: var(--xp-text);
-    background: linear-gradient(180deg, var(--xp-window) 0%, var(--xp-shell) 100%);
-    border-bottom: 1px solid var(--xp-border);
-    font-size: 12px;
-}
-.xp-home .xp-toolbar-location { color: var(--xp-blue-deep); font-weight: 700; }
-.xp-home .xp-toolbar-status { color: var(--xp-secondary); }
-.xp-home .xp-statusbar {
-    grid-column: 1 / -1;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 8px 12px;
-    margin: 6px -34px -34px;
-    padding: 9px 19px;
-    color: var(--xp-secondary);
-    background: var(--xp-shell);
-    border-top: 1px solid var(--xp-border);
-    border-radius: 0 0 6px 6px;
-    font-size: 11px;
-}
-
-/* 03. Hero: classic application layout, copy on left, photo window on right */
-.xp-home .hero {
-    display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(320px, .8fr);
-    gap: 0 38px;
-    align-items: center;
-}
-.xp-home .hero > .xp-titlebar { grid-column: 1 / -1; margin-bottom: 30px; }
-.xp-home .hero-content { min-width: 0; padding: 42px 0 43px; align-self: center; }
-.xp-home .hero .eyebrow { margin-bottom: 25px; }
-.xp-home .xp-heading {
-    margin: 0 0 25px;
-    font-family: Tahoma, Verdana, sans-serif;
-    font-size: clamp(46px, 5.25vw, 79px);
-    font-weight: 800;
-    letter-spacing: -.055em;
-    line-height: 1.04;
-    text-transform: uppercase;
-    text-shadow: none;
-}
-.xp-home .heading-line { width: auto; white-space: nowrap; }
-.xp-home .heading-shift { color: var(--xp-blue-deep); }
-.xp-home .heading-final { color: var(--xp-text); }
-.xp-home .hero-kicker {
-    width: fit-content;
-    max-width: 100%;
-    margin: 0 0 15px;
-    padding: 8px 12px 8px 13px;
-    color: var(--xp-green-dark);
-    background: color-mix(in srgb, var(--xp-green) 12%, var(--xp-window));
-    border-left: 4px solid var(--xp-green);
-    border-radius: 2px;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: .02em;
-}
-html[data-theme="dark"] .xp-home .hero-kicker { color: #c5f1a5; }
-.xp-home .hero-description { max-width: 600px; margin: 0 0 25px; color: var(--xp-secondary); font-size: 14px; line-height: 1.85; }
-.xp-home .hero-buttons { display: flex; flex-wrap: wrap; gap: 12px; margin: 0 0 26px; }
-.xp-home .hero-coordinate {
-    display: inline-block;
-    padding: 7px 0 0;
-    color: var(--xp-secondary);
-    border-top: 1px dotted var(--xp-border);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: .07em;
-}
-.xp-home .hero-image {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    width: 100%;
-    max-width: 420px;
-    min-width: 0;
-    justify-self: end;
-    margin: 34px 0;
-}
-.xp-home .hero-image-composition {
-    position: relative;
-    overflow: hidden;
-    padding: 8px;
-    background: var(--xp-shell);
-    border: 1px solid var(--xp-border-strong);
-    border-radius: 5px;
-    box-shadow: 0 3px 12px var(--xp-shadow), inset 0 1px 0 rgba(255,255,255,.7);
-}
-.xp-home .hero-image-composition::before {
-    content: 'Picture Viewer';
-    display: block;
-    margin: -8px -8px 8px;
-    padding: 7px 11px;
-    color: var(--xp-text);
-    background: linear-gradient(180deg, var(--xp-window), var(--xp-shell));
-    border-bottom: 1px solid var(--xp-border);
-    font-size: 11px;
-    font-weight: 700;
-}
-.xp-home .hero-image-composition img {
-    display: block;
-    width: 100%;
-    max-height: 428px;
-    height: auto;
-    aspect-ratio: 6 / 7;
-    object-fit: cover;
-    object-position: center;
-    border: 1px solid var(--xp-border);
-    border-radius: 2px;
-}
-.xp-home .hero-image-label {
-    display: block;
-    margin-top: 7px;
-    color: var(--xp-secondary);
-    font-size: 10px;
-    text-align: right;
-}
-.xp-home .hero-image-caption { margin-top: 10px; color: var(--xp-secondary); font-size: 10px; letter-spacing: .05em; text-align: center; }
-
-/* 04. Shared section titles aligned like XP Explorer views */
-.xp-home .section-heading,
-.xp-home .tools-heading,
-.xp-home .section-header { margin-bottom: 25px; }
-.xp-home .section-heading h2,
-.xp-home .tools-heading h2,
-.xp-home .section-header h2,
-.xp-home .cta h2 {
-    margin: 0 0 12px;
-    color: var(--xp-text);
-    font-family: Tahoma, Verdana, sans-serif;
-    font-size: clamp(26px, 3.6vw, 46px);
-    font-weight: 700;
-    line-height: 1.18;
-    letter-spacing: -.035em;
-    text-transform: none;
-}
-.xp-home .section-heading h2 span,
-.xp-home .tools-heading h2 span,
-.xp-home .section-header h2 span,
-.xp-home .cta h2 span { color: var(--xp-blue-deep); }
-.xp-home .section-description { margin: 0; color: var(--xp-secondary); font-size: 14px; }
-.xp-home .specialty-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 15px; }
-.xp-home .specialty-card,
-.xp-home .testimonial-window {
-    position: relative;
-    min-width: 0;
-    margin: 0;
-    overflow: hidden;
-    color: var(--xp-text);
-    background: var(--xp-window-soft);
-    border: 1px solid var(--xp-border);
-    border-radius: 6px;
-    box-shadow: 0 2px 7px var(--xp-shadow);
-}
-.xp-home .specialty-card { padding: 0 21px 27px; transition: border-color .15s ease, box-shadow .15s ease; }
-.xp-home .specialty-card:hover,
-.xp-home .testimonial-window:hover { border-color: var(--xp-border-strong); box-shadow: 0 4px 12px var(--xp-shadow); }
-.xp-home .specialty-card::before,
-.xp-home .testimonial-window::before {
-    content: attr(data-window);
-    display: block;
-    margin: 0 -21px 21px;
-    padding: 10px 13px;
-    color: var(--xp-blue-deep);
-    background: linear-gradient(180deg, color-mix(in srgb, var(--xp-title-end) 10%, var(--xp-window)), var(--xp-shell));
-    border-bottom: 1px solid var(--xp-border);
-    font-size: 12px;
-    font-weight: 700;
-}
-.xp-home .specialty-card .card-number { display: block; margin-bottom: 13px; color: var(--xp-secondary); font-size: 11px; font-weight: 700; }
-.xp-home .specialty-card h3 {
-    margin: 0 0 12px;
-    color: var(--xp-text);
-    font-size: clamp(20px, 2.3vw, 28px);
-    line-height: 1.2;
-    letter-spacing: -.035em;
-}
-.xp-home .specialty-card h3 br { display: none; }
-.xp-home .specialty-card h3 span { color: var(--xp-green); }
-.xp-home .specialty-card p { margin: 0; color: var(--xp-secondary); font-size: 13px; line-height: 1.8; }
-.xp-home .specialty-card .card-decoration { position: absolute; right: 19px; bottom: 10px; color: var(--xp-green); font-size: 21px; }
-
-/* 05. My Computer inspired toolkit list */
-.xp-home .tools-section { background: var(--xp-window); }
-.xp-home .tools-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
-.xp-home .tools-list span {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    min-height: 52px;
-    padding: 12px 13px;
-    color: var(--xp-text);
-    background: var(--xp-window-soft);
-    border: 1px solid var(--xp-border);
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: 700;
-    overflow-wrap: anywhere;
-    transition: background .15s ease, border-color .15s ease;
-}
-.xp-home .tools-list span::before {
-    content: '';
-    display: block;
-    width: 19px;
-    height: 15px;
-    flex: 0 0 19px;
-    background: linear-gradient(180deg, #b7e9fd, #468dcc);
-    border: 1px solid #2d659d;
-    border-radius: 2px;
-    box-shadow: inset 2px 2px rgba(255,255,255,.65), 0 2px 0 rgba(24,89,156,.15);
-}
-.xp-home .tools-list span:hover { border-color: var(--xp-blue); background: color-mix(in srgb, var(--xp-blue) 8%, var(--xp-window)); }
-.xp-home .tools-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 22px;
-    padding-top: 15px;
-    color: var(--xp-secondary);
-    border-top: 1px dashed var(--xp-border);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: .05em;
-}
-.xp-home .tools-bottom span:last-child { font-size: 20px; color: var(--xp-green); }
-
-/* 06. Comments displayed like classic window dialogs */
-.xp-home .testimonials-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-.xp-home .testimonial-window { padding: 0 21px 26px; }
-.xp-home .testimonial-window::before { margin-bottom: 20px; }
-.xp-home .testimonial-index { display: block; margin-bottom: 11px; color: var(--xp-blue-deep); font-weight: 700; font-size: 11px; }
-.xp-home .testimonial-content { margin: 0; }
-.xp-home .testimonial-quote { margin: 0 0 18px; color: var(--xp-text); font-size: clamp(20px, 2.5vw, 28px); font-weight: 700; line-height: 1.45; }
-.xp-home .testimonial-author { color: var(--xp-secondary); font-size: 12px; }
-.xp-home .testimonial-symbol { position: absolute; bottom: 10px; right: 18px; color: var(--xp-green); font-size: 19px; }
-
-/* 07. Closing help window */
-.xp-home .cta { padding-bottom: 44px; background: var(--xp-window); }
-.xp-home .cta > .eyebrow { margin-top: 6px; }
-.xp-home .cta h2 { max-width: 780px; font-size: clamp(29px, 4.2vw, 57px); margin: 0 0 25px; }
-.xp-home .cta .button { margin-bottom: 26px; }
-.xp-home .cta-endnote { display: block; color: var(--xp-secondary); font-size: 11px; letter-spacing: .05em; }
-.xp-home .retro-footer { max-width: 1260px; width: min(1260px, calc(100% - 40px)); margin-top: 24px; margin-bottom: 18px; }
-
-/* 08. Tablet responsive - keep real reading order */
-@media (max-width: 1120px) {
-    .xp-home .navbar .logo { font-size: 16px; }
-    .xp-home .navbar nav a { padding: 7px 6px; font-size: 10px; }
-    .xp-home .navbar .theme-toggle { font-size: 10px; padding-inline: 8px; }
-    .xp-home .hero { gap: 0 24px; grid-template-columns: minmax(0, 1.15fr) minmax(265px, .85fr); }
-    .xp-home .xp-heading { font-size: clamp(43px, 5vw, 65px); }
-    .xp-home .tools-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-}
-
-@media (max-width: 920px) {
-    .xp-home .navbar { width: calc(100% - 24px); margin-top: 12px; flex-wrap: wrap; padding: 10px 12px; gap: 10px; }
-    .xp-home .navbar .logo { font-size: 17px; }
-    .xp-home .xp-mobile-menu {
-        display: inline-flex;
-        align-items: center;
-        gap: 7px;
-        margin-left: auto;
-        padding: 7px 12px;
-        color: #163a6c;
-        background: linear-gradient(180deg, #fff, #d6e7fd);
-        border: 1px solid #7fa1c8;
-        border-radius: 4px;
-        font-size: 12px;
-        font-weight: 700;
-    }
-    .xp-home .xp-menu-icon { font-size: 16px; line-height: 1; }
-    .xp-home .navbar nav { order: 3; width: 100%; margin: 0; gap: 5px; flex-wrap: wrap; justify-content: flex-start; }
-    .js .xp-home .navbar nav { display: none; }
-    .js .xp-home .navbar nav.is-open { display: flex; }
-    .xp-home .navbar nav a { flex: 1 1 180px; min-height: 38px; justify-content: flex-start; padding: 10px 12px; font-size: 12px; }
-    .xp-home .navbar .theme-toggle { flex: 1 1 180px; margin: 0; justify-content: center; font-size: 12px; }
-    .xp-home main { width: calc(100% - 24px); }
-    .xp-home .hero { grid-template-columns: minmax(0, 1.08fr) minmax(220px, .92fr); gap: 0 20px; }
-    .xp-home .xp-heading { font-size: clamp(38px, 5.3vw, 58px); }
-    .xp-home .xp-window { padding-inline: 26px; }
-    .xp-home .xp-titlebar { margin-inline: -26px; }
-    .xp-home .xp-toolbar { margin-inline: -26px; }
-    .xp-home .xp-statusbar { margin-inline: -26px; }
-    .xp-home .retro-footer { width: calc(100% - 24px); }
-    .xp-home .specialty-grid { grid-template-columns: 1fr; }
-    .xp-home .specialty-card { padding-bottom: 23px; }
-}
-
-@media (max-width: 700px) {
-    .xp-home main { width: calc(100% - 16px); margin-top: 12px; gap: 14px; }
-    .xp-home .navbar { width: calc(100% - 16px); margin-top: 8px; }
-    .xp-home .xp-window { padding: 0 17px 25px; border-radius: 8px; }
-    .xp-home .xp-titlebar { min-height: 36px; margin: 0 -17px 22px; padding: 5px 6px 5px 9px; font-size: 11px; }
-    .xp-home .xp-title-action { width: 18px; height: 19px; font-size: 13px; }
-    .xp-home .xp-toolbar { margin: -22px -17px 0; padding: 9px 12px; }
-    .xp-home .xp-toolbar-status { display: none; }
-    .xp-home .xp-statusbar { margin: 4px -17px -25px; padding: 8px 12px; }
-    .xp-home .hero { grid-template-columns: minmax(0, 1fr); }
-    .xp-home .hero-content { padding: 24px 0 8px; }
-    .xp-home .hero .eyebrow { margin-bottom: 18px; }
-    .xp-home .xp-heading { font-size: clamp(40px, 10vw, 70px); margin-bottom: 23px; }
-    .xp-home .hero-description { font-size: 13px; }
-    .xp-home .hero-image { justify-self: center; max-width: 340px; margin: 15px auto 30px; }
-    .xp-home .hero-image-composition img { max-height: 320px; }
-    .xp-home .section-heading h2,
-    .xp-home .tools-heading h2,
-    .xp-home .section-header h2 { font-size: clamp(25px, 6vw, 36px); }
-    .xp-home .tools-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .xp-home .testimonials-grid { grid-template-columns: 1fr; }
-    .xp-home .retro-footer { width: calc(100% - 16px); margin-top: 14px; padding-inline: 18px; }
-}
-
-@media (max-width: 420px) {
-    .xp-home .navbar .logo { font-size: 15px; }
-    .xp-home .navbar .logo img { width: 33px; height: 33px; }
-    .xp-home .xp-heading { font-size: clamp(35px, 10.1vw, 45px); }
-    .xp-home .hero-buttons { flex-direction: column; align-items: flex-start; }
-    .xp-home .hero-buttons .button { width: 100%; }
-    .xp-home .tools-list { grid-template-columns: 1fr; }
-    .xp-home .xp-title-text { font-size: 10px; }
-    .xp-home .xp-title-actions { gap: 2px; }
-    .xp-home .xp-title-action { width: 17px; }
-    .xp-home .xp-statusbar span:last-child { display: none; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .xp-home *, .xp-home *::before, .xp-home *::after {
-        transition-duration: .01ms !important;
-        animation-duration: .01ms !important;
-    }
-}
-
-/* ============================================================
-   WINDOWS XP LUNA â€” INTERACTIVE PORTFOLIO SHELL
-   Single stylesheet. This section styles the reference-inspired
-   Explorer layout, desktop, browser chrome, taskbar and live windows.
-   ============================================================ */
-[hidden] { display: none !important; }
-body.xp-home {
-    background-color: #4c99ed;
-    background-image:
-      radial-gradient(ellipse 15% 6% at 14% 11%, #fff 15%, rgba(255,255,255,.75) 34%, transparent 65%),
-      radial-gradient(ellipse 18% 7% at 75% 19%, #fff 15%, rgba(255,255,255,.75) 33%, transparent 68%),
-      radial-gradient(ellipse 95% 23% at 12% 107%, #238d17 0%, #47ad23 48%, transparent 49%),
-      radial-gradient(ellipse 86% 23% at 80% 113%, #5eba32 0%, #68b933 54%, transparent 55%),
-      linear-gradient(180deg,#1571ed 0%,#4eaaff 38%,#9ad6fc 72%,#49a72a 73%,#147925 100%);
-    background-attachment: fixed;
-    padding-bottom: 51px;
-}
-html[data-theme="dark"] body.xp-home {
-    background-image: radial-gradient(ellipse 75% 40% at 45% 106%, #173f5b 0%,transparent 60%), linear-gradient(#122453,#254986 62%,#182c48);
-}
-.xp-home .effect { overflow: visible; max-width: 1440px; margin: 7px auto 24px; background: transparent; }
-.xp-browser-chrome {margin: 0 12px; border: 2px solid #174fb2; border-radius: 9px 9px 0 0; box-shadow: 0 2px 12px #064a7f63; overflow: hidden;}
-.xp-browser-title {position:relative; display:flex; align-items:center; gap:8px; min-height:29px; padding:4px 13px; background:linear-gradient(#43a4ff 0%,#1369eb 33%,#0648b9 85%,#14488c); color:white; font:bold 12px Tahoma,Verdana,sans-serif; text-shadow:1px 1px #16418b;}
-.xp-browser-title-suffix {font-weight:normal;}
-.xp-browser-decor {margin-left:auto; display:flex;gap:4px;}
-.xp-browser-decor i {width:18px;height:18px;border:1px solid #fff;border-radius:3px;background:linear-gradient(#69a8ff,#1769d7);box-shadow: inset 1px 1px #ffffff7a;}
-.xp-browser-decor i:last-child {background:linear-gradient(#ffb1a4,#d63413);}
-.xp-browser-tools {background:linear-gradient(#fbfbf9,#e6e9e4);border-top:1px solid #bfd6f2;display:flex;align-items:center;gap:12px;padding:6px 11px;font:12px Tahoma,Verdana,sans-serif;color:#224476;}
-.xp-browser-arrows {white-space:nowrap;color:#507295;font-size:15px;}
-.xp-address {display:flex;align-items:center;flex:1;gap:10px;min-width:0;}
-.xp-address-url {background:white;border:1px solid #7b9cba;box-shadow:inset 1px 1px #c7d5e0;padding:5px 7px;color:#204e9c;display:block;flex:1;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
-.xp-go {font-weight:bold;color:#177a10;white-space:nowrap;}
-.xp-home .navbar {margin:0 12px; width:calc(100% - 24px);max-width:none;min-height:71px;border-radius:0;background:linear-gradient(#fefefe,#dce8fa);border:2px solid #296aca;border-top:0;border-bottom:4px solid #1164cb;box-shadow:0 2px 4px #224f9570;padding:11px 20px;gap:14px;}
-.xp-home .navbar .logo {color:#0644ae;text-shadow:none;font:bold 21px Tahoma,Verdana,sans-serif;}
-.xp-home .navbar .logo:hover {color:#075ccf;}
-.xp-home .navbar .logo .xp-brand-icon {font-size:32px;filter:drop-shadow(1px 2px 1px #6f89a8);}
-.xp-home .navbar .logo .xp-brand-image {display:none;}
-.xp-home .navbar nav a {color:#073b90;text-shadow:none;border-color:transparent;font-size:12px;font-weight:bold;padding:9px 10px;}
-.xp-home .navbar nav a:hover,.xp-home .navbar nav a:focus-visible {background:#d1e6ff;color:#024aae;border-color:#7cabeb;}
-.xp-home .navbar nav a[aria-current="page"] {background:linear-gradient(#edf5ff,#c5ddff);border-color:#91b5ec;color:#084ba4;box-shadow: inset 0 1px white,0 1px 2px #92bad4;}
-.xp-nav-icon {display:inline-block;margin-right:6px;font-size:17px;line-height:1;}
-.xp-home .navbar .theme-toggle {margin-left:6px;}
-.xp-home .xp-workspace {display:grid;grid-template-columns:219px minmax(0,1fr);gap:13px;padding:12px 15px 4px;align-items:start;}
-.xp-home main {width:100%; min-width:0; margin:0; display:grid; gap:13px;}
-.xp-sidebar {display:flex;flex-direction:column;gap:13px;position:sticky;top:12px;}
-.xp-explorer-box {border:1px solid #2e77ce;border-radius:7px 7px 6px 6px;overflow:hidden;background:#eaf3ff;box-shadow:0 2px 5px #0c427e44;}
-.xp-explorer-title {min-height:31px;padding:7px 11px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(#fff,#c0d8fa);color:#0745b1;font:700 12px Tahoma,Verdana,sans-serif;}
-.xp-explorer-title span {color:#0b5cc6;}
-.xp-explorer-links {display:flex;flex-direction:column;gap:1px;padding:8px;}
-.xp-explorer-links a, .xp-explorer-links button, .xp-explorer-links span {min-height:27px;padding:5px 8px;color:#0c326a;background:transparent;border:0;border-radius:3px;text-align:left;text-decoration:none;font:12px/1.4 Tahoma,Verdana,sans-serif;white-space:normal;}
-.xp-explorer-links a:hover, .xp-explorer-links button:hover {background:#b9d9fe;color:#002d80;}
-.xp-explorer-links a[aria-current="page"] {background:linear-gradient(#79a9f3,#4a8de9);color:#fff;}
-.xp-explorer-links button {cursor:pointer;}
-.xp-tool-items span {font-size:11px;}
-.xp-home .xp-window {padding:0 18px 18px;border:2px solid #0055bc;border-radius:8px 8px 6px 6px;background:#fbfdff;box-shadow:0 4px 7px #064b9445,inset 0 0 0 1px white;overflow:visible;scroll-margin-top:12px;}
-.xp-home .xp-titlebar {margin:0 -18px 0;min-height:30px;border-radius:5px 5px 0 0;padding:4px 6px 4px 10px;font-size:12px;background:linear-gradient(#53a9ff,#0964dd 35%,#0450b9 88%,#0039a0);}
-.xp-home .xp-title-actions {gap:3px;}
-.xp-home .xp-title-action {width:21px;height:21px;padding:0;border:1px solid white;border-radius:4px;font:700 15px/1 Tahoma,sans-serif;color:#fff;cursor:pointer;background:linear-gradient(#72b7ff,#176ad3 60%,#124db5);text-shadow:0 1px #184fa4;}
-.xp-home .xp-title-action:hover {filter:brightness(1.22);}
-.xp-home .xp-title-action:active {transform:translateY(1px);}
-.xp-home .xp-title-action.xp-close {background:linear-gradient(#ffa98e,#e75e3e 52%,#c92812);}
-.xp-home .xp-toolbar {margin:0 -18px 0;padding:5px 14px;min-height:26px;color:#5276ae;font-size:11px;background:linear-gradient(#fff,#e9f2fc);}
-.xp-home .xp-statusbar {margin:9px -18px -18px;padding:5px 10px;font-size:10px;color:#4c648c;background:#e8effb;}
-.xp-home .hero {grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);gap:0 22px;}
-.xp-home .hero > .xp-titlebar {margin-bottom:0;}
-.xp-home .hero-content {padding:24px 5px 23px;}
-.xp-home .hero .eyebrow {font-family:'VT323',monospace;font-size:18px;color:#1762a8;background:none;border:0;box-shadow:none;margin:0 0 8px;padding:0;}
-.xp-home .xp-heading {font-family:'Press Start 2P','VT323',monospace;font-size:clamp(21px,2.8vw,37px);line-height:1.5;letter-spacing:-.04em;color:#103885;margin:0 0 17px;text-shadow:2px 2px 0 #a4c8f4;}
-.xp-home .xp-heading .heading-line {white-space:normal;}
-.xp-home .heading-shift {color:#1173bf;}
-.xp-home .heading-final {color:#147c23;}
-.xp-home .hero-kicker {border-left:3px solid #58a031;font-size:11px;color:#125b2f;background:#eff8ed;padding:7px 9px;}
-.xp-home .hero-description {font:12px/1.6 Tahoma,Verdana,sans-serif;color:#24335b;margin:0 0 18px;}
-.xp-home .hero-buttons {margin:0 0 10px;}
-.xp-home .button {border:1px solid #7e98c8;box-shadow: inset 1px 1px #fff, 1px 2px #718ca780;font-weight:bold;}
-.xp-home .button.primary {background:linear-gradient(#8fe877 0%,#3fbd21 51%,#138211);border-color:#156d11;color:white;}
-.xp-home .hero-coordinate {font-family:'VT323',monospace;font-size:17px;letter-spacing:.04em;}
-.xp-home .hero-image {margin:16px 2px 15px;max-width:400px;}
-.xp-home .hero-image-composition {position:relative;padding:6px;background:#fff;border:2px solid #78a8e2;border-radius:5px;box-shadow:2px 3px #89b3e5;}
-.xp-home .hero-image-composition::before {content:'ðŸ“·  rahim.jpg';font:700 12px Tahoma,sans-serif;color:white;background:linear-gradient(#5dabf5,#0755ca);margin:-6px -6px 6px;padding:4px 7px;}
-.xp-home .hero-image-composition img {height:auto;max-height:330px;aspect-ratio:6/6;object-fit:cover;}
-.xp-photo-note {white-space:pre-line;position:absolute;right:-10px;bottom:35px;width:130px;padding:12px 12px;transform:rotate(5deg);background:#fff2ac;color:#58451d;box-shadow:2px 4px 8px #233c6550;font:14px/1.4 'VT323',monospace;}
-.xp-home .hero-image-label,.xp-home .hero-image-caption {display:none;}
-.xp-home .section-heading,.xp-home .tools-heading,.xp-home .section-header {margin:13px 0 12px;}
-.xp-home .section-heading .eyebrow,.xp-home .tools-heading .eyebrow,.xp-home .section-header .eyebrow,.xp-home .cta .eyebrow {display:none;}
-.xp-home .section-heading h2,.xp-home .tools-heading h2,.xp-home .section-header h2,.xp-home .cta h2 {font:bold 22px/1.3 Tahoma,Verdana,sans-serif;margin:0 0 6px;color:#083779;}
-.xp-home .section-heading h2 br,.xp-home .tools-heading h2 br,.xp-home .section-header h2 br {display:none;}
-.xp-home .section-description {font-size:12px;}
-.xp-home .specialty-grid {grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;}
-.xp-home .specialty-card {min-height:150px;padding:0 11px 18px;background:linear-gradient(#fff,#edf3fc);border:1px solid #a1badb;border-radius:5px;box-shadow:inset 1px 1px #fff;}
-.xp-home .specialty-card::before {margin:0 -11px 11px;padding:5px 10px;background:linear-gradient(#f5faff,#dce7f6);font-size:11px;}
-.xp-home .specialty-card h3 {font:bold 17px Tahoma,Verdana,sans-serif;color:#073c9e;}
-.xp-home .specialty-card p {font-size:12px;line-height:1.55;}
-.xp-home .specialty-card .card-number {font:16px 'VT323',monospace;margin-bottom:4px;}
-.xp-home .tools-list {grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;}
-.xp-home .tools-list span {justify-content:center;text-align:center;min-height:67px;flex-direction:column;gap:5px;padding:8px 3px;font-size:11px;line-height:1.25;}
-.xp-home .tools-list span::before {height:18px;width:21px;flex:0 0 18px;}
-.xp-home .tools-bottom {margin-top:9px;padding-top:8px;font-size:10px;}
-.xp-home .testimonials-grid {gap:10px;}
-.xp-home .testimonial-window {padding:0 14px 15px;}
-.xp-home .testimonial-window::before {margin:0 -14px 11px;padding:6px 12px;}
-.xp-home .testimonial-quote {font:600 17px/1.4 Tahoma,Verdana,sans-serif;}
-.xp-home .cta {padding-bottom:22px;}
-.xp-home .cta h2 {font-size:24px;margin:16px 0;}
-.xp-home .cta .button {margin:0 0 12px;}
-.xp-home .retro-footer {max-width:unset;width:calc(100% - 30px);margin:13px 15px 20px;border-radius:6px;padding:12px;}
-/* Window transitions and states: titlebar remains when minimized, taskbar restores closed windows. */
-.xp-home .xp-window.is-closed {display:none !important;}
-.xp-home .xp-window.is-minimized {padding-bottom:0;}
-.xp-home .xp-window.is-minimized > :not(.xp-titlebar) {display:none !important;}
-.xp-home .xp-window.is-minimized > .xp-titlebar {margin-bottom:0;border-radius:5px;grid-column:1/-1;}
-.xp-home .xp-window.is-maximized {position:fixed !important;inset:10px 10px 49px !important;z-index:600;max-width:none !important;width:auto !important;height:auto !important;margin:0 !important;overflow:auto;align-content:start;box-shadow:0 0 0 100vmax #05295a66,0 6px 28px #111a3290;}
-.xp-home .xp-window.is-maximized .xp-titlebar {position:sticky;top:0;z-index:2;}
-.xp-home .xp-window.is-maximized.hero .hero-image {justify-self:center;}
-body.has-maximized-window {overflow:hidden;}
-/* Fixed Windows XP taskbar with open and restore actions. */
-.xp-taskbar {position:fixed;z-index:800;bottom:0;left:0;right:0;display:flex;align-items:center;gap:7px;height:43px;background:linear-gradient(#349dff 0%,#095ae0 15%,#0051c9 74%,#08419f 100%);border-top:2px solid #7ac5ff;box-shadow:0 -2px 7px #102f6c70;color:#fff;font:11px Tahoma,Verdana,sans-serif;}
-.xp-start {height:39px;min-width:114px;flex-shrink:0;padding:0 15px 0 11px;border:1px solid #1f6817;border-top-color:#8fec87;border-radius:0 17px 15px 0;background:linear-gradient(#7ee15d,#35a52a 45%,#1b7d1f);color:white;text-align:left;box-shadow:inset 0 2px #c0f4ad,2px 0 #0b3a6d;font-size:15px;font-weight:bold;text-shadow:1px 1px #236b26;}
-.xp-start em {font-style:italic;}
-.xp-start:hover {filter:brightness(1.12);}
-.xp-taskbar-windows {display:flex;min-width:0;gap:4px;flex:1;overflow:auto;scrollbar-width:thin;}
-.xp-taskbar-windows button {color:white;flex:0 1 144px;min-width:72px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:7px 10px;border:1px solid #73a5ee;border-radius:3px;background:linear-gradient(#479dff,#105dc5);box-shadow:inset 0 1px #bbd8ff55;text-align:left;font:11px Tahoma,Verdana,sans-serif;cursor:pointer;}
-.xp-taskbar-windows button.is-inactive {opacity:.67;background:linear-gradient(#236dc8,#1552a2);}
-.xp-taskbar-windows button.is-active {background:linear-gradient(#1153ae,#327dd4);box-shadow:inset 1px 1px 3px #0b347b;}
-.xp-taskbar-windows button:hover {filter:brightness(1.18);}
-.xp-tray {display:flex;gap:10px;align-items:center;height:100%;padding:0 12px;background:linear-gradient(#4ecbff,#128aca);border-left:1px solid #7cbbfd;white-space:nowrap;}
-.xp-start-menu {position:fixed;z-index:850;left:0;bottom:43px;width:min(330px,calc(100vw - 12px));border:2px solid #0957c5;border-radius:7px 7px 0 0;background:#f6f8ff;box-shadow:3px 0 13px #063a7c88;overflow:hidden;}
-.xp-start-user {padding:13px 15px;background:linear-gradient(#5dabff,#0a59cc);font:bold 16px Tahoma,Verdana,sans-serif;color:white;}
-.xp-start-user small {display:block;padding-left:32px;font-size:11px;font-weight:400;}
-.xp-start-links {display:flex;flex-direction:column;gap:2px;padding:10px;}
-.xp-start-links a,.xp-start-links button {display:block;padding:8px 12px;border:0;border-radius:3px;color:#0e346f;background:transparent;text-decoration:none;text-align:left;font:13px Tahoma,Verdana,sans-serif;cursor:pointer;}
-.xp-start-links a:hover,.xp-start-links button:hover {color:white;background:#316ed0;}
-html[data-theme="dark"] .xp-home .xp-window {background:#273a59;color:#eff6ff;}
-html[data-theme="dark"] .xp-home .hero-description, html[data-theme="dark"] .xp-home .specialty-card p, html[data-theme="dark"] .xp-home .testimonial-quote {color:#d5e1f7;}
-html[data-theme="dark"] .xp-home .specialty-card,html[data-theme="dark"] .xp-home .testimonial-window {background:#324668;}
-html[data-theme="dark"] .xp-home .section-heading h2,html[data-theme="dark"] .xp-home .tools-heading h2,html[data-theme="dark"] .xp-home .section-header h2,html[data-theme="dark"] .xp-home .cta h2 {color:#e6f3ff;}
-html[data-theme="dark"] .xp-home .xp-heading {color:#ddebff;text-shadow:2px 2px #214f7f;}
-html[data-theme="dark"] .xp-home .hero-kicker {background:#224831;color:#cbf5da;}
-@media (max-width:1120px) {
- .xp-home .xp-workspace {grid-template-columns:190px minmax(0,1fr);gap:9px;padding:10px 11px 3px;}
- .xp-home .navbar .logo {font-size:17px;}
- .xp-home .navbar nav a {padding:8px 6px;font-size:10px;}
- .xp-nav-icon {font-size:13px;margin-right:3px;}
- .xp-home .xp-heading {font-size:clamp(19px,2.7vw,30px);}
-}
-@media (max-width:920px) {
- .xp-home .navbar {width:calc(100% - 24px);margin:0 12px;min-height:59px;}
- .xp-home .xp-mobile-menu {margin-left:auto;}
- .xp-home .navbar nav a {font-size:12px;padding:9px;}
- .xp-home .xp-workspace {grid-template-columns:minmax(0,1fr);}
- .xp-sidebar {display:none;}
- .xp-home .hero {grid-template-columns:minmax(0,1.05fr) minmax(210px,.95fr);}
- .xp-home .hero-content {padding:17px 0;}
- .xp-home .xp-heading {font-size:clamp(19px,3.3vw,30px);}
-}
-@media (max-width:700px) {
- .xp-browser-chrome {margin:0 5px;}
- .xp-browser-title-suffix,.xp-browser-arrows {display:none;}
- .xp-browser-tools {gap:5px;padding:5px;}
- .xp-address {gap:5px;}
- .xp-address>span:first-child {display:none;}
- .xp-home .navbar {width:calc(100% - 10px);margin:0 5px;padding:8px 10px;}
- .xp-home .xp-workspace {padding:7px 6px;}
- .xp-home main {gap:10px;}
- .xp-home .xp-window {padding:0 13px 13px;}
- .xp-home .xp-titlebar {margin:0 -13px;}
- .xp-home .xp-toolbar {margin:0 -13px;}
- .xp-home .xp-statusbar {margin:8px -13px -13px;}
- .xp-home .hero {grid-template-columns:1fr;}
- .xp-home .hero-content {padding:19px 4px 5px;}
- .xp-home .xp-heading {font-size:clamp(20px,5.9vw,34px);}
- .xp-home .hero-image {margin:8px auto 23px;max-width:330px;}
- .xp-photo-note {right:-6px;bottom:20px;}
- .xp-home .specialty-grid {grid-template-columns:1fr;}
- .xp-home .tools-list {grid-template-columns:repeat(2,minmax(0,1fr));}
- .xp-home .testimonial-window {padding-bottom:16px;}
- .xp-home .testimonials-grid {grid-template-columns:1fr;}
- .xp-home .retro-footer {margin:7px 6px 14px;width:calc(100% - 12px);}
- .xp-taskbar {height:44px;gap:4px;}
- .xp-start {min-width:79px;padding:0 7px;font-size:13px;}
- .xp-tray {padding:0 7px;gap:4px;}
- .xp-tray span {display:none;}
- .xp-taskbar-windows button {min-width:52px;flex-basis:90px;padding:7px 5px;font-size:10px;}
- .xp-start-menu {bottom:44px;}
-}
-@media (max-width:380px) {
- .xp-home .xp-heading {font-size:18px;}
- .xp-browser-title {font-size:10px;}
- .xp-taskbar-windows button {min-width:44px;font-size:9px;}
- .xp-tray {font-size:10px;}
-}
-@media (prefers-reduced-motion:reduce) { .xp-home *, .xp-taskbar * {scroll-behavior:auto !important;transition:none !important;} }
